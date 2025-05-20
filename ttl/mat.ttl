@@ -38,8 +38,8 @@ gc:GlossaryDS23 a schema:DefinedTermSet;
 
 schema:GovernmentOrganization 
     gc:Stewards gc:Asset ;
-    schema:performs gc:DeliverMandate ;
-    schema:hasEmployees gc:PublicServant .
+    schema:agent gc:DeliverMandate ;
+    schema:employee gc:PublicServant .
 gc:DataInfoManagement schema:isPartOf gc:EnterpriseArchitecture .
 gc:EnterpriseArchitecture schema:subjectOf gc:EAframework.
 gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
@@ -54,12 +54,12 @@ gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
 
 # defining relationships Mature State
 :MatureOrg
-    schema:hasEmployees :MatureOrgEX, :MatureOrgPS ;
-    schema:performs gc:DeliverResults .
+    schema:agent gc:DeliverResults .
 gc:DeliverResults schema:Instrument gc:DataAndInfo .
 :MatureOrgEX
-    gc:hasResponsibilities gc:DataAndInfoResponsibilities ;
-    gc:hasAccountabilities gc:DataAndInfoAccountabilities .
+    gc:Responsibilities gc:DataAndInfo ;
+    gc:Accountabilities gc:DataAndInfo .
 :MatureOrgPS
-    gc:hasResponsibilities gc:DataAndInfoResponsibilities .
-gc:DataAndInfoResponsibilities gc:supportedBy gc:Training , gc:Resources .
+    gc:Responsibilities gc:DataAndInfo .
+gc:Responsibilities gc:supportedBy gc:Training , gc:Resources .
+gc:Accountabilities gc:supportedBy gc:Training , gc:Resources .
