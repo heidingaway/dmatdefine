@@ -2,19 +2,23 @@ PREFIX :<#>
 PREFIX gc:<http://www.canada.ca/#>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX schema:<http://www.schema.org/>
+PREFIX wiki:<https://en.wikipedia.org/wiki/>
 
 # define entities 
 schema:Organization a schema:Thing .
 schema:GovernmentOrganization a schema:Organization .
 schema:Employee a schema:Person .
+schema:DefinedTerm a schema:CreativeWork .
 gc:DeliverServices a schema:Action .
 gc:DeliverPrograms a schema:Action .
-gc:DataAndInfo a schema:CreativeWork, gc:Asset .
-gc:Asset a schema:Thing .
+gc:DataAndInfo a schema:CreativeWork, wiki:Asset .
+wiki:Asset a schema:Thing ;
+    schema:description "any resource owned or controlled by a business or an economic entity".
+gc:CrownAsset a wiki:Asset .
 gc:EXPublicServant a :PublicServant .
 gc:PublicServant a schema:Employee .
 gc:DeliverMandate a schema:CreativeWork .
-gc:EnterpriseArchitecture a schema:DefinedTerm .
+gc:EnterpriseArchitecture a schema:DefinedTerm , schema:Intangible .
 gc:DeliverResults a schema:AchieveAction .
 
 # linkages to policy suite
@@ -37,7 +41,7 @@ gc:GlossaryDS23 a schema:DefinedTermSet;
 # define Relationships 
 
 schema:GovernmentOrganization 
-    gc:Stewards gc:Asset ;
+    gc:Stewards gc:CrownAsset ;
     schema:agent gc:DeliverMandate ;
     schema:employee gc:PublicServant .
 gc:DataInfoManagement schema:isPartOf gc:EnterpriseArchitecture .
@@ -46,6 +50,7 @@ gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:DeliverServices schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
     schema:description "significant executive managerial roles and responsibilities", "significant executive policy roles and responsibilities", "significant influence on the direction of a department or agency" .
+gc:Crown schema:owns gc:CrownAsset .
 
 # defining Mature State
 :MatureOrg a schema:GovernmentOrganization .
