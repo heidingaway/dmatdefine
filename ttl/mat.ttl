@@ -1,65 +1,65 @@
 PREFIX :<#> 
+PREFIX gc:<http://www.canada.ca/#>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX schema:<http://www.schema.org/>
 
 # define entities 
-schema:Organization rdf:type schema:Thing .
-schema:GovernmentOrganization rdf:type schema:Organization .
-schema:Employee rdf:type schema:Person .
-:DeliverServices rdf:type schema:Action .
-:DeliverPrograms rdf:type schema:Action .
-:DataAndInfo rdf:type schema:CreativeWork, :Asset .
-:Asset rdf:type schema:Thing .
-:EXPublicServant rdf:type :PublicServant .
-:PublicServant rdf:type schema:Employee .
-:DeliverMandate rdf:type schema:CreativeWork .
-:EnterpriseArchitecture 
-    rdf:type schema:DefinedTerm .
+schema:Organization a schema:Thing .
+schema:GovernmentOrganization a schema:Organization .
+schema:Employee a schema:Person .
+gc:DeliverServices a schema:Action .
+gc:DeliverPrograms a schema:Action .
+gc:DataAndInfo a schema:CreativeWork, gc:Asset .
+gc:Asset a schema:Thing .
+gc:EXPublicServant a :PublicServant .
+gc:PublicServant a schema:Employee .
+gc:DeliverMandate a schema:CreativeWork .
+gc:EnterpriseArchitecture a schema:DefinedTerm .
+gc:DeliverResults a schema:AchieveAction .
 
 # linkages to policy suite
-:GCEAframework 
-    rdf:type schema:CreativeWork ;
+gc:EAframework 
+    a schema:CreativeWork ;
     schema:name "Government of Canada Enterprise Architecture Framework" ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" .
-:GCDataInfoManagement 
-    rdf:type schema:DefinedTerm ;
+gc:DataInfoManagement 
+    a schema:DefinedTerm ;
     schema:name "Data and Information Management";
     schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians.";
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html"    .
-:EXJobStandard2022 rdf:type schema:CreativeWork;
+gc:EXJobStandard2022 a schema:CreativeWork;
     schema:name "Executive (EX) Group Job Evaluation Standard 2022";
     schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
-:GlossaryDS23 rdf:type schema:DefinedTermSet;
+gc:GlossaryDS23 a schema:DefinedTermSet;
     schema:name "Data Strategy for the Federal Public Service - Annexes";
     schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes".
 
 # define Relationships 
 
 schema:GovernmentOrganization 
-    :Stewards :Asset ;
-    :performs :DeliverMandate ;
-    :hasEmployees :PublicServant .
-:DataInfoManagement :isPartOf :EnterpriseArchitecture .
-:EnterpriseArchitecture schema:subjectOf :GCEAframework.
-:DeliverPrograms schema:Instrument :DeliverMandate, :DeliverResults .
-:DeliverServices schema:Instrument :DeliverMandate, :DeliverResults .
-:EXPublicServant schema:subjectOf :EXJobStandard2022 ;
+    gc:Stewards gc:Asset ;
+    schema:performs gc:DeliverMandate ;
+    schema:hasEmployees gc:PublicServant .
+gc:DataInfoManagement schema:isPartOf gc:EnterpriseArchitecture .
+gc:EnterpriseArchitecture schema:subjectOf gc:EAframework.
+gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
+gc:DeliverServices schema:Instrument gc:DeliverMandate, gc:DeliverResults .
+gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
     schema:description "significant executive managerial roles and responsibilities", "significant executive policy roles and responsibilities", "significant influence on the direction of a department or agency" .
 
 # defining Mature State
-:MatureOrg rdf:type schema:GovernmentOrganization .
-:MatureOrgEX rdf:type :EXPublicServant .
-:MatureOrgPS rdf:type :PublicServant .
-:DeliverResults rdf:type schema:AchieveAction .
+:MatureOrg a schema:GovernmentOrganization .
+:MatureOrgEX a gc:EXPublicServant .
+:MatureOrgPS a gc:PublicServant .
 
 # defining relationships Mature State
 :MatureOrg
     schema:hasEmployees :MatureOrgEX, :MatureOrgPS ;
-    :performs :DeliverResults .
-:DeliverResults schema:Instrument :DataAndInfo .
+    schema:performs gc:DeliverResults .
+gc:DeliverResults schema:Instrument gc:DataAndInfo .
 :MatureOrgEX
-    :hasResponsibilities :DataAndInfoResponsibilities ;
-    :hasAccountabilities :DataAndInfoAccountabilities .
+    gc:hasResponsibilities gc:DataAndInfoResponsibilities ;
+    gc:hasAccountabilities gc:DataAndInfoAccountabilities .
 :MatureOrgPS
-    :hasResponsibilities :DataAndInfoResponsibilities .
-:DataAndInfoResponsibilities :supportedBy :Training , :Resources .
+    gc:hasResponsibilities gc:DataAndInfoResponsibilities .
+gc:DataAndInfoResponsibilities gc:supportedBy gc:Training , gc:Resources .
