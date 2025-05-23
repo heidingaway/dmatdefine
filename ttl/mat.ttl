@@ -24,20 +24,27 @@ gc:CrownAsset a schema:DefinedTerm, wiki:Asset .
 gc:EXPublicServant a gc:PublicServant .
 gc:PublicServant a schema:Employee .
 gc:DeliverMandate a schema:CreativeWork .
-gc:EnterpriseArchitecture a schema:DefinedTerm .
+gc:EnterpriseArchitecture a schema:DefinedTerm ;
+    schema:description "Conceptual blueprint that defines the structure and operation of an organization considering and aligning business, information, data, application, technology, security and privacy domains to support strategic outcomes." ;
+    schema:inDefinedTermSet gc:ServiceDigitalDefs .
 gc:DeliverResults a schema:AchieveAction .
 gc:Metadata a schema:DefinedTerm , gc:DataAndInfo .
 gc:Governance a schema:DefinedTerm ;
     schema:description "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
-    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
+    schema:inDefinedTermSet "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
 gc:DataGovernance a gc:Governance .
 gc:Data a schema:DefinedTerm ;
     schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
-    schema:subjectOf "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#:~:text=use%2C%20or%20disruption.-,Data%20(Donn%C3%A9es),-Set%20of%20values" ;
+    schema:inDefinedTermSet gc:ServiceDigitalDefs ;
     a gc:Information .
 gc:Information a schema:DefinedTerm ;
     schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
-    schema:subjectOf "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#:~:text=Information%20(Information)" .
+    schema:inDefinedTermSet gc:ServiceDigitalDefs .
+gc:BusinessValueDI a schema:DefinedTerm ;
+    a gc:DataAndInfo ;
+    schema:name "Information and data of business value" ;
+    schema:description "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
+    schema:disambiguatingDescription " Any information and data that is not identified as having business value is considered transitory." .
 
 # linkages to policy suite
 gc:EAframework 
@@ -59,11 +66,16 @@ gc:GlossaryDS23 a schema:DefinedTermSet;
     schema:name "Data Strategy for the Federal Public Service - Annexes";
     schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
     schema:subject gc:DataAndInfo .
-
 gc:GuidanceMetadataNeeds a schema:CreativeWork ;
     schema:name "Guidance on Assessing Metadata Needs" ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" ;
     schema:subject gc:Metadata .
+gc:GuidanceDataQuality a schema:CreativeWork ;
+    schema:name "Guidance on Data Quality" ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" ;
+    schema:subject gc:DataQuality .
+gc:ServiceDigitalDefs a schema:DefinedTermSet ;
+    schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA".
 
 # define Relationships 
 schema:GovernmentOrganization 
