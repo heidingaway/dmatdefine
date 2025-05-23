@@ -10,6 +10,10 @@ schema:GovernmentOrganization a schema:Organization .
 schema:Employee a schema:Person .
 schema:DefinedTerm a schema:Intangible .
 schema:DefinedTermSet a schema:DefinedTermSet .
+schema:Property a schema:Thing .
+schema:Action a schema:Thing .
+schema:description a schema:Property .
+schema:disambiguatingDescription a schema:description .
 gc:DeliverServices a schema:Action .
 gc:DeliverPrograms a schema:Action .
 gc:DataAndInfo a schema:DefinedTerm, wiki:Asset .
@@ -23,6 +27,17 @@ gc:DeliverMandate a schema:CreativeWork .
 gc:EnterpriseArchitecture a schema:DefinedTerm .
 gc:DeliverResults a schema:AchieveAction .
 gc:Metadata a schema:DefinedTerm , gc:DataAndInfo .
+gc:Governance a schema:DefinedTerm ;
+    schema:description "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
+    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
+gc:DataGovernance a gc:Governance .
+gc:Data a schema:DefinedTerm ;
+    schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
+    schema:subjectOf "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#:~:text=use%2C%20or%20disruption.-,Data%20(Donn%C3%A9es),-Set%20of%20values" ;
+    a gc:Information .
+gc:Information a schema:DefinedTerm ;
+    schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
+    schema:subjectOf "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#:~:text=Information%20(Information)" .
 
 # linkages to policy suite
 gc:EAframework 
@@ -33,7 +48,8 @@ gc:EAframework
 gc:DataInfoManagement 
     a schema:DefinedTerm ;
     schema:name "Data and Information Management";
-    schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians.";
+    schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
+    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
     schema:subject gc:DataAndInfo .
 gc:EXJobStandard2022 a schema:CreativeWork;
@@ -59,7 +75,7 @@ gc:EnterpriseArchitecture schema:subjectOf gc:EAframework.
 gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:DeliverServices schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
-    schema:description "significant executive managerial roles and responsibilities", "significant executive policy roles and responsibilities", "significant influence on the direction of a department or agency" .
+    schema:description "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" .
 
 # define the role of the crown 
 gc:Crown 
@@ -75,9 +91,9 @@ gc:DelegatedAuthority a gc:CrownAuthority .
 :MatureOrgPS a gc:PublicServant .
 
 # defining relationships Mature State
+gc:DeliverResults schema:Instrument gc:DataAndInfo .
 :MatureOrg
     schema:agent gc:DeliverResults .
-gc:DeliverResults schema:Instrument gc:DataAndInfo .
 :MatureOrgEX
     gc:Responsibilities gc:DataAndInfo ;
     gc:Accountabilities gc:DataAndInfo .
