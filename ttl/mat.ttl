@@ -32,7 +32,6 @@ gc:Metadata a schema:DefinedTerm , gc:DataAndInfo .
 gc:Governance a schema:DefinedTerm ;
     schema:description "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
     schema:inDefinedTermSet "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
-gc:DataGovernance a gc:Governance .
 gc:Data a schema:DefinedTerm ;
     schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
     schema:inDefinedTermSet gc:ServiceDigitalDefs ;
@@ -82,6 +81,7 @@ schema:GovernmentOrganization
     gc:Stewards gc:CrownAsset ;
     schema:agent gc:DeliverMandate ;
     schema:employee gc:PublicServant .
+gc:DataGovernance a gc:Governance .
 gc:DataInfoManagement schema:isPartOf gc:EnterpriseArchitecture .
 gc:EnterpriseArchitecture schema:subjectOf gc:EAframework.
 gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
