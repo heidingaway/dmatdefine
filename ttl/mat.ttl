@@ -8,38 +8,48 @@ PREFIX wiki:<https://en.wikipedia.org/wiki/>
 schema:Organization a schema:Thing .
 schema:GovernmentOrganization a schema:Organization .
 schema:Employee a schema:Person .
-schema:DefinedTerm a schema:CreativeWork .
+schema:DefinedTerm a schema:Intangible .
+schema:DefinedTermSet a schema:DefinedTermSet .
 gc:DeliverServices a schema:Action .
 gc:DeliverPrograms a schema:Action .
-gc:DataAndInfo a schema:CreativeWork, wiki:Asset .
+gc:DataAndInfo a schema:DefinedTerm, wiki:Asset .
 wiki:Asset a schema:Thing ;
     schema:description "any resource owned or controlled by a business or an economic entity".
-gc:CrownAsset a wiki:Asset .
-gc:EXPublicServant a :PublicServant .
+gc:CrownAuthority a schema:DefinedTerm .
+gc:CrownAsset a schema:DefinedTerm, wiki:Asset .
+gc:EXPublicServant a gc:PublicServant .
 gc:PublicServant a schema:Employee .
 gc:DeliverMandate a schema:CreativeWork .
-gc:EnterpriseArchitecture a schema:DefinedTerm , schema:Intangible .
+gc:EnterpriseArchitecture a schema:DefinedTerm .
 gc:DeliverResults a schema:AchieveAction .
+gc:Metadata a schema:DefinedTerm , gc:DataAndInfo .
 
 # linkages to policy suite
 gc:EAframework 
     a schema:CreativeWork ;
     schema:name "Government of Canada Enterprise Architecture Framework" ;
-    schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" .
+    schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" ;
+    schema:subject gc:EnterpriseArchitecture .
 gc:DataInfoManagement 
     a schema:DefinedTerm ;
     schema:name "Data and Information Management";
     schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians.";
-    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html"    .
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
+    schema:subject gc:DataAndInfo .
 gc:EXJobStandard2022 a schema:CreativeWork;
     schema:name "Executive (EX) Group Job Evaluation Standard 2022";
     schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
 gc:GlossaryDS23 a schema:DefinedTermSet;
     schema:name "Data Strategy for the Federal Public Service - Annexes";
-    schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes".
+    schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
+    schema:subject gc:DataAndInfo .
+
+gc:GuidanceMetadataNeeds a schema:CreativeWork ;
+    schema:name "Guidance on Assessing Metadata Needs" ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" ;
+    schema:subject gc:Metadata .
 
 # define Relationships 
-
 schema:GovernmentOrganization 
     gc:Stewards gc:CrownAsset ;
     schema:agent gc:DeliverMandate ;
@@ -50,7 +60,14 @@ gc:DeliverPrograms schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:DeliverServices schema:Instrument gc:DeliverMandate, gc:DeliverResults .
 gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
     schema:description "significant executive managerial roles and responsibilities", "significant executive policy roles and responsibilities", "significant influence on the direction of a department or agency" .
-gc:Crown schema:owns gc:CrownAsset .
+
+# define the role of the crown 
+gc:Crown 
+    schema:AlternateName gc:Monarch ;
+    schema:owns gc:CrownAsset ;
+    gc:holds gc:CrownAuthority ;
+    gc:delegates gc:CrownAuthority .
+gc:DelegatedAuthority a gc:CrownAuthority .
 
 # defining Mature State
 :MatureOrg a schema:GovernmentOrganization .
