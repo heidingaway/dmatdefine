@@ -1,0 +1,55 @@
+PREFIX :<#>
+PREFIX schema:<http://www.schema.org/>
+PREFIX wiki:<https://en.wikipedia.org/wiki/>
+
+:Canada a schema:Country , wiki:State ;
+    schema:identifier "https://www.canada.ca/" ;
+    :faces wiki:polycrisis ;
+    schema:containedInPlace :Earth ;
+    schema:property :SovereigntyCanadian ;
+    schema:memberOf :WorldTradeOrganization 
+.
+
+:Earth a schema:Place ;
+    schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
+    schema:alternateName :World ;
+    schema:description :dangerous, :divided, :geopoliticalRisk .
+
+wiki:State a wiki:Polity .
+
+wiki:polycrisis a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Polycrisis" .
+
+:Sovereignty a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
+    schema:additionalClass :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
+    schema:description "the exercise of power by a state"
+    .
+
+:SovereigntyDeJure a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
+    schema:description "the legal right to exercise sovereignty"
+    .
+
+:SovereigntyDeFacto a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
+    schema:description "the factual ability to exercise sovereignty" 
+    .
+
+:SovereigntyWestphalian a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
+    schema:description "each state has exclusive sovereignty over its territory."
+    .
+
+:SovereigntyCanadian a :SovereigntyWestphalian ;
+    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
+
+:geopoliticalRisk a schema:DefinedTerm .
+
+:GlobalTradingSystem a schema:DefinedTerm ;
+    :governedBy :WorldTradeOrganization
+    .
+
+:WorldTradeOrganization a schema:Organization ;
+    schema:description "the only international organization dealing with the rules of trade between nations." ;
+    schema:administrativeArea :GlobalTradingSystem .

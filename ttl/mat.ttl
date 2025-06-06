@@ -43,7 +43,7 @@ gc:BusinessValueDI a schema:DefinedTerm ;
     a gc:DataAndInfo ;
     schema:name "Information and data of business value" ;
     schema:description "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
-    schema:disambiguatingDescription " Any information and data that is not identified as having business value is considered transitory." .
+    schema:disambiguatingDescription "Any information and data that is not identified as having business value is considered transitory." .
 
 # linkages to policy suite
 gc:EAframework 
