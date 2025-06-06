@@ -1,24 +1,47 @@
-PREFIX :<#>
+PREFIX :<>
 PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
+PREFIX french:<#fr/>
+PREFIX cst:<https://canada.multites.net/cst/#>
 
+# metadata
+cst:Term_Number a schema:identifier .
+
+# Canadian Context 
 :Canada a schema:Country , wiki:State ;
     schema:identifier "https://www.canada.ca/" ;
-    :faces wiki:polycrisis ;
-    schema:containedInPlace :Earth ;
+    :faces wiki:Polycrisis ;
+    schema:containedInPlace :NorthAmerica ;
     schema:property :SovereigntyCanadian ;
-    schema:memberOf :WorldTradeOrganization 
+    schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations 
 .
+
+# Global Context 
+
+:NorthAmerica a schema:Continent ;
+    schema:alternateName :TurtleIsland ;
+    schema:containedInPlace :Earth .
 
 :Earth a schema:Place ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
     schema:alternateName :World ;
-    schema:description :dangerous, :divided, :geopoliticalRisk .
+    schema:description :dangerous, :divided, :GeopoliticalRisk .
+
+:UnitedNations a :InternationalOrganization ;
+    schema:identifier "https://www.un.org/en/" 
+    .
+
+:WorldTradeOrganization a schema:Organization ;
+    schema:identifier "https://www.wto.org/" ;
+    schema:description "the only international organization dealing with the rules of trade between nations." ;
+    schema:administrativeArea :GlobalTradingSystem .
+
+# Glossary
 
 wiki:State a wiki:Polity .
 
-wiki:polycrisis a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/Polycrisis" .
+:SovereigntyCanadian a :SovereigntyWestphalian ;
+    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
 
 :Sovereignty a schema:DefinedTerm ;
     schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
@@ -41,15 +64,58 @@ wiki:polycrisis a schema:DefinedTerm ;
     schema:description "each state has exclusive sovereignty over its territory."
     .
 
-:SovereigntyCanadian a :SovereigntyWestphalian ;
-    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
-
-:geopoliticalRisk a schema:DefinedTerm .
+:GeopoliticalRisk a schema:DefinedTerm .
 
 :GlobalTradingSystem a schema:DefinedTerm ;
-    :governedBy :WorldTradeOrganization
+    :governedBy :WorldTradeOrganization ;
+    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
+    :Subject cst:Trade .
+
+wiki:Polycrisis a schema:DefinedTerm ;
+    schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
+    schema:alternateName french:polycrise ;
+    schema:domainIncludes wiki:COVID-19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
+. 
+
+wiki:Global_debt a schema:DefinedTerm ;
+    schema:domainIncludes wiki:Government_Debt .
+
+wiki:Government_Debt a schema:DefinedTerm ; 
+    schema:alternateName :NationalDebt .
+
+# Common Subjects Dictionary - Subject Category
+
+cst:SC a schema:DefinedTerm ;
+    schema:name "Subject Category" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHSCAT&searchString=SC&lang=ENG"
+    .
+cst:MI_Military a cst:SC ;
+    schema:name "MI Military" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
     .
 
-:WorldTradeOrganization a schema:Organization ;
-    schema:description "the only international organization dealing with the rules of trade between nations." ;
-    schema:administrativeArea :GlobalTradingSystem .
+# Common Subjects Dictionary - Subjects 
+
+cst:Trade schema:alternateName french:Commerce ;
+    :Term_Number cst:1618
+    .
+
+cst:War cst:SC cst:MI_Military ;
+    :UsedFor cst:Armed_Conflict ;
+    :Term_Number cst:451 ;
+    schema:sameAs wiki:War 
+    .
+
+# Major historic events
+
+wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
+    schema:Event wiki:Fall_of_the_Berlin_Wall ;
+    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
+    :represented wiki:Iron_Curtain .
+
+wiki:Fall_of_the_Berlin_Wall a schema:Event , schema:AchieveAction ;
+    schema:name "Fall of the Berlin Wall" ;
+    schema:instrument :SovietUnionCollapse 
+    .
+
+:SovietUnionCollapse a schema:Event , schema:AchieveAction .
