@@ -1,20 +1,157 @@
 PREFIX :<>
 PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
-PREFIX french:<#fr/>
+PREFIX fr:<#fr/>
 PREFIX cst:<https://canada.multites.net/cst/#>
 
 # metadata
 cst:Term_Number a schema:identifier .
 
 # Canadian Context 
+:Canadian a schema:Person ;
+    schema:Nationality :Canada .
+
 :Canada a schema:Country , wiki:State ;
     schema:identifier "https://www.canada.ca/" ;
     :faces wiki:Polycrisis ;
     schema:containedInPlace :NorthAmerica ;
     schema:property :SovereigntyCanadian ;
-    schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations 
+    schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
+
+:MandateLetter2025 a :MandateLetter ;
+    schema:Author :PrimeMinisterCanada24 .
+
+:MandateLetter a schema:DefinedTerm, schema:HowTo ;
+    schema:description "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
+    schema:Author :PrimeMinisterCanada .
+
+:PrimeMinisterCanada a schema:OrganizationRole ;
+    :incumbent :Mark_Carney ;
+    :precededBy :Justin_Trudeau ;
+    schema:alternateName fr:Premier_ministre_du_Canada ;
+    schema:sameAs cst:Prime_Minister ;
+    cst:Term_Number 3909
+    .
+
+:PrimeMinisterCanada24 a schema:identifier , :PrimeMinisterCanada;
+    schema:alternateName :Mark_Carney ;
+    :chairOf :MinistryCanada30 ;
+    schema:memberOf :Liberal_Canada .
+
+:PrimeMinisterCanada23 a schema:identifier, :PrimeMinisterCanada ;
+    schema:alternateName :Justin_Trudeau ;
+    :chairOf :MinistryCanada29 ;
+    schema:memberOf :Liberal_Canada.
+
+:PrimeMinisterCanada22 a schema:identifier, :PrimeMinisterCanada ;
+    schema:alternateName :Stephen_Harper ;
+    :chairOf :MinistryCanada28 ;
+    schema:memberOf :Conservative_Canada2 .
+
+:PrimeMinisterCanada1 a schema:identifier, :PrimeMinisterCanada ;
+    schema:alternateName :JohnAMacdonald ;
+    :chairOf :MinistryCanada1, :MinistryCanada3 ;
+    schema:memberOf :Liberal_Conservative_Canada .
+
+:MinistryCanada a schema:Organization ;
+    schema:RangeIncludes 
+        :MinistryCanada1, 
+        :MinistryCanada2, 
+        :MinistryCanada3, 
+        :MinistryCanada4, 
+        :MinistryCanada5, 
+        :MinistryCanada6, 
+        :MinistryCanada7,
+        :MinistryCanada8,
+        :MinistryCanada9,
+        :MinistryCanada10,
+        :MinistryCanada11,
+        :MinistryCanada12,
+        :MinistryCanada13,
+        :MinistryCanada14,
+        :MinistryCanada15,
+        :MinistryCanada16,
+        :MinistryCanada17,
+        :MinistryCanada18,
+        :MinistryCanada19,
+        :MinistryCanada20,
+        :MinistryCanada21,
+        :MinistryCanada22,
+        :MinistryCanada23,
+        :MinistryCanada24,
+        :MinistryCanada25,
+        :MinistryCanada26,
+        :MinistryCanada27,
+        :MinistryCanada28,
+        :MinistryCanada29,
+        :MinistryCanada30
 .
+
+:DeliverResultsForCanadians a schema:OrganizeAction ;
+    schema:agent :MinistryCanada ;
+    schema:provider :DepartmentsAgencies ;
+    schema:actionProcess :MandateLetter ;
+    schema:result :Results ;
+    schema:audience :Canadian ;
+    schema:instrument :Policy .
+
+:Policy a schema:DefinedTerm ; 
+    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
+    schema:alternateName :PublicPolicy ;
+    schema:description "what governments choose to do, or not do" .
+
+# Federal Political Parties Canada
+
+:Parti_Bleu a schema:PoliticalParty ;
+    schema:foundingDate 1854 ;
+    schema:dissolutionDate 1867 ;
+    :succeededBy :Liberal_Conservative_Canada .
+
+:Liberal_Conservative_Canada a schema:Organization ;
+    schema:subjectOf "https://en.wikipedia.org/wiki/Liberal-Conservative_Party" ;
+    schema:foundingDate 1867 ;
+    schema:dissolutionDate 1938 ;
+    :succeededBy :Conservative_Canada1 .
+
+:Conservative_Canada1 a schema:PoliticalParty ;
+    schema:foundingDate 1867;
+    schema:dissolutionDate 1942 ;
+    :succeededBy :Progressive_Conservative_Canada .
+
+:Progressive_Conservative_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1942;
+    schema:dissolutionDate 2003;
+    :succeededBy :Conservative_Canada2 .
+
+:Conservative_Canada2 a schema:PoliticalParty; 
+    schema:alternateName fr:Parti_conservateur_Canada ;
+    schema:foundingDate 2003 .
+
+:Liberal_Canada a schema:PoliticalParty ;
+    schema:alternateName fr:Parti_liberal_Canada ;
+    schema:foundingDate 1867 .
+
+:Liberal_Unionist_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1917 ;
+    schema:foundingDate 1917 ;
+    :precededBy :Liberal_Canada ;
+    :succeededBy :Liberal_Canada, :Unionist_Canada .
+
+:Unionist_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1917;
+    schema:dissolutionDate 1922 ;
+    :precededBy :Conservative_Canada1 , :Liberal_Unionist_Canada ;
+    :succeededBy :Conservative_Canada1
+    .
+
+:Bloc_Quebecois a schema:PoliticalParty ;
+    schema:foundingDate 1991 .
+
+:New_Democratic_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1961 .
+
+:Green_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1983 .
 
 # Global Context 
 
@@ -28,13 +165,13 @@ cst:Term_Number a schema:identifier .
     schema:description :dangerous, :divided, :GeopoliticalRisk .
 
 :UnitedNations a :InternationalOrganization ;
-    schema:identifier "https://www.un.org/en/" 
-    .
+    schema:identifier "https://www.un.org/en/" .
 
 :WorldTradeOrganization a schema:Organization ;
     schema:identifier "https://www.wto.org/" ;
     schema:description "the only international organization dealing with the rules of trade between nations." ;
     schema:administrativeArea :GlobalTradingSystem .
+
 
 # Glossary
 
@@ -69,11 +206,11 @@ wiki:State a wiki:Polity .
 :GlobalTradingSystem a schema:DefinedTerm ;
     :governedBy :WorldTradeOrganization ;
     schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
-    :Subject cst:Trade .
+    cst:Subject cst:Trade .
 
 wiki:Polycrisis a schema:DefinedTerm ;
     schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
-    schema:alternateName french:polycrise ;
+    schema:alternateName fr:polycrise ;
     schema:domainIncludes wiki:COVID-19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
 . 
 
@@ -96,13 +233,13 @@ cst:MI_Military a cst:SC ;
 
 # Common Subjects Dictionary - Subjects 
 
-cst:Trade schema:alternateName french:Commerce ;
-    :Term_Number cst:1618
+cst:Trade schema:alternateName fr:Commerce ;
+    cst:Term_Number cst:1618
     .
 
 cst:War cst:SC cst:MI_Military ;
     :UsedFor cst:Armed_Conflict ;
-    :Term_Number cst:451 ;
+    cst:Term_Number cst:451 ;
     schema:sameAs wiki:War 
     .
 
