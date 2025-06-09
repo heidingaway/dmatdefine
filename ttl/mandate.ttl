@@ -3,9 +3,10 @@ PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
 PREFIX fr:<#fr/>
 PREFIX cst:<https://canada.multites.net/cst/#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 
 # metadata
-cst:Term_Number a schema:identifier .
+cst:Term_Number a schema:DataType.
 
 # Canadian Context 
 :Canadian a schema:Person ;
@@ -13,48 +14,55 @@ cst:Term_Number a schema:identifier .
 
 :Canada a schema:Country , wiki:State ;
     schema:identifier "https://www.canada.ca/" ;
-    :faces wiki:Polycrisis ;
     schema:containedInPlace :NorthAmerica ;
-    schema:property :SovereigntyCanadian ;
+    schema:additionalProperty :SovereigntyCanadian ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
 
+:CanadianContext2025 a schema:DefinedTerm ;
+    :domainIncludes wiki:Polycrisis .
+
+:GlobalContext2025 a schema:DefinedTerm ; 
+    :domainIncludes :dangerous, :divided, :GeopoliticalRisk .
+
 :MandateLetter2025 a :MandateLetter ;
-    schema:Author :PrimeMinisterCanada24 .
+    schema:author :PrimeMinisterCanada24 ;
+    schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
 
 :MandateLetter a schema:DefinedTerm, schema:HowTo ;
     schema:description "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
-    schema:Author :PrimeMinisterCanada .
+    schema:author :PrimeMinisterCanada ;
+    schema:about :Priorities.
 
 :PrimeMinisterCanada a schema:OrganizationRole ;
-    :incumbent :Mark_Carney ;
-    :precededBy :Justin_Trudeau ;
-    schema:alternateName fr:Premier_ministre_du_Canada ;
+    :incumbent :PrimeMinisterCanada24 ;
+    :precededBy :PrimeMinisterCanada23 ;
+    rdfs:label "Premier ministre du Canada"@fr;
     schema:sameAs cst:Prime_Minister ;
     cst:Term_Number 3909
     .
 
 :PrimeMinisterCanada24 a schema:identifier , :PrimeMinisterCanada;
-    schema:alternateName :Mark_Carney ;
+    schema:alternateName "Mark Carney" ;
     :chairOf :MinistryCanada30 ;
     schema:memberOf :Liberal_Canada .
 
 :PrimeMinisterCanada23 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName :Justin_Trudeau ;
+    schema:alternateName "Justin Trudeau" ;
     :chairOf :MinistryCanada29 ;
     schema:memberOf :Liberal_Canada.
 
 :PrimeMinisterCanada22 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName :Stephen_Harper ;
+    schema:alternateName "Stephen Harper" ;
     :chairOf :MinistryCanada28 ;
     schema:memberOf :Conservative_Canada2 .
 
 :PrimeMinisterCanada1 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName :JohnAMacdonald ;
+    schema:alternateName "John A. Macdonald" ;
     :chairOf :MinistryCanada1, :MinistryCanada3 ;
     schema:memberOf :Liberal_Conservative_Canada .
 
 :MinistryCanada a schema:Organization ;
-    schema:RangeIncludes 
+    schema:rangeIncludes 
         :MinistryCanada1, 
         :MinistryCanada2, 
         :MinistryCanada3, 
@@ -97,7 +105,7 @@ cst:Term_Number a schema:identifier .
 
 :Policy a schema:DefinedTerm ; 
     schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    schema:alternateName :PublicPolicy ;
+    schema:alternateName "Public Policy" ;
     schema:description "what governments choose to do, or not do" .
 
 # Federal Political Parties Canada
@@ -124,16 +132,16 @@ cst:Term_Number a schema:identifier .
     :succeededBy :Conservative_Canada2 .
 
 :Conservative_Canada2 a schema:PoliticalParty; 
-    schema:alternateName fr:Parti_conservateur_Canada ;
+    rdfs:label "Parti conservateur du Canada"@fr ;
     schema:foundingDate 2003 .
 
 :Liberal_Canada a schema:PoliticalParty ;
-    schema:alternateName fr:Parti_liberal_Canada ;
+    rdfs:label "Parti liberal du Canada"@fr ;
     schema:foundingDate 1867 .
 
 :Liberal_Unionist_Canada a schema:PoliticalParty ;
     schema:foundingDate 1917 ;
-    schema:foundingDate 1917 ;
+    schema:dissolutionDate 1917 ;
     :precededBy :Liberal_Canada ;
     :succeededBy :Liberal_Canada, :Unionist_Canada .
 
@@ -156,22 +164,22 @@ cst:Term_Number a schema:identifier .
 # Global Context 
 
 :NorthAmerica a schema:Continent ;
-    schema:alternateName :TurtleIsland ;
+    schema:alternateName "Turtle Island" ;
     schema:containedInPlace :Earth .
 
 :Earth a schema:Place ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
-    schema:alternateName :World ;
-    schema:description :dangerous, :divided, :GeopoliticalRisk .
+    schema:alternateName "World" .
+
+:InternationalOrganization a schema:Consortium .
 
 :UnitedNations a :InternationalOrganization ;
     schema:identifier "https://www.un.org/en/" .
 
-:WorldTradeOrganization a schema:Organization ;
+:WorldTradeOrganization a schema:InternationalOrganization ;
     schema:identifier "https://www.wto.org/" ;
     schema:description "the only international organization dealing with the rules of trade between nations." ;
     schema:administrativeArea :GlobalTradingSystem .
-
 
 # Glossary
 
@@ -210,15 +218,15 @@ wiki:State a wiki:Polity .
 
 wiki:Polycrisis a schema:DefinedTerm ;
     schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
-    schema:alternateName fr:polycrise ;
-    schema:domainIncludes wiki:COVID-19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
+    rdfs:label "polycrise"@fr ;
+    schema:domainIncludes wiki:COVID19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
 . 
 
 wiki:Global_debt a schema:DefinedTerm ;
     schema:domainIncludes wiki:Government_Debt .
 
 wiki:Government_Debt a schema:DefinedTerm ; 
-    schema:alternateName :NationalDebt .
+    schema:alternateName "National Debt" .
 
 # Common Subjects Dictionary - Subject Category
 
@@ -233,7 +241,7 @@ cst:MI_Military a cst:SC ;
 
 # Common Subjects Dictionary - Subjects 
 
-cst:Trade schema:alternateName fr:Commerce ;
+cst:Trade :french "commerce" ;
     cst:Term_Number cst:1618
     .
 
@@ -246,13 +254,13 @@ cst:War cst:SC cst:MI_Military ;
 # Major historic events
 
 wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
-    schema:Event wiki:Fall_of_the_Berlin_Wall ;
     schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
     :represented wiki:Iron_Curtain .
 
-wiki:Fall_of_the_Berlin_Wall a schema:Event , schema:AchieveAction ;
+wiki:Fall_of_the_Berlin_Wall a schema:event ;
     schema:name "Fall of the Berlin Wall" ;
+    schema:location wiki:Berlin_Wall ;
     schema:instrument :SovietUnionCollapse 
     .
 
-:SovietUnionCollapse a schema:Event , schema:AchieveAction .
+:SovietUnionCollapse a schema:event .
