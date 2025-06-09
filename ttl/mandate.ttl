@@ -17,7 +17,7 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     rdfs:label "is affected by" ;
     rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
     rdfs:domain rdfs:Resource ;
-    rdfs:range :Problem .
+    rdfs:range :Context .
 
 :hasProblem a rdfs:Property ;
     rdfs:label "has problem"@en ;
@@ -26,50 +26,51 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 :Context a rdfs:Property ;
     rdfs:label "context" ;
-    rdfs:comment "more generic than 'event', background to something/a resource".
+    rdfs:comment "more generic than 'event' or 'problem', background to something/a resource".
 
 # Key Political Science Terms and Concepts
 
 wiki:State a wiki:Polity , schema:Country .
 
-:Policy a schema:DefinedTerm ; 
+:Policy a schema:OrganizeAction ; 
     schema:domainIncludes :Carrots, :Sticks, :Sermon ;
     schema:name "Public Policy" ;
     schema:description "what governments choose to do, or not do" .
 
-:Sovereignty a schema:DefinedTerm ;
+:Sovereignty a schema:Intangible ;
     schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
     schema:additionalType :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
     schema:description "the exercise of power by a state"
     .
 
-:SovereigntyDeJure a schema:DefinedTerm ;
+:SovereigntyDeJure a schema:Intangible ;
     schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
     schema:description "the legal right to exercise sovereignty"
     .
 
-:SovereigntyDeFacto a schema:DefinedTerm ;
+:SovereigntyDeFacto a schema:Intangible ;
     schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
     schema:description "the factual ability to exercise sovereignty" 
     .
 
-:SovereigntyWestphalian a schema:DefinedTerm ;
+:SovereigntyWestphalian a schema:Intangible ;
     schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
     schema:description "each state has exclusive sovereignty over its territory."
     .
 
-:GeopoliticalRisk a schema:DefinedTerm .
+:GeopoliticalRisk a schema:Intangible .
 
-:GlobalTradingSystem a schema:DefinedTerm ;
+:GlobalTradeSystem a schema:Intangible ;
     :governedBy :WorldTradeOrganization ;
     schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
     cst:Subject cst:Trade .
 
-wiki:Global_debt a schema:DefinedTerm ;
-    schema:domainIncludes wiki:Government_Debt .
+wiki:Global_debt a schema:financialProduct ;
+    schema:sameAs wiki:Government_Debt .
 
-wiki:Government_Debt a schema:DefinedTerm ; 
+wiki:Government_Debt a schema:financialProduct ; 
     schema:sameAs "National Debt" .
+
 # Major historic events
 
 wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
@@ -78,6 +79,8 @@ wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
 
 wiki:Fall_of_the_Berlin_Wall a schema:event ;
     rdfs:label "Fall of the Berlin Wall" ;
+    schema:startDate "19891109T1853Z" ;
+    schema:endDate "19891109T1901Z" ;
     schema:location wiki:Berlin_Wall ;
     schema:instrument :SovietUnionCollapse 
     .
@@ -107,11 +110,11 @@ wiki:Polycrisis a schema:DefinedTerm ;
         wiki:Democratic_Backsliding  
 . 
 
-:Danger a :Problem ;
+:Danger a :Context ;
     rdfs:label "Danger"@en ;
     rdfs:comment "e.g., rising threats, instability".
 
-:Division a :Problem ;
+:Division a :Context ;
     rdfs:label "Division"@en ;
     rdfs:comment "e.g., political, social, or economic fragmentation".
 
@@ -126,7 +129,7 @@ wiki:Polycrisis a schema:DefinedTerm ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
     rdfs:label "World" .
 
-:InternationalOrganization a schema:Consortium .
+:InternationalOrganization a schema:Organization .
 
 :UnitedNations a :InternationalOrganization ;
     schema:identifier "https://www.un.org/en/" .
@@ -134,7 +137,7 @@ wiki:Polycrisis a schema:DefinedTerm ;
 :WorldTradeOrganization a schema:InternationalOrganization ;
     schema:identifier "https://www.wto.org/" ;
     schema:description "the only international organization dealing with the rules of trade between nations." ;
-    schema:administrativeArea :GlobalTradingSystem .
+    schema:administrativeArea :GlobalTradeSystem .
     
 # GC Core Subject Thesaurus 
 
@@ -214,7 +217,6 @@ cst:1263 a :CSTTerm ;
 cst:1618 a :CSTTerm ;
     rdfs:label "Trade"@en , "Commerce"@fr ;
     .
-
 
 cst:3909 a :CSTTerm ;
     rdfs:label "Prime Minister"@en , "Premier ministre"@fr ;
@@ -354,15 +356,31 @@ cst:4981 a :CSTTerm ;
 
 :GlobalContext2025 a :Context ;
     :isAffectedBy :danger, :division ;
-    :hasProblem :RisingGeopoliticalRisk , wiki:Polycrisis , :GlobalTradingSystemTransformation.
+    :hasProblem 
+        :RisingGeopoliticalRisk , 
+        wiki:Polycrisis 
+    .
 
 # Canadian Government Context in 2025
 
 :CanadianContext2025 a :Context ;
     :isAffectedBy :GlobalContext2025 ;
-    :hasProblem :RisingGeopoliticalRisk , :SovereigntyCanadianThreatened 
+    :hasProblem 
+        :threatSovereigntyCanadian,
+        :globalTradetransform ,
+        :longStandingLowProductivity ,
+        :strainedGovernmentFinances ,
+        :affordabilityCrisis ,
+        :unsustainableSocialPrograms
     .
 
 :MandateLetter2025 a :MandateLetter ;
     schema:author :PrimeMinisterCanada24 ;
     schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
+
+:Priorities2025 :addresses :CanadianContext2025 ;
+    schema:isPartOf :DeliverResultsForCanadians
+    .
+
+:MinistryCanada30 :hasResponsibility :Priorities2025 ;
+    schema:instrument "focus, determination, and fundamentally different approaches to governing".
