@@ -4,11 +4,80 @@ PREFIX wiki:<https://en.wikipedia.org/wiki/>
 PREFIX fr:<#fr/>
 PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 
-# metadata
-cst:Term_Number a schema:DataType.
+# Custom properties
 
-# Canadian Context 
+:isAffectedBy a rdfs:Property ;
+    rdfs:label "is affected by" ;
+    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Resource .
+
+:termNumber a rdfs:Property ;
+    rdfs:label "Term Number" ;
+    rdfs:comment "Term number assigned in CST." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range xsd:integer .
+
+:subjectCategory a rdfs:Property ;
+    rdfs:label "Subject Category" ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:usedFor a rdfs:Property ;
+    rdfs:label "Used For" ;
+    rdfs:comment "Term used in indexing to represent a given concept. Also called descriptor. In the alphabetical list of results, preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:use a rdfs:Property ;
+    rdfs:label "Use" ;
+    rdfs:comment "Synonym, quasi-synonym or spelling variant of a preferred term. A non-preferred term, also called synonym, non-descriptor, entry term or lead-in term, should not be used for indexing. Its role is to point users to the preferred term (the one that should be used in indexing). In the alphabetical list of results, non-preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface and italics. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:narrowerTerm a rdfs:Property ;
+    rdfs:label "narrower term" ;
+    rdfs:comment "Preferred term representing a concept narrower in scope and that is subordinate to one or more broader terms in a hierarchy. A narrower term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:broaderTerm a rdfs:Property ;
+    rdfs:label "broader term" ;
+    rdfs:comment "Preferred term representing a concept broader in scope and to which one or more narrower terms are subordinate in a hierarchy. A broader term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:relatedTerm a rdfs:Property ;
+    rdfs:label "related term" ;
+    rdfs:comment "Preferred term that is mentally associated with another preferred term, but that is not part of the same hierarchy." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:scopeNote a rdfs:Property ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Note specifying the meaning of a preferred term or defining its usage limitations for the purpose of indexing." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .    
+
+# metadata - Common Subjects Dictionary - Subjects 
+
+cst:Trade a :CSTTerm ;
+    rdfs:label "Commerce"@fr ;
+    :termNumber cst:1618
+    .
+
+cst:War a :CSTTerm ;
+    rdfs:label "Guerre"@fr ;
+    :subjectCategory cst:MI_Military ;
+    :usedFor cst:Armed_Conflict ;
+    :termNumber cst:451 ;
+    schema:sameAs wiki:War 
+    .
+
+# Canada
+
 :Canadian a schema:Person ;
     schema:Nationality :Canada .
 
@@ -18,11 +87,10 @@ cst:Term_Number a schema:DataType.
     schema:additionalProperty :SovereigntyCanadian ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
 
-:CanadianContext2025 a schema:DefinedTerm ;
-    :domainIncludes wiki:Polycrisis .
+# Canadian Government Context
 
-:GlobalContext2025 a schema:DefinedTerm ; 
-    :domainIncludes :dangerous, :divided, :GeopoliticalRisk .
+:CanadianContext2025 a schema:DefinedTerm ;
+    :isAffectedBy wiki:Polycrisis .
 
 :MandateLetter2025 a :MandateLetter ;
     schema:author :PrimeMinisterCanada24 ;
@@ -38,7 +106,7 @@ cst:Term_Number a schema:DataType.
     :precededBy :PrimeMinisterCanada23 ;
     rdfs:label "Premier ministre du Canada"@fr;
     schema:sameAs cst:Prime_Minister ;
-    cst:Term_Number 3909
+    cst:termNumber 3909
     .
 
 :PrimeMinisterCanada24 a schema:identifier , :PrimeMinisterCanada;
@@ -71,7 +139,7 @@ cst:Term_Number a schema:DataType.
 
 :MinistryCanada29 a :MinistryCanada .
 
-:MinistryCanada30 a a :MinistryCanada .
+:MinistryCanada30 a :MinistryCanada .
 
 :DeliverResultsForCanadians a schema:OrganizeAction ;
     schema:agent :MinistryCanada ;
@@ -81,12 +149,7 @@ cst:Term_Number a schema:DataType.
     schema:audience :Canadian ;
     schema:instrument :Policy .
 
-:Policy a schema:DefinedTerm ; 
-    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    schema:alternateName "Public Policy" ;
-    schema:description "what governments choose to do, or not do" .
-
-# Federal Political Parties Canada
+# Federal Political Parties in Canada
 
 :Parti_Bleu a schema:PoliticalParty ;
     schema:foundingDate 1854 ;
@@ -141,6 +204,9 @@ cst:Term_Number a schema:DataType.
 
 # Global Context 
 
+:GlobalContext2025 a schema:DefinedTerm ; 
+    :domainIncludes :dangerous, :divided, :GeopoliticalRisk .
+
 :NorthAmerica a schema:Continent ;
     schema:alternateName "Turtle Island" ;
     schema:containedInPlace :Earth .
@@ -159,9 +225,14 @@ cst:Term_Number a schema:DataType.
     schema:description "the only international organization dealing with the rules of trade between nations." ;
     schema:administrativeArea :GlobalTradingSystem .
 
-# Glossary
+# Key Political Science Terms and Concepts
 
 wiki:State a wiki:Polity .
+
+:Policy a schema:DefinedTerm ; 
+    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
+    schema:alternateName "Public Policy" ;
+    schema:description "what governments choose to do, or not do" .
 
 :SovereigntyCanadian a :SovereigntyWestphalian ;
     schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
@@ -197,7 +268,7 @@ wiki:State a wiki:Polity .
 wiki:Polycrisis a schema:DefinedTerm ;
     schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
     rdfs:label "polycrise"@fr ;
-    schema:domainIncludes wiki:COVID19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
+    :includes wiki:COVID19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
 . 
 
 wiki:Global_debt a schema:DefinedTerm ;
@@ -208,26 +279,15 @@ wiki:Government_Debt a schema:DefinedTerm ;
 
 # Common Subjects Dictionary - Subject Category
 
-cst:SC a schema:DefinedTerm ;
+:subjectCategory a schema:DefinedTerm ;
     schema:name "Subject Category" ;
     schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHSCAT&searchString=SC&lang=ENG"
     .
-cst:MI_Military a cst:SC ;
+cst:MI_Military a :subjectCategory ;
     schema:name "MI Military" ;
     schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
     .
 
-# Common Subjects Dictionary - Subjects 
-
-cst:Trade :french "commerce" ;
-    cst:Term_Number cst:1618
-    .
-
-cst:War cst:SC cst:MI_Military ;
-    :UsedFor cst:Armed_Conflict ;
-    cst:Term_Number cst:451 ;
-    schema:sameAs wiki:War 
-    .
 
 # Major historic events
 
