@@ -13,7 +13,8 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 :CSTTerm a rdfs:Class ;
     rdfs:label "CST Term" ;
-    rdfs:comment "A term that is part of the Core Subject Thesaurus." 
+    rdfs:comment "A term that is part of the Core Subject Thesaurus." ;
+    schema:inDefinedTermSet :GCCST
     .
 
 :subjectCategory a rdfs:Property ;
@@ -57,7 +58,117 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     rdfs:domain :CSTTerm ;
     rdfs:range rdfs:Resource .    
 
-# metadata - Common Subjects Dictionary - Subjects 
+# Custom properties content
+
+:isAffectedBy a rdfs:Property ;
+    rdfs:label "is affected by" ;
+    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range :Problem .
+
+:hasProblem a rdfs:Property ;
+    rdfs:label "has problem"@en ;
+    rdfs:domain :Context ;
+    rdfs:range :Problem .
+
+# Global Context 
+
+wiki:Polycrisis a schema:DefinedTerm ;
+    schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
+    rdfs:label "polycrise"@fr ;
+    :includes 
+        :COVID19Pandemic, 
+        wiki:War, 
+        wiki:Global_debt, 
+        wiki:Inflation, 
+        wiki:Climate_Change, 
+        wiki:Resource_Depletion, 
+        wiki:Social_Inequality, 
+        wiki:Artificial_Intelligence, 
+        wiki:Synthetic_Biology,  
+        wiki:Democratic_Backsliding  
+. 
+
+:Danger a :Problem ;
+    rdfs:label "Danger"@en ;
+    rdfs:comment "e.g., rising threats, instability".
+
+:Division a :Problem ;
+    rdfs:label "Division"@en ;
+    rdfs:comment "e.g., political, social, or economic fragmentation".
+
+:RisingGeopoliticalRisk a :Problem ;
+    rdfs:label "Rising Geopolitical Risk"@en .
+
+:NorthAmerica a schema:Continent ;
+    rdfs:label "Turtle Island" ;
+    schema:containedInPlace :Earth .
+
+:Earth a schema:Place ;
+    schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
+    rdfs:label "World" .
+
+:InternationalOrganization a schema:Consortium .
+
+:UnitedNations a :InternationalOrganization ;
+    schema:identifier "https://www.un.org/en/" .
+
+:WorldTradeOrganization a schema:InternationalOrganization ;
+    schema:identifier "https://www.wto.org/" ;
+    schema:description "the only international organization dealing with the rules of trade between nations." ;
+    schema:administrativeArea :GlobalTradingSystem .
+
+# Key Political Science Terms and Concepts
+
+wiki:State a wiki:Polity .
+
+:Policy a schema:DefinedTerm ; 
+    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
+    rdfs:label "Public Policy" ;
+    schema:description "what governments choose to do, or not do" .
+
+:Sovereignty a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
+    schema:additionalClass :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
+    schema:description "the exercise of power by a state"
+    .
+
+:SovereigntyDeJure a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
+    schema:description "the legal right to exercise sovereignty"
+    .
+
+:SovereigntyDeFacto a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
+    schema:description "the factual ability to exercise sovereignty" 
+    .
+
+:SovereigntyWestphalian a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
+    schema:description "each state has exclusive sovereignty over its territory."
+    .
+
+:GeopoliticalRisk a schema:DefinedTerm .
+
+:GlobalTradingSystem a schema:DefinedTerm ;
+    :governedBy :WorldTradeOrganization ;
+    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
+    cst:Subject cst:Trade .
+
+wiki:Global_debt a schema:DefinedTerm ;
+    schema:domainIncludes wiki:Government_Debt .
+
+wiki:Government_Debt a schema:DefinedTerm ; 
+    rdfs:label "National Debt" .
+
+# Common Subjects Dictionary - Subject Category
+
+cst:MI_Military a :subjectCategory ;
+    rdfs:label "MI Military" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
+    .
+
+# Common Subjects Dictionary - Subjects 
 
 cst:451 a :CSTTerm ;
     rdfs:label "War"@en , "Guerre"@fr ;
@@ -86,18 +197,24 @@ cst:4981 a :CSTTerm ;
     :scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
     .
 
-# Custom properties content
+# Major historic events
 
-:isAffectedBy a rdfs:Property ;
-    rdfs:label "is affected by" ;
-    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
-    rdfs:domain rdfs:Resource ;
-    rdfs:range :Condition .
+wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
+    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
+    :represented wiki:Iron_Curtain .
 
-:hasTrend a rdfs:Property ;
-    rdfs:label "has trend"@en ;
-    rdfs:domain :Context ;
-    rdfs:range :Trend .
+wiki:Fall_of_the_Berlin_Wall a schema:event ;
+    rdfs:label "Fall of the Berlin Wall" ;
+    schema:location wiki:Berlin_Wall ;
+    schema:instrument :SovietUnionCollapse 
+    .
+
+:SovietUnionCollapse a schema:event .
+
+:COVID19Pandemic a schema:event ; 
+    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
+    :CSTTerm cst:4981
+    .
 
 # Canada
 
@@ -110,30 +227,8 @@ cst:4981 a :CSTTerm ;
     schema:additionalProperty :SovereigntyCanadian ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
 
-# Canadian Government Context in 2025
-
-:CanadianContext2025 a schema:DefinedTerm ;
-    :isAffectedBy wiki:Polycrisis , :GlobalContext2025.
-
-wiki:Polycrisis a schema:DefinedTerm ;
-    schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
-    rdfs:label "polycrise"@fr ;
-    :includes 
-        :COVID19Pandemic, 
-        wiki:War, 
-        wiki:Global_debt, 
-        wiki:Inflation, 
-        wiki:Climate_Change, 
-        wiki:Resource_Depletion, 
-        wiki:Social_Inequality, 
-        wiki:Artificial_Intelligence, 
-        wiki:Synthetic_Biology,  
-        wiki:Democratic_Backsliding  
-. 
-
-:MandateLetter2025 a :MandateLetter ;
-    schema:author :PrimeMinisterCanada24 ;
-    schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
+:SovereigntyCanadian a :SovereigntyWestphalian ;
+    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
 
 # Canadian Government Context 
 
@@ -242,111 +337,25 @@ wiki:Polycrisis a schema:DefinedTerm ;
 :Green_Canada a schema:PoliticalParty ;
     schema:foundingDate 1983 .
 
-# Global Context 
+# Global Context 2025
 
 :GlobalContext2025 :isAffectedBy :danger, :division ;
-    :hasTrend :RisingGeopoliticalRisk .
+    :hasProblem :RisingGeopoliticalRisk , wiki:Polycrisis , :GlobalTradingSystemTransformation.
 
-:Danger a :Condition ;
-    rdfs:label "Danger"@en .
+# Canadian Government Context in 2025
 
-:Division a :Condition ;
-    rdfs:label "Division"@en .
-
-:RisingGeopoliticalRisk a :Trend ;
-    rdfs:label "Rising Geopolitical Risk"@en .
-
-:NorthAmerica a schema:Continent ;
-    rdfs:label "Turtle Island" ;
-    schema:containedInPlace :Earth .
-
-:Earth a schema:Place ;
-    schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
-    rdfs:label "World" .
-
-:InternationalOrganization a schema:Consortium .
-
-:UnitedNations a :InternationalOrganization ;
-    schema:identifier "https://www.un.org/en/" .
-
-:WorldTradeOrganization a schema:InternationalOrganization ;
-    schema:identifier "https://www.wto.org/" ;
-    schema:description "the only international organization dealing with the rules of trade between nations." ;
-    schema:administrativeArea :GlobalTradingSystem .
-
-# Key Political Science Terms and Concepts
-
-wiki:State a wiki:Polity .
-
-:Policy a schema:DefinedTerm ; 
-    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    rdfs:label "Public Policy" ;
-    schema:description "what governments choose to do, or not do" .
-
-:SovereigntyCanadian a :SovereigntyWestphalian ;
-    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
-
-:Sovereignty a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
-    schema:additionalClass :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
-    schema:description "the exercise of power by a state"
+:CanadianContext2025 a schema:DefinedTerm ;
+    :isAffectedBy :GlobalContext2025 ;
+    :hasProblem :RisingGeopoliticalRisk , :SovereigntyCanadianThreatened 
     .
 
-:SovereigntyDeJure a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
-    schema:description "the legal right to exercise sovereignty"
+:MandateLetter2025 a :MandateLetter ;
+    schema:author :PrimeMinisterCanada24 ;
+    schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
+
+#GC Information, Data, and AI context
+
+:GCCST a schema:DefinedTermSet ;
+    rdfs:label "Government of Canada Core Subject Thesaurus"@en , "Thésaurus des sujets de base du gouvernement du Canada"@fr ;
+    schema:subjectOf "https://canada.multites.net/cst/def.asp?lang=En&n=0073D232-1"
     .
-
-:SovereigntyDeFacto a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
-    schema:description "the factual ability to exercise sovereignty" 
-    .
-
-:SovereigntyWestphalian a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
-    schema:description "each state has exclusive sovereignty over its territory."
-    .
-
-:GeopoliticalRisk a schema:DefinedTerm .
-
-:GlobalTradingSystem a schema:DefinedTerm ;
-    :governedBy :WorldTradeOrganization ;
-    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
-    cst:Subject cst:Trade .
-
-wiki:Global_debt a schema:DefinedTerm ;
-    schema:domainIncludes wiki:Government_Debt .
-
-wiki:Government_Debt a schema:DefinedTerm ; 
-    rdfs:label "National Debt" .
-
-:COVID19Pandemic a schema:DefinedTerm ; 
-    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
-    :CSTTerm cst:4981
-    .
-
-# Common Subjects Dictionary - Subject Category
-
-:subjectCategory a schema:DefinedTerm ;
-    rdfs:label "Subject Category" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHSCAT&searchString=SC&lang=ENG"
-    .
-cst:MI_Military a :subjectCategory ;
-    rdfs:label "MI Military" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
-    .
-
-
-# Major historic events
-
-wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
-    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
-    :represented wiki:Iron_Curtain .
-
-wiki:Fall_of_the_Berlin_Wall a schema:event ;
-    rdfs:label "Fall of the Berlin Wall" ;
-    schema:location wiki:Berlin_Wall ;
-    schema:instrument :SovietUnionCollapse 
-    .
-
-:SovietUnionCollapse a schema:event .
