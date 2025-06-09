@@ -9,54 +9,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 rdfs:Resource a rdfs:Class .
 
-schema:Thing rdfs:subClassOf rdfs:Resource .
-
-:CSTTerm a rdfs:Class ;
-    rdfs:label "CST Term" ;
-    rdfs:comment "A term that is part of the Core Subject Thesaurus." ;
-    schema:inDefinedTermSet :GCCST
-    .
-
-:subjectCategory a rdfs:Property ;
-    rdfs:label "Subject Category" ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:usedFor a rdfs:Property ;
-    rdfs:label "Used For" ;
-    rdfs:comment "Term used in indexing to represent a given concept. Also called descriptor. In the alphabetical list of results, preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:use a rdfs:Property ;
-    rdfs:label "Use" ;
-    rdfs:comment "Synonym, quasi-synonym or spelling variant of a preferred term. A non-preferred term, also called synonym, non-descriptor, entry term or lead-in term, should not be used for indexing. Its role is to point users to the preferred term (the one that should be used in indexing). In the alphabetical list of results, non-preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface and italics. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:narrowerTerm a rdfs:Property ;
-    rdfs:label "narrower term" ;
-    rdfs:comment "Preferred term representing a concept narrower in scope and that is subordinate to one or more broader terms in a hierarchy. A narrower term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:broaderTerm a rdfs:Property ;
-    rdfs:label "broader term" ;
-    rdfs:comment "Preferred term representing a concept broader in scope and to which one or more narrower terms are subordinate in a hierarchy. A broader term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:relatedTerm a rdfs:Property ;
-    rdfs:label "related term" ;
-    rdfs:comment "Preferred term that is mentally associated with another preferred term, but that is not part of the same hierarchy." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:scopeNote a rdfs:Property ;
-    rdfs:label "scope note" ;
-    rdfs:comment "Note specifying the meaning of a preferred term or defining its usage limitations for the purpose of indexing." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .    
+schema:Thing rdfs:subClassOf rdfs:Resource . 
 
 # Custom properties content
 
@@ -68,8 +21,73 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 :hasProblem a rdfs:Property ;
     rdfs:label "has problem"@en ;
-    rdfs:domain :Context ;
+    rdfs:domain rdfs:Resource ;
     rdfs:range :Problem .
+
+:Context a rdfs:Property ;
+    rdfs:label "context" ;
+    rdfs:comment "more generic than 'event', background to something/a resource".
+
+# Key Political Science Terms and Concepts
+
+wiki:State a wiki:Polity , schema:Country .
+
+:Policy a schema:DefinedTerm ; 
+    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
+    schema:name "Public Policy" ;
+    schema:description "what governments choose to do, or not do" .
+
+:Sovereignty a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
+    schema:additionalType :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
+    schema:description "the exercise of power by a state"
+    .
+
+:SovereigntyDeJure a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
+    schema:description "the legal right to exercise sovereignty"
+    .
+
+:SovereigntyDeFacto a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
+    schema:description "the factual ability to exercise sovereignty" 
+    .
+
+:SovereigntyWestphalian a schema:DefinedTerm ;
+    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
+    schema:description "each state has exclusive sovereignty over its territory."
+    .
+
+:GeopoliticalRisk a schema:DefinedTerm .
+
+:GlobalTradingSystem a schema:DefinedTerm ;
+    :governedBy :WorldTradeOrganization ;
+    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
+    cst:Subject cst:Trade .
+
+wiki:Global_debt a schema:DefinedTerm ;
+    schema:domainIncludes wiki:Government_Debt .
+
+wiki:Government_Debt a schema:DefinedTerm ; 
+    schema:sameAs "National Debt" .
+# Major historic events
+
+wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
+    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
+    :represented wiki:Iron_Curtain .
+
+wiki:Fall_of_the_Berlin_Wall a schema:event ;
+    rdfs:label "Fall of the Berlin Wall" ;
+    schema:location wiki:Berlin_Wall ;
+    schema:instrument :SovietUnionCollapse 
+    .
+
+:SovietUnionCollapse a schema:event .
+
+:COVID19Pandemic a schema:event ; 
+    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
+    :CSTTerm cst:4981
+    .
 
 # Global Context 
 
@@ -117,49 +135,60 @@ wiki:Polycrisis a schema:DefinedTerm ;
     schema:identifier "https://www.wto.org/" ;
     schema:description "the only international organization dealing with the rules of trade between nations." ;
     schema:administrativeArea :GlobalTradingSystem .
+    
+# GC Core Subject Thesaurus 
 
-# Key Political Science Terms and Concepts
-
-wiki:State a wiki:Polity .
-
-:Policy a schema:DefinedTerm ; 
-    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    rdfs:label "Public Policy" ;
-    schema:description "what governments choose to do, or not do" .
-
-:Sovereignty a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
-    schema:additionalClass :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
-    schema:description "the exercise of power by a state"
+:GCCST a schema:DefinedTermSet ;
+    rdfs:label "Government of Canada Core Subject Thesaurus"@en , "Thésaurus des sujets de base du gouvernement du Canada"@fr ;
+    schema:subjectOf "https://canada.multites.net/cst/def.asp?lang=En&n=0073D232-1"
     .
 
-:SovereigntyDeJure a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
-    schema:description "the legal right to exercise sovereignty"
+:CSTTerm a rdfs:Class ;
+    rdfs:label "CST Term" ;
+    rdfs:comment "A term that is part of the Core Subject Thesaurus." ;
+    schema:inDefinedTermSet :GCCST
     .
 
-:SovereigntyDeFacto a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
-    schema:description "the factual ability to exercise sovereignty" 
-    .
+:subjectCategory a rdfs:Property ;
+    rdfs:label "Subject Category" ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
 
-:SovereigntyWestphalian a schema:DefinedTerm ;
-    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
-    schema:description "each state has exclusive sovereignty over its territory."
-    .
+:usedFor a rdfs:Property ;
+    rdfs:label "Used For" ;
+    rdfs:comment "Term used in indexing to represent a given concept. Also called descriptor. In the alphabetical list of results, preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
 
-:GeopoliticalRisk a schema:DefinedTerm .
+:use a rdfs:Property ;
+    rdfs:label "Use" ;
+    rdfs:comment "Synonym, quasi-synonym or spelling variant of a preferred term. A non-preferred term, also called synonym, non-descriptor, entry term or lead-in term, should not be used for indexing. Its role is to point users to the preferred term (the one that should be used in indexing). In the alphabetical list of results, non-preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface and italics. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
 
-:GlobalTradingSystem a schema:DefinedTerm ;
-    :governedBy :WorldTradeOrganization ;
-    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
-    cst:Subject cst:Trade .
+:narrowerTerm a rdfs:Property ;
+    rdfs:label "narrower term" ;
+    rdfs:comment "Preferred term representing a concept narrower in scope and that is subordinate to one or more broader terms in a hierarchy. A narrower term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
 
-wiki:Global_debt a schema:DefinedTerm ;
-    schema:domainIncludes wiki:Government_Debt .
+:broaderTerm a rdfs:Property ;
+    rdfs:label "broader term" ;
+    rdfs:comment "Preferred term representing a concept broader in scope and to which one or more narrower terms are subordinate in a hierarchy. A broader term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
 
-wiki:Government_Debt a schema:DefinedTerm ; 
-    rdfs:label "National Debt" .
+:relatedTerm a rdfs:Property ;
+    rdfs:label "related term" ;
+    rdfs:comment "Preferred term that is mentally associated with another preferred term, but that is not part of the same hierarchy." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .
+
+:scopeNote a rdfs:Property ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Note specifying the meaning of a preferred term or defining its usage limitations for the purpose of indexing." ;
+    rdfs:domain :CSTTerm ;
+    rdfs:range rdfs:Resource .   
 
 # Common Subjects Dictionary - Subject Category
 
@@ -197,25 +226,6 @@ cst:4981 a :CSTTerm ;
     :scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
     .
 
-# Major historic events
-
-wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
-    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
-    :represented wiki:Iron_Curtain .
-
-wiki:Fall_of_the_Berlin_Wall a schema:event ;
-    rdfs:label "Fall of the Berlin Wall" ;
-    schema:location wiki:Berlin_Wall ;
-    schema:instrument :SovietUnionCollapse 
-    .
-
-:SovietUnionCollapse a schema:event .
-
-:COVID19Pandemic a schema:event ; 
-    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
-    :CSTTerm cst:4981
-    .
-
 # Canada
 
 :Canadian a schema:Person ;
@@ -228,11 +238,11 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
 
 :SovereigntyCanadian a :SovereigntyWestphalian ;
-    schema:additionalClass :SovereigntyDeFacto , :SovereigntyDeJure .
+    schema:additionalType :SovereigntyDeFacto , :SovereigntyDeJure .
 
 # Canadian Government Context 
 
-:MandateLetter a schema:DefinedTerm, schema:HowTo ;
+:MandateLetter a schema:HowTo ;
     schema:description "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
     schema:author :PrimeMinisterCanada ;
     schema:about :Priorities.
@@ -337,14 +347,18 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
 :Green_Canada a schema:PoliticalParty ;
     schema:foundingDate 1983 .
 
+
+#GC Information, Data, and AI context
+
 # Global Context 2025
 
-:GlobalContext2025 :isAffectedBy :danger, :division ;
+:GlobalContext2025 a :Context ;
+    :isAffectedBy :danger, :division ;
     :hasProblem :RisingGeopoliticalRisk , wiki:Polycrisis , :GlobalTradingSystemTransformation.
 
 # Canadian Government Context in 2025
 
-:CanadianContext2025 a schema:DefinedTerm ;
+:CanadianContext2025 a :Context ;
     :isAffectedBy :GlobalContext2025 ;
     :hasProblem :RisingGeopoliticalRisk , :SovereigntyCanadianThreatened 
     .
@@ -352,10 +366,3 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
 :MandateLetter2025 a :MandateLetter ;
     schema:author :PrimeMinisterCanada24 ;
     schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
-
-#GC Information, Data, and AI context
-
-:GCCST a schema:DefinedTermSet ;
-    rdfs:label "Government of Canada Core Subject Thesaurus"@en , "Thésaurus des sujets de base du gouvernement du Canada"@fr ;
-    schema:subjectOf "https://canada.multites.net/cst/def.asp?lang=En&n=0073D232-1"
-    .
