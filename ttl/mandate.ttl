@@ -61,39 +61,17 @@ cst:Term_Number a schema:DataType.
     :chairOf :MinistryCanada1, :MinistryCanada3 ;
     schema:memberOf :Liberal_Conservative_Canada .
 
-:MinistryCanada a schema:Organization ;
-    schema:rangeIncludes 
-        :MinistryCanada1, 
-        :MinistryCanada2, 
-        :MinistryCanada3, 
-        :MinistryCanada4, 
-        :MinistryCanada5, 
-        :MinistryCanada6, 
-        :MinistryCanada7,
-        :MinistryCanada8,
-        :MinistryCanada9,
-        :MinistryCanada10,
-        :MinistryCanada11,
-        :MinistryCanada12,
-        :MinistryCanada13,
-        :MinistryCanada14,
-        :MinistryCanada15,
-        :MinistryCanada16,
-        :MinistryCanada17,
-        :MinistryCanada18,
-        :MinistryCanada19,
-        :MinistryCanada20,
-        :MinistryCanada21,
-        :MinistryCanada22,
-        :MinistryCanada23,
-        :MinistryCanada24,
-        :MinistryCanada25,
-        :MinistryCanada26,
-        :MinistryCanada27,
-        :MinistryCanada28,
-        :MinistryCanada29,
-        :MinistryCanada30
-.
+:MinistryCanada schema:subOrganization :GovernmentCanada .
+
+:MinistryCanada1 a :MinistryCanada .
+
+:MinistryCanada3 a :MinistryCanada .
+
+:MinistryCanada28 a :MinistryCanada .
+
+:MinistryCanada29 a :MinistryCanada .
+
+:MinistryCanada30 a a :MinistryCanada .
 
 :DeliverResultsForCanadians a schema:OrganizeAction ;
     schema:agent :MinistryCanada ;
