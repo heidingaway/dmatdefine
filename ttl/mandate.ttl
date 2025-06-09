@@ -5,7 +5,9 @@ PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 
-# Custom properties
+# Custom properties - metadata
+
+rdfs:Resource a rdfs:Class .
 
 schema:Thing rdfs:subClassOf rdfs:Resource .
 
@@ -13,18 +15,6 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     rdfs:label "CST Term" ;
     rdfs:comment "A term that is part of the Core Subject Thesaurus." 
     .
-
-:isAffectedBy a rdfs:Property ;
-    rdfs:label "is affected by" ;
-    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
-    rdfs:domain rdfs:Resource ;
-    rdfs:range rdfs:Resource .
-
-:termNumber a rdfs:Property ;
-    rdfs:label "Term Number" ;
-    rdfs:comment "Term number assigned in CST." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range xsd:integer .
 
 :subjectCategory a rdfs:Property ;
     rdfs:label "Subject Category" ;
@@ -69,18 +59,45 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 # metadata - Common Subjects Dictionary - Subjects 
 
-cst:Trade a :CSTTerm ;
-    rdfs:label "Commerce"@fr ;
-    :termNumber cst:1618
-    .
-
-cst:War a :CSTTerm ;
+cst:451 a :CSTTerm ;
     rdfs:label "War"@en , "Guerre"@fr ;
     :subjectCategory cst:MI_Military ;
     :usedFor cst:Armed_Conflict ;
-    :termNumber cst:451 ;
     schema:sameAs wiki:War 
     .
+
+cst:1263 a :CSTTerm ;
+    rdfs:label "Ministers"@en , "Ministre"@fr ;
+    :subjectCategory cst:GV_GovernmentPolitics , cst:PE_Persons 
+    .
+
+cst:1618 a :CSTTerm ;
+    rdfs:label "Trade"@en , "Commerce"@fr ;
+    .
+
+
+cst:3909 a :CSTTerm ;
+    rdfs:label "Prime Minister"@en , "Premier ministre"@fr ;
+    :subjectCategory cst:GV_GovernmentPolitics, cst:PE_Persons
+    .
+
+cst:4981 a :CSTTerm ;
+    rdfs:label "Coronavirus diseases"@en , "Maladie à coronavirus"@fr ;
+    :scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
+    .
+
+# Custom properties content
+
+:isAffectedBy a rdfs:Property ;
+    rdfs:label "is affected by" ;
+    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range :Condition .
+
+:hasTrend a rdfs:Property ;
+    rdfs:label "has trend"@en ;
+    rdfs:domain :Context ;
+    rdfs:range :Trend .
 
 # Canada
 
@@ -96,12 +113,22 @@ cst:War a :CSTTerm ;
 # Canadian Government Context in 2025
 
 :CanadianContext2025 a schema:DefinedTerm ;
-    :isAffectedBy wiki:Polycrisis .
+    :isAffectedBy wiki:Polycrisis , :GlobalContext2025.
 
 wiki:Polycrisis a schema:DefinedTerm ;
     schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
     rdfs:label "polycrise"@fr ;
-    :includes :COVID19Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
+    :includes 
+        :COVID19Pandemic, 
+        wiki:War, 
+        wiki:Global_debt, 
+        wiki:Inflation, 
+        wiki:Climate_Change, 
+        wiki:Resource_Depletion, 
+        wiki:Social_Inequality, 
+        wiki:Artificial_Intelligence, 
+        wiki:Synthetic_Biology,  
+        wiki:Democratic_Backsliding  
 . 
 
 :MandateLetter2025 a :MandateLetter ;
@@ -119,8 +146,7 @@ wiki:Polycrisis a schema:DefinedTerm ;
     rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr;
     :incumbent :PrimeMinisterCanada24 ;
     :precededBy :PrimeMinisterCanada23 ;
-    schema:sameAs cst:Prime_Minister ;
-    cst:termNumber 3909
+    :CSTTerm cst:3909
     .
 
 :PrimeMinisterCanada24 a :PrimeMinisterCanada;
@@ -218,8 +244,17 @@ wiki:Polycrisis a schema:DefinedTerm ;
 
 # Global Context 
 
-:GlobalContext2025 a schema:DefinedTerm ; 
-    :domainIncludes :dangerous, :divided, :GeopoliticalRisk .
+:GlobalContext2025 :isAffectedBy :danger, :division ;
+    :hasTrend :RisingGeopoliticalRisk .
+
+:Danger a :Condition ;
+    rdfs:label "Danger"@en .
+
+:Division a :Condition ;
+    rdfs:label "Division"@en .
+
+:RisingGeopoliticalRisk a :Trend ;
+    rdfs:label "Rising Geopolitical Risk"@en .
 
 :NorthAmerica a schema:Continent ;
     rdfs:label "Turtle Island" ;
@@ -287,7 +322,7 @@ wiki:Government_Debt a schema:DefinedTerm ;
 
 :COVID19Pandemic a schema:DefinedTerm ; 
     schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
-    
+    :CSTTerm cst:4981
     .
 
 # Common Subjects Dictionary - Subject Category
