@@ -1,12 +1,18 @@
 PREFIX :<>
 PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
-PREFIX fr:<#fr/>
 PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 
 # Custom properties
+
+schema:Thing rdfs:subClassOf rdfs:Resource .
+
+:CSTTerm a rdfs:Class ;
+    rdfs:label "CST Term" ;
+    rdfs:comment "A term that is part of the Core Subject Thesaurus." 
+    .
 
 :isAffectedBy a rdfs:Property ;
     rdfs:label "is affected by" ;
@@ -69,7 +75,7 @@ cst:Trade a :CSTTerm ;
     .
 
 cst:War a :CSTTerm ;
-    rdfs:label "Guerre"@fr ;
+    rdfs:label "War"@en , "Guerre"@fr ;
     :subjectCategory cst:MI_Military ;
     :usedFor cst:Armed_Conflict ;
     :termNumber cst:451 ;
@@ -87,14 +93,22 @@ cst:War a :CSTTerm ;
     schema:additionalProperty :SovereigntyCanadian ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
 
-# Canadian Government Context
+# Canadian Government Context in 2025
 
 :CanadianContext2025 a schema:DefinedTerm ;
     :isAffectedBy wiki:Polycrisis .
 
+wiki:Polycrisis a schema:DefinedTerm ;
+    schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
+    rdfs:label "polycrise"@fr ;
+    :includes :COVID19Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
+. 
+
 :MandateLetter2025 a :MandateLetter ;
     schema:author :PrimeMinisterCanada24 ;
     schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
+
+# Canadian Government Context 
 
 :MandateLetter a schema:DefinedTerm, schema:HowTo ;
     schema:description "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
@@ -102,30 +116,30 @@ cst:War a :CSTTerm ;
     schema:about :Priorities.
 
 :PrimeMinisterCanada a schema:OrganizationRole ;
+    rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr;
     :incumbent :PrimeMinisterCanada24 ;
     :precededBy :PrimeMinisterCanada23 ;
-    rdfs:label "Premier ministre du Canada"@fr;
     schema:sameAs cst:Prime_Minister ;
     cst:termNumber 3909
     .
 
-:PrimeMinisterCanada24 a schema:identifier , :PrimeMinisterCanada;
-    schema:alternateName "Mark Carney" ;
+:PrimeMinisterCanada24 a :PrimeMinisterCanada;
+    rdfs:label "Mark Carney" ;
     :chairOf :MinistryCanada30 ;
     schema:memberOf :Liberal_Canada .
 
-:PrimeMinisterCanada23 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName "Justin Trudeau" ;
+:PrimeMinisterCanada23 a :PrimeMinisterCanada ;
+    rdfs:label "Justin Trudeau" ;
     :chairOf :MinistryCanada29 ;
     schema:memberOf :Liberal_Canada.
 
-:PrimeMinisterCanada22 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName "Stephen Harper" ;
+:PrimeMinisterCanada22 a :PrimeMinisterCanada ;
+    rdfs:label "Stephen Harper" ;
     :chairOf :MinistryCanada28 ;
     schema:memberOf :Conservative_Canada2 .
 
-:PrimeMinisterCanada1 a schema:identifier, :PrimeMinisterCanada ;
-    schema:alternateName "John A. Macdonald" ;
+:PrimeMinisterCanada1 a :PrimeMinisterCanada ;
+    rdfs:label "John A. Macdonald" ;
     :chairOf :MinistryCanada1, :MinistryCanada3 ;
     schema:memberOf :Liberal_Conservative_Canada .
 
@@ -208,12 +222,12 @@ cst:War a :CSTTerm ;
     :domainIncludes :dangerous, :divided, :GeopoliticalRisk .
 
 :NorthAmerica a schema:Continent ;
-    schema:alternateName "Turtle Island" ;
+    rdfs:label "Turtle Island" ;
     schema:containedInPlace :Earth .
 
 :Earth a schema:Place ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
-    schema:alternateName "World" .
+    rdfs:label "World" .
 
 :InternationalOrganization a schema:Consortium .
 
@@ -231,7 +245,7 @@ wiki:State a wiki:Polity .
 
 :Policy a schema:DefinedTerm ; 
     schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    schema:alternateName "Public Policy" ;
+    rdfs:label "Public Policy" ;
     schema:description "what governments choose to do, or not do" .
 
 :SovereigntyCanadian a :SovereigntyWestphalian ;
@@ -265,26 +279,25 @@ wiki:State a wiki:Polity .
     schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
     cst:Subject cst:Trade .
 
-wiki:Polycrisis a schema:DefinedTerm ;
-    schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
-    rdfs:label "polycrise"@fr ;
-    :includes wiki:COVID19_Pandemic, wiki:War, wiki:Global_debt, wiki:Inflation, wiki:Climate_Change, wiki:Resource_Depletion, wiki:Social_Inequality, wiki:Artificial_Intelligence, wiki:Synthetic_Biology,  wiki:Democratic_Backsliding  
-. 
-
 wiki:Global_debt a schema:DefinedTerm ;
     schema:domainIncludes wiki:Government_Debt .
 
 wiki:Government_Debt a schema:DefinedTerm ; 
-    schema:alternateName "National Debt" .
+    rdfs:label "National Debt" .
+
+:COVID19Pandemic a schema:DefinedTerm ; 
+    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
+    
+    .
 
 # Common Subjects Dictionary - Subject Category
 
 :subjectCategory a schema:DefinedTerm ;
-    schema:name "Subject Category" ;
+    rdfs:label "Subject Category" ;
     schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHSCAT&searchString=SC&lang=ENG"
     .
 cst:MI_Military a :subjectCategory ;
-    schema:name "MI Military" ;
+    rdfs:label "MI Military" ;
     schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
     .
 
@@ -296,7 +309,7 @@ wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
     :represented wiki:Iron_Curtain .
 
 wiki:Fall_of_the_Berlin_Wall a schema:event ;
-    schema:name "Fall of the Berlin Wall" ;
+    rdfs:label "Fall of the Berlin Wall" ;
     schema:location wiki:Berlin_Wall ;
     schema:instrument :SovietUnionCollapse 
     .
