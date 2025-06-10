@@ -4,6 +4,7 @@ PREFIX wiki:<https://en.wikipedia.org/wiki/>
 PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX gc:<https://www.canada.ca/#>
 
 # Custom properties - metadata
 
@@ -65,17 +66,19 @@ wiki:State a wiki:Polity , schema:Country .
     schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
     cst:Subject cst:Trade .
 
-wiki:Global_debt a schema:financialProduct ;
-    schema:sameAs wiki:Government_Debt .
+wiki:Global_debt a schema:financialProduct .
 
 wiki:Government_Debt a schema:financialProduct ; 
-    schema:sameAs "National Debt" .
+    rdfs:label "National Debt" , "Government Debt" .
+
+:Governance a schema:OrganizeAction ;
+    schema:description "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
+    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
 
 # Major historic events
 
 wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
-    schema:location :Berlin , :WestBerlin, :EastBerlin, :WestGermany , :EastGermany ;
-    :represented wiki:Iron_Curtain .
+    schema:location wiki:Berlin .
 
 wiki:Fall_of_the_Berlin_Wall a schema:event ;
     rdfs:label "Fall of the Berlin Wall" ;
@@ -89,7 +92,7 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
 
 :COVID19Pandemic a schema:event ; 
     schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
-    :CSTTerm cst:4981
+    :subject cst:4981
     .
 
 # Global Context 
@@ -128,6 +131,8 @@ wiki:Polycrisis a schema:DefinedTerm ;
 :Earth a schema:Place ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
     rdfs:label "World" .
+
+# International Relations
 
 :InternationalOrganization a schema:Organization .
 
@@ -253,7 +258,7 @@ cst:4981 a :CSTTerm ;
     rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr;
     :incumbent :PrimeMinisterCanada24 ;
     :precededBy :PrimeMinisterCanada23 ;
-    :CSTTerm cst:3909
+    :subject cst:3909
     .
 
 :PrimeMinisterCanada24 a :PrimeMinisterCanada;
@@ -288,6 +293,17 @@ cst:4981 a :CSTTerm ;
 
 :MinistryCanada30 a :MinistryCanada .
 
+:mandate a schema:DefinedTerm ;
+    schema:additionalClass :DeptAgencyMandate ;
+    schema:additionalClass :SectorMandate ;
+    schema:additionalClass :BranchMandate ;
+    schema:additionalClass :DivisionMandate ;
+    schema:additionalClass :ProgramMandate ;
+    schema:additionalClass :TeamMandate .
+
+:Results a schema:Intangible ;
+    schema:subjectOf gc:DepartmentalResultsReport .
+
 :DeliverResultsForCanadians a schema:OrganizeAction ;
     schema:agent :MinistryCanada ;
     schema:provider :DepartmentsAgencies ;
@@ -295,6 +311,41 @@ cst:4981 a :CSTTerm ;
     schema:result :Results ;
     schema:audience :Canadian ;
     schema:instrument :Policy .
+
+:DeliverServices a schema:OrganizeAction .
+
+:DeliverPrograms a schema:OrganizeAction .
+
+# linkages to policy suite
+gc:EAframework 
+    a schema:CreativeWork ;
+    schema:name "Government of Canada Enterprise Architecture Framework" ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" ;
+    schema:subject gc:EnterpriseArchitecture .
+gc:DataInfoManagement 
+    a schema:CreativeWork ;
+    schema:name "Data and Information Management";
+    schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
+    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
+    schema:subject gc:DataAndInfo .
+gc:EXJobStandard2022 a schema:CreativeWork;
+    schema:name "Executive (EX) Group Job Evaluation Standard 2022";
+    schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
+gc:GlossaryDS23 a schema:DefinedTermSet;
+    schema:name "Data Strategy for the Federal Public Service - Annexes";
+    schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
+    schema:subject gc:DataAndInfo .
+gc:GuidanceMetadataNeeds a schema:CreativeWork ;
+    schema:name "Guidance on Assessing Metadata Needs" ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" ;
+    schema:subject gc:Metadata .
+gc:GuidanceDataQuality a schema:CreativeWork ;
+    schema:name "Guidance on Data Quality" ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" ;
+    schema:subject gc:DataQuality .
+gc:ServiceDigitalDefs a schema:DefinedTermSet ;
+    schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA".
 
 # Federal Political Parties in Canada
 
@@ -352,6 +403,28 @@ cst:4981 a :CSTTerm ;
 
 #GC Information, Data, and AI context
 
+:DataAndInfo a :Asset .
+
+:Asset a schema:Thing ;
+    schema:description "any resource owned or controlled by a business or an economic entity" ;
+    schema:subjectOf "https://en.wikipedia.org/wiki/Asset"
+    .
+
+gc:Data a schema:Intangible ;
+    schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
+    schema:inDefinedTermSet gc:ServiceDigitalDefs ;
+    a gc:Information .
+
+gc:Information a schema:Intangible ;
+    schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
+    schema:inDefinedTermSet gc:ServiceDigitalDefs .
+
+gc:BusinessValueDI a schema:Intangible ;
+    a gc:DataAndInfo ;
+    schema:name "Information and data of business value" ;
+    schema:description "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
+    schema:disambiguatingDescription "Any information and data that is not identified as having business value is considered transitory." .
+
 # Global Context 2025
 
 :GlobalContext2025 a :Context ;
@@ -382,5 +455,6 @@ cst:4981 a :CSTTerm ;
     schema:isPartOf :DeliverResultsForCanadians
     .
 
-:MinistryCanada30 :hasResponsibility :Priorities2025 ;
-    schema:instrument "focus, determination, and fundamentally different approaches to governing".
+:MinistryCanada30 :hasResponsibility :Priorities2025 , :Governance ;
+    schema:instrument "focus, determination, and fundamentally different approaches to governing" 
+    .

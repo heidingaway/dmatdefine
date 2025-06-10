@@ -32,14 +32,14 @@ gc:Metadata a schema:DefinedTerm , gc:DataAndInfo .
 gc:Governance a schema:DefinedTerm ;
     schema:description "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
     schema:inDefinedTermSet "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
-gc:Data a schema:DefinedTerm ;
+gc:Data a schema:Intangible ;
     schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
     schema:inDefinedTermSet gc:ServiceDigitalDefs ;
     a gc:Information .
-gc:Information a schema:DefinedTerm ;
+gc:Information a schema:Intangible ;
     schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
     schema:inDefinedTermSet gc:ServiceDigitalDefs .
-gc:BusinessValueDI a schema:DefinedTerm ;
+gc:BusinessValueDI a schema:Intangible ;
     a gc:DataAndInfo ;
     schema:name "Information and data of business value" ;
     schema:description "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
