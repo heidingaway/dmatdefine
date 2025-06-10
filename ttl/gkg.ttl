@@ -248,6 +248,16 @@ cst:4981 a :CSTTerm ;
 :SovereigntyCanadian a :SovereigntyWestphalian ;
     schema:additionalType :SovereigntyDeFacto , :SovereigntyDeJure .
 
+# define the role of the crown 
+
+:Crown 
+    rdfs:label "Monarch"@en , "The Crown"@en ;
+    schema:owns :CrownAsset ;
+    gc:holds :CrownAuthority ;
+    gc:delegates :CrownAuthority .
+
+gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
+
 # Canadian Government Context 
 
 :MandateLetter a schema:HowTo ;
@@ -415,7 +425,7 @@ gc:ServiceDigitalDefs a schema:DefinedTermSet ;
     .
 
 :DeputyHead a :PublicServant , schema:organizationRole ;
-    :heads :DepartmentsAgencies .
+    :heads :DepartmentsAgencies ;
     gc:Stewards gc:CrownAsset ;
     schema:agent gc:DeliverMandate ;
     schema:employee gc:PublicServant .
