@@ -25,9 +25,10 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     rdfs:domain rdfs:Resource ;
     rdfs:range :Problem .
 
-:Context a rdfs:Property ;
+:Context a rdfs:Class ;
     rdfs:label "context" ;
-    rdfs:comment "more generic than 'event' or 'problem', background to something/a resource".
+    rdfs:comment "A general background condition or situation that influences or frames a resource."
+    .
 
 # Key Political Science Terms and Concepts
 
@@ -35,7 +36,7 @@ wiki:State a wiki:Polity , schema:Country .
 
 :Policy a schema:OrganizeAction ; 
     schema:domainIncludes :Carrots, :Sticks, :Sermon ;
-    schema:name "Public Policy" ;
+    rdfs:label "Public Policy" ;
     schema:description "what governments choose to do, or not do" .
 
 :Sovereignty a schema:Intangible ;
@@ -250,11 +251,12 @@ cst:4981 a :CSTTerm ;
 # Canadian Government Context 
 
 :MandateLetter a schema:HowTo ;
+    rdfs:label "Mandate Letter"@en , "Lettre de mandat"@fr ;
     schema:description "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
     schema:author :PrimeMinisterCanada ;
     schema:about :Priorities.
 
-:PrimeMinisterCanada a schema:OrganizationRole ;
+:PrimeMinisterCanada a schema:organizationRole ;
     rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr;
     :incumbent :PrimeMinisterCanada24 ;
     :precededBy :PrimeMinisterCanada23 ;
@@ -302,9 +304,9 @@ cst:4981 a :CSTTerm ;
     schema:additionalClass :TeamMandate .
 
 :Results a schema:Intangible ;
-    schema:subjectOf gc:DepartmentalResultsReport .
+    schema:subjectOf :DepartmentalResultsReport .
 
-:DeliverResultsForCanadians a schema:OrganizeAction ;
+:DeliverResultsForCanadians a schema:OrganizeAction , :DeliverMandate ;
     schema:agent :MinistryCanada ;
     schema:provider :DepartmentsAgencies ;
     schema:actionProcess :MandateLetter ;
@@ -312,38 +314,39 @@ cst:4981 a :CSTTerm ;
     schema:audience :Canadian ;
     schema:instrument :Policy .
 
-:DeliverServices a schema:OrganizeAction .
+:DeliverServices a schema:OrganizeAction ;
+    schema:isPartOf :DeliverResultsForCanadians .
 
-:DeliverPrograms a schema:OrganizeAction .
+:DeliverPrograms a schema:OrganizeAction ;
+    schema:isPartOf :DeliverResultsForCanadians .
 
 # linkages to policy suite
+
 gc:EAframework 
     a schema:CreativeWork ;
-    schema:name "Government of Canada Enterprise Architecture Framework" ;
+    rdfs:label "Government of Canada Enterprise Architecture Framework" ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" ;
-    schema:subject gc:EnterpriseArchitecture .
-gc:DataInfoManagement 
-    a schema:CreativeWork ;
-    schema:name "Data and Information Management";
-    schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
-    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
-    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
-    schema:subject gc:DataAndInfo .
+    schema:subject :EnterpriseArchitecture .
+
 gc:EXJobStandard2022 a schema:CreativeWork;
-    schema:name "Executive (EX) Group Job Evaluation Standard 2022";
+    rdfs:label "Executive (EX) Group Job Evaluation Standard 2022";
     schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
+
 gc:GlossaryDS23 a schema:DefinedTermSet;
-    schema:name "Data Strategy for the Federal Public Service - Annexes";
+    rdfs:label "Data Strategy for the Federal Public Service - Annexes";
     schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
-    schema:subject gc:DataAndInfo .
+    schema:subject :DataAndInfo .
+
 gc:GuidanceMetadataNeeds a schema:CreativeWork ;
-    schema:name "Guidance on Assessing Metadata Needs" ;
+    rdfs:label "Guidance on Assessing Metadata Needs" ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" ;
-    schema:subject gc:Metadata .
+    schema:subject :Metadata .
+
 gc:GuidanceDataQuality a schema:CreativeWork ;
-    schema:name "Guidance on Data Quality" ;
+    rdfs:label "Guidance on Data Quality" ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" ;
-    schema:subject gc:DataQuality .
+    schema:subject :DataQuality .
+
 gc:ServiceDigitalDefs a schema:DefinedTermSet ;
     schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA".
 
@@ -371,11 +374,11 @@ gc:ServiceDigitalDefs a schema:DefinedTermSet ;
     :succeededBy :Conservative_Canada2 .
 
 :Conservative_Canada2 a schema:PoliticalParty; 
-    rdfs:label "Parti conservateur du Canada"@fr ;
+    rdfs:label "Conservative Party of Canada"@en , "Parti conservateur du Canada"@fr ;
     schema:foundingDate 2003 .
 
 :Liberal_Canada a schema:PoliticalParty ;
-    rdfs:label "Parti liberal du Canada"@fr ;
+    rdfs:label "Liberal Party of Canada"@en , "Parti liberal du Canada"@fr ;
     schema:foundingDate 1867 .
 
 :Liberal_Unionist_Canada a schema:PoliticalParty ;
@@ -400,28 +403,65 @@ gc:ServiceDigitalDefs a schema:DefinedTermSet ;
 :Green_Canada a schema:PoliticalParty ;
     schema:foundingDate 1983 .
 
+# Departments and Agencies
+
+:DepartmentsAgencies a schema:GovernmentOrganization .
+
+# Federal Public Service Roles
+
+:FederalPublicService a schema:GovernmentOrganization .
+
+:ClerkPrivyCouncil a :PublicServant , schema:organizationRole
+    .
+
+:DeputyHead a :PublicServant , schema:organizationRole ;
+    :heads :DepartmentsAgencies .
+    gc:Stewards gc:CrownAsset ;
+    schema:agent gc:DeliverMandate ;
+    schema:employee gc:PublicServant .
+
+gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
+    schema:description "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" .
+
+:PublicServant a schema:Employee .
+
+:EXPublicServant a :PublicServant .
 
 #GC Information, Data, and AI context
 
 :DataAndInfo a :Asset .
+
+:DataInfoManagement 
+    a schema:OrganizeAction ;
+    rdfs:label "Data and Information Management";
+    schema:description "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
+    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
+    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
+    schema:subject :DataAndInfo ;
+    schema:isPartOf :EnterpriseArchitecture
+    .
+
+:EnterpriseArchitecture schema:subjectOf gc:EAframework.
+
+gc:DataGovernance a gc:Governance .
 
 :Asset a schema:Thing ;
     schema:description "any resource owned or controlled by a business or an economic entity" ;
     schema:subjectOf "https://en.wikipedia.org/wiki/Asset"
     .
 
-gc:Data a schema:Intangible ;
+:Data a schema:Intangible ;
     schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
     schema:inDefinedTermSet gc:ServiceDigitalDefs ;
-    a gc:Information .
+    schema:isPartOf :Information .
 
-gc:Information a schema:Intangible ;
+:Information a schema:Intangible ;
     schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
     schema:inDefinedTermSet gc:ServiceDigitalDefs .
 
-gc:BusinessValueDI a schema:Intangible ;
-    a gc:DataAndInfo ;
-    schema:name "Information and data of business value" ;
+:BusinessValueDI a schema:Intangible ;
+    schema:isPartOf :DataAndInfo ;
+    rdfs:label "Information and data of business value" ;
     schema:description "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
     schema:disambiguatingDescription "Any information and data that is not identified as having business value is considered transitory." .
 
@@ -439,8 +479,8 @@ gc:BusinessValueDI a schema:Intangible ;
 :CanadianContext2025 a :Context ;
     :isAffectedBy :GlobalContext2025 ;
     :hasProblem 
-        :threatSovereigntyCanadian,
-        :globalTradetransform ,
+        :SovereigntyCanadianThreatened,
+        :GlobalTradeSystemTransformation ,
         :longStandingLowProductivity ,
         :strainedGovernmentFinances ,
         :affordabilityCrisis ,
@@ -448,10 +488,14 @@ gc:BusinessValueDI a schema:Intangible ;
     .
 
 :MandateLetter2025 a :MandateLetter ;
+    rdfs:label "Mandate Letter (2025)"@en , "Lettre de mandat (2025)"@fr ;
     schema:author :PrimeMinisterCanada24 ;
+    schema:dateCreated "2025-05-21" ;
     schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
 
-:Priorities2025 :addresses :CanadianContext2025 ;
+:Priorities2025 a :Context ;
+    :addresses :CanadianContext2025 ;
+    rdfs:label "Government Priorities 2025" ;
     schema:isPartOf :DeliverResultsForCanadians
     .
 
