@@ -439,6 +439,8 @@ gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
 
 #GC Information, Data, and AI context
 
+:Asset a schema:Thing .
+
 :DataAndInfo a :Asset .
 
 :DataInfoManagement 

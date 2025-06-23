@@ -1,0 +1,12 @@
+PREFIX :<>
+PREFIX schema:<http://www.schema.org/>
+PREFIX wiki:<https://en.wikipedia.org/wiki/>
+PREFIX cst:<https://canada.multites.net/cst/#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX gc:<https://www.canada.ca/#>
+
+gc:MDRS a schema:CreativeWork ;
+    rdfs:label "Operational Standard for Digital Archival Records’ Metadata" ;
+    schema:identifier "https://library-archives.canada.ca/eng/services/government-canada/information-disposition/managing-government-records/guidelines-information-management/Pages/operational-standard-digital-archival-records-metadata.aspx" 
+    .
