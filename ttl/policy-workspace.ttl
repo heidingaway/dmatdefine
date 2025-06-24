@@ -8,5 +8,92 @@ PREFIX gc:<https://www.canada.ca/#>
 
 gc:MDRS a schema:CreativeWork ;
     rdfs:label "Operational Standard for Digital Archival Records’ Metadata" ;
-    schema:identifier "https://library-archives.canada.ca/eng/services/government-canada/information-disposition/managing-government-records/guidelines-information-management/Pages/operational-standard-digital-archival-records-metadata.aspx" 
+    schema:identifier "https://library-archives.canada.ca/eng/services/government-canada/information-disposition/managing-government-records/guidelines-information-management/Pages/operational-standard-digital-archival-records-metadata.aspx" ;
+    :authorizedBy :LAC_GovtRecordDG
+    .
+
+# Library and Archives Act & definitions
+
+gc:LACAct a schema:CreativeWork ;
+    rdfs:label "Library and Archives of Canada Act" ;
+    schema:identifier "https://laws-lois.justice.gc.ca/eng/acts/L-7.7/" .
+
+gc:LACActDef a schema:DefinedTermSet ; 
+    schema:subjectOf "https://laws-lois.justice.gc.ca/eng/acts/L-7.7/page-1.html#h-345213" ;
+    :source gc:LACAct
+    .
+
+gc:LACActDef1 a schema:DefinedTerm ;
+    rdfs:label "documentary heritage"@en, "patrimoine documentaire"@fr ;
+    schema:description "publications and records of interest to Canada" ;
+    schema:inDefinedTermSet gc:LACActdef ;
+    :subject cst:1363
+    .
+
+gc:LACActDef2 a schema:DefinedTerm ;
+    rdfs:label "government institution"@en , "institution fédérale"@fr ;
+    schema:description "the same meaning as in section 3 of the Access to Information Act or in section 3 of the Privacy Act or means an institution designated by the Governor in Council." ;
+    schema:sameAs gc:ATIActDef6
+    .
+
+gc:LACActDef3 a schema:DefinedTerm ;
+    rdfs:label "government record"@en, "document fédéral"@fr ;
+    schema:description "a record that is under the control of a government institution." ;
+    :narrowerTerm gc:LACActDef6 .
+
+gc:LACActDef4 a schema:DefinedTerm ;
+    rdfs:label "Librarian and Archivist"@en ;
+    rdfs:comment "term is in English only" ;
+    schema:description "the Librarian and Archivist of Canada appointed under subsection 5(1) [of the Library and Archives Act]" ;
+    schema:additionalType :DeputyHead
+    .
+
+gc:LACActDef5 a schema:DefinedTerm ;
+    rdfs:label "Minister"@en, "ministre"@fr ;
+    schema:description "the member of the Queen’s Privy Council for Canada who is designated by the Governor in Council as the Minister for the purposes of this Act." ;
+    :subject cst:1263 
+    .
+
+gc:LACActDef6 a schema:DefinedTerm ;
+    rdfs:label "ministerial record"@en, "document ministériel"@fr ;
+    schema:description "a record of a member of the Queen’s Privy Council for Canada who holds the office of a minister and that pertains to that office, other than a record that is of a personal or political nature or that is a government record." 
+    .
+
+gc:LACActDef7 a schema:DefinedTerm ;
+    rdfs:label "publication"@en, "publication"@fr ;
+    schema:description "any library matter that is made available in multiple copies or at multiple locations, whether without charge or otherwise, to the public generally or to qualifying members of the public by subscription or otherwise. Publications may be made available through any medium and may be in any form, including printed material, on-line items or recordings." 
+    .
+
+gc:LACActDef8 a schema:DefinedTerm ;
+    rdfs:label "record"@en, "document"@fr ;
+    schema:description " any documentary material other than a publication, regardless of medium or form." 
+    .
+# Access to Information Act & definitions
+
+gc:ATIAct a schema:Legislation ; 
+    rdfs:label "Access to Information Act"@en , "Loi sur l’accès à l’information"@fr , "" ;
+    schema:identifier "https://laws-lois.justice.gc.ca/eng/acts/a-1/" 
+.
+
+gc:ATIActDef a schema:DefinedTermSet ; 
+    schema:subjectOf "https://laws-lois.justice.gc.ca/eng/acts/a-1/page-1.html#h-189" ;
+    :source gc:ATIAct
+    .
+
+gc:ATIActDef6 a schema:DefinedTerm ;
+    rdfs:label "government institution"@en, "institution fédérale"@fr ;
+    schema:description "(a) any department or ministry of state of the Government of Canada, or any body or office, listed in Schedule I, and (b) any parent Crown corporation, and any wholly-owned subsidiary of such a corporation, within the meaning of section 83 of the Financial Administration Act;" ;
+    :source gc:ATIActDef
+    .
+
+# Privacy Act & definitions
+
+gc:PrivacyAct a schema:Legislation ; 
+    rdfs:label "Access to Information Act"@en , "Loi sur l’accès à l’information"@fr , "" ;
+    schema:identifier "https://laws-lois.justice.gc.ca/eng/acts/a-1/" 
+.
+
+gc:PrivayActDef a schema:DefinedTermSet ; 
+    schema:subjectOf "https://laws-lois.justice.gc.ca/eng/ACTS/P-21/page-1.html#h-397182" ;
+    :source gc:PrivacyAct
     .

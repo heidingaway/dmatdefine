@@ -5,6 +5,7 @@ PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX gc:<https://www.canada.ca/#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 
 # Custom properties - metadata
 
@@ -65,7 +66,7 @@ wiki:State a wiki:Polity , schema:Country .
 :GlobalTradeSystem a schema:Intangible ;
     :governedBy :WorldTradeOrganization ;
     schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
-    cst:Subject cst:Trade .
+    cst:Subject cst:1618 .
 
 wiki:Global_debt a schema:financialProduct .
 
@@ -98,7 +99,7 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
 
 # Global Context 
 
-wiki:Polycrisis a schema:DefinedTerm ;
+wiki:Polycrisis a schema:Intangible ;
     schema:description "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
     rdfs:label "polycrise"@fr ;
     :includes 
@@ -147,7 +148,7 @@ wiki:Polycrisis a schema:DefinedTerm ;
     
 # GC Core Subject Thesaurus 
 
-:GCCST a schema:DefinedTermSet ;
+:GCCST a skos:ConceptScheme ;
     rdfs:label "Government of Canada Core Subject Thesaurus"@en , "Thésaurus des sujets de base du gouvernement du Canada"@fr ;
     schema:subjectOf "https://canada.multites.net/cst/def.asp?lang=En&n=0073D232-1"
     .
@@ -155,49 +156,13 @@ wiki:Polycrisis a schema:DefinedTerm ;
 :CSTTerm a rdfs:Class ;
     rdfs:label "CST Term" ;
     rdfs:comment "A term that is part of the Core Subject Thesaurus." ;
-    schema:inDefinedTermSet :GCCST
+    skos:inScheme :GCCST
     .
 
 :subjectCategory a rdfs:Property ;
     rdfs:label "Subject Category" ;
     rdfs:domain :CSTTerm ;
     rdfs:range rdfs:Resource .
-
-:usedFor a rdfs:Property ;
-    rdfs:label "Used For" ;
-    rdfs:comment "Term used in indexing to represent a given concept. Also called descriptor. In the alphabetical list of results, preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:use a rdfs:Property ;
-    rdfs:label "Use" ;
-    rdfs:comment "Synonym, quasi-synonym or spelling variant of a preferred term. A non-preferred term, also called synonym, non-descriptor, entry term or lead-in term, should not be used for indexing. Its role is to point users to the preferred term (the one that should be used in indexing). In the alphabetical list of results, non-preferred terms of the Government of Canada Core Subject Thesaurus appear in boldface and italics. In term records, the relationship between preferred terms and non-preferred terms is shown by the reciprocal references 'Use' and 'Used for'." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:narrowerTerm a rdfs:Property ;
-    rdfs:label "narrower term" ;
-    rdfs:comment "Preferred term representing a concept narrower in scope and that is subordinate to one or more broader terms in a hierarchy. A narrower term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:broaderTerm a rdfs:Property ;
-    rdfs:label "broader term" ;
-    rdfs:comment "Preferred term representing a concept broader in scope and to which one or more narrower terms are subordinate in a hierarchy. A broader term is normally in a 'genus/species' or 'whole/part' relationship to the preferred term of the record." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:relatedTerm a rdfs:Property ;
-    rdfs:label "related term" ;
-    rdfs:comment "Preferred term that is mentally associated with another preferred term, but that is not part of the same hierarchy." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-:scopeNote a rdfs:Property ;
-    rdfs:label "scope note" ;
-    rdfs:comment "Note specifying the meaning of a preferred term or defining its usage limitations for the purpose of indexing." ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .   
 
 # Common Subjects Dictionary - Subject Category
 
@@ -206,32 +171,110 @@ cst:MI_Military a :subjectCategory ;
     schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
     .
 
+cst:EC_EconIndustry a :subjectCategory ;
+    rdfs:label "EC Economics and Industry" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=EC+Economics+and+Industry&op=SRCHRELCONTAINS"
+    .
+
+cst:GV_GovernmentPolitics a :subjectCategory ;
+    rdfs:label "GV Government and Politics" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+GV+Government+and+Politics&lang=ENG" 
+    .
+
+cst:ST_ScienceTech a :subjectCategory ;
+    rdfs:label "ST Science and Technology" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=ST+Science+and+Technology&op=SRCHRELCONTAINS"
+    .
+
+cst:PE_Persons a :subjectCategory ;
+    rdfs:label "PE Persons" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+PE+Persons&lang=ENG"
+    .
+
+cst:PR_Process a :subjectCategory ;
+    rdfs:label "PR Process" ;
+    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=PR+Processes&op=SRCHRELCONTAINS"
+    .
+
 # Common Subjects Dictionary - Subjects 
 
 cst:451 a :CSTTerm ;
-    rdfs:label "War"@en , "Guerre"@fr ;
+    skos:prefLabel "War"@en , "Guerre"@fr ;
     :subjectCategory cst:MI_Military ;
-    :usedFor cst:Armed_Conflict ;
-    schema:sameAs wiki:War 
+    skos:altLabel "Armed_Conflict"
     .
 
+cst:1363 a :CSTTerm ; 
+    skos:prefLabel "Records management"@en , "Gestion des documents"@fr ;
+    :subjectCategory cst:IN_InfoComms
+    .
 cst:1263 a :CSTTerm ;
-    rdfs:label "Ministers"@en , "Ministre"@fr ;
+    skos:prefLabel "Ministers"@en , "Ministre"@fr ;
     :subjectCategory cst:GV_GovernmentPolitics , cst:PE_Persons 
     .
 
 cst:1618 a :CSTTerm ;
-    rdfs:label "Trade"@en , "Commerce"@fr ;
+    skos:prefLabel "Trade"@en , "Commerce"@fr ;
+    :subjectCategory cst:EC_EconIndustry
     .
 
 cst:3909 a :CSTTerm ;
-    rdfs:label "Prime Minister"@en , "Premier ministre"@fr ;
+    skos:prefLabel "Prime Minister"@en , "Premier ministre"@fr ;
     :subjectCategory cst:GV_GovernmentPolitics, cst:PE_Persons
     .
 
 cst:4981 a :CSTTerm ;
-    rdfs:label "Coronavirus diseases"@en , "Maladie à coronavirus"@fr ;
-    :scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
+    skos:prefLabel "Coronavirus diseases"@en , "Maladie à coronavirus"@fr ;
+    skos:scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
+    .
+cst:767 a :CSTTerm ;
+    skos:prefLabel "Artificial intelligence"@en, "Intelligence artificielle"@fr ;
+    skos:altLabel "Computational intelligence"@en , "Machine intelligence"@en ;
+    skos:related cst:770, cst:771, "Intelligent systems", "Robotics"  
+    .
+
+cst:770 a :CSTTerm ;
+    skos:prefLabel "Automation"@en, "Automatisation"@fr;
+    skos:altLabel "Computerization"@en ;
+    skos:narrower "Office automation", "Workplace automation"
+    .
+
+cst:771 a :CSTTerm ;
+    skos:prefLabel "Information technology"@en, "Technologie de l'information"@fr ;
+    skos:broader "Technology" ;
+    skos:related cst:770, "Chief Information Officer", "Computer networks", "Data processing", "Electronic data interchange", "Information", "Information management", "Information systems", "Intelligent systems", "Multimedia", "Social media", "Telecommunications", "Templates"
+    .
+
+cst:4909 a :CSTTerm ;
+    skos:prefLabel "Chief Information Officer"@en, "Dirigeant principal de l'information"@fr ;
+    skos:altLabel "CIO" ;
+    skos:related cst:771  ;
+    :subjectCategory cst:IN_InfoComms, cst:PE_Persons, cst:ST_ScienceTech 
+    .
+
+cst:1718 a :CSTTerm ;
+    skos:prefLabel "Software"@en , "Logiciel"@fr ;
+    skos:altLabel "Computer programmes", "Computer programs", "Computer software" ;
+    :subjectCategory cst:ST_ScienceTech
+    .
+
+cst:1740 a :CSTTerm ;
+    skos:prefLabel "Systems"@en , "Système"@fr ;
+    skos:scopeNote "An organized set of procedures, doctrines, ideas, principles, or organizations usually intended to explain the arrangement or working of a whole." ;
+    :subjectCategory cst:PR_Process
+    .
+
+cst:884 a :CSTTerm ;
+    skos:broader cst:1740 ;
+    skos:prefLabel "Information systems"@en, "Système d'information"@fr ;
+    skos:altLabel "Automated information systems", "Computerized information systems", "Electronic information systems", "Information storage and retrieval systems" ;
+    :subjectCategory cst:IN_InfoComms, cst:ST_ScienceTech 
+    .
+
+cst:1522 a :CSTTerm ;
+    skos:prefLabel "Clients"@en, "Client"@fr ;
+    skos:altLabel "Customers"@en ;
+    :subjectCategory cst:EC_EconIndustry, cst:PE_Persons
     .
 
 # Canada
@@ -293,7 +336,13 @@ gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
     :chairOf :MinistryCanada1, :MinistryCanada3 ;
     schema:memberOf :Liberal_Conservative_Canada .
 
-:MinistryCanada schema:subOrganization :GovernmentCanada .
+:MinistryCanada a schema:GovernmentOrganization ;
+    schema:subOrganization :KingPrivyCouncilCanada ; 
+    skos:prefLabel "Canadian Ministry"@en , "Le Conseil des ministres"@fr ;
+    skos:altLabel "Cabinet"@en , "le Cabinet"@fr .
+
+:KingPrivyCouncilCanada a schema:GovernmentOrganization ;
+    schema:subOrganization :GovernmentCanada.
 
 :MinistryCanada1 a :MinistryCanada .
 
@@ -305,7 +354,7 @@ gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
 
 :MinistryCanada30 a :MinistryCanada .
 
-:mandate a schema:DefinedTerm ;
+:mandate a schema:Intangible ;
     schema:additionalClass :DeptAgencyMandate ;
     schema:additionalClass :SectorMandate ;
     schema:additionalClass :BranchMandate ;
@@ -318,7 +367,7 @@ gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
 
 :DeliverResultsForCanadians a schema:OrganizeAction , :DeliverMandate ;
     schema:agent :MinistryCanada ;
-    schema:provider :DepartmentsAgencies ;
+    schema:provider gc:DepartmentsAgencies ;
     schema:actionProcess :MandateLetter ;
     schema:result :Results ;
     schema:audience :Canadian ;
@@ -342,7 +391,7 @@ gc:EXJobStandard2022 a schema:CreativeWork;
     rdfs:label "Executive (EX) Group Job Evaluation Standard 2022";
     schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
 
-gc:GlossaryDS23 a schema:DefinedTermSet;
+gc:GlossaryDS23 a skos:ConceptScheme;
     rdfs:label "Data Strategy for the Federal Public Service - Annexes";
     schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
     schema:subject :DataAndInfo .
@@ -357,8 +406,81 @@ gc:GuidanceDataQuality a schema:CreativeWork ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" ;
     schema:subject :DataQuality .
 
-gc:ServiceDigitalDefs a schema:DefinedTermSet ;
+gc:ServiceDigitalDefs a skos:ConceptScheme ;
     schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA".
+
+# Service and Digital - Definitions
+
+gc:ServiceDigitalDefs1 a skos:Concept ;
+    skos:prefLabel "Applications"@en , "Applications"@fr ;
+    skos:definition "Subclass of software that employs the capabilities of an electronic device directly and thoroughly for a task that the user wishes to perform."@en ;
+    skos:inScheme gc:ServiceDigitalDefs ;
+    :subject cst:1718
+    .
+
+gc:ServiceDigitalDefs2 a skos:Concept ;
+    skos:prefLabel "Artificial Intelligence"@en , "Intelligence artificielle"@fr ;
+    skos:definition "Information technology that performs tasks that would ordinarily require biological brainpower to accomplish, such as making sense of spoken language, learning behaviours, or solving problems."@en ;
+    skos:inScheme gc:ServiceDigitalDefs ;
+    :subject cst:767
+    .
+
+gc:ServiceDigitalDefs3 a skos:Concept ;
+    skos:prefLabel "Automated Decision System"@en , "Système décisionnel automatisé"@fr ;
+    skos:definition "Includes any technology that either assists or replaces the judgement of human decision-makers. These systems draw from fields like statistics, linguistics, and computer science, and use techniques such as rules-based systems, regression, predictive analytics, machine learning, deep learning, and neural nets."@en ;
+    skos:inScheme gc:ServiceDigitalDefs ;
+    :subject cst:884
+    .
+
+gc:ServiceDigitalDefs4 a skos:Concept ;
+    skos:prefLabel "Client"@en , "Client"@fr ;
+    skos:definition "Individuals, businesses or their representatives served by or using either internal or external services provided by the Government of Canada. When describing interactions with information technologies, clients can be referred to as users."@en ;
+    skos:inScheme gc:ServiceDigitalDefs ;
+    :subject cst:1522
+    .
+
+gc:ServiceDigitalDefs5 a skos:Concept ;
+    skos:prefLabel "Client-centric"@en , "Axé sur les clients"@fr ;
+    skos:definition "An approach that focuses on addressing client or user expectations, needs, challenges and feedback. It enables the creation of a positive experience for the client or user, considering a broad range of factors such as access, inclusion, accessibility, security, privacy, simplicity, and choice of official language."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs6 a skos:Concept ;
+    skos:prefLabel "Client feedback"@en, "Rétroaction du client"@fr ;
+    skos:definition "Information coming directly from recipients of services about the satisfaction or dissatisfaction they feel with a service or product, and is a critical part of service improvement. It can take several forms, including: in-service client feedback, client satisfaction surveys, user experience testing, and consultations."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs7 a skos:Concept ;
+    skos:prefLabel "COBIT"@en , "COBIT"@fr ;
+    skos:definition "Stands for 'Control Objectives for Information and related Technology' and represents a set of best practices that provide guidance for the management of IT processes. (Source: IT Governance Institute)"@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs8 a skos:Concept ;
+    skos:prefLabel "Cyber security"@en , "Cybersécurité"@fr ;
+    skos:definition "The body of technologies, processes, practices and response and mitigation measures designed to protect electronic information and information infrastructure from mischief, unauthorized use, or disruption."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs9 a skos:Concept ;
+    skos:prefLabel "Data"@en , "Données"@fr ;
+    skos:definition "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs10 a skos:Concept ;
+    skos:prefLabel "Devices"@en , "Dispositifs"@fr ;
+    skos:definition "Electronic tools that can include, but are not limited to, the following: desktop workstations, laptops, notebooks, tablets, cellphones, peripherals such as printers and scanners, memory drives, CD/DVD drives, webcams and any other hardware used to obtain, store, or send information."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
+gc:ServiceDigitalDefs11 a skos:Concept ;
+    skos:prefLabel "Digital"@en , "Numérique"@fr ;
+    skos:definition "Processes, practices and technologies related to the production, storage, processing, dissemination and exchange of electronic information and data.  It refers to, among other things, information and communications technologies, infrastructures, and the information and data they produce and collect."@en ;
+    skos:inScheme gc:ServiceDigitalDefs
+    .
+
 
 # Federal Political Parties in Canada
 
@@ -415,17 +537,19 @@ gc:ServiceDigitalDefs a schema:DefinedTermSet ;
 
 # Departments and Agencies
 
-:DepartmentsAgencies a schema:GovernmentOrganization .
+gc:DepartmentsAgencies a schema:GovernmentOrganization .
 
 # Federal Public Service Roles
 
-:FederalPublicService a schema:GovernmentOrganization .
+gc:FederalPublicService a schema:GovernmentOrganization .
 
-:ClerkPrivyCouncil a :PublicServant , schema:organizationRole
+:ClerkPrivyCouncil a gc:PublicServant , schema:organizationRole ;
+    :heads :PrivyCouncilOffice ;
+    schema:additionalType gc:DeputyHead
     .
 
-:DeputyHead a :PublicServant , schema:organizationRole ;
-    :heads :DepartmentsAgencies ;
+gc:DeputyHead a gc:PublicServant , schema:organizationRole ;
+    :heads gc:DepartmentsAgencies ;
     gc:Stewards gc:CrownAsset ;
     schema:agent gc:DeliverMandate ;
     schema:employee gc:PublicServant .
@@ -433,9 +557,13 @@ gc:ServiceDigitalDefs a schema:DefinedTermSet ;
 gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
     schema:description "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" .
 
-:PublicServant a schema:Employee .
+gc:PublicServant a schema:Employee ;
+    schema:memberOf gc:FederalPublicService 
+    .
 
-:EXPublicServant a :PublicServant .
+gc:EXPublicServant a gc:PublicServant ;
+    schema:memberOf gc:PublicServant
+    .
 
 #GC Information, Data, and AI context
 
@@ -463,13 +591,14 @@ gc:DataGovernance a gc:Governance .
     .
 
 :Data a schema:Intangible ;
+    rdfs:label "Data"@en ;
     schema:description "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
-    schema:inDefinedTermSet gc:ServiceDigitalDefs ;
+    skos:inScheme gc:ServiceDigitalDefs ;
     schema:isPartOf :Information .
 
 :Information a schema:Intangible ;
     schema:description "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
-    schema:inDefinedTermSet gc:ServiceDigitalDefs .
+    skos:inScheme gc:ServiceDigitalDefs .
 
 :BusinessValueDI a schema:Intangible ;
     schema:isPartOf :DataAndInfo ;
