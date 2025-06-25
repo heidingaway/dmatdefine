@@ -1,0 +1,53 @@
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX :<>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tbspol:<https://www.tbs-sct.canada.ca/pol/>
+PREFIX dcterms:<http://purl.org/dc/terms/>
+
+tbspol:32592 a skos:ConceptScheme ;
+  rdfs:label "Directive on Automated Decision Making"@en , "Directive sur la prise de décisions automatisée"@fr;
+  rdfs:seeAlso "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592" ;
+  dcterms:modified "2017-08-24".
+
+tbspol:administrative_decision a skos:Concept ;
+  skos:prefLabel "administrative  decision"@en , "Décision administrative"@fr;
+  skos:definition "Any  decision that is made by an authorized official of a department as  identified in section 8 of this directive pursuant to powers conferred by an Act of Parliament or an order made pursuant to a prerogative of  the Crown that affects legal rights, privileges or interests."@en , "Toute décision prise par une personne autorisée  d’un ministère, visée à la section 8 de la Directive, en application des  pouvoirs que lui confère une loi du Parlement ou une ordonnance prise en vertu  de la prérogative de la Couronne et qui touche des droits juridiques, les  privilèges ou les intérêts d’une personne."@fr;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:algorithmic_impact_assessment a skos:Concept ;
+  skos:prefLabel "algorithmic impact assessment"@en , "Évaluation de l’incidence algorithmique"@fr ;
+  skos:definition "A framework  to help  departments better  understand and reduce the risks associated with automated decision systems and  to provide the appropriate  requirements that best match the  type of  system being designed."@en , "Cadre destiné à aider ministères à mieux comprendre les risques associés aux systèmes décisionnels automatisés, à les  atténuer et à définir les exigences appropriées qui correspondent le mieux au  type de système conçu."@fr ;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:automated_decision_system a skos:Concept ;
+  skos:prefLabel "automated decision system"@en , "Système décisionnel automatisé"@fr;
+  skos:definition "Any  technology that either assists or replaces the judgment of human decision  makers. These systems draw from fields like statistics, linguistics and computer  science, and use techniques such as rules-based systems, regression, predictive  analytics, machine learning, deep learning, and neural networks."@en , "Toute technologie qui se substitue au  jugement des décideurs ou qui les assiste. Ces systèmes proviennent de domaines  tels ceux des statistiques, de la linguistique et de l’informatique. Ils  utilisent des techniques telles que les systèmes basés sur des règles, la  régression, l’analytique prédictive, l’apprentissage automatique,  l’apprentissage en profondeur et les réseaux neuronaux."@fr ;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:human_rights a skos:Concept ;
+  skos:prefLabel "human rights"@en , "Droits de la personne"@fr;
+  skos:definition "The rights to which persons are inherently entitled because they are human beings (Source).  Human rights are protected in theCanadian Charter of Rights and Freedoms,Canadian Human Rights Act,  and theUnited Nations Declaration on the Rights of Indigenous Peoples Act."@en ;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:production a skos:Concept ;
+  skos:prefLabel "production"@en , "En production"@fr;
+  skos:definition "An automated decision system is in production when it is in use and has impacts on real clients. This can include when it is in beta or user testing and producing outputs that impact clients."@en , "Se dit d’un système décisionnel automatisé  qui est utilisé et qui a une incidence sur la clientèle réelle. Il peut s’agir d’un système en version bêta ou d’un système testé par les personnes qui l’utilisent, qui produit des résultats ayant une incidence sur la clientèle."@fr ;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:proprietary a skos:Concept ;
+  skos:prefLabel "proprietary"@en , "Propriétaire"@fr ;
+  skos:definition "Refers to  systems, algorithms or software owned by an entity, such as a company or government. These systems are often closed  source, meaning the source code is not publicly available."@en , "Se dit des systèmes, des algorithmes ou des  logiciels qui appartiennent à une entité, telle qu’une entreprise ou une  administration publique. Il s’agit souvent de systèmes à code fermé,  c’est-à-dire que le code source n’est pas accessible au public."@fr ;
+  skos:inScheme tbspol:32592 ;
+.
+
+tbspol:test_environment a skos:Concept ;
+  skos:prefLabel "test  environment"@en , "Environnement d’essai"@fr;
+  skos:definition "An environment containing hardware, instrumentation, simulators, software tools, and other support elements needed to conduct a test. A system in a test environment may mimic a production  environment but does not impact real clients. Test environments may include exploration zones and sandboxes."@en , "Environnement contenant du matériel, des instruments, des simulateurs, des outils logiciels et d’autres composantes nécessaires à la réalisation d’un essai. Le déploiement d’un système dans un environnement d’essai permet de simuler son fonctionnement dans un  environnement de production sans incidence sur la clientèle réelle. Il peut s’agir de zones d’exploration ou de bacs à sable."@fr ;
+  skos:inScheme tbspol:32592 ;
+.
+
