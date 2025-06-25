@@ -1,7 +1,11 @@
-PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX :<>
-PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
-PREFIX tbspol:<https://www.tbs-sct.canada.ca/pol/>
+PREFIX schema:<http://www.schema.org/>
+PREFIX wiki:<https://en.wikipedia.org/wiki/>
+PREFIX cst:<https://canada.multites.net/cst/#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX gc:<https://www.canada.ca/#>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
+PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
 
 tbspol:32592 a skos:ConceptScheme ;
@@ -29,7 +33,8 @@ tbspol:automated_decision_system a skos:Concept ;
 
 tbspol:human_rights a skos:Concept ;
   skos:prefLabel "human rights"@en , "Droits de la personne"@fr;
-  skos:definition "The rights to which persons are inherently entitled because they are human beings (Source).  Human rights are protected in theCanadian Charter of Rights and Freedoms,Canadian Human Rights Act,  and theUnited Nations Declaration on the Rights of Indigenous Peoples Act."@en ;
+  skos:definition "The rights to which persons are inherently entitled because they are human beings (Source).  Human rights are protected in the Canadian Charter of Rights and Freedoms, Canadian Human Rights Act, and the United Nations Declaration on the Rights of Indigenous Peoples Act."@en ;
+  rdfs:seeAlso "https://www.canada.ca/en/canadian-heritage/services/about-human-rights.html"@en , "https://www.canada.ca/fr/patrimoine-canadien/services/a-propos-droits-personne.html"@fr ;
   skos:inScheme tbspol:32592 ;
 .
 

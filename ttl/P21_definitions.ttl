@@ -1,10 +1,10 @@
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX : <>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lawslois: <https://laws-lois.justice.gc.ca/eng/acts/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX :<>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 
 lawslois:P21 a skos:ConceptScheme ;
-  rdfs:label "Definitions from P-21 Act"@en ;
+  rdfs:label "Definitions from Privacy Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/P-21/" ;
 .
 

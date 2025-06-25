@@ -6,6 +6,7 @@ PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX gc:<https://www.canada.ca/#>
 PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
+PREFIX dcterms:<http://purl.org/dc/terms/>
 
 # Custom properties - metadata
 
@@ -33,7 +34,7 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 # Key Political Science Terms and Concepts
 
-wiki:State a wiki:Polity , schema:Country .
+wiki:State a wiki:Polity , schema:AdministrativeArea .
 
 :Policy a schema:OrganizeAction ; 
     schema:domainIncludes :Carrots, :Sticks, :Sermon ;
@@ -41,8 +42,8 @@ wiki:State a wiki:Polity , schema:Country .
     schema:description "what governments choose to do, or not do" .
 
 :Sovereignty a schema:Intangible ;
-    schema:identifier "https://en.wikipedia.org/wiki/Sovereignty" ;
-    schema:additionalType :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
+    schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" ;
+    skos:narrower :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
     schema:description "the exercise of power by a state"
     .
 
@@ -283,7 +284,7 @@ cst:1522 a :CSTTerm ;
     schema:Nationality :Canada .
 
 :Canada a schema:Country , wiki:State ;
-    schema:identifier "https://www.canada.ca/" ;
+    rdfs:seeAlso "https://www.canada.ca/" ;
     schema:containedInPlace :NorthAmerica ;
     schema:additionalProperty :SovereigntyCanadian ;
     schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .

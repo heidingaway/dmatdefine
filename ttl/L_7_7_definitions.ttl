@@ -1,7 +1,12 @@
-PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX :<>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:<http://www.schema.org/>
+PREFIX wiki:<https://en.wikipedia.org/wiki/>
+PREFIX cst:<https://canada.multites.net/cst/#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX gc:<https://www.canada.ca/#>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
+PREFIX dcterms:<http://purl.org/dc/terms/>
 
 lawslois:L_7_7 a skos:ConceptScheme ;
   rdfs:label "Definitions from l-7.7 Act"@en ;
