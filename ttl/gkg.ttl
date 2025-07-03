@@ -1,12 +1,12 @@
 PREFIX :<>
 PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
-PREFIX cst:<https://canada.multites.net/cst/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX gc:<https://www.canada.ca/#>
 PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
+PREFIX cst:<http://www.thesaurus.gc.ca/#>
 
 # Custom properties - metadata
 
@@ -66,8 +66,8 @@ wiki:State a wiki:Polity , schema:AdministrativeArea .
 
 :GlobalTradeSystem a schema:Intangible ;
     :governedBy :WorldTradeOrganization ;
-    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
-    cst:Subject cst:1618 .
+    schema:description "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" 
+    .
 
 wiki:Global_debt a schema:financialProduct .
 
@@ -94,9 +94,7 @@ wiki:Fall_of_the_Berlin_Wall a schema:event ;
 :SovietUnionCollapse a schema:event .
 
 :COVID19Pandemic a schema:event ; 
-    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" ;
-    :subject cst:4981
-    .
+    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic"     .
 
 # Global Context 
 
@@ -147,137 +145,6 @@ wiki:Polycrisis a schema:Intangible ;
     schema:description "the only international organization dealing with the rules of trade between nations." ;
     schema:administrativeArea :GlobalTradeSystem .
     
-# GC Core Subject Thesaurus 
-
-:GCCST a skos:ConceptScheme ;
-    rdfs:label "Government of Canada Core Subject Thesaurus"@en , "Thésaurus des sujets de base du gouvernement du Canada"@fr ;
-    schema:subjectOf "https://canada.multites.net/cst/def.asp?lang=En&n=0073D232-1"
-    .
-
-:CSTTerm a rdfs:Class ;
-    rdfs:label "CST Term" ;
-    rdfs:comment "A term that is part of the Core Subject Thesaurus." ;
-    skos:inScheme :GCCST
-    .
-
-:subjectCategory a rdfs:Property ;
-    rdfs:label "Subject Category" ;
-    rdfs:domain :CSTTerm ;
-    rdfs:range rdfs:Resource .
-
-# Common Subjects Dictionary - Subject Category
-
-cst:MI_Military a :subjectCategory ;
-    rdfs:label "MI Military" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+MI+Military&lang=ENG"
-    .
-
-cst:EC_EconIndustry a :subjectCategory ;
-    rdfs:label "EC Economics and Industry" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=EC+Economics+and+Industry&op=SRCHRELCONTAINS"
-    .
-
-cst:GV_GovernmentPolitics a :subjectCategory ;
-    rdfs:label "GV Government and Politics" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+GV+Government+and+Politics&lang=ENG" 
-    .
-
-cst:ST_ScienceTech a :subjectCategory ;
-    rdfs:label "ST Science and Technology" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=ST+Science+and+Technology&op=SRCHRELCONTAINS"
-    .
-
-cst:PE_Persons a :subjectCategory ;
-    rdfs:label "PE Persons" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?op=SRCHRELSTARTSWITH&searchString=SC%3A+PE+Persons&lang=ENG"
-    .
-
-cst:PR_Process a :subjectCategory ;
-    rdfs:label "PR Process" ;
-    schema:subjectOf "https://canada.multites.net/cst/default.asp?lang=ENG&searchString=PR+Processes&op=SRCHRELCONTAINS"
-    .
-
-# Common Subjects Dictionary - Subjects 
-
-cst:451 a :CSTTerm ;
-    skos:prefLabel "War"@en , "Guerre"@fr ;
-    :subjectCategory cst:MI_Military ;
-    skos:altLabel "Armed_Conflict"
-    .
-
-cst:1363 a :CSTTerm ; 
-    skos:prefLabel "Records management"@en , "Gestion des documents"@fr ;
-    :subjectCategory cst:IN_InfoComms
-    .
-cst:1263 a :CSTTerm ;
-    skos:prefLabel "Ministers"@en , "Ministre"@fr ;
-    :subjectCategory cst:GV_GovernmentPolitics , cst:PE_Persons 
-    .
-
-cst:1618 a :CSTTerm ;
-    skos:prefLabel "Trade"@en , "Commerce"@fr ;
-    :subjectCategory cst:EC_EconIndustry
-    .
-
-cst:3909 a :CSTTerm ;
-    skos:prefLabel "Prime Minister"@en , "Premier ministre"@fr ;
-    :subjectCategory cst:GV_GovernmentPolitics, cst:PE_Persons
-    .
-
-cst:4981 a :CSTTerm ;
-    skos:prefLabel "Coronavirus diseases"@en , "Maladie à coronavirus"@fr ;
-    skos:scopeNote "Virus diseases caused by the coronavirus genus. Includes MERS (Middle East Respiratory Syndrome), SARS (Severe acute respiratory syndrome), COVID-19, etc." 
-    .
-cst:767 a :CSTTerm ;
-    skos:prefLabel "Artificial intelligence"@en, "Intelligence artificielle"@fr ;
-    skos:altLabel "Computational intelligence"@en , "Machine intelligence"@en ;
-    skos:related cst:770, cst:771, "Intelligent systems", "Robotics"  
-    .
-
-cst:770 a :CSTTerm ;
-    skos:prefLabel "Automation"@en, "Automatisation"@fr;
-    skos:altLabel "Computerization"@en ;
-    skos:narrower "Office automation", "Workplace automation"
-    .
-
-cst:771 a :CSTTerm ;
-    skos:prefLabel "Information technology"@en, "Technologie de l'information"@fr ;
-    skos:broader "Technology" ;
-    skos:related cst:770, "Chief Information Officer", "Computer networks", "Data processing", "Electronic data interchange", "Information", "Information management", "Information systems", "Intelligent systems", "Multimedia", "Social media", "Telecommunications", "Templates"
-    .
-
-cst:4909 a :CSTTerm ;
-    skos:prefLabel "Chief Information Officer"@en, "Dirigeant principal de l'information"@fr ;
-    skos:altLabel "CIO" ;
-    skos:related cst:771  ;
-    :subjectCategory cst:IN_InfoComms, cst:PE_Persons, cst:ST_ScienceTech 
-    .
-
-cst:1718 a :CSTTerm ;
-    skos:prefLabel "Software"@en , "Logiciel"@fr ;
-    skos:altLabel "Computer programmes", "Computer programs", "Computer software" ;
-    :subjectCategory cst:ST_ScienceTech
-    .
-
-cst:1740 a :CSTTerm ;
-    skos:prefLabel "Systems"@en , "Système"@fr ;
-    skos:scopeNote "An organized set of procedures, doctrines, ideas, principles, or organizations usually intended to explain the arrangement or working of a whole." ;
-    :subjectCategory cst:PR_Process
-    .
-
-cst:884 a :CSTTerm ;
-    skos:broader cst:1740 ;
-    skos:prefLabel "Information systems"@en, "Système d'information"@fr ;
-    skos:altLabel "Automated information systems", "Computerized information systems", "Electronic information systems", "Information storage and retrieval systems" ;
-    :subjectCategory cst:IN_InfoComms, cst:ST_ScienceTech 
-    .
-
-cst:1522 a :CSTTerm ;
-    skos:prefLabel "Clients"@en, "Client"@fr ;
-    skos:altLabel "Customers"@en ;
-    :subjectCategory cst:EC_EconIndustry, cst:PE_Persons
-    .
-
 # Canada
 
 :Canadian a schema:Person ;
@@ -313,8 +180,7 @@ gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
 :PrimeMinisterCanada a schema:organizationRole ;
     rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr;
     :incumbent :PrimeMinisterCanada24 ;
-    :precededBy :PrimeMinisterCanada23 ;
-    :subject cst:3909
+    :precededBy :PrimeMinisterCanada23 
     .
 
 :PrimeMinisterCanada24 a :PrimeMinisterCanada;
@@ -574,3 +440,7 @@ gc:DataGovernance a gc:Governance .
 :MinistryCanada30 :hasResponsibility :Priorities2025 , :Governance ;
     schema:instrument "focus, determination, and fundamentally different approaches to governing" 
     .
+
+cst:CoreSubjectThesaurus a skos:conceptScheme .
+
+cst:EC%20Economics%20and%20Industry a skos:Collection .
