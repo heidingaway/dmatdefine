@@ -442,5 +442,3 @@ gc:DataGovernance a gc:Governance .
     .
 
 cst:CoreSubjectThesaurus a skos:conceptScheme .
-
-cst:EC%20Economics%20and%20Industry a skos:Collection .
