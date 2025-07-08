@@ -8,9 +8,6 @@ PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
 PREFIX cst:<http://www.thesaurus.gc.ca/#>
 
-# Custom properties - metadata
-
-rdfs:Resource a rdfs:Class .
 
 schema:Thing rdfs:subClassOf rdfs:Resource . 
 
@@ -33,6 +30,9 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     .
 
 # Key Political Science Terms and Concepts
+:Polity a rdfs:Class ;
+    rdfs:comment "a group of people with a collective identity, who are organized by some form of political institutionalized social relations, and have a capacity to mobilize resources" 
+    .
 
 wiki:State a wiki:Polity , schema:AdministrativeArea .
 
