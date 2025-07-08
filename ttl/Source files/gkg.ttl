@@ -17,14 +17,14 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
     rdfs:label "is affected by" ;
     rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
     rdfs:domain rdfs:Resource ;
-    rdfs:range :Context .
+    rdfs:range :hasContext .
 
 :hasProblem a rdfs:Property ;
     rdfs:label "has problem"@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range :Problem .
 
-:Context a rdfs:Class ;
+:hasContext a rdfs:Property ;
     rdfs:label "context" ;
     rdfs:comment "A general background condition or situation that influences or frames a resource."
     .
@@ -114,11 +114,11 @@ wiki:Polycrisis a schema:Intangible ;
         wiki:Democratic_Backsliding  
 . 
 
-:Danger a :Context ;
+:Danger a :hasContext ;
     rdfs:label "Danger"@en ;
     rdfs:comment "e.g., rising threats, instability".
 
-:Division a :Context ;
+:Division a :hasContext ;
     rdfs:label "Division"@en ;
     rdfs:comment "e.g., political, social, or economic fragmentation".
 
@@ -405,7 +405,7 @@ gc:DataGovernance a gc:Governance .
 
 # Global Context 2025
 
-:GlobalContext2025 a :Context ;
+:GlobalContext2025 a :hasContext ;
     :isAffectedBy :danger, :division ;
     :hasProblem 
         :RisingGeopoliticalRisk , 
@@ -414,7 +414,7 @@ gc:DataGovernance a gc:Governance .
 
 # Canadian Government Context in 2025
 
-:CanadianContext2025 a :Context ;
+:CanadianContext2025 a :hasContext ;
     :isAffectedBy :GlobalContext2025 ;
     :hasProblem 
         :SovereigntyCanadianThreatened,
@@ -431,7 +431,7 @@ gc:DataGovernance a gc:Governance .
     schema:dateCreated "2025-05-21" ;
     schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
 
-:Priorities2025 a :Context ;
+:Priorities2025 a :hasContext ;
     :addresses :CanadianContext2025 ;
     rdfs:label "Government Priorities 2025" ;
     schema:isPartOf :DeliverResultsForCanadians
@@ -441,4 +441,3 @@ gc:DataGovernance a gc:Governance .
     schema:instrument "focus, determination, and fundamentally different approaches to governing" 
     .
 
-cst:CoreSubjectThesaurus a skos:conceptScheme .
