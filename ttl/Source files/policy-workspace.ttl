@@ -1,12 +1,12 @@
-PREFIX :<>
-PREFIX schema:<http://www.schema.org/>
+PREFIX :<https://gcxgce.sharepoint.com/teams/1000944/#>
+PREFIX schema:<https://schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
-PREFIX cst:<http://www.thesaurus.gc.ca/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX gc:<https://www.canada.ca/#>
 PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
+PREFIX cst:<http://www.thesaurus.gc.ca/#>
 PREFIX tbspol:<https://www.tbs-sct.canada.ca/pol/#>
 
 gc:MDRS a schema:CreativeWork ;
