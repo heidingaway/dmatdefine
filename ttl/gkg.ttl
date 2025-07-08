@@ -1,4 +1,4 @@
-PREFIX :<>
+PREFIX :<https://gcxgce.sharepoint.com/teams/1000944/#>
 PREFIX schema:<http://www.schema.org/>
 PREFIX wiki:<https://en.wikipedia.org/wiki/>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
