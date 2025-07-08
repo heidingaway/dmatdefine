@@ -13,7 +13,9 @@
 dcterms:
   dcterms:title "DCMI Metadata Terms - other"@en ;
   dcterms:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
-  dcterms:modified "2012-06-14"^^xsd:date .
+  dcterms:modified "2012-06-14"^^xsd:date ;
+  a owl:Ontology 
+  .
 
 dcterms:title
   rdfs:label "Title"@en ;
