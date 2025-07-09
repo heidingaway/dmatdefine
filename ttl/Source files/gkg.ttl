@@ -13,35 +13,52 @@ schema:Thing rdfs:subClassOf rdfs:Resource .
 
 # Custom properties content
 
-:isAffectedBy a rdfs:Property ;
-    rdfs:label "is affected by" ;
+:isAffectedBy a owl:ObjectProperty ;
+    rdfs:label "is affected by"@en ;
     rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
     rdfs:domain rdfs:Resource ;
     rdfs:range :hasContext .
 
-:hasProblem a rdfs:Property ;
+:hasProblem a owl:ObjectProperty ;
     rdfs:label "has problem"@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range :Problem .
 
-:hasContext a rdfs:Property ;
-    rdfs:label "context" ;
+:hasContext a owl:ObjectProperty ;
+    rdfs:label "has context"@en ;
     rdfs:comment "A general background condition or situation that influences or frames a resource."
     .
 
 # Key Political Science Terms and Concepts
-:Polity a rdfs:Class ;
+wiki:Polity 
+    a owl:Class ;
     rdfs:comment "a group of people with a collective identity, who are organized by some form of political institutionalized social relations, and have a capacity to mobilize resources" 
     .
 
-wiki:State a wiki:Polity , schema:AdministrativeArea .
+wiki:State 
+    a wiki:Polity , 
+    schema:AdministrativeArea .
 
-:Policy a schema:OrganizeAction ; 
-    schema:domainIncludes :Carrots, :Sticks, :Sermon ;
+:Policy 
+    a rdfs:Class ; 
+    a schema:OrganizeAction ;
+    a schema:CreativeWork ; 
+    schema:domainIncludes  ;
     rdfs:label "Public Policy" ;
     schema:description "what governments choose to do, or not do" .
 
-:Sovereignty a schema:Intangible ;
+:Policy_Carrot a :Policy .
+
+:Policy_Stick a :Policy .
+
+:Policy_Sermon a :Policy .
+
+schema:Thing a owl:Thing .
+
+schema:Intangible a schema:Thing .
+
+:Sovereignty 
+    a schema:Intangible ;
     schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" ;
     skos:narrower :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
     schema:description "the exercise of power by a state"
