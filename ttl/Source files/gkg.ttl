@@ -1,517 +1,458 @@
-PREFIX :<https://gcxgce.sharepoint.com/teams/1000944/#>
-PREFIX schema:<https://schema.org/>
-PREFIX wiki:<https://en.wikipedia.org/wiki/>
-PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
-PREFIX gc:<https://www.canada.ca/#>
-PREFIX skos:<http://www.w3.org/2004/02/skos/core#> 
-PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
-PREFIX dcterms:<http://purl.org/dc/terms/>
-PREFIX cst:<http://www.thesaurus.gc.ca/#>
+@prefix : <https://gcxgce.sharepoint.com/teams/1000944/#> .
+@prefix gc: <https://www.canada.ca/#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wiki: <https://en.wikipedia.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# Custom properties content
+:Policy a rdfs:Class ;
+    rdfs:label "Public Policy" ;
+    rdfs:comment "what governments choose to do, or not do" .
 
-:isAffectedBy a owl:ObjectProperty ;
-    rdfs:label "is affected by"@en ;
-    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
-    rdfs:domain rdfs:Resource .
+wiki:Fall_of_the_Berlin_Wall a schema:event ;
+    rdfs:label "Fall of the Berlin Wall" ;
+    schema:endDate "19891109T1901Z" ;
+    schema:instrument :SovietUnionCollapse ;
+    schema:location wiki:Berlin_Wall ;
+    schema:startDate "19891109T1853Z" .
+
+wiki:Government_Debt a schema:financialProduct ;
+    rdfs:label "Government Debt",
+        "National Debt" .
+
+:Bloc_Quebecois a schema:PoliticalParty ;
+    schema:foundingDate 1991 .
+
+:ClerkPrivyCouncil a schema:organizationRole,
+        gc:PublicServant ;
+    :heads :PrivyCouncilOffice ;
+    schema:additionalType gc:DeputyHead .
+
+:Crown rdfs:label "Monarch"@en,
+        "The Crown"@en ;
+    schema:owns :CrownAsset ;
+    gc:delegates :CrownAuthority ;
+    gc:holds :CrownAuthority .
+
+:Danger a :hasContext ;
+    rdfs:label "Danger"@en ;
+    rdfs:comment "e.g., rising threats, instability" .
+
+:DataInfoManagement a schema:OrganizeAction ;
+    rdfs:label "Data and Information Management" ;
+    rdfs:comment "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
+    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
+    schema:isPartOf :EnterpriseArchitecture ;
+    schema:subject :DataAndInfo ;
+    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" .
+
+:DeliverPrograms a schema:OrganizeAction ;
+    schema:isPartOf :DeliverResultsForCanadians .
+
+:DeliverServices a schema:OrganizeAction ;
+    schema:isPartOf :DeliverResultsForCanadians .
+
+:Division a :hasContext ;
+    rdfs:label "Division"@en ;
+    rdfs:comment "e.g., political, social, or economic fragmentation" .
+
+:GeopoliticalRisk a owl:Class .
+
+:Green_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1983 .
+
+:Information a schema:Intangible ;
+    rdfs:comment "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
+    skos:inScheme gc:ServiceDigitalDefs .
+
+:JohnAMacdonald a schema:Person ;
+    rdfs:label "John A. Macdonald" ;
+    :holdsOffice :PrimeMinisterCanada1 ;
+    schema:memberOf :Liberal_Conservative_Canada .
+
+:Justin_Trudeau a schema:Person ;
+    rdfs:label "Justin Trudeau" ;
+    :holdsOffice :PrimeMinisterCanada23 ;
+    schema:memberOf :Liberal_Canada .
+
+:MandateLetter2025 a :MandateLetter ;
+    rdfs:label "Mandate Letter (2025)"@en,
+        "Lettre de mandat (2025)"@fr ;
+    schema:about :CanadianContext2025,
+        :GlobalContext2025,
+        :Priorities2025 ;
+    schema:author :Mark_Carney ;
+    schema:dateCreated "2025-05-21" .
+
+:New_Democratic_Canada a schema:PoliticalParty ;
+    schema:foundingDate 1961 .
+
+:Parti_Bleu a schema:PoliticalParty ;
+    :succeededBy :Liberal_Conservative_Canada ;
+    schema:dissolutionDate 1867 ;
+    schema:foundingDate 1854 .
+
+:Policy_Carrot a :Policy .
+
+:Policy_Sermon a :Policy .
+
+:Policy_Stick a :Policy .
+
+:Sovereignty a schema:Intangible ;
+    rdfs:comment "the exercise of power by a state" ;
+    skos:narrower :SovereigntyDeFacto,
+        :SovereigntyDeJure,
+        :SovereigntyWestphalian ;
+    schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" .
+
+:Stephen_Harper a schema:Person ;
+    rdfs:label "Stephen Harper" ;
+    :holdsOffice :PrimeMinisterCanada22 ;
+    schema:memberOf :Conservative_Canada2 .
+
+:chairOf a owl:ObjectProperty ;
+    rdfs:domain schema:organizationRole ;
+    rdfs:range schema:organization .
 
 :hasProblem a owl:ObjectProperty ;
     rdfs:label "has problem"@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range :Problem .
 
-:hasContext a owl:ObjectProperty ;
-    rdfs:label "has context"@en ;
-    rdfs:comment "A general background condition or situation that influences or frames a resource."
-    .
-
-# Key Political Science Terms and Concepts
-
-wiki:Polity 
-    a owl:Class ;
-    rdfs:comment "a group of people with a collective identity, who are organized by some form of political institutionalized social relations, and have a capacity to mobilize resources" ;
-    a schema:AdministrativeArea
-    .
-
-schema:AdministrativeArea a schema:Place .
-
-wiki:State 
-    a wiki:Polity 
-    .
-
-:Policy 
-    a rdfs:Class ; 
-    a schema:OrganizeAction ;
-    a schema:CreativeWork ; 
-    rdfs:label "Public Policy" ;
-    rdfs:comment "what governments choose to do, or not do" .
-
-:Policy_Carrot a :Policy .
-
-:Policy_Stick a :Policy .
-
-:Policy_Sermon a :Policy .
-
-schema:Thing a owl:Thing .
-
-schema:Intangible a schema:Thing .
-
-:Sovereignty 
-    a schema:Intangible ;
-    schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" ;
-    skos:narrower :SovereigntyWestphalian , :SovereigntyDeJure , :SovereigntyDeFacto;
-    rdfs:comment "the exercise of power by a state"
-    .
-
-:SovereigntyDeJure a schema:Intangible ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_jure" ;
-    rdfs:comment "the legal right to exercise sovereignty"
-    .
-
-:SovereigntyDeFacto a schema:Intangible ;
-    schema:identifier "https://en.wikipedia.org/wiki/De_facto" ;
-    rdfs:comment "the factual ability to exercise sovereignty" 
-    .
-
-:SovereigntyWestphalian a schema:Intangible ;
-    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" ;
-    rdfs:comment "each state has exclusive sovereignty over its territory."
-    .
-
-:GeopoliticalRisk a owl:Class .
-
-:GlobalTradeSystem a owl:Class ;
-    a schema:Intangible ;
-    :governedBy :WorldTradeOrganization ;
-    rdfs:comment "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" 
-    .
-
-wiki:Global_debt a schema:financialProduct .
-
-wiki:Government_Debt a schema:financialProduct ; 
-    rdfs:label "National Debt" , "Government Debt" .
-
-:Governance a schema:OrganizeAction ;
-    rdfs:comment "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
-    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
-
-# Major historic events
-
-wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
-    schema:location wiki:Berlin .
-
-wiki:Fall_of_the_Berlin_Wall a schema:event ;
-    rdfs:label "Fall of the Berlin Wall" ;
-    schema:startDate "19891109T1853Z" ;
-    schema:endDate "19891109T1901Z" ;
-    schema:location wiki:Berlin_Wall ;
-    schema:instrument :SovietUnionCollapse 
-    .
-
-:SovietUnionCollapse a schema:event .
-
-:COVID19Pandemic a schema:event ; 
-    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic"     .
-
-# Global Context 
-
-wiki:Polycrisis a schema:Intangible ;
-    rdfs:comment "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
-    rdfs:label "polycrise"@fr ;
-    :includes 
-        :COVID19Pandemic, 
-        wiki:War, 
-        wiki:Global_debt, 
-        wiki:Inflation, 
-        wiki:Climate_Change, 
-        wiki:Resource_Depletion, 
-        wiki:Social_Inequality, 
-        wiki:Artificial_Intelligence, 
-        wiki:Synthetic_Biology,  
-        wiki:Democratic_Backsliding  
-. 
-
-:Danger a :hasContext ;
-    rdfs:label "Danger"@en ;
-    rdfs:comment "e.g., rising threats, instability".
-
-:Division a :hasContext ;
-    rdfs:label "Division"@en ;
-    rdfs:comment "e.g., political, social, or economic fragmentation".
-
-:RisingGeopoliticalRisk a :Problem ;
-    rdfs:label "Rising Geopolitical Risk"@en .
-
-:NorthAmerica a schema:Continent ;
-    rdfs:label "Turtle Island" ;
-    schema:containedInPlace :Earth .
-
-schema:Place a schema:Thing .
-
-:Earth a schema:Place ;
-    schema:identifier "https://en.wikipedia.org/wiki/Earth" ;
-    rdfs:label "World" .
-
-# International Relations
-
-:InternationalOrganization a schema:Organization .
-
-:UnitedNations a :InternationalOrganization ;
-    schema:identifier "https://www.un.org/en/" .
-
-schema:InternationalOrganization a schema:Organization .
-
-schema:Organization a schema:Thing .
-
-:WorldTradeOrganization a schema:InternationalOrganization ;
-    owl:ID "https://www.wto.org/" ;
-    rdfs:comment "the only international organization dealing with the rules of trade between nations." ;
-    schema:administrativeArea :GlobalTradeSystem .
-    
-# Canada
-
-:Canadian a schema:Person ;
-    schema:Nationality :Canada .
-
-:Canada a schema:Country , wiki:State ;
-    rdfs:seeAlso "https://www.canada.ca/" ;
-    schema:containedInPlace :NorthAmerica ;
-    schema:additionalProperty :SovereigntyCanadian ;
-    schema:memberOf :WorldTradeOrganization, :G7, :UnitedNations .
-
-:SovereigntyCanadian a :SovereigntyWestphalian ;
-    schema:additionalType :SovereigntyDeFacto , :SovereigntyDeJure .
-
-# define the role of the crown 
-
-:Crown 
-    rdfs:label "Monarch"@en , "The Crown"@en ;
-    schema:owns :CrownAsset ;
-    gc:holds :CrownAuthority ;
-    gc:delegates :CrownAuthority .
-
-gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
-
-# Canadian Government Context 
-
-:MandateLetter a schema:HowTo ;
-    rdfs:label "Mandate Letter"@en , "Lettre de mandat"@fr ;
-    rdfs:comment "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
-    schema:author :PrimeMinisterCanada ;
-    schema:about :Priorities.
-
-schema:Person a schema:Thing .
-
-:PrimeMinister a owl:Class ;
-    rdfs:subClassOf schema:organizationRole
-    .
+:heads a owl:ObjectProperty ;
+    rdfs:domain schema:organizationRole ;
+    rdfs:range schema:organization .
 
 :holdsOffice a owl:ObjectProperty ;
-    rdfs:domain schema:Person ; 
-    rdfs:range :organizationRole ;
-    .
+    rdfs:domain schema:Person ;
+    rdfs:range :organizationRole .
+
+:isAffectedBy a owl:ObjectProperty ;
+    rdfs:label "is affected by"@en ;
+    rdfs:comment "Indicates that a resource is influenced or impacted by another resource." ;
+    rdfs:domain rdfs:Resource .
+
+:mandate a schema:Intangible ;
+    schema:additionalClass :BranchMandate,
+        :DeptAgencyMandate,
+        :DivisionMandate,
+        :ProgramMandate,
+        :SectorMandate,
+        :TeamMandate .
 
 :primeMinisterialOrder a owl:DatatypeProperty ;
     rdfs:domain :PrimeMinister ;
     rdfs:range xsd:integer .
 
-:PrimeMinisterCanada a owl:Class ;
-    rdfs:subClassOf :PrimeMinister ;
-    rdfs:label "Prime Minister of Canada"@en , "Premier ministre du Canada"@fr
-    .
+gc:DataGovernance a gc:Governance .
 
-:PrimeMinisterCanada24 a :PrimeMinisterCanada ;
-    rdfs:label "The 24th Prime Minister of Canada" ;
-    :primeMinisterialOrder 24 ;
-    :chairOf :MinistryCanada30 
-    .
+gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
 
-:PrimeMinisterCanada23 a :PrimeMinisterCanada ;
-    rdfs:label "The 23rd Prime Minister of Canada" ;
-    :primeMinisterialOrder 23 ;
-    :chairOf :MinistryCanada29
-    .
-    
-:PrimeMinisterCanada22 a :PrimeMinisterCanada ;
-    rdfs:label "The 22nd Prime Minister of Canada" ;
-    :primeMinisterialOrder 22 ;
-    :chairOf :MinistryCanada28
-    .
+gc:EXPublicServant a gc:PublicServant ;
+    rdfs:comment "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" ;
+    schema:memberOf gc:PublicServant ;
+    schema:subjectOf gc:EXJobStandard2022 .
 
-:MinistryCanada a schema:GovernmentOrganization ;
-    schema:subOrganization :KingPrivyCouncilCanada ; 
-    skos:prefLabel "Canadian Ministry"@en , "Le Conseil des ministres"@fr ;
-    skos:altLabel "Cabinet"@en , "le Cabinet"@fr .
+gc:GlossaryDS23 a skos:ConceptScheme ;
+    rdfs:label "Data Strategy for the Federal Public Service - Annexes" ;
+    schema:subject :DataAndInfo ;
+    schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" .
 
-:chairOf a owl:ObjectProperty ;
-    rdfs:domain schema:organizationRole ;
-    rdfs:range schema:Organization
-    .
+gc:GuidanceDataQuality a schema:CreativeWork ;
+    rdfs:label "Guidance on Data Quality" ;
+    schema:subject :DataQuality ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" .
 
-schema:Organization a schema:Thing .
+gc:GuidanceMetadataNeeds a schema:CreativeWork ;
+    rdfs:label "Guidance on Assessing Metadata Needs" ;
+    schema:subject :Metadata ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" .
 
-schema:GovernmentOrganization a schema:Organization .
+gc:gc-enterprise-data-reference-standards a schema:WebPage ;
+    rdfs:label "Inventory of data and metadata reference standards"@en,
+        "Liste des normes référentielles relatives aux données et aux métadonnées"@fr ;
+    rdfs:seeAlso "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/enabling-interoperability/gc-enterprise-data-reference-standards.html"@en,
+        "https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/innovations-gouvernementales-numeriques/permettre-interoperabilite/normes-referentielles-pangouvernementales-relatives-donnees-gc.html"@fr .
 
-:Mark_Carney a schema:Person ;
-    :holdsOffice :PrimeMinisterCanada24;
-    rdfs:label "Mark Carney" ;
-    schema:memberOf :Liberal_Canada 
-    .
+wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
+    schema:location wiki:Berlin .
 
-:Justin_Trudeau a schema:Person ;
-    :holdsOffice :PrimeMinisterCanada23 ;
-    rdfs:label "Justin Trudeau" ;
-    schema:memberOf :Liberal_Canada.
+wiki:Global_debt a schema:financialProduct .
 
-:Stephen_Harper a schema:Person ;
-    :holdsOffice :PrimeMinisterCanada22 ;
-    rdfs:label "Stephen Harper" ;
-    schema:memberOf :Conservative_Canada2 
-    .
+wiki:Polity a owl:Class,
+        schema:AdministrativeArea ;
+    rdfs:comment "a group of people with a collective identity, who are organized by some form of political institutionalized social relations, and have a capacity to mobilize resources" .
 
-:PrimeMinisterCanada1 a :PrimeMinisterCanada ;
-    :chairOf :MinistryCanada1, :MinistryCanada3 ;
-    :primeMinisterialOrder 1
-    . 
+wiki:Polycrisis a schema:Intangible ;
+    rdfs:label "polycrise"@fr ;
+    rdfs:comment "complex situation where multiple, interconnected crises converge and amplify each other, resulting in a predicament that is difficult to manage or resolve." ;
+    :includes wiki:Artificial_Intelligence,
+        wiki:Climate_Change,
+        wiki:Democratic_Backsliding,
+        wiki:Global_debt,
+        wiki:Inflation,
+        wiki:Resource_Depletion,
+        wiki:Social_Inequality,
+        wiki:Synthetic_Biology,
+        wiki:War,
+        :COVID19Pandemic .
 
-:JohnAMacdonald a schema:Person ; 
-    :holdsOffice :PrimeMinisterCanada1 ;
-    rdfs:label "John A. Macdonald" ;
-    schema:memberOf :Liberal_Conservative_Canada .
+wiki:State a wiki:Polity .
 
+:Asset a schema:Thing ;
+    rdfs:comment "any resource owned or controlled by a business or an economic entity" ;
+    schema:subjectOf "https://en.wikipedia.org/wiki/Asset" .
+
+:COVID19Pandemic a schema:event ;
+    schema:subjectOf "https://en.wikipedia.org/wiki/COVID-19_pandemic" .
+
+:Canada a wiki:State,
+        schema:Country ;
+    rdfs:seeAlso "https://www.canada.ca/" ;
+    schema:additionalProperty :SovereigntyCanadian ;
+    schema:containedInPlace :NorthAmerica ;
+    schema:memberOf :G7,
+        :UnitedNations,
+        :WorldTradeOrganization .
+
+:Canadian a schema:Person ;
+    schema:Nationality :Canada .
+
+:Earth a schema:Place ;
+    rdfs:label "World" ;
+    schema:identifier "https://en.wikipedia.org/wiki/Earth" .
+
+:GlobalTradeSystem a owl:Class,
+        schema:Intangible ;
+    rdfs:comment "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
+    :governedBy :WorldTradeOrganization .
+
+:Governance a schema:OrganizeAction ;
+    rdfs:comment "Governance establishes how the government exercises authority, accountability, leadership, direction and control" ;
+    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html#ToC1" .
+
+:InternationalOrganization a schema:organization .
 
 :KingPrivyCouncilCanada a schema:GovernmentOrganization ;
-    schema:subOrganization :GovernmentCanada ;
-    skos:prefLabel "King's Privy Council"@en
-    .
+    skos:prefLabel "King's Privy Council"@en ;
+    schema:subOrganization :GovernmentCanada .
+
+:Liberal_Unionist_Canada a schema:PoliticalParty ;
+    :precededBy :Liberal_Canada ;
+    :succeededBy :Liberal_Canada,
+        :Unionist_Canada ;
+    schema:dissolutionDate 1917 ;
+    schema:foundingDate 1917 .
+
+:Mark_Carney a schema:Person ;
+    rdfs:label "Mark Carney" ;
+    :holdsOffice :PrimeMinisterCanada24 ;
+    schema:memberOf :Liberal_Canada .
 
 :MinistryCanada1 a :MinistryCanada .
-
-:MinistryCanada3 a :MinistryCanada .
 
 :MinistryCanada28 a :MinistryCanada .
 
 :MinistryCanada29 a :MinistryCanada .
 
-:MinistryCanada30 a :MinistryCanada .
+:MinistryCanada3 a :MinistryCanada .
 
-:mandate a schema:Intangible ;
-    schema:additionalClass :DeptAgencyMandate ;
-    schema:additionalClass :SectorMandate ;
-    schema:additionalClass :BranchMandate ;
-    schema:additionalClass :DivisionMandate ;
-    schema:additionalClass :ProgramMandate ;
-    schema:additionalClass :TeamMandate .
+:MinistryCanada30 a :MinistryCanada ;
+    :hasResponsibility :Governance,
+        :Priorities2025 ;
+    schema:instrument "focus, determination, and fundamentally different approaches to governing" .
+
+:NorthAmerica a schema:Continent ;
+    skos:altLabel "Turtle Island" ;
+    schema:containedInPlace :Earth .
+
+:PrimeMinisterCanada1 a :PrimeMinisterCanada ;
+    :chairOf :MinistryCanada1,
+        :MinistryCanada3 ;
+    :primeMinisterialOrder 1 .
+
+:PrimeMinisterCanada22 a :PrimeMinisterCanada ;
+    rdfs:label "The 22nd Prime Minister of Canada" ;
+    :chairOf :MinistryCanada28 ;
+    :primeMinisterialOrder 22 .
+
+:PrimeMinisterCanada23 a :PrimeMinisterCanada ;
+    rdfs:label "The 23rd Prime Minister of Canada" ;
+    :chairOf :MinistryCanada29 ;
+    :primeMinisterialOrder 23 .
+
+:PrimeMinisterCanada24 a :PrimeMinisterCanada ;
+    rdfs:label "The 24th Prime Minister of Canada" ;
+    :chairOf :MinistryCanada30 ;
+    :primeMinisterialOrder 24 .
+
+:Progressive_Conservative_Canada a schema:PoliticalParty ;
+    :succeededBy :Conservative_Canada2 ;
+    schema:dissolutionDate 2003 ;
+    schema:foundingDate 1942 .
 
 :Results a schema:Intangible ;
     schema:subjectOf :DepartmentalResultsReport .
 
-:DeliverResultsForCanadians a schema:OrganizeAction , :DeliverMandate ;
-    schema:agent :MinistryCanada ;
-    schema:provider gc:DepartmentsAgencies ;
-    schema:actionProcess :MandateLetter ;
-    schema:result :Results ;
-    schema:audience :Canadian ;
-    schema:instrument :Policy .
+:RisingGeopoliticalRisk a :Problem ;
+    rdfs:label "Rising Geopolitical Risk"@en .
 
-:DeliverServices a schema:OrganizeAction ;
-    schema:isPartOf :DeliverResultsForCanadians .
+:SovereigntyCanadian a :SovereigntyWestphalian ;
+    schema:additionalType :SovereigntyDeFacto,
+        :SovereigntyDeJure .
 
-:DeliverPrograms a schema:OrganizeAction ;
-    schema:isPartOf :DeliverResultsForCanadians .
-
-# linkages to policy suite
-
-gc:EAframework 
-    a schema:CreativeWork ;
-    rdfs:label "Government of Canada Enterprise Architecture Framework" ;
-    schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" ;
-    schema:subject :EnterpriseArchitecture .
-
-gc:EXJobStandard2022 a schema:CreativeWork;
-    rdfs:label "Executive (EX) Group Job Evaluation Standard 2022";
-    schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
-
-gc:GlossaryDS23 a skos:ConceptScheme;
-    rdfs:label "Data Strategy for the Federal Public Service - Annexes";
-    schema:url "https://wiki.gccollab.ca/Data_Strategy_for_the_Federal_Public_Service_-_Annexes" ;
-    schema:subject :DataAndInfo .
-
-gc:GuidanceMetadataNeeds a schema:CreativeWork ;
-    rdfs:label "Guidance on Assessing Metadata Needs" ;
-    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" ;
-    schema:subject :Metadata .
-
-gc:GuidanceDataQuality a schema:CreativeWork ;
-    rdfs:label "Guidance on Data Quality" ;
-    schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-readiness-manage-data-according-findable-accessible-interoperable-reusable-principles.html" ;
-    schema:subject :DataQuality .
-
-gc:ServiceDigitalDefs a skos:ConceptScheme ;
-    schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA".
-
-
-# Federal Political Parties in Canada
-
-:Parti_Bleu a schema:PoliticalParty ;
-    schema:foundingDate 1854 ;
-    schema:dissolutionDate 1867 ;
-    :succeededBy :Liberal_Conservative_Canada .
-
-:Liberal_Conservative_Canada a schema:Organization ;
-    schema:subjectOf "https://en.wikipedia.org/wiki/Liberal-Conservative_Party" ;
-    schema:foundingDate 1867 ;
-    schema:dissolutionDate 1938 ;
-    :succeededBy :Conservative_Canada1 .
-
-:Conservative_Canada1 a schema:PoliticalParty ;
-    schema:foundingDate 1867;
-    schema:dissolutionDate 1942 ;
-    :succeededBy :Progressive_Conservative_Canada .
-
-:Progressive_Conservative_Canada a schema:PoliticalParty ;
-    schema:foundingDate 1942;
-    schema:dissolutionDate 2003;
-    :succeededBy :Conservative_Canada2 .
-
-:Conservative_Canada2 a schema:PoliticalParty; 
-    rdfs:label "Conservative Party of Canada"@en , "Parti conservateur du Canada"@fr ;
-    schema:foundingDate 2003 .
-
-:Liberal_Canada a schema:PoliticalParty ;
-    rdfs:label "Liberal Party of Canada"@en , "Parti liberal du Canada"@fr ;
-    schema:foundingDate 1867 .
-
-:Liberal_Unionist_Canada a schema:PoliticalParty ;
-    schema:foundingDate 1917 ;
-    schema:dissolutionDate 1917 ;
-    :precededBy :Liberal_Canada ;
-    :succeededBy :Liberal_Canada, :Unionist_Canada .
+:SovietUnionCollapse a schema:event .
 
 :Unionist_Canada a schema:PoliticalParty ;
-    schema:foundingDate 1917;
+    :precededBy :Conservative_Canada1,
+        :Liberal_Unionist_Canada ;
+    :succeededBy :Conservative_Canada1 ;
     schema:dissolutionDate 1922 ;
-    :precededBy :Conservative_Canada1 , :Liberal_Unionist_Canada ;
-    :succeededBy :Conservative_Canada1
-    .
+    schema:foundingDate 1917 .
 
-:Bloc_Quebecois a schema:PoliticalParty ;
-    schema:foundingDate 1991 .
+:UnitedNations a :InternationalOrganization ;
+    schema:identifier "https://www.un.org/en/" .
 
-:New_Democratic_Canada a schema:PoliticalParty ;
-    schema:foundingDate 1961 .
+schema:AdministrativeArea a schema:Place .
 
-:Green_Canada a schema:PoliticalParty ;
-    schema:foundingDate 1983 .
+schema:InternationalOrganization a schema:organization .
 
-# Departments and Agencies
+schema:WebPage a schema:CreativeWork .
 
-gc:DepartmentsAgencies a schema:GovernmentOrganization .
+gc:DeputyHead a schema:organizationRole ;
+    rdfs:subClassOf gc:PublicServant ;
+    :heads gc:DepartmentsAgencies ;
+    schema:agent gc:DeliverMandate .
 
-# Federal Public Service Roles
+gc:EAframework a schema:CreativeWork ;
+    rdfs:label "Government of Canada Enterprise Architecture Framework" ;
+    schema:subject :EnterpriseArchitecture ;
+    schema:url "https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html" .
+
+gc:EXJobStandard2022 a schema:CreativeWork ;
+    rdfs:label "Executive (EX) Group Job Evaluation Standard 2022" ;
+    schema:url "https://www.canada.ca/en/treasury-board-secretariat/services/collective-agreements/job-evaluation/executive-group-position-evaluation-plan-2022.html" .
 
 gc:FederalPublicService a schema:GovernmentOrganization .
 
-:ClerkPrivyCouncil a gc:PublicServant , schema:organizationRole ;
-    :heads :PrivyCouncilOffice ;
-    schema:additionalType gc:DeputyHead
-    .
+gc:ServiceDigitalDefs a skos:ConceptScheme ;
+    schema:url "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603#appA" .
 
-gc:DeputyHead a gc:PublicServant , schema:organizationRole ;
-    :heads gc:DepartmentsAgencies ;
-    gc:Stewards gc:CrownAsset ;
-    schema:agent gc:DeliverMandate ;
-    schema:employee gc:PublicServant .
+:CanadianContext2025 a :hasContext ;
+    :hasProblem :GlobalTradeSystemTransformation,
+        :SovereigntyCanadianThreatened,
+        :affordabilityCrisis,
+        :longStandingLowProductivity,
+        :strainedGovernmentFinances,
+        :unsustainableSocialPrograms ;
+    :isAffectedBy :GlobalContext2025 .
 
-gc:EXPublicServant schema:subjectOf gc:EXJobStandard2022 ;
-    rdfs:comment "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" .
-
-gc:PublicServant a schema:Employee ;
-    schema:memberOf gc:FederalPublicService 
-    .
-
-gc:EXPublicServant a gc:PublicServant ;
-    schema:memberOf gc:PublicServant
-    .
-
-#GC Information, Data, and AI context
-
-:Asset a schema:Thing .
+:Conservative_Canada2 a schema:PoliticalParty ;
+    rdfs:label "Conservative Party of Canada"@en,
+        "Parti conservateur du Canada"@fr ;
+    schema:foundingDate 2003 .
 
 :DataAndInfo a :Asset .
 
-:DataInfoManagement 
-    a schema:OrganizeAction ;
-    rdfs:label "Data and Information Management";
-    rdfs:comment "Information and data management is a discipline that directs and supports effective and efficient management of information and data in an organization, from planning and systems development to disposal and/or long-term preservation. In the Government of Canada, information and data are safeguarded as a public trust and managed as a strategic asset to maximize its value in the service of Canadians." ;
-    schema:disambiguatingDescription "Integrated/unified management of both data and information. While they are not to be understood as mutually exclusive, their varying life cycles demand distinct practices." ;
-    schema:subjectOf "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management.html" ;
-    schema:subject :DataAndInfo ;
-    schema:isPartOf :EnterpriseArchitecture
-    .
-
-:EnterpriseArchitecture schema:subjectOf gc:EAframework.
-
-gc:DataGovernance a gc:Governance .
-
-:Asset a schema:Thing ;
-    rdfs:comment "any resource owned or controlled by a business or an economic entity" ;
-    schema:subjectOf "https://en.wikipedia.org/wiki/Asset"
-    .
-
-:Data a schema:Intangible ;
-    rdfs:label "Data"@en ;
-    rdfs:comment "Set of values of subjects with respect to qualitative or quantitative variables representing facts, statistics, or items of information in a formalized manner suitable for communication, reinterpretation, or processing." ;
-    skos:inScheme gc:ServiceDigitalDefs ;
-    schema:isPartOf :Information .
-
-:Information a schema:Intangible ;
-    rdfs:comment "Knowledge captured in any format, such as facts, events, things, processes, or ideas, that can be structured or unstructured, including concepts that within a certain context have particular meaning. Information includes data." ;
-    skos:inScheme gc:ServiceDigitalDefs .
-
-:BusinessValueDI a schema:Intangible ;
-    schema:isPartOf :DataAndInfo ;
-    rdfs:label "Information and data of business value" ;
-    rdfs:comment "published and unpublished materials, regardless of medium or form, that are created or acquired because they enable and document decision-making in support of programs, services and ongoing operations, and support departmental reporting, performance and accountability requirements." ;
-    schema:disambiguatingDescription "Any information and data that is not identified as having business value is considered transitory." .
-
-# Global Context 2025
+:EnterpriseArchitecture schema:subjectOf gc:EAframework .
 
 :GlobalContext2025 a :hasContext ;
-    :isAffectedBy :danger, :division ;
-    :hasProblem 
-        :RisingGeopoliticalRisk , 
-        wiki:Polycrisis 
-    .
+    :hasProblem wiki:Polycrisis,
+        :RisingGeopoliticalRisk ;
+    :isAffectedBy :danger,
+        :division .
 
-# Canadian Government Context in 2025
+:Liberal_Conservative_Canada a schema:organization ;
+    :succeededBy :Conservative_Canada1 ;
+    schema:dissolutionDate 1938 ;
+    schema:foundingDate 1867 ;
+    schema:subjectOf "https://en.wikipedia.org/wiki/Liberal-Conservative_Party" .
 
-:CanadianContext2025 a :hasContext ;
-    :isAffectedBy :GlobalContext2025 ;
-    :hasProblem 
-        :SovereigntyCanadianThreatened,
-        :GlobalTradeSystemTransformation ,
-        :longStandingLowProductivity ,
-        :strainedGovernmentFinances ,
-        :affordabilityCrisis ,
-        :unsustainableSocialPrograms
-    .
+:MandateLetter a schema:HowTo ;
+    rdfs:label "Mandate Letter"@en,
+        "Lettre de mandat"@fr ;
+    rdfs:comment "a letter from Prime Minister to The Ministry outlining government committements and priorities." ;
+    schema:about :Priorities ;
+    schema:author :PrimeMinisterCanada .
 
-:MandateLetter2025 a :MandateLetter ;
-    rdfs:label "Mandate Letter (2025)"@en , "Lettre de mandat (2025)"@fr ;
-    schema:author :Mark_Carney ;
-    schema:dateCreated "2025-05-21" ;
-    schema:about :GlobalContext2025, :CanadianContext2025, :Priorities2025.
+:PrimeMinister a owl:Class ;
+    rdfs:subClassOf schema:organizationRole .
 
 :Priorities2025 a :hasContext ;
-    :addresses :CanadianContext2025 ;
     rdfs:label "Government Priorities 2025" ;
-    schema:isPartOf :DeliverResultsForCanadians
-    .
+    :addresses :CanadianContext2025 ;
+    schema:isPartOf :DeliverResultsForCanadians .
 
-:MinistryCanada30 :hasResponsibility :Priorities2025 , :Governance ;
-    schema:instrument "focus, determination, and fundamentally different approaches to governing" 
-    .
+:SovereigntyDeFacto a schema:Intangible ;
+    rdfs:comment "the factual ability to exercise sovereignty" ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_facto" .
+
+:SovereigntyDeJure a schema:Intangible ;
+    rdfs:comment "the legal right to exercise sovereignty" ;
+    schema:identifier "https://en.wikipedia.org/wiki/De_jure" .
+
+:SovereigntyWestphalian a schema:Intangible ;
+    rdfs:comment "each state has exclusive sovereignty over its territory." ;
+    schema:identifier "https://en.wikipedia.org/wiki/Westphalian_system" .
+
+:WorldTradeOrganization a schema:InternationalOrganization ;
+    rdfs:comment "the only international organization dealing with the rules of trade between nations." ;
+    owl:ID "https://www.wto.org/" ;
+    schema:administrativeArea :GlobalTradeSystem .
+
+schema:Place a schema:Thing .
+
+gc:DepartmentsAgencies a schema:GovernmentOrganization .
+
+:Conservative_Canada1 a schema:PoliticalParty ;
+    :succeededBy :Progressive_Conservative_Canada ;
+    schema:dissolutionDate 1942 ;
+    schema:foundingDate 1867 .
+
+:DeliverResultsForCanadians a :DeliverMandate,
+        schema:OrganizeAction ;
+    schema:actionProcess :MandateLetter ;
+    schema:agent :MinistryCanada ;
+    schema:audience :Canadian ;
+    schema:instrument :Policy ;
+    schema:provider gc:DepartmentsAgencies ;
+    schema:result :Results .
+
+:Liberal_Canada a schema:PoliticalParty ;
+    rdfs:label "Liberal Party of Canada"@en,
+        "Parti liberal du Canada"@fr ;
+    schema:foundingDate 1867 .
+
+schema:GovernmentOrganization a schema:organization .
+
+gc:PublicServant a schema:Employee ;
+    schema:memberOf gc:FederalPublicService .
+
+:PrimeMinisterCanada a owl:Class ;
+    rdfs:label "Prime Minister of Canada"@en,
+        "Premier ministre du Canada"@fr ;
+    rdfs:subClassOf :PrimeMinister .
+
+:hasContext a owl:ObjectProperty ;
+    rdfs:label "has context"@en ;
+    rdfs:comment "A general background condition or situation that influences or frames a resource." .
+
+schema:CreativeWork a schema:Thing .
+
+:MinistryCanada a schema:GovernmentOrganization ;
+    skos:altLabel "Cabinet"@en,
+        "le Cabinet"@fr ;
+    skos:prefLabel "Canadian Ministry"@en,
+        "Le Conseil des ministres"@fr ;
+    schema:subOrganization :KingPrivyCouncilCanada .
+
+schema:Person a schema:Thing .
+
+schema:Thing a owl:Thing .
+
+schema:organization a schema:Thing .
+
+schema:Intangible a schema:Thing .
 

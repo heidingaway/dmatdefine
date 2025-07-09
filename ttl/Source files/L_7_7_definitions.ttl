@@ -8,7 +8,7 @@ PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
 
-lawslois:L_7_7 a skos:ConceptScheme ;
+lawslois:Libraries_Archives_Act a skos:ConceptScheme ;
   rdfs:label "Definitions from l-7.7 Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/l-7.7/"@en , "https://laws-lois.justice.gc.ca/fra/lois/l-7.7/"@fr ;
 .
@@ -16,49 +16,49 @@ lawslois:L_7_7 a skos:ConceptScheme ;
 lawslois:documentary_heritage a skos:Concept ;
   skos:prefLabel "documentary heritage"@en  , "patrimoine documentaire"@fr ;
   skos:definition "publications and records of interest to Canada."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:government_institution a skos:Concept ;
   skos:prefLabel "government institution"@en  , "institution fédérale"@fr ;
   skos:definition "an institution designated by the Governor in Council."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:government_record a skos:Concept ;
   skos:prefLabel "government record"@en  , "document fédéral"@fr ;
   skos:definition "a record that is under the control of a government institution."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:Librarian_and_Archivist a skos:Concept ;
   skos:prefLabel "Librarian and Archivist"@en  , "Version anglaise seulement"@fr ;
   skos:definition "the Librarian and Archivist of Canada appointed under subsection 5(1)."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:Minister a skos:Concept ;
   skos:prefLabel "Minister"@en  , "ministre"@fr ;
   skos:definition "the member of the Queen’s Privy Council for Canada who is designated by the Governor in Council as the Minister for the purposes of this Act."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:ministerial_record a skos:Concept ;
   skos:prefLabel "ministerial record"@en  , "document ministériel"@fr ;
   skos:definition "a record of a member of the Queen’s Privy Council for Canada who holds the office of a minister and that pertains to that office, other than a record that is of a personal or political nature or that is a government record."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:publication a skos:Concept ;
   skos:prefLabel "publication"@en  , "publication"@fr ;
   skos:definition "any library matter that is made available in multiple copies or at multiple locations, whether without charge or otherwise, to the public generally or to qualifying members of the public by subscription or otherwise. Publications may be made available through any medium and may be in any form, including printed material, on-line items or recordings."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 lawslois:record a skos:Concept ;
   skos:prefLabel "record"@en  , "document"@fr ;
   skos:definition "any documentary material other than a publication, regardless of medium or form."@en ;
-  skos:inScheme lawslois:L_7_7 ;
+  skos:inScheme lawslois:Libraries_Archives_Act ;
 .
 
 

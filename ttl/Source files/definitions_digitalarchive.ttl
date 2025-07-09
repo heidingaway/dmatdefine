@@ -1,0 +1,108 @@
+@prefix def: <http://example.org/ontology/definition#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+def:Administrative_metadata a skos:Concept ;
+    rdfs:label "Administrative metadata"@en,
+        "métadonnées administratives"@fr ;
+    skos:definition "Information that facilitates both short-term and long-term management and processing of records, and includes the following:"@en .
+
+def:Aggregation a skos:Concept ;
+    rdfs:label "Aggregation"@en,
+        "regroupement"@fr ;
+    skos:definition "A grouping of records (i.e., files, series) accumulated and organized to reflect the creator's activities.Footnote2In the context of this standard, aggregation may also refer to the grouping of records transferred together at one time (i.e., a transfer)."@en .
+
+def:Authenticity a skos:Concept ;
+    rdfs:label "Authenticity"@en,
+        "authenticité"@fr ;
+    skos:definition "The quality of being genuine, not a counterfeit, and free from tampering over the continuum of records creation, maintenance and preservation. It refers to a record’s reliability over time and is typically inferred from internal and external evidence.Footnote3"@en .
+
+def:Checksum a skos:Concept ;
+    rdfs:label "Checksum"@en,
+        "somme de contrôle"@fr ;
+    skos:definition "A checksum on a computer file is a “digital fingerprint;” any change to the computer file will change the checksum. Checksums are typically created by tools using cryptographic techniques. A checksum can be used to detect if a computer file's contents have changed but cannot identify where in the computer file a change occurred.Footnote5"@en .
+
+def:Compound_record a skos:Concept ;
+    rdfs:label "Compound record"@en,
+        "document composite"@fr ;
+    skos:definition "A digital record comprising more than one component; components are constituent parts comprising a digital record (e.g., multimedia components of a web page; a digital document; a data element, such as an entry in a database).Footnote4"@en .
+
+def:Cryptographic_hash_function a skos:Concept ;
+    rdfs:label "Cryptographic hash function"@en,
+        "fonction de hachage cryptographique"@fr ;
+    skos:definition "An equation used to verify the validity of data, translating data of different lengths (the message) into a fixed size numerical string (hash).Footnote6"@en .
+
+def:Descriptive_metadata a skos:Concept ;
+    rdfs:label "Descriptive metadata"@en,
+        "métadonnées descriptives"@fr ;
+    skos:definition "Information that establishes the conceptual content, access rights and physical attributes of records to support their discovery.Footnote7"@en .
+
+def:File a skos:Concept ;
+    rdfs:label "File"@en ;
+    skos:definition "File name[nom de fichier]"@en .
+
+def:File_name a skos:Concept ;
+    rdfs:label "File name"@en,
+        "nom de fichier"@fr ;
+    skos:definition "[in computing] A series of characters used to identify a computer file in a system.Footnote11"@en .
+
+def:File_plan a skos:Concept ;
+    rdfs:label "File plan"@en,
+        "plan de classement"@fr ;
+    skos:definition "A classification scheme describing different types of files (i.e., groupings of records), how they are identified, where they should be stored, and how they should be indexed for retrieval.Footnote13"@en .
+
+def:Filepath a skos:Concept ;
+    rdfs:label "Filepath"@en,
+        "chemin d’accès au fichier"@fr ;
+    skos:definition "[in computing] A list of one or more directory names and an object name (such as the name of a computer file) that are separated by an operating system-specific character, such as the backslash (\\) in Windows operating systems. The directory names detail the path to follow, in left-to-right order, to locate the object within the file system.Footnote12"@en .
+
+def:Fixity a skos:Concept ;
+    rdfs:label "Fixity"@en,
+        "fixité"@fr ;
+    skos:definition "Property of a computer file that indicates it has remained unaltered at the bit level between two points in time.Footnote14"@en .
+
+def:Item a skos:Concept ;
+    rdfs:label "Item"@en,
+        "pièce"@fr ;
+    skos:definition "Smallest conceptually indivisible archival unit that is complete in itself and can be distinguished from a group.Footnote15"@en .
+
+def:Message_digest_algorithm a skos:Concept ;
+    rdfs:label "Message digest algorithm"@en,
+        "algorithme d’empreinte numérique"@fr ;
+    skos:definition "The specific algorithm (i.e., procedure that maps input data of arbitrary length to an output of fixed length) used to construct the results of a cryptographic hash function for a computer file.Footnote16"@en .
+
+def:Metadata a skos:Concept ;
+    rdfs:label "Metadata"@en,
+        "métadonnées"@fr ;
+    skos:definition "Information used to contextualize, manage, preserve and provide access to records.Footnote17"@en .
+
+def:Metadata_element a skos:Concept ;
+    rdfs:label "Metadata element"@en,
+        "élément de métadonnées"@fr ;
+    skos:definition "Formally defined terms that are used to describe properties of a record or grouping of records.Footnote18"@en .
+
+def:Metadata_schema a skos:Concept ;
+    rdfs:label "Metadata schema"@en,
+        "schéma de métadonnées"@fr ;
+    skos:definition "Logical plan showing the relationships between metadata elements, normally through establishing rules for the use and management of metadata specifically as regards the semantics, the syntax and the optionality (obligation level) of values.Footnote19"@en .
+
+def:Protection a skos:Concept ;
+    rdfs:label "Protection"@en,
+        "protection"@fr ;
+    skos:definition "Record[document]"@en .
+
+def:Record a skos:Concept ;
+    rdfs:label "Record"@en,
+        "document"@fr ;
+    skos:definition "Any documentary material other than a publication, regardless of medium or form.Footnote22"@en .
+
+def:Series a skos:Concept ;
+    rdfs:label "Series"@en,
+        "série"@fr ;
+    skos:definition "A grouping (i.e., an aggregation) of similar records that are arranged according to a filing system and that are related as the result of being created, received, or used in the same activity.Footnote23"@en .
+
+def:Transfer a skos:Concept ;
+    rdfs:label "Transfer"@en,
+        "transfert"@fr ;
+    skos:definition "The following tables define the required metadata as concepts, in a system-agnostic manner, that accommodates a range of interpretations by government institutions to support their adherence to this standard."@en .
+

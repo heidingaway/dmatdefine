@@ -3,7 +3,7 @@ PREFIX :<>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 
-lawslois:P21 a skos:ConceptScheme ;
+lawslois:Privacy_Act a skos:ConceptScheme ;
   rdfs:label "Definitions from Privacy Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/P-21/" ;
 .
@@ -11,60 +11,60 @@ lawslois:P21 a skos:ConceptScheme ;
 lawslois:administrative_purpose a skos:Concept ;
   skos:prefLabel "administrative purpose"@en  , "fins administratives"@fr ;
   skos:definition "the use of that information in a decision making process that directly affects that individual;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:alternative_format a skos:Concept ;
   skos:prefLabel "alternative format"@en  , "support de substitution"@fr ;
   skos:definition "a format that allows a person with a sensory disability to read or listen to the personal information;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:Court a skos:Concept ;
   skos:prefLabel "Court"@en  , "Cour"@fr ;
   skos:definition "the Federal Court;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:designated_Minister a skos:Concept ;
   skos:prefLabel "designated Minister"@en  , "ministre désigné"@fr ;
   skos:definition "a person who is designated as the Minister under subsection 3.1(1);"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:government_institution a skos:Concept ;
   skos:prefLabel "government institution"@en  , "institution fédérale"@fr ;
   skos:definition "(a)any department or ministry of state of the Government of Canada, or any body or office, listed in the schedule, and(b)any parent Crown corporation, and any wholly-owned subsidiary of such a corporation, within the meaning of section 83 of theFinancial Administration Act;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:head a skos:Concept ;
   skos:prefLabel "head"@en  , "responsable d’institution fédérale"@fr ;
   skos:definition "(a)in the case of a department or ministry of state, the member of the Queen’s Privy Council for Canada who presides over the department or ministry, or(b)in any other case, either the person designated under subsection 3.1(2) to be the head of the institution for the purposes of this Act or, if no such person is designated, the chief executive officer of the institution, whatever their title;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:personal_information a skos:Concept ;
   skos:prefLabel "personal information"@en  , "renseignements personnels"@fr ;
   skos:definition "information about an identifiable individual that is recorded in any form including, without restricting the generality of the foregoing,(a)information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual,(b)information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved,(c)any identifying number, symbol or other particular assigned to the individual,(d)the address, fingerprints or blood type of the individual,(e)the personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations,(f)correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence,(g)the views or opinions of another individual about the individual,(h)the views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual, and(i)the name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual,but, for the purposes of sections 7, 8 and 26 and section 19 of theAccess to Information Act, does not include(j)information about an individual who is or was an officer or employee of a government institution that relates to the position or functions of the individual including,(i)the fact that the individual is or was an officer or employee of the government institution,(ii)the title, business address and telephone number of the individual,(iii)the classification, salary range and responsibilities of the position held by the individual,(iv)the name of the individual on a document prepared by the individual in the course of employment, and(v)the personal opinions or views of the individual given in the course of employment,(j.1)the fact that an individual is or was aministerial adviseror a member of aministerial staff, as those terms are defined in subsection 2(1) of theConflict of Interest Act, as well as the individual’s name and title,(k)information about an individual who is or was performing services under contract for a government institution that relates to the services performed, including the terms of the contract, the name of the individual and the opinions or views of the individual given in the course of the performance of those services,(l)information relating to any discretionary benefit of a financial nature, including the granting of a licence or permit, conferred on an individual, including the name of the individual and the exact nature of the benefit, and(m)information about an individual who has been dead for more than twenty years;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:personal_information_bank a skos:Concept ;
   skos:prefLabel "personal information bank"@en  , "fichier de renseignements personnels"@fr ;
   skos:definition "a collection or grouping of personal information described in section 10;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:Privacy_Commissioner a skos:Concept ;
   skos:prefLabel "Privacy Commissioner"@en  , "Commissaire à la protection de la vie privée"@fr ;
   skos:definition "the Commissioner appointed under section 53;"@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
 lawslois:sensory_disability a skos:Concept ;
   skos:prefLabel "sensory disability"@en  , "déficience sensorielle"@fr ;
   skos:definition "a disability that relates to sight or hearing."@en ;
-  skos:inScheme lawslois:P21 ;
+  skos:inScheme lawslois:Privacy_Act ;
 .
 
