@@ -8,7 +8,8 @@ PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
 PREFIX dcterms:<http://purl.org/dc/terms/>
 
-lawslois:Libraries_Archives_Act a skos:ConceptScheme ;
+lawslois:Libraries_Archives_Act a schema:Legislation ;
+  a skos:ConceptScheme ;
   rdfs:label "Definitions from l-7.7 Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/l-7.7/"@en , "https://laws-lois.justice.gc.ca/fra/lois/l-7.7/"@fr ;
 .

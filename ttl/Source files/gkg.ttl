@@ -54,11 +54,13 @@ wiki:Government_Debt a schema:financialProduct ;
 :DeliverServices a schema:OrganizeAction ;
     schema:isPartOf :DeliverResultsForCanadians .
 
+:Directive rdfs:subClassOf :Policy .
+
 :Division a :hasContext ;
     rdfs:label "Division"@en ;
     rdfs:comment "e.g., political, social, or economic fragmentation" .
 
-:GeopoliticalRisk a owl:Class .
+:GeopoliticalRisk a skos:Concept .
 
 :Green_Canada a schema:PoliticalParty ;
     schema:foundingDate 1983 .
@@ -107,6 +109,8 @@ wiki:Government_Debt a schema:financialProduct ;
         :SovereigntyWestphalian ;
     schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" .
 
+:Standard rdfs:subClassOf :Policy .
+
 :Stephen_Harper a schema:Person ;
     rdfs:label "Stephen Harper" ;
     :holdsOffice :PrimeMinisterCanada22 ;
@@ -146,6 +150,8 @@ wiki:Government_Debt a schema:financialProduct ;
     rdfs:domain :PrimeMinister ;
     rdfs:range xsd:integer .
 
+schema:Legislation a schema:CreativeWork .
+
 gc:DataGovernance a gc:Governance .
 
 gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
@@ -181,7 +187,7 @@ wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
 
 wiki:Global_debt a schema:financialProduct .
 
-wiki:Polity a owl:Class,
+wiki:Polity a skos:Concept,
         schema:AdministrativeArea ;
     rdfs:comment "a group of people with a collective identity, who are organized by some form of political institutionalized social relations, and have a capacity to mobilize resources" .
 
@@ -224,7 +230,7 @@ wiki:State a wiki:Polity .
     rdfs:label "World" ;
     schema:identifier "https://en.wikipedia.org/wiki/Earth" .
 
-:GlobalTradeSystem a owl:Class,
+:GlobalTradeSystem a skos:Concept,
         schema:Intangible ;
     rdfs:comment "https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm" ;
     :governedBy :WorldTradeOrganization .
@@ -377,7 +383,7 @@ gc:ServiceDigitalDefs a skos:ConceptScheme ;
     schema:about :Priorities ;
     schema:author :PrimeMinisterCanada .
 
-:PrimeMinister a owl:Class ;
+:PrimeMinister a skos:Concept ;
     rdfs:subClassOf schema:organizationRole .
 
 :Priorities2025 a :hasContext ;
@@ -430,7 +436,7 @@ schema:GovernmentOrganization a schema:organization .
 gc:PublicServant a schema:Employee ;
     schema:memberOf gc:FederalPublicService .
 
-:PrimeMinisterCanada a owl:Class ;
+:PrimeMinisterCanada a skos:Concept ;
     rdfs:label "Prime Minister of Canada"@en,
         "Premier ministre du Canada"@fr ;
     rdfs:subClassOf :PrimeMinister .
@@ -439,14 +445,14 @@ gc:PublicServant a schema:Employee ;
     rdfs:label "has context"@en ;
     rdfs:comment "A general background condition or situation that influences or frames a resource." .
 
-schema:CreativeWork a schema:Thing .
-
 :MinistryCanada a schema:GovernmentOrganization ;
     skos:altLabel "Cabinet"@en,
         "le Cabinet"@fr ;
     skos:prefLabel "Canadian Ministry"@en,
         "Le Conseil des ministres"@fr ;
     schema:subOrganization :KingPrivyCouncilCanada .
+
+schema:CreativeWork a schema:Thing .
 
 schema:Person a schema:Thing .
 
