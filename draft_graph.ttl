@@ -1,8 +1,11 @@
 @prefix : <https://gcxgce.sharepoint.com/teams/1000944/#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix gc: <https://www.canada.ca/#> .
+@prefix lawslois: <https://laws-lois.justice.gc.ca/eng/acts/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
+@prefix schema1: <http://www.schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix wiki: <https://en.wikipedia.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -53,8 +56,6 @@ wiki:Government_Debt a skos:Concept ;
 
 :DeliverServices a schema:OrganizeAction ;
     schema:isPartOf :DeliverResultsForCanadians .
-
-:Directive rdfs:subClassOf :Policy .
 
 :Division a :hasContext ;
     rdfs:label "Division"@en ;
@@ -150,6 +151,54 @@ wiki:Government_Debt a skos:Concept ;
     rdfs:domain :PrimeMinister ;
     rdfs:range xsd:integer .
 
+lawslois:Librarian_and_Archivist a skos:Concept ;
+    skos:definition "the Librarian and Archivist of Canada appointed under subsection 5(1)."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "Librarian and Archivist"@en,
+        "Version anglaise seulement"@fr .
+
+lawslois:Minister a skos:Concept ;
+    skos:definition "the member of the Queen’s Privy Council for Canada who is designated by the Governor in Council as the Minister for the purposes of this Act."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "Minister"@en,
+        "ministre"@fr .
+
+lawslois:documentary_heritage a skos:Concept ;
+    skos:definition "publications and records of interest to Canada."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "documentary heritage"@en,
+        "patrimoine documentaire"@fr .
+
+lawslois:government_institution a skos:Concept ;
+    skos:definition "an institution designated by the Governor in Council."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "government institution"@en,
+        "institution fédérale"@fr .
+
+lawslois:government_record a skos:Concept ;
+    skos:definition "a record that is under the control of a government institution."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "government record"@en,
+        "document fédéral"@fr .
+
+lawslois:ministerial_record a skos:Concept ;
+    skos:definition "a record of a member of the Queen’s Privy Council for Canada who holds the office of a minister and that pertains to that office, other than a record that is of a personal or political nature or that is a government record."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "ministerial record"@en,
+        "document ministériel"@fr .
+
+lawslois:publication a skos:Concept ;
+    skos:definition "any library matter that is made available in multiple copies or at multiple locations, whether without charge or otherwise, to the public generally or to qualifying members of the public by subscription or otherwise. Publications may be made available through any medium and may be in any form, including printed material, on-line items or recordings."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "publication"@en,
+        "publication"@fr .
+
+lawslois:record a skos:Concept ;
+    skos:definition "any documentary material other than a publication, regardless of medium or form."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:prefLabel "record"@en,
+        "document"@fr .
+
 schema:Legislation a schema:CreativeWork .
 
 gc:DataGovernance a gc:Governance .
@@ -176,11 +225,61 @@ gc:GuidanceMetadataNeeds a schema:CreativeWork ;
     schema:subject :Metadata ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" .
 
+gc:administrative_decision a skos:Concept ;
+    skos:definition "Any  decision that is made by an authorized official of a department as  identified in section 8 of this directive pursuant to powers conferred by an Act of Parliament or an order made pursuant to a prerogative of  the Crown that affects legal rights, privileges or interests."@en,
+        "Toute décision prise par une personne autorisée  d’un ministère, visée à la section 8 de la Directive, en application des  pouvoirs que lui confère une loi du Parlement ou une ordonnance prise en vertu  de la prérogative de la Couronne et qui touche des droits juridiques, les  privilèges ou les intérêts d’une personne."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "administrative  decision"@en,
+        "Décision administrative"@fr .
+
+gc:algorithmic_impact_assessment a skos:Concept ;
+    skos:definition "A framework  to help  departments better  understand and reduce the risks associated with automated decision systems and  to provide the appropriate  requirements that best match the  type of  system being designed."@en,
+        "Cadre destiné à aider ministères à mieux comprendre les risques associés aux systèmes décisionnels automatisés, à les  atténuer et à définir les exigences appropriées qui correspondent le mieux au  type de système conçu."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "algorithmic impact assessment"@en,
+        "Évaluation de l’incidence algorithmique"@fr .
+
+gc:automated_decision_system a skos:Concept ;
+    skos:definition "Any  technology that either assists or replaces the judgment of human decision  makers. These systems draw from fields like statistics, linguistics and computer  science, and use techniques such as rules-based systems, regression, predictive  analytics, machine learning, deep learning, and neural networks."@en,
+        "Toute technologie qui se substitue au  jugement des décideurs ou qui les assiste. Ces systèmes proviennent de domaines  tels ceux des statistiques, de la linguistique et de l’informatique. Ils  utilisent des techniques telles que les systèmes basés sur des règles, la  régression, l’analytique prédictive, l’apprentissage automatique,  l’apprentissage en profondeur et les réseaux neuronaux."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "automated decision system"@en,
+        "Système décisionnel automatisé"@fr .
+
 gc:gc-enterprise-data-reference-standards a schema:WebPage ;
     rdfs:label "Inventory of data and metadata reference standards"@en,
         "Liste des normes référentielles relatives aux données et aux métadonnées"@fr ;
     rdfs:seeAlso "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/enabling-interoperability/gc-enterprise-data-reference-standards.html"@en,
         "https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/innovations-gouvernementales-numeriques/permettre-interoperabilite/normes-referentielles-pangouvernementales-relatives-donnees-gc.html"@fr .
+
+gc:human_rights a skos:Concept ;
+    rdfs:seeAlso "https://www.canada.ca/en/canadian-heritage/services/about-human-rights.html"@en,
+        "https://www.canada.ca/fr/patrimoine-canadien/services/a-propos-droits-personne.html"@fr ;
+    skos:definition "The rights to which persons are inherently entitled because they are human beings (Source).  Human rights are protected in the Canadian Charter of Rights and Freedoms, Canadian Human Rights Act, and the United Nations Declaration on the Rights of Indigenous Peoples Act."@en ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "human rights"@en,
+        "Droits de la personne"@fr .
+
+gc:production a skos:Concept ;
+    skos:definition "An automated decision system is in production when it is in use and has impacts on real clients. This can include when it is in beta or user testing and producing outputs that impact clients."@en,
+        "Se dit d’un système décisionnel automatisé  qui est utilisé et qui a une incidence sur la clientèle réelle. Il peut s’agir d’un système en version bêta ou d’un système testé par les personnes qui l’utilisent, qui produit des résultats ayant une incidence sur la clientèle."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "production"@en,
+        "En production"@fr .
+
+gc:proprietary a skos:Concept ;
+    skos:definition "Refers to  systems, algorithms or software owned by an entity, such as a company or government. These systems are often closed  source, meaning the source code is not publicly available."@en,
+        "Se dit des systèmes, des algorithmes ou des  logiciels qui appartiennent à une entité, telle qu’une entreprise ou une  administration publique. Il s’agit souvent de systèmes à code fermé,  c’est-à-dire que le code source n’est pas accessible au public."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "proprietary"@en,
+        "Propriétaire"@fr .
+
+gc:test_environment a skos:Concept ;
+    skos:definition "An environment containing hardware, instrumentation, simulators, software tools, and other support elements needed to conduct a test. A system in a test environment may mimic a production  environment but does not impact real clients. Test environments may include exploration zones and sandboxes."@en,
+        "Environnement contenant du matériel, des instruments, des simulateurs, des outils logiciels et d’autres composantes nécessaires à la réalisation d’un essai. Le déploiement d’un système dans un environnement d’essai permet de simuler son fonctionnement dans un  environnement de production sans incidence sur la clientèle réelle. Il peut s’agir de zones d’exploration ou de bacs à sable."@fr ;
+    skos:inScheme gc:DIRECTIVE_automateddecisionmaking ;
+    skos:prefLabel "test  environment"@en,
+        "Environnement d’essai"@fr .
 
 wiki:Berlin_Wall a schema:LandmarksOrHistoricalBuildings ;
     schema:location wiki:Berlin .
@@ -225,6 +324,8 @@ wiki:State a wiki:Polity .
 
 :Canadian a schema:Person ;
     schema:Nationality :Canada .
+
+:Directive rdfs:subClassOf :Policy .
 
 :Earth a schema:Place ;
     rdfs:label "World" ;
@@ -459,6 +560,19 @@ schema:Person a schema:Thing .
 schema:Thing a owl:Thing .
 
 schema:organization a schema:Thing .
+
+gc:DIRECTIVE_automateddecisionmaking a skos:ConceptScheme,
+        :Directive ;
+    rdfs:label "Directive on Automated Decision Making"@en,
+        "Directive sur la prise de décisions automatisée"@fr ;
+    dcterms:modified "2017-08-24" ;
+    rdfs:seeAlso "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=DIRECTIVE_automateddecisionmaking" .
+
+lawslois:Libraries_Archives_Act a schema1:Legislation,
+        skos:ConceptScheme ;
+    rdfs:label "Definitions from l-7.7 Act"@en ;
+    rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/l-7.7/"@en,
+        "https://laws-lois.justice.gc.ca/fra/lois/l-7.7/"@fr .
 
 schema:Intangible a schema:Thing .
 
