@@ -1,6 +1,7 @@
 @prefix : <https://gcxgce.sharepoint.com/teams/1000944/#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix gc: <https://www.canada.ca/#> .
+@prefix lawlois: <https://laws-lois.justice.gc.ca/> .
 @prefix lawslois: <https://laws-lois.justice.gc.ca/eng/acts/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -110,8 +111,6 @@ wiki:Government_Debt a skos:Concept ;
         :SovereigntyWestphalian ;
     schema:seeAlso "https://en.wikipedia.org/wiki/Sovereignty" .
 
-:Standard rdfs:subClassOf :Policy .
-
 :Stephen_Harper a schema:Person ;
     rdfs:label "Stephen Harper" ;
     :holdsOffice :PrimeMinisterCanada22 ;
@@ -151,6 +150,37 @@ wiki:Government_Debt a skos:Concept ;
     rdfs:domain :PrimeMinister ;
     rdfs:range xsd:integer .
 
+lawlois:CorePublicAdministration a skos:Concept ;
+    skos:definition "the departments named in Schedule I and the other portions of the federal public administration named in Schedule IV."@en ;
+    skos:prefLabel "core public administration"@en,
+        "administration publique centrale"@fr .
+
+lawlois:DeputyHead a skos:Concept ;
+    skos:definition "in relation to a department named in Schedule I, its deputy minister;in relation to any portion of the federal public administration named in Schedule IV, its chief executive officer or, if there is no chief executive officer, its statutory deputy head or, if there is neither, the person who occupies the position designated under subsection (2) in respect of that portion;in relation to a separate agency, its chief executive officer or, if there is no chief executive officer, its statutory deputy head or, if there is neither, the person who occupies the position designated under subsection (2) in respect of that separate agency; andin relation to any portion of the federal public administration designated for the purposes of paragraphof the definition public service, its chief executive officer or, if there is no chief executive officer, the person who occupies the position designated under subsection (2) in respect of that portion."@en ;
+    skos:prefLabel "deputy head"@en,
+        "administrateur général"@fr .
+
+lawlois:PublicService a skos:Concept ;
+    skos:definition "the several positions in or underthe departments named in Schedule I;the other portions of the federal public administration named in Schedule IV;the separate agencies named in Schedule V; andany other portion of the federal public administration that may be designated by the Governor in Council for the purpose of this paragraph."@en ;
+    skos:prefLabel "public service"@en,
+        "fonction publique"@fr .
+
+lawlois:SeparateAgency a skos:Concept ;
+    skos:definition "a portion of the federal public administration named in Schedule V."@en ;
+    skos:prefLabel "separate agency"@en,
+        "organisme distinct"@fr .
+
+lawlois:StatutoryDeputyHead a skos:Concept ;
+    skos:definition "any officer who, by any Act of Parliament, is or is deemed to be a deputy head or who has, or is deemed to have, the rank of a deputy head."@en ;
+    skos:prefLabel "statutory deputy head"@en,
+        "administrateur général au titre de la loi"@fr .
+
+lawslois:Court a skos:Concept ;
+    skos:definition "the Federal Court;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "Court"@en,
+        "Cour"@fr .
+
 lawslois:Librarian_and_Archivist a skos:Concept ;
     skos:definition "the Librarian and Archivist of Canada appointed under subsection 5(1)."@en ;
     skos:inScheme lawslois:Libraries_Archives_Act ;
@@ -163,6 +193,30 @@ lawslois:Minister a skos:Concept ;
     skos:prefLabel "Minister"@en,
         "ministre"@fr .
 
+lawslois:Privacy_Commissioner a skos:Concept ;
+    skos:definition "the Commissioner appointed under section 53;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "Privacy Commissioner"@en,
+        "Commissaire à la protection de la vie privée"@fr .
+
+lawslois:administrative_purpose a skos:Concept ;
+    skos:definition "the use of that information in a decision making process that directly affects that individual;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "administrative purpose"@en,
+        "fins administratives"@fr .
+
+lawslois:alternative_format a skos:Concept ;
+    skos:definition "a format that allows a person with a sensory disability to read or listen to the personal information;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "alternative format"@en,
+        "support de substitution"@fr .
+
+lawslois:designated_Minister a skos:Concept ;
+    skos:definition "a person who is designated as the Minister under subsection 3.1(1);"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "designated Minister"@en,
+        "ministre désigné"@fr .
+
 lawslois:documentary_heritage a skos:Concept ;
     skos:definition "publications and records of interest to Canada."@en ;
     skos:inScheme lawslois:Libraries_Archives_Act ;
@@ -170,8 +224,10 @@ lawslois:documentary_heritage a skos:Concept ;
         "patrimoine documentaire"@fr .
 
 lawslois:government_institution a skos:Concept ;
-    skos:definition "an institution designated by the Governor in Council."@en ;
-    skos:inScheme lawslois:Libraries_Archives_Act ;
+    skos:definition "(a)any department or ministry of state of the Government of Canada, or any body or office, listed in the schedule, and(b)any parent Crown corporation, and any wholly-owned subsidiary of such a corporation, within the meaning of section 83 of theFinancial Administration Act;"@en,
+        "an institution designated by the Governor in Council."@en ;
+    skos:inScheme lawslois:Libraries_Archives_Act,
+        lawslois:Privacy_Act ;
     skos:prefLabel "government institution"@en,
         "institution fédérale"@fr .
 
@@ -181,11 +237,29 @@ lawslois:government_record a skos:Concept ;
     skos:prefLabel "government record"@en,
         "document fédéral"@fr .
 
+lawslois:head a skos:Concept ;
+    skos:definition "(a)in the case of a department or ministry of state, the member of the Queen’s Privy Council for Canada who presides over the department or ministry, or(b)in any other case, either the person designated under subsection 3.1(2) to be the head of the institution for the purposes of this Act or, if no such person is designated, the chief executive officer of the institution, whatever their title;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "head"@en,
+        "responsable d’institution fédérale"@fr .
+
 lawslois:ministerial_record a skos:Concept ;
     skos:definition "a record of a member of the Queen’s Privy Council for Canada who holds the office of a minister and that pertains to that office, other than a record that is of a personal or political nature or that is a government record."@en ;
     skos:inScheme lawslois:Libraries_Archives_Act ;
     skos:prefLabel "ministerial record"@en,
         "document ministériel"@fr .
+
+lawslois:personal_information a skos:Concept ;
+    skos:definition "information about an identifiable individual that is recorded in any form including, without restricting the generality of the foregoing,(a)information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual,(b)information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved,(c)any identifying number, symbol or other particular assigned to the individual,(d)the address, fingerprints or blood type of the individual,(e)the personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations,(f)correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence,(g)the views or opinions of another individual about the individual,(h)the views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual, and(i)the name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual,but, for the purposes of sections 7, 8 and 26 and section 19 of theAccess to Information Act, does not include(j)information about an individual who is or was an officer or employee of a government institution that relates to the position or functions of the individual including,(i)the fact that the individual is or was an officer or employee of the government institution,(ii)the title, business address and telephone number of the individual,(iii)the classification, salary range and responsibilities of the position held by the individual,(iv)the name of the individual on a document prepared by the individual in the course of employment, and(v)the personal opinions or views of the individual given in the course of employment,(j.1)the fact that an individual is or was aministerial adviseror a member of aministerial staff, as those terms are defined in subsection 2(1) of theConflict of Interest Act, as well as the individual’s name and title,(k)information about an individual who is or was performing services under contract for a government institution that relates to the services performed, including the terms of the contract, the name of the individual and the opinions or views of the individual given in the course of the performance of those services,(l)information relating to any discretionary benefit of a financial nature, including the granting of a licence or permit, conferred on an individual, including the name of the individual and the exact nature of the benefit, and(m)information about an individual who has been dead for more than twenty years;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "personal information"@en,
+        "renseignements personnels"@fr .
+
+lawslois:personal_information_bank a skos:Concept ;
+    skos:definition "a collection or grouping of personal information described in section 10;"@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "personal information bank"@en,
+        "fichier de renseignements personnels"@fr .
 
 lawslois:publication a skos:Concept ;
     skos:definition "any library matter that is made available in multiple copies or at multiple locations, whether without charge or otherwise, to the public generally or to qualifying members of the public by subscription or otherwise. Publications may be made available through any medium and may be in any form, including printed material, on-line items or recordings."@en ;
@@ -199,16 +273,90 @@ lawslois:record a skos:Concept ;
     skos:prefLabel "record"@en,
         "document"@fr .
 
-schema:Legislation a schema:CreativeWork .
+lawslois:sensory_disability a skos:Concept ;
+    skos:definition "a disability that relates to sight or hearing."@en ;
+    skos:inScheme lawslois:Privacy_Act ;
+    skos:prefLabel "sensory disability"@en,
+        "déficience sensorielle"@fr .
+
+gc:Administrative_metadata a skos:Concept ;
+    rdfs:label "Administrative metadata"@en,
+        "métadonnées administratives"@fr ;
+    skos:definition "Information that facilitates both short-term and long-term management and processing of records, and includes the following:"@en .
+
+gc:Aggregation a skos:Concept ;
+    rdfs:label "Aggregation"@en,
+        "regroupement"@fr ;
+    skos:definition "A grouping of records (i.e., files, series) accumulated and organized to reflect the creator's activities.Footnote2In the context of this standard, aggregation may also refer to the grouping of records transferred together at one time (i.e., a transfer)."@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Authenticity a skos:Concept ;
+    rdfs:label "Authenticity"@en,
+        "authenticité"@fr ;
+    skos:definition "The quality of being genuine, not a counterfeit, and free from tampering over the continuum of records creation, maintenance and preservation. It refers to a record’s reliability over time and is typically inferred from internal and external evidence.Footnote3"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Checksum a skos:Concept ;
+    rdfs:label "Checksum"@en,
+        "somme de contrôle"@fr ;
+    skos:definition "A checksum on a computer file is a “digital fingerprint;” any change to the computer file will change the checksum. Checksums are typically created by tools using cryptographic techniques. A checksum can be used to detect if a computer file's contents have changed but cannot identify where in the computer file a change occurred.Footnote5"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Compound_record a skos:Concept ;
+    rdfs:label "Compound record"@en,
+        "document composite"@fr ;
+    skos:definition "A digital record comprising more than one component; components are constituent parts comprising a digital record (e.g., multimedia components of a web page; a digital document; a data element, such as an entry in a database).Footnote4"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Cryptographic_hash_function a skos:Concept ;
+    rdfs:label "Cryptographic hash function"@en,
+        "fonction de hachage cryptographique"@fr ;
+    skos:definition "An equation used to verify the validity of data, translating data of different lengths (the message) into a fixed size numerical string (hash).Footnote6"@en ;
+    skos:inScheme :StandardDigitalArchive .
 
 gc:DataGovernance a gc:Governance .
 
 gc:DelegatedAuthority schema:isPartOf gc:CrownAuthority .
 
+gc:Descriptive_metadata a skos:Concept ;
+    rdfs:label "Descriptive metadata"@en,
+        "métadonnées descriptives"@fr ;
+    skos:definition "Information that establishes the conceptual content, access rights and physical attributes of records to support their discovery.Footnote7"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
 gc:EXPublicServant a gc:PublicServant ;
     rdfs:comment "significant executive managerial roles and responsibilities, significant executive policy roles and responsibilities, or significant influence on the direction of a department or agency" ;
     schema:memberOf gc:PublicServant ;
     schema:subjectOf gc:EXJobStandard2022 .
+
+gc:File a skos:Concept ;
+    rdfs:label "File"@en ;
+    skos:definition "File name[nom de fichier]"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:File_name a skos:Concept ;
+    rdfs:label "File name"@en,
+        "nom de fichier"@fr ;
+    skos:definition "[in computing] A series of characters used to identify a computer file in a system.Footnote11"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:File_plan a skos:Concept ;
+    rdfs:label "File plan"@en,
+        "plan de classement"@fr ;
+    skos:definition "A classification scheme describing different types of files (i.e., groupings of records), how they are identified, where they should be stored, and how they should be indexed for retrieval.Footnote13"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Filepath a skos:Concept ;
+    rdfs:label "Filepath"@en,
+        "chemin d’accès au fichier"@fr ;
+    skos:definition "[in computing] A list of one or more directory names and an object name (such as the name of a computer file) that are separated by an operating system-specific character, such as the backslash (\\) in Windows operating systems. The directory names detail the path to follow, in left-to-right order, to locate the object within the file system.Footnote12"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Fixity a skos:Concept ;
+    rdfs:label "Fixity"@en,
+        "fixité"@fr ;
+    skos:definition "Property of a computer file that indicates it has remained unaltered at the bit level between two points in time.Footnote14"@en ;
+    skos:inScheme :StandardDigitalArchive .
 
 gc:GlossaryDS23 a skos:ConceptScheme ;
     rdfs:label "Data Strategy for the Federal Public Service - Annexes" ;
@@ -224,6 +372,60 @@ gc:GuidanceMetadataNeeds a schema:CreativeWork ;
     rdfs:label "Guidance on Assessing Metadata Needs" ;
     schema:subject :Metadata ;
     schema:url "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/information-management/guidance-assessing-metadata-needs.html" .
+
+gc:Item a skos:Concept ;
+    rdfs:label "Item"@en,
+        "pièce"@fr ;
+    skos:definition "Smallest conceptually indivisible archival unit that is complete in itself and can be distinguished from a group.Footnote15"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Message_digest_algorithm a skos:Concept ;
+    rdfs:label "Message digest algorithm"@en,
+        "algorithme d’empreinte numérique"@fr ;
+    skos:definition "The specific algorithm (i.e., procedure that maps input data of arbitrary length to an output of fixed length) used to construct the results of a cryptographic hash function for a computer file.Footnote16"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Metadata a skos:Concept ;
+    rdfs:label "Metadata"@en,
+        "métadonnées"@fr ;
+    skos:definition "Information used to contextualize, manage, preserve and provide access to records.Footnote17"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Metadata_element a skos:Concept ;
+    rdfs:label "Metadata element"@en,
+        "élément de métadonnées"@fr ;
+    skos:definition "Formally defined terms that are used to describe properties of a record or grouping of records.Footnote18"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Metadata_schema a skos:Concept ;
+    rdfs:label "Metadata schema"@en,
+        "schéma de métadonnées"@fr ;
+    skos:definition "Logical plan showing the relationships between metadata elements, normally through establishing rules for the use and management of metadata specifically as regards the semantics, the syntax and the optionality (obligation level) of values.Footnote19"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Protection a skos:Concept ;
+    rdfs:label "Protection"@en,
+        "protection"@fr ;
+    skos:definition "Record[document]"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Record a skos:Concept ;
+    rdfs:label "Record"@en,
+        "document"@fr ;
+    skos:definition "Any documentary material other than a publication, regardless of medium or form.Footnote22"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Series a skos:Concept ;
+    rdfs:label "Series"@en,
+        "série"@fr ;
+    skos:definition "A grouping (i.e., an aggregation) of similar records that are arranged according to a filing system and that are related as the result of being created, received, or used in the same activity.Footnote23"@en ;
+    skos:inScheme :StandardDigitalArchive .
+
+gc:Transfer a skos:Concept ;
+    rdfs:label "Transfer"@en,
+        "transfert"@fr ;
+    skos:definition "The following tables define the required metadata as concepts, in a system-agnostic manner, that accommodates a range of interpretations by government institutions to support their adherence to this standard."@en ;
+    skos:inScheme :StandardDigitalArchive .
 
 gc:administrative_decision a skos:Concept ;
     skos:definition "Any  decision that is made by an authorized official of a department as  identified in section 8 of this directive pursuant to powers conferred by an Act of Parliament or an order made pursuant to a prerogative of  the Crown that affects legal rights, privileges or interests."@en,
@@ -412,6 +614,8 @@ wiki:State a wiki:Polity .
 
 :SovietUnionCollapse a schema:event .
 
+:Standard rdfs:subClassOf :Policy .
+
 :Unionist_Canada a schema:PoliticalParty ;
     :precededBy :Conservative_Canada1,
         :Liberal_Unionist_Canada ;
@@ -425,6 +629,8 @@ wiki:State a wiki:Polity .
 schema:AdministrativeArea a schema:Place .
 
 schema:InternationalOrganization a schema:organization .
+
+schema:Legislation a schema:CreativeWork .
 
 schema:WebPage a schema:CreativeWork .
 
@@ -575,4 +781,11 @@ lawslois:Libraries_Archives_Act a schema1:Legislation,
         "https://laws-lois.justice.gc.ca/fra/lois/l-7.7/"@fr .
 
 schema:Intangible a schema:Thing .
+
+lawslois:Privacy_Act a skos:ConceptScheme,
+        schema:Legislation ;
+    rdfs:label "Definitions from Privacy Act"@en ;
+    rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/P-21/" .
+
+:StandardDigitalArchive a :Standard .
 

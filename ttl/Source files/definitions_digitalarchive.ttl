@@ -1,6 +1,7 @@
 @prefix gc: <https://www.canada.ca/#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix : <https://gcxgce.sharepoint.com/teams/1000944/#> .
 
 :StandardDigitalArchive a :Standard .
 

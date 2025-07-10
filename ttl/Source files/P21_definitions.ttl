@@ -2,6 +2,7 @@ PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 PREFIX :<https://gcxgce.sharepoint.com/teams/1000944/#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX lawslois:<https://laws-lois.justice.gc.ca/eng/acts/>
+PREFIX schema:<https://schema.org/> 
 
 lawslois:Privacy_Act a schema:Legislation ;
   a skos:ConceptScheme ;
