@@ -7,6 +7,11 @@
 @prefix wiki: <https://en.wikipedia.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+gc:Directive_Classification a gc:Directive ;
+    rdfs:label "Directive on Classification"@en , "Directive sur la classification"@fr ;
+    rdfs:seeAlso "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=28700"@en , "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=28700"@fr ;
+    rdfs:comment "Establishes roles and responsibilities in organizational design and classification for Heads of Human Resources, managers, persons accredited, or trained, in organizational design and classification.".
+
 :Policy a rdfs:Class ;
     rdfs:label "Public Policy" ;
     rdfs:comment "what governments choose to do, or not do" .

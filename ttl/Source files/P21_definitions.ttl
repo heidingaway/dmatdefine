@@ -6,7 +6,7 @@ PREFIX schema:<https://schema.org/>
 
 lawslois:Privacy_Act a schema:Legislation ;
   a skos:ConceptScheme ;
-  rdfs:label "Definitions from Privacy Act"@en ;
+  rdfs:label "Privacy Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/P-21/" ;
 .
 

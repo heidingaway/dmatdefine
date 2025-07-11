@@ -1,27 +1,34 @@
 @prefix lawlois: <https://laws-lois.justice.gc.ca/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+lawlois:FinancialAdministrationAct a skos:ConceptScheme .
+
 lawlois:CorePublicAdministration a skos:Concept ;
+    skos:inScheme lawlois:FinancialAdministrationAct ;
     skos:definition "the departments named in Schedule I and the other portions of the federal public administration named in Schedule IV."@en ;
     skos:prefLabel "core public administration"@en,
         "administration publique centrale"@fr .
 
 lawlois:DeputyHead a skos:Concept ;
+    skos:inScheme lawlois:FinancialAdministrationAct ;
     skos:definition "in relation to a department named in Schedule I, its deputy minister;in relation to any portion of the federal public administration named in Schedule IV, its chief executive officer or, if there is no chief executive officer, its statutory deputy head or, if there is neither, the person who occupies the position designated under subsection (2) in respect of that portion;in relation to a separate agency, its chief executive officer or, if there is no chief executive officer, its statutory deputy head or, if there is neither, the person who occupies the position designated under subsection (2) in respect of that separate agency; andin relation to any portion of the federal public administration designated for the purposes of paragraphof the definition public service, its chief executive officer or, if there is no chief executive officer, the person who occupies the position designated under subsection (2) in respect of that portion."@en ;
     skos:prefLabel "deputy head"@en,
         "administrateur général"@fr .
 
 lawlois:PublicService a skos:Concept ;
+    skos:inScheme lawlois:FinancialAdministrationAct ;
     skos:definition "the several positions in or underthe departments named in Schedule I;the other portions of the federal public administration named in Schedule IV;the separate agencies named in Schedule V; andany other portion of the federal public administration that may be designated by the Governor in Council for the purpose of this paragraph."@en ;
     skos:prefLabel "public service"@en,
         "fonction publique"@fr .
 
 lawlois:SeparateAgency a skos:Concept ;
+    skos:inScheme lawlois:FinancialAdministrationAct ;
     skos:definition "a portion of the federal public administration named in Schedule V."@en ;
     skos:prefLabel "separate agency"@en,
         "organisme distinct"@fr .
 
 lawlois:StatutoryDeputyHead a skos:Concept ;
+    skos:inScheme lawlois:FinancialAdministrationAct ;
     skos:definition "any officer who, by any Act of Parliament, is or is deemed to be a deputy head or who has, or is deemed to have, the rank of a deputy head."@en ;
     skos:prefLabel "statutory deputy head"@en,
         "administrateur général au titre de la loi"@fr .

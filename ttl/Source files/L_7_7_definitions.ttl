@@ -10,7 +10,7 @@ PREFIX dcterms:<http://purl.org/dc/terms/>
 
 lawslois:Libraries_Archives_Act a schema:Legislation ;
   a skos:ConceptScheme ;
-  rdfs:label "Definitions from l-7.7 Act"@en ;
+  rdfs:label "Library and Archives Act"@en ;
   rdfs:seeAlso "https://laws-lois.justice.gc.ca/eng/acts/l-7.7/"@en , "https://laws-lois.justice.gc.ca/fra/lois/l-7.7/"@fr ;
 .
 
