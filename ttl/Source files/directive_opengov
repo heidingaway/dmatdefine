@@ -1,0 +1,58 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tbspol: <https://www.tbs-sct.canada.ca/pol/#> .
+
+tbspol:Access_restrictions a skos:Concept ;
+    rdfs:label "Access restrictions"@en,
+        "restrictions d'accès"@fr ;
+    skos:definition "Security identification and categorization that ensures that appropriate safeguards are applied to mitigate security risks to the confidentiality, integrity, or availability of information."@en .
+
+tbspol:Data a skos:Concept ;
+    rdfs:label "Data"@en,
+        "données"@fr ;
+    skos:definition "Reinterpretable representations of information in a formalized manner suitable for communication, interpretation, or processing."@en .
+
+tbspol:Date_modified a skos:Concept ;
+    rdfs:label "Date modified:"@en ;
+    skos:definition "2017-08-24"@en .
+
+tbspol:Inventory a skos:Concept ;
+    rdfs:label "Inventory"@en,
+        "inventaire"@fr ;
+    skos:definition "A detailed, itemized list that describes the volume, scope, and complexity of structured or unstructured information resources of the department."@en .
+
+tbspol:Machinereadable a skos:Concept ;
+    rdfs:label "Machine-readable"@en,
+        "lisible par machine"@fr ;
+    skos:definition "In a form that can be used and understood by a computer."@en .
+
+tbspol:Open_data a skos:Concept ;
+    rdfs:label "Open data"@en,
+        "données ourvertes"@fr ;
+    skos:definition "Structured data that is machine-readable, freely shared, used and built on without restrictions."@en .
+
+tbspol:Open_government a skos:Concept ;
+    rdfs:label "Open government"@en,
+        "gouvernement ouvert"@fr ;
+    skos:definition "A governing culture that holds that the public has the right to access the documents and proceedings of government to allow for greater openness, accountability, and engagement."@en .
+
+tbspol:Open_information a skos:Concept ;
+    rdfs:label "Open information"@en,
+        "information ouvert"@fr ;
+    skos:definition "Unstructured information that is freely shared without restrictions."@en .
+
+tbspol:Release a skos:Concept ;
+    rdfs:label "Release"@en,
+        "communication"@fr ;
+    skos:definition "Make publicly available online in a downloadable format"@en .
+
+tbspol:Structured_information a skos:Concept ;
+    rdfs:label "Structured information"@en,
+        "information structurée"@fr ;
+    skos:definition "Digital information residing in fixed fields within a repository."@en .
+
+tbspol:Unstructured_information a skos:Concept ;
+    rdfs:label "Unstructured information"@en,
+        "information non structurée"@fr ;
+    skos:definition "Digital information that is often created in free-form text using common desktop applications such as e-mail, word-processing, or presentation applications."@en .
+

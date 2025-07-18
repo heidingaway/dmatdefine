@@ -1,0 +1,28 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tbspol: <https://www.tbs-sct.canada.ca/pol/#> .
+@prefix gcdc: <https://gcxgce.sharepoint.com/teams/1000944/#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix wiki:<https://en.wikipedia.org/wiki> .
+@prefix schema:<https://schema.org/> .
+
+wiki:Government a skos:Concept .
+
+schema:Action a schema:Thing ; 
+    rdfs:label "An action performed by a direct agent and indirect participants upon a direct object"@en .
+
+gcdc:GovernmentAction a schema:Action ; 
+    rdfs:label "what government chooses to do".
+
+gcdc:GovernmentNoAction a gcdc:GovernmentAction ;
+    rdfs:label "what government chooses not to do"
+    . 
+
+gcdc:Policy a gcdc:GovernmentAction ;
+    rdfs:label "Public Policy" ;
+    rdfs:comment "what governments choose to do, or not do" ; 
+    schema:agent wiki:Government ;
+    schema:instrument gcdc:PolicyInstrument ;
+    schema:provider gcdc:PublicServant ;
+    schema:result gcdc:PolicyOutcomes
+    .
