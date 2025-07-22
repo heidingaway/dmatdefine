@@ -4,6 +4,7 @@ from docx.oxml import parse_xml
 import pandas as pd
 from typing import List, Tuple
 import math
+import numpy as np
 
 def extract_color_df(docx_path, table_index):
     document = Document(docx_path)
@@ -88,8 +89,9 @@ legend2 = legend.iloc[:, 2:4].rename(columns={2:"color", 3:"status"}).replace(r'
 legend3 = legend.iloc[:, 4:6].rename(columns={4:"color", 5:"status"}).replace(r'^\s*$', pd.NA, regex=True).dropna()
 
 legends = pd.concat([legend1,legend2, legend3], ignore_index=True)
+legends[['colorname', 'status']] = legends['status'].str.split(':', expand=True)
 
-print(legends)
+#print(legends)
 
 
 head_current = extract_table_headers(doc,1)
@@ -100,8 +102,8 @@ todrop = ['Ready to Initiate', 'Financial codes confirmed', 'Collection Complete
 current = current.drop(columns=todrop)
 current = current.rename(columns={"":"Status" , "Status": "Status_comment"})
 
-print(current)
-print(legends)
+#print(current)
+#print(legends)
 
 dict_legends = legends.set_index('color')['status'].to_dict()  
 
@@ -144,29 +146,67 @@ updateddf[['ClosestColor', 'LegendStatus']] = matches_df[['ClosestColor', 'Legen
 
 filtered_df = updateddf[updateddf['Status'] != '000000']
 
+#print(filtered_df)
 
-print(filtered_df)
-
-# Export to CSV
-filtered_df.to_csv('colours.csv', index=False, encoding='utf-8-sig')
+# Match up with partner data 
 
 file_moucorrected = "partnerdata.csv"
 
 dfn = pd.read_csv(file_moucorrected)
+
 dfn['gc_orgID'] = dfn['gc_orgID'].apply(lambda x: str(int(x)) if pd.notnull(x) else '')
 dfn = dfn[dfn['gc_orgID'] != '']
 mou = pd.DataFrame(dfn , columns =['gc_orgID', 'partner'])
 
-print(mou)
+#print(mou)
 
 identifer_df = filtered_df.merge(mou, left_on="Org", right_on="partner")
-identifer_df = identifer_df.drop(columns=["Org", "Status"])
+identifer_df = identifer_df.drop(columns=["Org", "Status", "Level"])
 identifer_df = identifer_df.rename(columns={"ClosestColor":"Status" , "partner": "Org"})
 
-print(identifer_df.columns)
+#print(identifer_df.columns)
 
-desired_order = ['Status','Org', 'Level', 'Contribution', 'Status_comment', 'Next steps']
+identifer_df['Contribution'] = (
+    identifer_df['Contribution']
+    .str.replace("\n", "")
+    .str.replace("In-Kind", "-inf")
+    .str.strip()
+    .str.replace(",", "")
+    .astype(float)
+)
+
+identifer_df['Next steps'] = identifer_df['Next steps'].str.replace("FFFFFF","")
+
+print(identifer_df)
+
+# Look up partner levels
+partnerlevels = pd.read_csv('mou\\mou_levels.csv')
+
+# Function to find level
+def get_level(amount):
+    for _, row in partnerlevels.iterrows():
+        if row['Minimum'] <= amount <= row['Maximum']:
+            return row['Level']
+        if amount == float('-inf') :
+            return "In-Kind"
+    return None
+
+# Apply function to assign levels
+identifer_df['Level'] = identifer_df['Contribution'].apply(get_level)
+
+desired_order = ['Status', "LegendStatus",'Org', 'Level', 'Contribution', 'Status_comment', 'Next steps']
 
 output = identifer_df[desired_order]
 
+print(output['Level'])
+
+# Save as a CSV
 output.to_csv('moucollections.csv', index=False, encoding='utf-8-sig')
+
+
+# Extract Potential Partner List
+head_potential = extract_table_headers(doc,2)
+potential = extract_color_df(doc,2)
+
+
+document_partners = Document(doc)
