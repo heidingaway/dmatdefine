@@ -1,0 +1,1952 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gc: <https://www.canada.ca/#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+gc:2010_games_operating_trust_society dcterms:identifier 3702 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "2010 Games Operating Trust Society"@en,
+        "Société du legs des Jeux de 2010"@fr .
+
+gc:a_roport_de_qu_bec_inc dcterms:identifier 3435 ;
+    rdfs:seeAlso "www.aeroportdequebec.com" ;
+    skos:prefLabel "Aéroport de Québec Inc."@en,
+        "Aéroport de Québec Inc."@fr .
+
+gc:a_roports_de_montr_al dcterms:identifier 3436 ;
+    rdfs:seeAlso "www.admtl.com" ;
+    skos:prefLabel "Aéroports de Montréal"@en,
+        "Aéroports de Montréal"@fr .
+
+gc:aboriginal_business_canada dcterms:identifier 3599 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Aboriginal Business Canada"@en,
+        "Entreprise autochtone Canada"@fr .
+
+gc:aboriginal_healing_foundation dcterms:identifier 3518 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Aboriginal Healing Foundation"@en,
+        "Fondation autochtone de guérison"@fr .
+
+gc:accessibility_standards_canada dcterms:identifier 2319 ;
+    rdfs:seeAlso "https://accessible.canada.ca/" ;
+    skos:prefLabel "Accessibility Standards Canada"@en,
+        "Normes d'accessibilité Canada"@fr .
+
+gc:administrative_tribunals_support_service_of_canada dcterms:identifier 2297 ;
+    rdfs:seeAlso "www.canada.ca/en/administrative-tribunals-support-service.html" ;
+    skos:prefLabel "Administrative Tribunals Support Service of Canada"@en,
+        "Service canadien d'appui aux tribunaux administratifs"@fr .
+
+gc:african_development_bank dcterms:identifier 3399 ;
+    rdfs:seeAlso "www.afdb.org" ;
+    skos:prefLabel "African Development Bank"@en,
+        "Banque africaine de développement"@fr .
+
+gc:agriculture_and_agri_food_canada dcterms:identifier 2222 ;
+    rdfs:seeAlso "www.agr.gc.ca" ;
+    skos:prefLabel "Agriculture and Agri-Food Canada"@en,
+        "Agriculture et Agroalimentaire Canada"@fr .
+
+gc:appeal_board_hazardous_materials_information_review_act dcterms:identifier 3600 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Appeal Board, Hazardous Materials Information Review Act"@en,
+        "Commission d'appel, Loi sur le contrôle des renseignements relatifs aux matières dangereuses"@fr .
+
+gc:asia_pacific_foundation_of_canada dcterms:identifier 3437 ;
+    rdfs:seeAlso "www.asiapacific.ca" ;
+    skos:prefLabel "Asia-Pacific Foundation of Canada"@en,
+        "Fondation Asie-Pacifique du Canada"@fr .
+
+gc:asian_development_bank dcterms:identifier 3400 ;
+    rdfs:seeAlso "www.adb.org" ;
+    skos:prefLabel "Asian Development Bank"@en,
+        "Banque asiatique de développement"@fr .
+
+gc:asian_infrastructure_investment_bank dcterms:identifier 3414 ;
+    rdfs:seeAlso "www.aiib.org" ;
+    skos:prefLabel "Asian Infrastructure Investment Bank"@en,
+        "Banque asiatique d'investissement dans les infrastructures"@fr .
+
+gc:assisted_human_reproduction_agency_of_canada dcterms:identifier 3664 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Assisted Human Reproduction Agency of Canada"@en,
+        "Agence canadienne de contrôle de la procréation assistée"@fr .
+
+gc:association_of_canada_lands_surveyors dcterms:identifier 3438 ;
+    rdfs:seeAlso "www.acls-aatc.ca" ;
+    skos:prefLabel "Association of Canada Lands Surveyors"@en,
+        "Association des Arpenteurs des Terres du Canada"@fr .
+
+gc:atlantic_canada_opportunities_agency dcterms:identifier 2244 ;
+    rdfs:seeAlso "www.acoa-apeca.gc.ca" ;
+    skos:prefLabel "Atlantic Canada Opportunities Agency"@en,
+        "Agence de promotion économique du Canada atlantique"@fr .
+
+gc:atlantic_pilotage_authority dcterms:identifier 3654 ;
+    rdfs:seeAlso "www.atlanticpilotage.com" ;
+    skos:prefLabel "Atlantic Pilotage Authority"@en,
+        "Administration de pilotage de l'Atlantique"@fr .
+
+gc:atomic_energy_of_canada_limited dcterms:identifier 3649 ;
+    rdfs:seeAlso "www.aecl.ca" ;
+    skos:prefLabel "Atomic Energy of Canada Limited"@en,
+        "Énergie atomique du Canada limitée"@fr .
+
+gc:bank_of_canada dcterms:identifier 3633 ;
+    rdfs:seeAlso "www.bankofcanada.ca" ;
+    skos:prefLabel "Bank of Canada"@en,
+        "Banque du Canada"@fr .
+
+gc:bank_of_canada_museum dcterms:identifier 3552 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Bank of Canada Museum"@en,
+        "Musée de la Banque du Canada"@fr .
+
+gc:belledune_port_authority dcterms:identifier 3439 ;
+    rdfs:seeAlso "www.portofbelledune.ca" ;
+    skos:prefLabel "Belledune Port Authority"@en,
+        "Administration portuaire de Belledune"@fr .
+
+gc:blue_water_bridge_authority dcterms:identifier 3665 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Blue Water Bridge Authority"@en,
+        "Administration du pont Blue Water"@fr .
+
+gc:buffalo_and_fort_erie_public_bridge_authority dcterms:identifier 3440 ;
+    rdfs:seeAlso "www.peacebridge.com" ;
+    skos:prefLabel "Buffalo and Fort Erie Public Bridge Authority"@en,
+        "Buffalo and Fort Erie Public Bridge Authority"@fr .
+
+gc:business_development_bank_of_canada dcterms:identifier 3646 ;
+    rdfs:seeAlso "www.bdc.ca" ;
+    skos:prefLabel "Business Development Bank of Canada"@en,
+        "Banque de développement du Canada"@fr .
+
+gc:calgary_airport_authority dcterms:identifier 3441 ;
+    rdfs:seeAlso "www.yyc.com" ;
+    skos:prefLabel "Calgary Airport Authority"@en,
+        "Administration aéroportuaire de Calgary"@fr .
+
+gc:canada_agricultural_review_tribunal dcterms:identifier 3679 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Agricultural Review Tribunal"@en,
+        "Commission de révision agricole du Canada"@fr .
+
+gc:canada_agriculture_and_food_museum dcterms:identifier 3553 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Agriculture and Food Museum"@en,
+        "Musée de l'agriculture et de l'alimentation du Canada"@fr .
+
+gc:canada_aviation_and_space_museum dcterms:identifier 3554 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Aviation and Space Museum"@en,
+        "Musée de l'aviation et de l'espace du Canada"@fr .
+
+gc:canada_border_services_agency dcterms:identifier 2300 ;
+    rdfs:seeAlso "www.cbsa.gc.ca" ;
+    skos:prefLabel "Canada Border Services Agency"@en,
+        "Agence des services frontaliers du Canada"@fr .
+
+gc:canada_centre_for_inland_waters dcterms:identifier 3601 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Centre for Inland Waters"@en,
+        "Centre canadien des eaux intérieures"@fr .
+
+gc:canada_commonwealth_legacy_fund dcterms:identifier 3519 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Commonwealth Legacy Fund"@en,
+        "Fonds du legs des Jeux du Commonwealth"@fr .
+
+gc:canada_council_for_the_arts dcterms:identifier 3618 ;
+    rdfs:seeAlso "www.canadacouncil.ca" ;
+    skos:prefLabel "Canada Council for the Arts"@en,
+        "Conseil des Arts du Canada"@fr .
+
+gc:canada_deposit_insurance_corporation dcterms:identifier 3634 ;
+    rdfs:seeAlso "www.cdic.ca" ;
+    skos:prefLabel "Canada Deposit Insurance Corporation"@en,
+        "Société d'assurance-dépôts du Canada"@fr .
+
+gc:canada_development_investment_corporation dcterms:identifier 3635 ;
+    rdfs:seeAlso "www.cdev.gc.ca" ;
+    skos:prefLabel "Canada Development Investment Corporation"@en,
+        "La Corporation de développement des investissements du Canada"@fr .
+
+gc:canada_economic_development_for_quebec_regions dcterms:identifier 2257 ;
+    rdfs:seeAlso "https://www.canada.ca/en/economic-development-quebec-regions.html" ;
+    skos:prefLabel "Canada Economic Development for Quebec Regions"@en,
+        "Développement économique Canada pour les régions du Québec"@fr .
+
+gc:canada_emission_reduction_incentives_agency dcterms:identifier 2301 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Emission Reduction Incentives Agency"@en,
+        "Agence canadienne pour l'incitation à la réduction des émissions"@fr .
+
+gc:canada_employment_insurance_commission dcterms:identifier 2302 ;
+    rdfs:seeAlso "www.esdc.gc.ca/eng/jobs/ei/commission/index.shtml" ;
+    skos:prefLabel "Canada Employment Insurance Commission"@en,
+        "Commission de l'assurance-emploi du Canada"@fr .
+
+gc:canada_employment_insurance_financing_board dcterms:identifier 3666 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Employment Insurance Financing Board"@en,
+        "Office de financement de l'assurance-emploi du Canada"@fr .
+
+gc:canada_energy_regulator dcterms:identifier 2312 ;
+    rdfs:seeAlso "https://www.cer-rec.gc.ca/index-eng.html" ;
+    skos:prefLabel "Canada Energy Regulator"@en,
+        "Régie de l'énergie du Canada"@fr .
+
+gc:canada_firearms_centre dcterms:identifier 3555 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Firearms Centre"@en,
+        "Centre des armes à feu Canada"@fr .
+
+gc:canada_foundation_for_innovation dcterms:identifier 3443 ;
+    rdfs:seeAlso "www.innovation.ca" ;
+    skos:prefLabel "Canada Foundation for Innovation"@en,
+        "Fondation canadienne pour l'innovation"@fr .
+
+gc:canada_foundation_for_sustainable_development_technology dcterms:identifier 3444 ;
+    rdfs:seeAlso "www.sdtc.ca" ;
+    skos:prefLabel "Canada Foundation for Sustainable Development Technology"@en,
+        "Fondation du Canada pour l'appui technologique au développement durable"@fr .
+
+gc:canada_games_council dcterms:identifier 3445 ;
+    rdfs:seeAlso "www.canadagames.ca" ;
+    skos:prefLabel "Canada Games Council"@en,
+        "Conseil des Jeux du Canada"@fr .
+
+gc:canada_health_infoway_inc dcterms:identifier 3446 ;
+    rdfs:seeAlso "www.infoway-inforoute.ca" ;
+    skos:prefLabel "Canada Health Infoway Inc."@en,
+        "Inforoute Santé du Canada Inc."@fr .
+
+gc:canada_industrial_relations_board dcterms:identifier 3680 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Industrial Relations Board"@en,
+        "Conseil canadien des relations industrielles"@fr .
+
+gc:canada_infrastructure_bank dcterms:identifier 3642 ;
+    rdfs:seeAlso "www.infrastructure.gc.ca/CIB-BIC/index-eng.html" ;
+    skos:prefLabel "Canada Infrastructure Bank"@en,
+        "Banque de l'infrastructure du Canada"@fr .
+
+gc:canada_investment_and_savings dcterms:identifier 3421 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Investment and Savings"@en,
+        "Placements Épargne Canada"@fr .
+
+gc:canada_lands_company_limited dcterms:identifier 3650 ;
+    rdfs:seeAlso "https://www.clc-sic.ca/" ;
+    skos:prefLabel "Canada Lands Company Limited"@en,
+        "Société immobilière du Canada limitée"@fr .
+
+gc:canada_media_fund dcterms:identifier 3447 ;
+    rdfs:seeAlso "www.cmf-fmc.ca" ;
+    skos:prefLabel "Canada Media Fund"@en,
+        "Fonds des médias du Canada"@fr .
+
+gc:canada_mortgage_and_housing_corporation dcterms:identifier 3631 ;
+    rdfs:seeAlso "www.cmhc.ca" ;
+    skos:prefLabel "Canada Mortgage and Housing Corporation"@en,
+        "Société canadienne d'hypothèques et de logement"@fr .
+
+gc:canada_newfoundland_and_labrador_offshore_petroleum_board dcterms:identifier 3448 ;
+    rdfs:seeAlso "www.cnlopb.ca" ;
+    skos:prefLabel "Canada-Newfoundland and Labrador Offshore Petroleum Board"@en,
+        "Office Canada-Terre-Neuve-et-Labrador des hydrocarbures extracôtiers"@fr .
+
+gc:canada_nova_scotia_offshore_petroleum_board dcterms:identifier 3449 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada-Nova Scotia Offshore Petroleum Board"@en,
+        "Office Canada-Nouvelle-Écosse des hydrocarbures extracôtiers"@fr .
+
+gc:canada_pension_plan_investment_board dcterms:identifier 3636 ;
+    rdfs:seeAlso "www.cppib.com" ;
+    skos:prefLabel "Canada Pension Plan Investment Board"@en,
+        "Office d'investissement du régime de pensions du Canada"@fr .
+
+gc:canada_post_corporation dcterms:identifier 3651 ;
+    rdfs:seeAlso "www.canadapost.ca" ;
+    skos:prefLabel "Canada Post Corporation"@en,
+        "Société canadienne des postes"@fr .
+
+gc:canada_research_chairs dcterms:identifier 3556 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canada Research Chairs"@en,
+        "Chaires de recherche du Canada"@fr .
+
+gc:canada_revenue_agency dcterms:identifier 2303 ;
+    rdfs:seeAlso "www.canada.ca/en/revenue-agency.html" ;
+    skos:prefLabel "Canada Revenue Agency"@en,
+        "Agence du revenu du Canada"@fr .
+
+gc:canada_school_of_public_service dcterms:identifier 2304 ;
+    rdfs:seeAlso "www.csps-efpc.gc.ca" ;
+    skos:prefLabel "Canada School of Public Service"@en,
+        "École de la fonction publique du Canada"@fr .
+
+gc:canada_water_agency dcterms:identifier 3703 ;
+    rdfs:seeAlso "https://www.canada.ca/en/canada-water-agency.html" ;
+    skos:prefLabel "Canada Water Agency"@en,
+        "Agence de l'eau du Canada"@fr .
+
+gc:canadian_agency_for_drugs_and_technologies_in_health_cadth dcterms:identifier 3450 ;
+    rdfs:seeAlso "www.cadth.ca" ;
+    skos:prefLabel "Canadian Agency for Drugs and Technologies in Health (CADTH)"@en,
+        "Agence canadienne des médicaments et des technologies de la santé (ACMTS)"@fr .
+
+gc:canadian_air_transport_security_authority dcterms:identifier 3655 ;
+    rdfs:seeAlso "www.catsa.gc.ca" ;
+    skos:prefLabel "Canadian Air Transport Security Authority"@en,
+        "Administration canadienne de la sûreté du transport aérien"@fr .
+
+gc:canadian_army dcterms:identifier 3557 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Army"@en,
+        "Armée canadienne"@fr .
+
+gc:canadian_artists_and_producers_professional_relations_tribunal dcterms:identifier 3681 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Artists and Producers Professional Relations Tribunal"@en,
+        "Tribunal canadien des relations professionnelles artistes-producteurs"@fr .
+
+gc:canadian_broadcasting_corporation dcterms:identifier 3619 ;
+    rdfs:seeAlso "www.cbc.radio-canada.ca" ;
+    skos:prefLabel "Canadian Broadcasting Corporation"@en,
+        "Société Radio-Canada"@fr .
+
+gc:canadian_centre_for_occupational_health_and_safety dcterms:identifier 2305 ;
+    rdfs:seeAlso "www.ccohs.ca" ;
+    skos:prefLabel "Canadian Centre for Occupational Health and Safety"@en,
+        "Centre canadien d'hygiène et de sécurité au travail"@fr .
+
+gc:canadian_centre_on_substance_use_and_addictions dcterms:identifier 3451 ;
+    rdfs:seeAlso "www.ccsa.ca" ;
+    skos:prefLabel "Canadian Centre on Substance Use and Addictions"@en,
+        "Centre canadien sur les dépendances et l'usage de substances"@fr .
+
+gc:canadian_coast_guard dcterms:identifier 3533 ;
+    rdfs:seeAlso "https://www.ccg-gcc.gc.ca/index-eng.html" ;
+    skos:prefLabel "Canadian Coast Guard"@en,
+        "Garde côtière canadienne"@fr .
+
+gc:canadian_commercial_corporation dcterms:identifier 3639 ;
+    rdfs:seeAlso "www.ccc.ca" ;
+    skos:prefLabel "Canadian Commercial Corporation"@en,
+        "Corporation commerciale canadienne"@fr .
+
+gc:canadian_conservation_institute dcterms:identifier 3534 ;
+    rdfs:seeAlso "https://www.canada.ca/en/conservation-institute.html" ;
+    skos:prefLabel "Canadian Conservation Institute"@en,
+        "Institut canadien de conservation"@fr .
+
+gc:canadian_cultural_property_export_review_board dcterms:identifier 3682 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Cultural Property Export Review Board"@en,
+        "Commission canadienne d'examen des exportations de biens culturels"@fr .
+
+gc:canadian_dairy_commission dcterms:identifier 3615 ;
+    rdfs:seeAlso "www.cdc-ccl.gc.ca" ;
+    skos:prefLabel "Canadian Dairy Commission"@en,
+        "Commission canadienne du lait"@fr .
+
+gc:canadian_energy_research_institute dcterms:identifier 3452 ;
+    rdfs:seeAlso "www.ceri.ca" ;
+    skos:prefLabel "Canadian Energy Research Institute"@en,
+        "Canadian Energy Research Institute"@fr .
+
+gc:canadian_food_inspection_agency dcterms:identifier 2306 ;
+    rdfs:seeAlso "www.inspection.gc.ca" ;
+    skos:prefLabel "Canadian Food Inspection Agency"@en,
+        "Agence canadienne d'inspection des aliments"@fr .
+
+gc:canadian_forces_housing_agency dcterms:identifier 3535 ;
+    rdfs:seeAlso "www.canada.ca/en/government/publicservice/benefitsmilitary/military-housing.html" ;
+    skos:prefLabel "Canadian Forces Housing Agency"@en,
+        "Agence de logement des Forces canadiennes"@fr .
+
+gc:canadian_foundation_for_climate_and_atmospheric_sciences dcterms:identifier 3520 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Foundation for Climate and Atmospheric Sciences"@en,
+        "Fondation canadienne pour les sciences du climat et de l'atmosphère"@fr .
+
+gc:canadian_foundation_for_healthcare_improvement_cfhi dcterms:identifier 3516 ;
+    rdfs:seeAlso "www.cfhi-fcass.ca" ;
+    skos:prefLabel "Canadian Foundation for Healthcare Improvement (CFHI)"@en,
+        "Fondation canadienne pour l'amélioration des services de santé (FCASS)"@fr .
+
+gc:canadian_grain_commission dcterms:identifier 2246 ;
+    rdfs:seeAlso "www.grainscanada.gc.ca" ;
+    skos:prefLabel "Canadian Grain Commission"@en,
+        "Commission canadienne des grains"@fr .
+
+gc:canadian_heritage dcterms:identifier 2223 ;
+    rdfs:seeAlso "https://www.canada.ca/en/canadian-heritage.html" ;
+    skos:prefLabel "Canadian Heritage"@en,
+        "Patrimoine canadien"@fr .
+
+gc:canadian_heritage_information_network dcterms:identifier 3536 ;
+    rdfs:seeAlso "https://www.canada.ca/en/heritage-information-network.html" ;
+    skos:prefLabel "Canadian Heritage Information Network"@en,
+        "Réseau canadien d'information sur le patrimoine"@fr .
+
+gc:canadian_human_rights_commission dcterms:identifier 2247 ;
+    rdfs:seeAlso "www.chrc-ccdp.gc.ca" ;
+    skos:prefLabel "Canadian Human Rights Commission"@en,
+        "Commission canadienne des droits de la personne"@fr .
+
+gc:canadian_human_rights_tribunal dcterms:identifier 3683 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Human Rights Tribunal"@en,
+        "Tribunal canadien des droits de la personne"@fr .
+
+gc:canadian_institute_for_health_information_cihi dcterms:identifier 3453 ;
+    rdfs:seeAlso "www.cihi.ca" ;
+    skos:prefLabel "Canadian Institute for Health Information (CIHI)"@en,
+        "Institut canadien d'information sur la santé (ICIS)"@fr .
+
+gc:canadian_institutes_of_health_research dcterms:identifier 2307 ;
+    rdfs:seeAlso "www.cihr-irsc.gc.ca" ;
+    skos:prefLabel "Canadian Institutes of Health Research"@en,
+        "Instituts de recherche en santé du Canada"@fr .
+
+gc:canadian_intellectual_property_office dcterms:identifier 3537 ;
+    rdfs:seeAlso "www.cipo.gc.ca" ;
+    skos:prefLabel "Canadian Intellectual Property Office"@en,
+        "Office de la propriété intellectuelle du Canada"@fr .
+
+gc:canadian_intergovernmental_conference_secretariat dcterms:identifier 2248 ;
+    rdfs:seeAlso "www.scics.ca" ;
+    skos:prefLabel "Canadian Intergovernmental Conference Secretariat"@en,
+        "Secrétariat des conférences intergouvernementales canadiennes"@fr .
+
+gc:canadian_international_development_agency dcterms:identifier 3684 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian International Development Agency"@en,
+        "Agence canadienne de développement international"@fr .
+
+gc:canadian_international_grains_institute dcterms:identifier 3521 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian International Grains Institute"@en,
+        "Institut international du Canada pour le grain"@fr .
+
+gc:canadian_international_trade_tribunal dcterms:identifier 3685 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian International Trade Tribunal"@en,
+        "Tribunal canadien du commerce extérieur"@fr .
+
+gc:canadian_judicial_council dcterms:identifier 3558 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Judicial Council"@en,
+        "Conseil canadien de la magistrature"@fr .
+
+gc:canadian_livestock_records_corporation dcterms:identifier 3454 ;
+    rdfs:seeAlso "www.clrc.ca" ;
+    skos:prefLabel "Canadian Livestock Records Corporation"@en,
+        "Société canadienne d'enregistrement des animaux"@fr .
+
+gc:canadian_museum_for_human_rights dcterms:identifier 3620 ;
+    rdfs:seeAlso "www.humanrights.ca" ;
+    skos:prefLabel "Canadian Museum for Human Rights"@en,
+        "Musée canadien des droits de la personne"@fr .
+
+gc:canadian_museum_of_contemporary_photography dcterms:identifier 3602 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Museum of Contemporary Photography"@en,
+        "Musée canadien de la photographie contemporaine"@fr .
+
+gc:canadian_museum_of_history dcterms:identifier 3621 ;
+    rdfs:seeAlso "www.historymuseum.ca" ;
+    skos:prefLabel "Canadian Museum of History"@en,
+        "Musée canadien de l'histoire"@fr .
+
+gc:canadian_museum_of_immigration_at_pier_21 dcterms:identifier 3622 ;
+    rdfs:seeAlso "www.pier21.ca" ;
+    skos:prefLabel "Canadian Museum of Immigration at Pier 21"@en,
+        "Musée canadien de l'immigration du Quai 21"@fr .
+
+gc:canadian_museum_of_nature dcterms:identifier 3623 ;
+    rdfs:seeAlso "www.nature.ca" ;
+    skos:prefLabel "Canadian Museum of Nature"@en,
+        "Musée canadien de la nature"@fr .
+
+gc:canadian_northern_economic_development_agency dcterms:identifier 2249 ;
+    rdfs:seeAlso "www.CanNor.gc.ca" ;
+    skos:prefLabel "Canadian Northern Economic Development Agency"@en,
+        "Agence canadienne de développement économique du Nord"@fr .
+
+gc:canadian_nuclear_safety_commission dcterms:identifier 2308 ;
+    rdfs:seeAlso "https://www.cnsc-ccsn.gc.ca/eng/" ;
+    skos:prefLabel "Canadian Nuclear Safety Commission"@en,
+        "Commission canadienne de sûreté nucléaire"@fr .
+
+gc:canadian_pari_mutuel_agency dcterms:identifier 3538 ;
+    rdfs:seeAlso "www.cpma-acpm.agr.gc.ca" ;
+    skos:prefLabel "Canadian Pari-Mutuel Agency"@en,
+        "Agence canadienne du pari mutuel"@fr .
+
+gc:canadian_partnership_against_cancer_corporation_cpac dcterms:identifier 3455 ;
+    rdfs:seeAlso "www.partnershipagainstcancer.ca" ;
+    skos:prefLabel "Canadian Partnership Against Cancer Corporation (CPAC)"@en,
+        "Partenariat canadien contre le cancer (PCC)"@fr .
+
+gc:canadian_patient_safety_institute_cpsi dcterms:identifier 3456 ;
+    rdfs:seeAlso "www.patientsafetyinstitute.ca/English/Pages/default.aspx" ;
+    skos:prefLabel "Canadian Patient Safety Institute (CPSI)"@en,
+        "Institut canadien pour la sécurité des patients (ICSP)"@fr .
+
+gc:canadian_race_relations_foundation dcterms:identifier 3624 ;
+    rdfs:seeAlso "www.crr.ca" ;
+    skos:prefLabel "Canadian Race Relations Foundation"@en,
+        "Fondation canadienne des relations raciales"@fr .
+
+gc:canadian_radio_television_and_telecommunications_commission dcterms:identifier 2396 ;
+    rdfs:seeAlso "www.crtc.gc.ca" ;
+    skos:prefLabel "Canadian Radio-television and Telecommunications Commission"@en,
+        "Conseil de la radiodiffusion et des télécommunications canadiennes"@fr .
+
+gc:canadian_security_intelligence_service dcterms:identifier 2250 ;
+    rdfs:seeAlso "https://www.canada.ca/en/security-intelligence-service.html" ;
+    skos:prefLabel "Canadian Security Intelligence Service"@en,
+        "Service canadien du renseignement de sécurité"@fr .
+
+gc:canadian_space_agency dcterms:identifier 2251 ;
+    rdfs:seeAlso "www.asc-csa.gc.ca" ;
+    skos:prefLabel "Canadian Space Agency"@en,
+        "Agence spatiale canadienne"@fr .
+
+gc:canadian_special_operations_forces_command dcterms:identifier 3559 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Special Operations Forces Command"@en,
+        "Commandement des Forces d'opérations spéciales du Canada"@fr .
+
+gc:canadian_sport_institute_ontario dcterms:identifier 3457 ;
+    rdfs:seeAlso "www.csiontario.ca/home" ;
+    skos:prefLabel "Canadian Sport Institute Ontario"@en,
+        "Institut canadien du sport Ontario"@fr .
+
+gc:canadian_tourism_commission dcterms:identifier 3647 ;
+    rdfs:seeAlso "en-corporate.canada.travel" ;
+    skos:prefLabel "Canadian Tourism Commission"@en,
+        "Commission canadienne du tourisme"@fr .
+
+gc:canadian_trade_commissioner_service dcterms:identifier 3560 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Trade Commissioner Service"@en,
+        "Service des délégués commerciaux du Canada"@fr .
+
+gc:canadian_transportation_agency dcterms:identifier 2252 ;
+    rdfs:seeAlso "https://www.otc-cta.gc.ca/eng" ;
+    skos:prefLabel "Canadian Transportation Agency"@en,
+        "Office des transports du Canada"@fr .
+
+gc:canadian_war_museum dcterms:identifier 3561 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian War Museum"@en,
+        "Musée canadien de la guerre"@fr .
+
+gc:canadian_wheat_board_the dcterms:identifier 3522 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Canadian Wheat Board, The"@en,
+        "Commission canadienne du blé, La"@fr .
+
+gc:caribbean_development_bank dcterms:identifier 3401 ;
+    rdfs:seeAlso "www.caribank.org" ;
+    skos:prefLabel "Caribbean Development Bank"@en,
+        "Banque de développement des Caraïbes"@fr .
+
+gc:centre_national_multisport_montr_al dcterms:identifier 3523 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Centre national multisport-Montréal"@en,
+        "Centre national multisport – Montréal"@fr .
+
+gc:charlottetown_airport_authority_inc dcterms:identifier 3458 ;
+    rdfs:seeAlso "www.flypei.com" ;
+    skos:prefLabel "Charlottetown Airport Authority Inc."@en,
+        "Charlottetown Airport Authority Inc."@fr .
+
+gc:civilian_review_and_complaints_commission_for_the_rcmp dcterms:identifier 2290 ;
+    rdfs:seeAlso "www.crcc-ccetp.gc.ca/" ;
+    skos:prefLabel "Civilian Review and Complaints Commission for the RCMP"@en,
+        "Commission civile d'examen et de traitement des plaintes relatives à la GRC"@fr .
+
+gc:coaching_association_of_canada dcterms:identifier 3459 ;
+    rdfs:seeAlso "www.coach.ca" ;
+    skos:prefLabel "Coaching Association of Canada"@en,
+        "Association canadienne des entraîneurs"@fr .
+
+gc:commissioner_of_canada_election dcterms:identifier 3420 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Commissioner of Canada Election"@en,
+        "Commissaire aux élections fédérales"@fr .
+
+gc:communication_canada dcterms:identifier 3417 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Communication Canada"@en,
+        "Communication Canada"@fr .
+
+gc:communications_research_centre_canada dcterms:identifier 3562 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Communications Research Centre Canada"@en,
+        "Centre de recherches sur les communications Canada"@fr .
+
+gc:communications_security_establishment_canada dcterms:identifier 2253 ;
+    rdfs:seeAlso "www.cse-cst.gc.ca" ;
+    skos:prefLabel "Communications Security Establishment Canada"@en,
+        "Centre de la sécurité des télécommunications Canada"@fr .
+
+gc:competition_bureau_canada dcterms:identifier 3563 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Competition Bureau Canada"@en,
+        "Bureau de la concurrence Canada"@fr .
+
+gc:competition_tribunal dcterms:identifier 3564 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Competition Tribunal"@en,
+        "Tribunal de la concurrence"@fr .
+
+gc:consulting_and_audit_canada_revolving_fund dcterms:identifier 3545 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Consulting and Audit Canada Revolving Fund"@en,
+        "Fonds renouvelable de Conseils et Vérification Canada"@fr .
+
+gc:copyright_board_canada dcterms:identifier 2254 ;
+    rdfs:seeAlso "https://cb-cda.gc.ca/en" ;
+    skos:prefLabel "Copyright Board Canada"@en,
+        "Commission du droit d'auteur Canada"@fr .
+
+gc:corcan dcterms:identifier 3539 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "CORCAN"@en,
+        "CORCAN"@fr .
+
+gc:corporation_for_the_mitigation_of_mackenzie_gas_project_impacts dcterms:identifier 3667 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Corporation for the Mitigation of Mackenzie Gas Project Impacts"@en,
+        "Société d'atténuation des répercussions du projet gazier Mackenzie"@fr .
+
+gc:correctional_service_canada dcterms:identifier 2255 ;
+    rdfs:seeAlso "www.canada.ca/correctional-service" ;
+    skos:prefLabel "Correctional Service Canada"@en,
+        "Service correctionnel Canada"@fr .
+
+gc:court_martial_appeal_court_of_canada dcterms:identifier 3565 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Court Martial Appeal Court of Canada"@en,
+        "Cour d'appel de la cour martiale du Canada"@fr .
+
+gc:courts_administration_service dcterms:identifier 2256 ;
+    rdfs:seeAlso "www.cas-satj.gc.ca" ;
+    skos:prefLabel "Courts Administration Service"@en,
+        "Service administratif des tribunaux judiciaires"@fr .
+
+gc:crown_indigenous_relations_and_northern_affairs_canada dcterms:identifier 2230 ;
+    rdfs:seeAlso "https://www.canada.ca/en/crown-indigenous-relations-northern-affairs.html" ;
+    skos:prefLabel "Crown-Indigenous Relations and Northern Affairs Canada"@en,
+        "Relations Couronne-Autochtones et Affaires du Nord Canada"@fr .
+
+gc:defence_construction_1951_limited dcterms:identifier 3652 ;
+    rdfs:seeAlso "https://www.dcc-cdc.gc.ca/" ;
+    skos:prefLabel "Defence Construction (1951) Limited"@en,
+        "Construction de Défense (1951) Limitée"@fr .
+
+gc:defence_research_and_development_canada dcterms:identifier 3540 ;
+    rdfs:seeAlso "www.drdc-rddc.gc.ca/en/" ;
+    skos:prefLabel "Defence Research and Development Canada"@en,
+        "Recherche et développement pour la défense Canada"@fr .
+
+gc:democratic_institutions dcterms:identifier 3566 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Democratic Institutions"@en,
+        "Institutions démocratiques"@fr .
+
+gc:department_of_finance_canada dcterms:identifier 2225 ;
+    rdfs:seeAlso "https://www.canada.ca/en/department-finance.html" ;
+    skos:prefLabel "Department of Finance Canada"@en,
+        "Ministère des Finances Canada"@fr .
+
+gc:department_of_justice_canada dcterms:identifier 2232 ;
+    rdfs:seeAlso "www.justice.gc.ca" ;
+    skos:prefLabel "Department of Justice Canada"@en,
+        "Ministère de la Justice Canada"@fr .
+
+gc:director_of_soldier_settlement dcterms:identifier 3422 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Director of Soldier Settlement"@en,
+        "Directeur de l'établissement de soldats"@fr .
+
+gc:edmonton_regional_airports_authority dcterms:identifier 3461 ;
+    rdfs:seeAlso "www.flyeia.com" ;
+    skos:prefLabel "Edmonton Regional Airports Authority"@en,
+        "Edmonton Regional Airports Authority"@fr .
+
+gc:elections_canada dcterms:identifier 2271 ;
+    rdfs:seeAlso "www.elections.ca" ;
+    skos:prefLabel "Elections Canada"@en,
+        "Élections Canada"@fr .
+
+gc:employment_and_social_development_canada dcterms:identifier 2229 ;
+    rdfs:seeAlso "www.canada.ca/en/employment-social-development.html" ;
+    skos:prefLabel "Employment and Social Development Canada"@en,
+        "Emploi et Développement social Canada"@fr .
+
+gc:employment_insurance_boards_of_referees dcterms:identifier 3686 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Employment Insurance Boards of Referees"@en,
+        "Conseils arbitraux de l'assurance-emploi"@fr .
+
+gc:energy_supplies_allocation_board dcterms:identifier 3424 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Energy Supplies Allocation Board"@en,
+        "Office de répartition des approvisionnements d'énergie"@fr .
+
+gc:enterprise_cape_breton_corporation dcterms:identifier 3668 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Enterprise Cape Breton Corporation"@en,
+        "Société d'expansion du Cap Breton"@fr .
+
+gc:environment_and_climate_change_canada dcterms:identifier 2237 ;
+    rdfs:seeAlso "www.canada.ca/en/environment-climate-change.html" ;
+    skos:prefLabel "Environment and Climate Change Canada"@en,
+        "Environnement et Changement climatique Canada"@fr .
+
+gc:environmental_protection_review_canada dcterms:identifier 3568 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Environmental Protection Review Canada"@en,
+        "Révision de la protection de l'environnement Canada"@fr .
+
+gc:environmental_protection_tribunal_of_canada dcterms:identifier 3603 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Environmental Protection Tribunal of Canada"@en,
+        "Tribunal de la protection de I'environnement du Canada"@fr .
+
+gc:european_bank_for_reconstruction_and_development dcterms:identifier 3402 ;
+    rdfs:seeAlso "www.ebrd.com" ;
+    skos:prefLabel "European Bank for Reconstruction and Development"@en,
+        "Banque européenne pour la reconstruction et le développement"@fr .
+
+gc:export_development_canada dcterms:identifier 3640 ;
+    rdfs:seeAlso "www.edc.ca" ;
+    skos:prefLabel "Export Development Canada"@en,
+        "Exportation et développement Canada"@fr .
+
+gc:farm_credit_canada dcterms:identifier 3616 ;
+    rdfs:seeAlso "www.fcc-fac.ca" ;
+    skos:prefLabel "Farm Credit Canada"@en,
+        "Financement agricole Canada"@fr .
+
+gc:farm_products_council_of_canada dcterms:identifier 2265 ;
+    rdfs:seeAlso "www.fpcc-cpac.gc.ca" ;
+    skos:prefLabel "Farm Products Council of Canada"@en,
+        "Conseil des produits agricoles du Canada"@fr .
+
+gc:federal_court_of_appeal dcterms:identifier 3569 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Federal Court of Appeal"@en,
+        "Cour d'appel fédérale"@fr .
+
+gc:federal_court_of_canada dcterms:identifier 3570 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Federal Court of Canada"@en,
+        "Cour fédérale"@fr .
+
+gc:federal_economic_development_agency_for_northern_ontario dcterms:identifier 2299 ;
+    rdfs:seeAlso "http://fednor.gc.ca/eic/site/fednor-fednor.nsf/eng/home" ;
+    skos:prefLabel "Federal Economic Development Agency for Northern Ontario"@en,
+        "Agence fédérale de développement économique pour le Nord de l'Ontario"@fr .
+
+gc:federal_economic_development_agency_for_southern_ontario dcterms:identifier 2258 ;
+    rdfs:seeAlso "www.feddevontario.gc.ca" ;
+    skos:prefLabel "Federal Economic Development Agency for Southern Ontario"@en,
+        "Agence fédérale de développement économique pour le Sud de l'Ontario"@fr .
+
+gc:federal_judges_not_part_of_any_department dcterms:identifier 3427 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Federal Judges not part of any department"@en,
+        "Juges fédéraux ne faisant pas partie d'un ministère"@fr .
+
+gc:federal_public_sector_labour_relations_and_employment_board dcterms:identifier 3705 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Federal Public Sector Labour Relations and Employment Board"@en,
+        "Commission des relations de travail et de l'emploi dans le secteur public fédéral"@fr .
+
+gc:financial_consumer_agency_of_canada dcterms:identifier 2259 ;
+    rdfs:seeAlso "www.fcac.gc.ca" ;
+    skos:prefLabel "Financial Consumer Agency of Canada"@en,
+        "Agence de la consommation en matière financière du Canada"@fr .
+
+gc:financial_transactions_and_reports_analysis_centre_of_canada dcterms:identifier 2260 ;
+    rdfs:seeAlso "www.fintrac-canafe.gc.ca" ;
+    skos:prefLabel "Financial Transactions and Reports Analysis Centre of Canada"@en,
+        "Centre d'analyse des opérations et déclarations financières du Canada"@fr .
+
+gc:first_nations_financial_management_board dcterms:identifier 3524 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "First Nations Financial Management Board"@en,
+        "Conseil de gestion financière des premières nations"@fr .
+
+gc:first_nations_statistical_institute dcterms:identifier 3669 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "First Nations Statistical Institute"@en,
+        "Institut de la statistique des Premières nations"@fr .
+
+gc:first_nations_tax_commission dcterms:identifier 3525 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "First Nations Tax Commission"@en,
+        "Commission de la fiscalité des premières nations"@fr .
+
+gc:fisheries_and_oceans_canada dcterms:identifier 2226 ;
+    rdfs:seeAlso "www.dfo-mpo.gc.ca" ;
+    skos:prefLabel "Fisheries and Oceans Canada"@en,
+        "Pêches et Océans Canada"@fr .
+
+gc:fredericton_international_airport_authority_inc dcterms:identifier 3462 ;
+    rdfs:seeAlso "www.frederictonairport.ca" ;
+    skos:prefLabel "Fredericton International Airport Authority Inc."@en,
+        "Fredericton International Airport Authority Inc."@fr .
+
+gc:freshwater_fish_marketing_corporation dcterms:identifier 3638 ;
+    rdfs:seeAlso "www.freshwaterfish.com/" ;
+    skos:prefLabel "Freshwater Fish Marketing Corporation"@en,
+        "Office de commercialisation du poisson d'eau douce"@fr .
+
+gc:gander_international_airport_authority_inc dcterms:identifier 3463 ;
+    rdfs:seeAlso "www.ganderairport.com" ;
+    skos:prefLabel "Gander International Airport Authority Inc."@en,
+        "Gander International Airport Authority Inc."@fr .
+
+gc:geographical_names_board_of_canada dcterms:identifier 3604 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Geographical Names Board of Canada"@en,
+        "La Commission de toponymie du Canada"@fr .
+
+gc:geological_survey_of_canada dcterms:identifier 3605 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Geological Survey of Canada"@en,
+        "Commission géologique du Canada"@fr .
+
+gc:geomatics_canada dcterms:identifier 3606 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Geomatics Canada"@en,
+        "Géomatique Canada"@fr .
+
+gc:global_affairs_canada dcterms:identifier 2227 ;
+    rdfs:seeAlso "www.international.gc.ca" ;
+    skos:prefLabel "Global Affairs Canada"@en,
+        "Affaires mondiales Canada"@fr .
+
+gc:grain_appeal_tribunal dcterms:identifier 3670 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Grain Appeal Tribunal"@en,
+        "Tribunal d'appel pour les grains"@fr .
+
+gc:great_lakes_pilotage_authority dcterms:identifier 3656 ;
+    rdfs:seeAlso "www.glpa-apgl.com" ;
+    skos:prefLabel "Great Lakes Pilotage Authority"@en,
+        "Administration de pilotage des Grands Lacs"@fr .
+
+gc:greater_london_international_airport_authority dcterms:identifier 3464 ;
+    rdfs:seeAlso "www.flylondon.ca" ;
+    skos:prefLabel "Greater London International Airport Authority"@en,
+        "Greater London International Airport Authority"@fr .
+
+gc:greater_moncton_international_airport_authority_inc dcterms:identifier 3465 ;
+    rdfs:seeAlso "www.cyqm.ca" ;
+    skos:prefLabel "Greater Moncton International Airport Authority Inc."@en,
+        "Greater Moncton International Airport Authority Inc."@fr .
+
+gc:greater_toronto_airports_authority dcterms:identifier 3466 ;
+    rdfs:seeAlso "www.torontopearson.com" ;
+    skos:prefLabel "Greater Toronto Airports Authority"@en,
+        "Autorité aéroportuaire du Grand Toronto"@fr .
+
+gc:halifax_international_airport_authority dcterms:identifier 3467 ;
+    rdfs:seeAlso "www.hiaa.ca" ;
+    skos:prefLabel "Halifax International Airport Authority"@en,
+        "Administration de l'aéroport international d'Halifax"@fr .
+
+gc:halifax_port_authority dcterms:identifier 3468 ;
+    rdfs:seeAlso "www.portofhalifax.ca" ;
+    skos:prefLabel "Halifax Port Authority"@en,
+        "Administration portuaire d'Halifax"@fr .
+
+gc:hamilton_port_authority dcterms:identifier 3469 ;
+    rdfs:seeAlso "www.hamiltonport.ca" ;
+    skos:prefLabel "Hamilton Port Authority"@en,
+        "Administration portuaire de Hamilton"@fr .
+
+gc:hazardous_materials_information_review_commission dcterms:identifier 3671 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Hazardous Materials Information Review Commission"@en,
+        "Conseil de contrôle des renseignements relatifs aux matières dangereuses"@fr .
+
+gc:health_canada dcterms:identifier 2228 ;
+    rdfs:seeAlso "www.canada.ca/en/health-canada.html" ;
+    skos:prefLabel "Health Canada"@en,
+        "Santé Canada"@fr .
+
+gc:health_council_of_canada dcterms:identifier 3526 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Health Council of Canada"@en,
+        "Conseil canadien de la santé"@fr .
+
+gc:healthcare_excellence_canada_hec dcterms:identifier 3517 ;
+    rdfs:seeAlso "https://www.healthcareexcellence.ca/en/" ;
+    skos:prefLabel "Healthcare Excellence Canada (HEC)"@en,
+        "Excellence en santé Canada (ESC)"@fr .
+
+gc:historic_sites_and_monuments_board_of_canada dcterms:identifier 3572 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Historic Sites and Monuments Board of Canada"@en,
+        "Commission des lieux et monuments historiques du Canada"@fr .
+
+gc:house_of_commons dcterms:identifier 3428 ;
+    rdfs:seeAlso "www.parl.gc.ca" ;
+    skos:prefLabel "House of Commons"@en,
+        "Chambre des communes"@fr .
+
+gc:housing_infrastructure_and_communities_canada dcterms:identifier 2269 ;
+    rdfs:seeAlso "https://housing-infrastructure.canada.ca/" ;
+    skos:prefLabel "Housing, Infrastructure and Communities Canada"@en,
+        "Logement, Infrastructures et Collectivités Canada"@fr .
+
+gc:immigration_and_refugee_board_of_canada dcterms:identifier 2261 ;
+    rdfs:seeAlso "www.irb-cisr.gc.ca" ;
+    skos:prefLabel "Immigration and Refugee Board of Canada"@en,
+        "Commission de l'immigration et du statut de réfugié du Canada"@fr .
+
+gc:immigration_refugees_and_citizenship_canada dcterms:identifier 2224 ;
+    rdfs:seeAlso "www.cic.gc.ca" ;
+    skos:prefLabel "Immigration, Refugees and Citizenship Canada"@en,
+        "Immigration, Réfugiés et Citoyenneté Canada"@fr .
+
+gc:impact_assessment_agency_of_canada dcterms:identifier 2245 ;
+    rdfs:seeAlso "https://www.canada.ca/en/impact-assessment-agency.html" ;
+    skos:prefLabel "Impact Assessment Agency of Canada"@en,
+        "Agence d'évaluation d'impact du Canada"@fr .
+
+gc:independent_review_panel_for_defence_acquisition dcterms:identifier 3573 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Independent Review Panel for Defence Acquisition"@en,
+        "Commission indépendante d'examen des acquisitions de la Défense"@fr .
+
+gc:indian_oil_and_gas_canada dcterms:identifier 3541 ;
+    rdfs:seeAlso "www.pgic-iogc.gc.ca/eng/1100110010002" ;
+    skos:prefLabel "Indian Oil and Gas Canada"@en,
+        "Pétrole et gaz des Indiens du Canada"@fr .
+
+gc:indian_residential_schools_resolution_canada dcterms:identifier 3607 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Indian Residential Schools Resolution Canada"@en,
+        "Résolution des questions des pensionnats indiens Canada"@fr .
+
+gc:indian_residential_schools_truth_and_reconciliation_commission dcterms:identifier 3672 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Indian Residential Schools Truth and Reconciliation Commission"@en,
+        "Commission de vérité et de réconciliation relative aux pensionnats indiens"@fr .
+
+gc:indigenous_services_canada dcterms:identifier 2243 ;
+    rdfs:seeAlso "www.canada.ca/en/indigenous-services-canada.html" ;
+    skos:prefLabel "Indigenous Services Canada"@en,
+        "Services aux Autochtones Canada"@fr .
+
+gc:industrial_technologies_office dcterms:identifier 3546 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Industrial Technologies Office"@en,
+        "Office des technologies industrielles"@fr .
+
+gc:innovation_science_and_economic_development_canada dcterms:identifier 2231 ;
+    rdfs:seeAlso "www.ic.gc.ca" ;
+    skos:prefLabel "Innovation, Science and Economic Development Canada"@en,
+        "Innovation, Sciences et Développement économique Canada"@fr .
+
+gc:institut_national_du_sport_du_qu_bec dcterms:identifier 3470 ;
+    rdfs:seeAlso "www.insquebec.org" ;
+    skos:prefLabel "Institut national du sport du Québec"@en,
+        "Institut national du sport du Québec"@fr .
+
+gc:inter_american_development_bank dcterms:identifier 3403 ;
+    rdfs:seeAlso "www.iadb.org" ;
+    skos:prefLabel "Inter-American Development Bank"@en,
+        "Banque interaméricaine de développement"@fr .
+
+gc:intergovernmental_affairs dcterms:identifier 3574 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Intergovernmental Affairs"@en,
+        "Affaires intergouvernementales"@fr .
+
+gc:internal_trade_secretariat_corporation dcterms:identifier 3471 ;
+    rdfs:seeAlso "www.cfta-alec.ca" ;
+    skos:prefLabel "Internal Trade Secretariat Corporation"@en,
+        "Corporation du Secrétariat du commerce intérieur"@fr .
+
+gc:international_bank_for_reconstruction_and_development dcterms:identifier 3404 ;
+    rdfs:seeAlso "www.worldbank.org" ;
+    skos:prefLabel "International Bank for Reconstruction and Development"@en,
+        "Banque internationale pour la reconstruction et le développement"@fr .
+
+gc:international_centre_for_human_rights_and_democratic_development dcterms:identifier 3527 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "International Centre for Human Rights and Democratic Development"@en,
+        "Centre international des droits de la personne et du développement démocratique"@fr .
+
+gc:international_development_association dcterms:identifier 3405 ;
+    rdfs:seeAlso "www.worldbank.org" ;
+    skos:prefLabel "International Development Association"@en,
+        "Association internationale de développement"@fr .
+
+gc:international_development_research_centre dcterms:identifier 3641 ;
+    rdfs:seeAlso "www.idrc.ca" ;
+    skos:prefLabel "International Development Research Centre"@en,
+        "Centre de recherches pour le développement international"@fr .
+
+gc:international_finance_corporation dcterms:identifier 3406 ;
+    rdfs:seeAlso "www.ifc.org" ;
+    skos:prefLabel "International Finance Corporation"@en,
+        "Société financière internationale"@fr .
+
+gc:international_fisheries_commissions_pension_society dcterms:identifier 3472 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "International Fisheries Commissions Pension Society"@en,
+        "Société de caisse de retraite de la Commission internationale des pêcheries"@fr .
+
+gc:international_joint_commission_canadian_section dcterms:identifier 3407 ;
+    rdfs:seeAlso "www.ijc.org" ;
+    skos:prefLabel "International Joint Commission (Canadian Section)"@en,
+        "Commission mixte internationale (section canadienne)"@fr .
+
+gc:international_lake_memphremagog_levels_board dcterms:identifier 3408 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "International Lake Memphremagog Levels Board"@en,
+        "Commission internationale du lac Memphrémagog"@fr .
+
+gc:international_lake_of_the_woods_control_board dcterms:identifier 3409 ;
+    rdfs:seeAlso "ijc.org/en/ilwcb" ;
+    skos:prefLabel "International Lake of the Woods Control Board"@en,
+        "Conseil international de contrôle du lac des Bois"@fr .
+
+gc:international_monetary_fund dcterms:identifier 3410 ;
+    rdfs:seeAlso "www.imf.org" ;
+    skos:prefLabel "International Monetary Fund"@en,
+        "Fonds monétaire international"@fr .
+
+gc:inuvialuit_arbitration_board dcterms:identifier 3673 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Inuvialuit Arbitration Board"@en,
+        "Commission d'arbitrage des Inuvialuit"@fr .
+
+gc:invest_in_canada_hub dcterms:identifier 2317 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Invest in Canada Hub"@en,
+        "Investir au Canada"@fr .
+
+gc:joint_public_advisory_committee_jpac_of_the_commission_for_environmental_cooperation_cec dcterms:identifier 3412 ;
+    rdfs:seeAlso "www.cec.org" ;
+    skos:prefLabel "Joint Public Advisory Committee (JPAC) of the Commission for Environmental Cooperation (CEC)"@en,
+        "Comité consultatif public mixte (CCPM) de la Commission de coopération environnementale (CCE)"@fr .
+
+gc:judicial_compensation_and_benefits_commission dcterms:identifier 3575 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Judicial Compensation and Benefits Commission"@en,
+        "Commission d'examen de la rémunération des juges"@fr .
+
+gc:lake_of_the_woods_control_board dcterms:identifier 3473 ;
+    rdfs:seeAlso "www.lwcb.ca" ;
+    skos:prefLabel "Lake of the Woods Control Board"@en,
+        "Commission de contrôle du lac des Bois"@fr .
+
+gc:last_post_fund dcterms:identifier 3531 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Last Post Fund"@en,
+        "Fonds du Souvenir"@fr .
+
+gc:laurentian_pilotage_authority dcterms:identifier 3657 ;
+    rdfs:seeAlso "www.pilotagestlaurent.gc.ca" ;
+    skos:prefLabel "Laurentian Pilotage Authority"@en,
+        "Administration de pilotage des Laurentides"@fr .
+
+gc:law_commission_of_canada dcterms:identifier 2310 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Law Commission of Canada"@en,
+        "Commission du droit du Canada"@fr .
+
+gc:leader_of_the_government_in_the_house_of_commons dcterms:identifier 3577 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Leader of the Government in the House of Commons"@en,
+        "Leader du gouvernement à la Chambre des communes"@fr .
+
+gc:leaders_debates_commission dcterms:identifier 2296 ;
+    rdfs:seeAlso "https://www.debates-debats.ca/en/" ;
+    skos:prefLabel "Leaders' Debates Commission"@en,
+        "Commission des débats des chefs"@fr .
+
+gc:library_and_archives_canada dcterms:identifier 2262 ;
+    rdfs:seeAlso "library-archives.canada.ca" ;
+    skos:prefLabel "Library and Archives Canada"@en,
+        "Bibliothèque et Archives Canada"@fr .
+
+gc:library_of_parliament dcterms:identifier 3429 ;
+    rdfs:seeAlso "www.parl.gc.ca/About/Library/VirtualLibrary" ;
+    skos:prefLabel "Library of Parliament"@en,
+        "Bibliothèque du Parlement"@fr .
+
+gc:lower_churchill_development_corporation_limited dcterms:identifier 3415 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Lower Churchill Development Corporation Limited"@en,
+        "Lower Churchill Development Corporation Limited"@fr .
+
+gc:management_advisory_board_for_the_rcmp dcterms:identifier 3578 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Management Advisory Board for the RCMP"@en,
+        "Conseil consultatif de gestion pour la GRC"@fr .
+
+gc:marine_atlantic_inc dcterms:identifier 3658 ;
+    rdfs:seeAlso "www.marine-atlantic.ca" ;
+    skos:prefLabel "Marine Atlantic Inc."@en,
+        "Marine Atlantique S.C.C."@fr .
+
+gc:maritime_forestry_complex_corporation dcterms:identifier 3474 ;
+    rdfs:seeAlso "www.gnb.ca/4532/index-e.asp" ;
+    skos:prefLabel "Maritime Forestry Complex Corporation"@en,
+        "Société du complexe forestier des Maritimes"@fr .
+
+gc:measurement_canada dcterms:identifier 3542 ;
+    rdfs:seeAlso "www.ic.gc.ca/eic/site/mc-mc.nsf/eng/home" ;
+    skos:prefLabel "Measurement Canada"@en,
+        "Mesures Canada"@fr .
+
+gc:mental_health_commission_of_canada_mhcc dcterms:identifier 3475 ;
+    rdfs:seeAlso "www.mentalhealthcommission.ca" ;
+    skos:prefLabel "Mental Health Commission of Canada (MHCC)"@en,
+        "Commission de la santé mentale du Canada (CSMC)"@fr .
+
+gc:merchant_seamen_compensation_board dcterms:identifier 3674 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Merchant Seamen Compensation Board"@en,
+        "Commission d'indemnisation des marins marchands"@fr .
+
+gc:milit_air_inc dcterms:identifier 3476 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Milit-Air Inc."@en,
+        "Milit-Air Inc."@fr .
+
+gc:military_grievances_external_review_committee dcterms:identifier 2263 ;
+    rdfs:seeAlso "www.canada.ca/en/military-grievances-external-review.html" ;
+    skos:prefLabel "Military Grievances External Review Committee"@en,
+        "Comité externe d'examen des griefs militaires"@fr .
+
+gc:military_police_complaints_commission_of_canada dcterms:identifier 2264 ;
+    rdfs:seeAlso "www.mpcc-cppm.gc.ca" ;
+    skos:prefLabel "Military Police Complaints Commission of Canada"@en,
+        "Commission d'examen des plaintes concernant la police militaire du Canada"@fr .
+
+gc:miscarriage_of_justice_review_commission dcterms:identifier 3706 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Miscarriage of Justice Review Commission"@en,
+        "Commission d'examen des erreurs du système judiciaire"@fr .
+
+gc:montr_al_port_authority dcterms:identifier 3477 ;
+    rdfs:seeAlso "www.port-montreal.com" ;
+    skos:prefLabel "Montréal Port Authority"@en,
+        "Administration portuaire de Montréal"@fr .
+
+gc:multilateral_investment_guarantee_agency dcterms:identifier 3411 ;
+    rdfs:seeAlso "www.miga.org" ;
+    skos:prefLabel "Multilateral Investment Guarantee Agency"@en,
+        "Agence multilatérale de garantie des investissements"@fr .
+
+gc:nanaimo_port_authority dcterms:identifier 3478 ;
+    rdfs:seeAlso "www.npa.ca" ;
+    skos:prefLabel "Nanaimo Port Authority"@en,
+        "Administration portuaire de Nanaimo"@fr .
+
+gc:national_advisory_council_on_aging dcterms:identifier 3608 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "National Advisory Council on Aging"@en,
+        "Conseil consultatif national sur le troisième âge"@fr .
+
+gc:national_advisory_council_on_poverty dcterms:identifier 3609 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "National Advisory Council on Poverty"@en,
+        "Conseil national du Bien-être"@fr .
+
+gc:national_arts_centre_corporation dcterms:identifier 3625 ;
+    rdfs:seeAlso "www.nac-cna.ca" ;
+    skos:prefLabel "National Arts Centre Corporation"@en,
+        "Société du Centre national des Arts"@fr .
+
+gc:national_capital_commission dcterms:identifier 3653 ;
+    rdfs:seeAlso "www.ncc-ccn.gc.ca" ;
+    skos:prefLabel "National Capital Commission"@en,
+        "Commission de la capitale nationale"@fr .
+
+gc:national_defence dcterms:identifier 2233 ;
+    rdfs:seeAlso "www.forces.gc.ca" ;
+    skos:prefLabel "National Defence"@en,
+        "Défense nationale"@fr .
+
+gc:national_film_board dcterms:identifier 2266 ;
+    rdfs:seeAlso "www.onf-nfb.gc.ca" ;
+    skos:prefLabel "National Film Board"@en,
+        "Office national du film"@fr .
+
+gc:national_gallery_of_canada dcterms:identifier 3626 ;
+    rdfs:seeAlso "www.gallery.ca" ;
+    skos:prefLabel "National Gallery of Canada"@en,
+        "Musée des beaux-arts du Canada"@fr .
+
+gc:national_museum_of_science_and_technology dcterms:identifier 3627 ;
+    rdfs:seeAlso "https://ingeniumcanada.org/scitech" ;
+    skos:prefLabel "National Museum of Science and Technology"@en,
+        "Musée national des sciences et de la technologie"@fr .
+
+gc:national_research_council_canada dcterms:identifier 2313 ;
+    rdfs:seeAlso "https://nrc.canada.ca/en" ;
+    skos:prefLabel "National Research Council Canada"@en,
+        "Conseil national de recherches Canada"@fr .
+
+gc:national_round_table_on_the_environment_and_the_economy dcterms:identifier 3675 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "National Round Table on the Environment and the Economy"@en,
+        "Table ronde nationale sur l'environnement et l'économie"@fr .
+
+gc:national_security_and_intelligence_review_agency dcterms:identifier 3579 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "National Security and Intelligence Review Agency"@en,
+        "Office de surveillance des activités en matière de sécurité nationale et de renseignement"@fr .
+
+gc:national_security_and_intelligence_review_agency_secretariat dcterms:identifier 2291 ;
+    rdfs:seeAlso "https://nsira-ossnr.gc.ca/" ;
+    skos:prefLabel "National Security and Intelligence Review Agency Secretariat"@en,
+        "Secrétariat de l'Office de surveillance des activités en matière de sécurité nationale et de renseignement"@fr .
+
+gc:national_seniors_council dcterms:identifier 3580 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "National Seniors Council"@en,
+        "Conseil national des aînés"@fr .
+
+gc:natural_resources_canada dcterms:identifier 2234 ;
+    rdfs:seeAlso "www.nrcan-rncan.gc.ca" ;
+    skos:prefLabel "Natural Resources Canada"@en,
+        "Ressources naturelles Canada"@fr .
+
+gc:natural_sciences_and_engineering_research_council_of_canada dcterms:identifier 2314 ;
+    rdfs:seeAlso "www.nserc-crsng.gc.ca" ;
+    skos:prefLabel "Natural Sciences and Engineering Research Council of Canada"@en,
+        "Conseil de recherches en sciences naturelles et en génie du Canada"@fr .
+
+gc:nature_trust_of_british_columbia_the dcterms:identifier 3479 ;
+    rdfs:seeAlso "www.naturetrust.bc.ca" ;
+    skos:prefLabel "Nature Trust of British Columbia, The"@en,
+        "Nature Trust of British Columbia, The"@fr .
+
+gc:nav_canada dcterms:identifier 3480 ;
+    rdfs:seeAlso "www.navcanada.ca" ;
+    skos:prefLabel "NAV CANADA"@en,
+        "NAV CANADA"@fr .
+
+gc:north_portage_development_corporation_operating_as_the_forks_north_portage_partnership dcterms:identifier 3416 ;
+    rdfs:seeAlso "https://www.theforks.com/about/partnership" ;
+    skos:prefLabel "North Portage Development Corporation (operating as The Forks North Portage Partnership)"@en,
+        "North Portage Development Corporation (exploitée sous le nom de The Forks North Portage Partnership)"@fr .
+
+gc:northern_pipeline_agency_canada dcterms:identifier 2268 ;
+    rdfs:seeAlso "https://northern-pipeline.canada.ca/home" ;
+    skos:prefLabel "Northern Pipeline Agency Canada"@en,
+        "Administration du pipe-line du Nord Canada"@fr .
+
+gc:occupational_health_and_safety_tribunal_canada dcterms:identifier 3581 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Occupational Health and Safety Tribunal Canada"@en,
+        "Tribunal de santé et sécurité au travail Canada"@fr .
+
+gc:office_of_the_auditor_general_of_canada dcterms:identifier 2270 ;
+    rdfs:seeAlso "www.oag-bvg.gc.ca" ;
+    skos:prefLabel "Office of the Auditor General of Canada"@en,
+        "Bureau du vérificateur général du Canada"@fr .
+
+gc:office_of_the_chief_military_judge dcterms:identifier 3582 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Chief Military Judge"@en,
+        "Le cabinet du juge militaire en chef"@fr .
+
+gc:office_of_the_chief_science_advisor_of_canada dcterms:identifier 3611 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Chief Science Advisor of Canada"@en,
+        "Bureau du conseiller scientifique en chef du Canada"@fr .
+
+gc:office_of_the_commissioner_for_federal_judicial_affairs_canada dcterms:identifier 2272 ;
+    rdfs:seeAlso "www.fja-cmf.gc.ca" ;
+    skos:prefLabel "Office of the Commissioner for Federal Judicial Affairs Canada"@en,
+        "Commissariat à la magistrature fédérale Canada"@fr .
+
+gc:office_of_the_commissioner_of_lobbying_of_canada dcterms:identifier 2273 ;
+    rdfs:seeAlso "https://lobbycanada.gc.ca/en" ;
+    skos:prefLabel "Office of the Commissioner of Lobbying of Canada"@en,
+        "Commissariat au lobbying du Canada"@fr .
+
+gc:office_of_the_commissioner_of_official_languages dcterms:identifier 2274 ;
+    rdfs:seeAlso "www.officiallanguages.gc.ca/en" ;
+    skos:prefLabel "Office of the Commissioner of Official Languages"@en,
+        "Commissariat aux langues officielles"@fr .
+
+gc:office_of_the_commissioner_of_review_tribunals dcterms:identifier 3687 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Commissioner of Review Tribunals"@en,
+        "Bureau du Commissaire des tribunaux de révision"@fr .
+
+gc:office_of_the_conflict_of_interest_and_ethics_commissioner dcterms:identifier 3430 ;
+    rdfs:seeAlso "ciec-ccie.parl.gc.ca/EN/Pages/default.aspx" ;
+    skos:prefLabel "Office of the Conflict of Interest and Ethics Commissioner"@en,
+        "Commissariat aux conflits d'intérêts et à l'éthique"@fr .
+
+gc:office_of_the_federal_ombudsperson_for_victims_of_crime dcterms:identifier 3571 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Federal Ombudsperson for Victims Of Crime"@en,
+        "Bureau de l'ombudsman fédéral des victimes d'actes criminels"@fr .
+
+gc:office_of_the_information_commissioner dcterms:identifier 2281 ;
+    rdfs:seeAlso "https://www.oic-ci.gc.ca/en" ;
+    skos:prefLabel "Office of the Information Commissioner"@en,
+        "Commissariat à l'information au Canada"@fr .
+
+gc:office_of_the_intelligence_commissioner dcterms:identifier 2275 ;
+    rdfs:seeAlso "https://www.canada.ca/en/intelligence-commissioner.html" ;
+    skos:prefLabel "Office of the Intelligence Commissioner"@en,
+        "Bureau du commissaire au renseignement"@fr .
+
+gc:office_of_the_ombudsman_for_the_department_of_national_defence_and_the_canadian_armed_forces dcterms:identifier 3583 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Ombudsman for the Department of National Defence and the Canadian Armed Forces"@en,
+        "Bureau de l'ombudsman de la Défense nationale et des Forces armées canadiennes"@fr .
+
+gc:office_of_the_parliamentary_budget_officer dcterms:identifier 3433 ;
+    rdfs:seeAlso "www.pbo-dpb.gc.ca/en/" ;
+    skos:prefLabel "Office of the Parliamentary Budget Officer"@en,
+        "Bureau du directeur parlementaire du budget"@fr .
+
+gc:office_of_the_privacy_commissioner_of_canada dcterms:identifier 2282 ;
+    rdfs:seeAlso "https://www.priv.gc.ca/en/" ;
+    skos:prefLabel "Office of the Privacy Commissioner of Canada"@en,
+        "Commissariat à la protection de la vie privée du Canada"@fr .
+
+gc:office_of_the_procurement_ombudsman dcterms:identifier 3585 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Procurement Ombudsman"@en,
+        "Bureau de l'ombudsman de l'approvisionnement"@fr .
+
+gc:office_of_the_public_sector_integrity_commissioner_of_canada dcterms:identifier 2279 ;
+    rdfs:seeAlso "www.psic-ispc.gc.ca" ;
+    skos:prefLabel "Office of the Public Sector Integrity Commissioner of Canada"@en,
+        "Commissariat à l'intégrité du secteur public du Canada"@fr .
+
+gc:office_of_the_secretary_to_the_governor_general dcterms:identifier 2278 ;
+    rdfs:seeAlso "www.gg.ca" ;
+    skos:prefLabel "Office of the Secretary to the Governor General"@en,
+        "Bureau du secrétaire du gouverneur général"@fr .
+
+gc:office_of_the_superintendent_of_bankruptcy dcterms:identifier 3418 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Superintendent of Bankruptcy"@en,
+        "Bureau du surintendant des faillites"@fr .
+
+gc:office_of_the_superintendent_of_financial_institutions_canada dcterms:identifier 2280 ;
+    rdfs:seeAlso "https://www.osfi-bsif.gc.ca/en" ;
+    skos:prefLabel "Office of the Superintendent of Financial Institutions Canada"@en,
+        "Bureau du surintendant des institutions financières Canada"@fr .
+
+gc:office_of_the_taxpayers_ombudsperson dcterms:identifier 3594 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Taxpayers' Ombudsperson"@en,
+        "Bureau de l'ombudsman des contribuables"@fr .
+
+gc:office_of_the_umpire dcterms:identifier 3688 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Umpire"@en,
+        "Bureau du juge-arbitre"@fr .
+
+gc:office_of_the_veterans_ombudsman dcterms:identifier 3595 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Office of the Veterans' Ombudsman"@en,
+        "Bureau de l'ombud des vétérans"@fr .
+
+gc:old_port_of_montreal_corporation_inc dcterms:identifier 3689 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Old Port of Montreal Corporation Inc."@en,
+        "Société du Vieux-Port de Montréal Inc."@fr .
+
+gc:oshawa_port_authority dcterms:identifier 3481 ;
+    rdfs:seeAlso "www.portofoshawa.ca" ;
+    skos:prefLabel "Oshawa Port Authority"@en,
+        "Administration portuaire d'Oshawa"@fr .
+
+gc:ottawa_international_airport_authority dcterms:identifier 3482 ;
+    rdfs:seeAlso "www.yow.ca" ;
+    skos:prefLabel "Ottawa International Airport Authority"@en,
+        "Administration de l'aéroport international d'Ottawa"@fr .
+
+gc:ouranos_consortium dcterms:identifier 3483 ;
+    rdfs:seeAlso "www.ouranos.ca" ;
+    skos:prefLabel "Ouranos Consortium"@en,
+        "Consortium Ouranos"@fr .
+
+gc:pacific_economic_development_canada dcterms:identifier 2298 ;
+    rdfs:seeAlso "https://www.canada.ca/en/pacific-economic-development.html" ;
+    skos:prefLabel "Pacific Economic Development Canada"@en,
+        "Développement économique Canada pour le Pacifique"@fr .
+
+gc:pacific_pilotage_authority dcterms:identifier 3659 ;
+    rdfs:seeAlso "www.ppa.gc.ca" ;
+    skos:prefLabel "Pacific Pilotage Authority"@en,
+        "Administration de pilotage du Pacifique"@fr .
+
+gc:parc_downsview_park_inc dcterms:identifier 3690 ;
+    rdfs:seeAlso "https://downsviewpark.ca/" ;
+    skos:prefLabel "Parc Downsview Park Inc."@en,
+        "Parc Downsview Park Inc"@fr .
+
+gc:parks_canada dcterms:identifier 2315 ;
+    rdfs:seeAlso "www.pc.gc.ca" ;
+    skos:prefLabel "Parks Canada"@en,
+        "Parcs Canada"@fr .
+
+gc:parliament_of_canada dcterms:identifier 3584 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Parliament of Canada"@en,
+        "Parlement du Canada"@fr .
+
+gc:parliamentary_protective_service dcterms:identifier 3434 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Parliamentary Protective Service"@en,
+        "Service de protection parlementaire"@fr .
+
+gc:parole_board_of_canada dcterms:identifier 2267 ;
+    rdfs:seeAlso "www.canada.ca/en/parole-board.html" ;
+    skos:prefLabel "Parole Board of Canada"@en,
+        "Commission des libérations conditionnelles du Canada"@fr .
+
+gc:passport_canada dcterms:identifier 3547 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Passport Canada"@en,
+        "Passeport Canada"@fr .
+
+gc:patented_medicine_prices_review_board_canada dcterms:identifier 2283 ;
+    rdfs:seeAlso "https://www.canada.ca/en/patented-medicine-prices-review.html" ;
+    skos:prefLabel "Patented Medicine Prices Review Board Canada"@en,
+        "Conseil d'examen du prix des médicaments brevetés Canada"@fr .
+
+gc:payroll_system_general_ledger dcterms:identifier 3548 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Payroll System General Ledger"@en,
+        "Grand livre général du système de la paye"@fr .
+
+gc:pension_appeals_board dcterms:identifier 3691 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Pension Appeals Board"@en,
+        "Commission d'appel des pensions"@fr .
+
+gc:physical_resources_bureau dcterms:identifier 3543 ;
+    rdfs:seeAlso "www.international.gc.ca/international/index.aspx?lang=eng&view=d" ;
+    skos:prefLabel "Physical Resources Bureau"@en,
+        "Direction générale des biens"@fr .
+
+gc:pierre_elliott_trudeau_foundation_the dcterms:identifier 3484 ;
+    rdfs:seeAlso "www.trudeaufoundation.ca" ;
+    skos:prefLabel "Pierre Elliott Trudeau Foundation, The"@en,
+        "Fondation Pierre Elliott Trudeau, La"@fr .
+
+gc:polar_knowledge_canada dcterms:identifier 2318 ;
+    rdfs:seeAlso "www.canada.ca/en/polar-knowledge.html" ;
+    skos:prefLabel "Polar Knowledge Canada"@en,
+        "Savoir polaire Canada"@fr .
+
+gc:policy_horizons_canada dcterms:identifier 3612 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Policy Horizons Canada"@en,
+        "Horizons de politiques Canada"@fr .
+
+gc:porcupine_caribou_management_board dcterms:identifier 3485 ;
+    rdfs:seeAlso "www.pcmb.ca" ;
+    skos:prefLabel "Porcupine Caribou Management Board"@en,
+        "Porcupine Caribou Management Board"@fr .
+
+gc:port_alberni_port_authority dcterms:identifier 3486 ;
+    rdfs:seeAlso "www.portalberniportauthority.ca" ;
+    skos:prefLabel "Port Alberni Port Authority"@en,
+        "Administration portuaire de Port Alberni"@fr .
+
+gc:ppp_canada_inc dcterms:identifier 3645 ;
+    rdfs:seeAlso "www.p3canada.ca" ;
+    skos:prefLabel "PPP Canada Inc."@en,
+        "PPP Canada Inc."@fr .
+
+gc:prairie_farm_rehabilitation_administration dcterms:identifier 3419 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Prairie Farm Rehabilitation Administration"@en,
+        "Administration du rétablissement agricole des Prairies"@fr .
+
+gc:prairies_economic_development_canada dcterms:identifier 2240 ;
+    rdfs:seeAlso "https://www.canada.ca/en/prairies-economic-development.html" ;
+    skos:prefLabel "Prairies Economic Development Canada"@en,
+        "Développement économique Canada pour les Prairies"@fr .
+
+gc:prime_minister_of_canada dcterms:identifier 3586 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Prime Minister of Canada"@en,
+        "Premier ministre du Canada"@fr .
+
+gc:prince_george_2015_canada_winter_games_host_society dcterms:identifier 3701 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Prince George 2015 Canada Winter Games Host Society"@en,
+        "Société hôtesse des Jeux d'hiver du Canada Prince George 2015"@fr .
+
+gc:prince_george_airport_authority_inc dcterms:identifier 3488 ;
+    rdfs:seeAlso "www.pgairport.ca" ;
+    skos:prefLabel "Prince George Airport Authority Inc."@en,
+        "Prince George Airport Authority Inc."@fr .
+
+gc:prince_rupert_port_authority dcterms:identifier 3489 ;
+    rdfs:seeAlso "www.rupertport.com" ;
+    skos:prefLabel "Prince Rupert Port Authority"@en,
+        "Administration portuaire de Prince Rupert"@fr .
+
+gc:prionet_canada dcterms:identifier 3528 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "PrioNet Canada"@en,
+        "PrioNet Canada"@fr .
+
+gc:privy_council_office dcterms:identifier 2284 ;
+    rdfs:seeAlso "www.pco-bcp.gc.ca" ;
+    skos:prefLabel "Privy Council Office"@en,
+        "Bureau du Conseil privé"@fr .
+
+gc:public_appointments_commission_secretariat dcterms:identifier 3676 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Public Appointments Commission Secretariat"@en,
+        "Secrétariat de la Commission des nominations publiques"@fr .
+
+gc:public_health_agency_of_canada dcterms:identifier 2285 ;
+    rdfs:seeAlso "www.phac-aspc.gc.ca" ;
+    skos:prefLabel "Public Health Agency of Canada"@en,
+        "Agence de la santé publique du Canada"@fr .
+
+gc:public_prosecution_service_of_canada dcterms:identifier 2277 ;
+    rdfs:seeAlso "www.ppsc-sppc.gc.ca/" ;
+    skos:prefLabel "Public Prosecution Service of Canada"@en,
+        "Service des poursuites pénales du Canada"@fr .
+
+gc:public_safety_canada dcterms:identifier 2235 ;
+    rdfs:seeAlso "www.publicsafety.gc.ca" ;
+    skos:prefLabel "Public Safety Canada"@en,
+        "Sécurité publique Canada"@fr .
+
+gc:public_sector_pension_investment_board dcterms:identifier 3663 ;
+    rdfs:seeAlso "www.investpsp.ca" ;
+    skos:prefLabel "Public Sector Pension Investment Board"@en,
+        "Office d'investissement des régimes de pensions du secteur public"@fr .
+
+gc:public_servants_disclosure_protection_tribunal_canada dcterms:identifier 3587 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Public Servants Disclosure Protection Tribunal Canada"@en,
+        "Tribunal de la protection des fonctionnaires divulgateurs Canada"@fr .
+
+gc:public_service_commission_of_canada dcterms:identifier 2286 ;
+    rdfs:seeAlso "https://www.canada.ca/en/public-service-commission.html" ;
+    skos:prefLabel "Public Service Commission of Canada"@en,
+        "Commission de la fonction publique du Canada"@fr .
+
+gc:public_service_labour_relations_board dcterms:identifier 3692 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Public Service Labour Relations Board"@en,
+        "Commission des relations de travail dans la fonction publique"@fr .
+
+gc:public_service_staffing_tribunal dcterms:identifier 3693 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Public Service Staffing Tribunal"@en,
+        "Tribunal de la dotation de la fonction publique"@fr .
+
+gc:public_service_superannuation dcterms:identifier 3549 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Public Service Superannuation"@en,
+        "Pension de retraite de la fonction publique"@fr .
+
+gc:public_services_and_procurement_canada dcterms:identifier 2236 ;
+    rdfs:seeAlso "www.tpsgc-pwgsc.gc.ca" ;
+    skos:prefLabel "Public Services and Procurement Canada"@en,
+        "Services publics et Approvisionnement Canada"@fr .
+
+gc:qu_bec_port_authority dcterms:identifier 3490 ;
+    rdfs:seeAlso "www.portquebec.ca" ;
+    skos:prefLabel "Québec Port Authority"@en,
+        "Administration portuaire de Québec"@fr .
+
+gc:rcmp_external_review_committee dcterms:identifier 2289 ;
+    rdfs:seeAlso "www.erc-cee.gc.ca" ;
+    skos:prefLabel "RCMP External Review Committee"@en,
+        "Comité externe d'examen de la GRC"@fr .
+
+gc:regina_airport_authority_inc dcterms:identifier 3491 ;
+    rdfs:seeAlso "www.yqr.ca" ;
+    skos:prefLabel "Regina Airport Authority Inc."@en,
+        "Regina Airport Authority Inc."@fr .
+
+gc:registrar_of_the_supreme_court_of_canada dcterms:identifier 2287,
+        3592 ;
+    rdfs:seeAlso "www.scc-csc.ca" ;
+    skos:prefLabel "Registrar of the Supreme Court of Canada"@en,
+        "Registraire de la Cour suprême du Canada"@fr .
+
+gc:registry_of_the_competition_tribunal dcterms:identifier 3694 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Registry of the Competition Tribunal"@en,
+        "Greffe du Tribunal de la concurrence"@fr .
+
+gc:registry_of_the_public_servants_disclosure_protection_tribunal dcterms:identifier 3695 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Registry of the Public Servants Disclosure Protection Tribunal"@en,
+        "Greffe du Tribunal de la protection des fonctionnaires divulgateurs d'actes répréhensibles"@fr .
+
+gc:registry_of_the_specific_claims_tribunal dcterms:identifier 3696 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Registry of the Specific Claims Tribunal"@en,
+        "Greffe du Tribunal des revendications particulières"@fr .
+
+gc:ridley_terminals_inc dcterms:identifier 3660 ;
+    rdfs:seeAlso "www.rti.ca" ;
+    skos:prefLabel "Ridley Terminals Inc."@en,
+        "Ridley Terminals Inc."@fr .
+
+gc:roosevelt_campobello_international_park_commission dcterms:identifier 3492 ;
+    rdfs:seeAlso "www.fdr.net" ;
+    skos:prefLabel "Roosevelt Campobello International Park Commission"@en,
+        "Commission du parc international Roosevelt de Campobello"@fr .
+
+gc:royal_canadian_air_force dcterms:identifier 3588 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Royal Canadian Air Force"@en,
+        "Aviation royale canadienne"@fr .
+
+gc:royal_canadian_mint dcterms:identifier 3637 ;
+    rdfs:seeAlso "www.mint.ca" ;
+    skos:prefLabel "Royal Canadian Mint"@en,
+        "Monnaie royale canadienne"@fr .
+
+gc:royal_canadian_mounted_police dcterms:identifier 2288 ;
+    rdfs:seeAlso "www.rcmp-grc.gc.ca" ;
+    skos:prefLabel "Royal Canadian Mounted Police"@en,
+        "Gendarmerie royale du Canada"@fr .
+
+gc:royal_canadian_navy dcterms:identifier 3589 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Royal Canadian Navy"@en,
+        "Marine royale canadienne"@fr .
+
+gc:royal_military_college_of_canada dcterms:identifier 3590 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Royal Military College of Canada"@en,
+        "Collège militaire royal du Canada"@fr .
+
+gc:saguenay_port_authority dcterms:identifier 3493 ;
+    rdfs:seeAlso "www.portsaguenay.ca" ;
+    skos:prefLabel "Saguenay Port Authority"@en,
+        "Administration portuaire du Saguenay"@fr .
+
+gc:saint_john_airport_inc dcterms:identifier 3494 ;
+    rdfs:seeAlso "www.saintjohnairport.com" ;
+    skos:prefLabel "Saint John Airport Inc."@en,
+        "Saint John Airport Inc."@fr .
+
+gc:saint_john_port_authority dcterms:identifier 3495 ;
+    rdfs:seeAlso "www.sjport.com" ;
+    skos:prefLabel "Saint John Port Authority"@en,
+        "Administration portuaire de Saint John"@fr .
+
+gc:saskatoon_airport_authority dcterms:identifier 3496 ;
+    rdfs:seeAlso "www.yxe.ca" ;
+    skos:prefLabel "Saskatoon Airport Authority"@en,
+        "Saskatoon Airport Authority"@fr .
+
+gc:secretariat_of_the_national_security_and_intelligence_committee_of_parliamentarians dcterms:identifier 2295 ;
+    rdfs:seeAlso "https://www.nsicop-cpsnr.ca/index-en.html" ;
+    skos:prefLabel "Secretariat of the National Security and Intelligence Committee of Parliamentarians"@en,
+        "Secrétariat du Comité des parlementaires sur la sécurité nationale et le renseignement"@fr .
+
+gc:senate dcterms:identifier 3432 ;
+    rdfs:seeAlso "www.parl.gc.ca" ;
+    skos:prefLabel "Senate"@en,
+        "Sénat"@fr .
+
+gc:senate_ethics_officer dcterms:identifier 3431 ;
+    rdfs:seeAlso "sen.parl.gc.ca/seo-cse/eng/Home-e.html" ;
+    skos:prefLabel "Senate Ethics Officer"@en,
+        "Conseiller sénatorial en éthique"@fr .
+
+gc:sept_les_port_authority dcterms:identifier 3497 ;
+    rdfs:seeAlso "www.portsi.com" ;
+    skos:prefLabel "Sept-Îles Port Authority"@en,
+        "Administration portuaire de Sept-Îles"@fr .
+
+gc:service_canada dcterms:identifier 3591 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Service Canada"@en,
+        "Service Canada"@fr .
+
+gc:shared_services_canada dcterms:identifier 2292 ;
+    rdfs:seeAlso "https://www.canada.ca/en/shared-services.html" ;
+    skos:prefLabel "Shared Services Canada"@en,
+        "Services partagés Canada"@fr .
+
+gc:ship_source_oil_pollution_fund dcterms:identifier 3613 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Ship-source Oil Pollution Fund"@en,
+        "Caisse d'indemnisation des dommages dus à la pollution par les hydrocarbures causée par les navires"@fr .
+
+gc:social_sciences_and_humanities_research_council_of_canada dcterms:identifier 2316 ;
+    rdfs:seeAlso "www.sshrc-crsh.gc.ca" ;
+    skos:prefLabel "Social Sciences and Humanities Research Council of Canada"@en,
+        "Conseil de recherches en sciences humaines du Canada"@fr .
+
+gc:social_security_tribunal dcterms:identifier 3632 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Social Security Tribunal"@en,
+        "Tribunal de la sécurité sociale"@fr .
+
+gc:sport_dispute_resolution_centre_of_canada dcterms:identifier 3498 ;
+    rdfs:seeAlso "www.crdsc-sdrcc.ca" ;
+    skos:prefLabel "Sport Dispute Resolution Centre of Canada"@en,
+        "Centre de règlement des différends sportifs du Canada"@fr .
+
+gc:st_john_s_international_airport_authority dcterms:identifier 3499 ;
+    rdfs:seeAlso "www.stjohnsairport.com" ;
+    skos:prefLabel "St. John's International Airport Authority"@en,
+        "St. John's International Airport Authority"@fr .
+
+gc:st_john_s_port_authority dcterms:identifier 3500 ;
+    rdfs:seeAlso "www.sjpa.com" ;
+    skos:prefLabel "St. John's Port Authority"@en,
+        "Administration portuaire de St. John's"@fr .
+
+gc:st_lawrence_seaway_management_corporation dcterms:identifier 3501 ;
+    rdfs:seeAlso "www.greatlakes-seaway.com" ;
+    skos:prefLabel "St. Lawrence Seaway Management Corporation"@en,
+        "Corporation de gestion de la Voie maritime du Saint-Laurent"@fr .
+
+gc:staff_of_the_non_public_funds_canadian_forces dcterms:identifier 3425 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Staff of the Non-Public Funds, Canadian Forces"@en,
+        "Personnel des fonds non publics, Forces canadiennes"@fr .
+
+gc:standards_council_of_canada dcterms:identifier 3648 ;
+    rdfs:seeAlso "www.scc.ca" ;
+    skos:prefLabel "Standards Council of Canada"@en,
+        "Conseil canadien des normes"@fr .
+
+gc:statistics_canada dcterms:identifier 2293 ;
+    rdfs:seeAlso "www.statcan.gc.ca" ;
+    skos:prefLabel "Statistics Canada"@en,
+        "Statistique Canada"@fr .
+
+gc:statistics_survey_operations dcterms:identifier 3426 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Statistics Survey Operations"@en,
+        "Opérations des enquêtes statistiques"@fr .
+
+gc:statute_revision_commission_canada dcterms:identifier 3614 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Statute Revision Commission Canada"@en,
+        "Commission de révision des lois Canada"@fr .
+
+gc:tax_court_of_canada dcterms:identifier 3593 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Tax Court of Canada"@en,
+        "Cour canadienne de l'impôt"@fr .
+
+gc:telefilm_canada dcterms:identifier 3629 ;
+    rdfs:seeAlso "www.telefilm.ca" ;
+    skos:prefLabel "Telefilm Canada"@en,
+        "Téléfilm Canada"@fr .
+
+gc:terry_fox_humanitarian_award_inc dcterms:identifier 3502 ;
+    rdfs:seeAlso "www.terryfoxawards.ca" ;
+    skos:prefLabel "Terry Fox Humanitarian Award Inc."@en,
+        "Prix humanitaire Terry Fox inc."@fr .
+
+gc:the_correctional_investigator_canada dcterms:identifier 2276 ;
+    rdfs:seeAlso "www.oci-bec.gc.ca" ;
+    skos:prefLabel "The Correctional Investigator Canada"@en,
+        "L'Enquêteur correctionnel Canada"@fr .
+
+gc:the_director_the_veterans_land_act dcterms:identifier 3423 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "The Director, The Veterans' Land Act"@en,
+        "Directeur des terres destinées aux anciens combattants"@fr .
+
+gc:the_federal_bridge_corporation_limited dcterms:identifier 3661 ;
+    rdfs:seeAlso "www.federalbridge.ca" ;
+    skos:prefLabel "The Federal Bridge Corporation Limited"@en,
+        "La Société des ponts fédéraux Limitée"@fr .
+
+gc:the_halifax_2011_canada_games_host_society dcterms:identifier 3700 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "The Halifax 2011 Canada Games Host Society"@en,
+        "Société d'accueil des Jeux de 2011 de Halifax"@fr .
+
+gc:the_jacques_cartier_and_champlain_bridges_inc dcterms:identifier 3643 ;
+    rdfs:seeAlso "www.jacquescartierchamplain.ca" ;
+    skos:prefLabel "The Jacques-Cartier and Champlain Bridges Inc."@en,
+        "Les Ponts Jacques-Cartier et Champlain Inc."@fr .
+
+gc:the_national_battlefields_commission dcterms:identifier 2311 ;
+    rdfs:seeAlso "www.ccbn-nbc.gc.ca" ;
+    skos:prefLabel "The National Battlefields Commission"@en,
+        "Commission des champs de bataille nationaux"@fr .
+
+gc:thunder_bay_international_airports_authority_inc dcterms:identifier 3503 ;
+    rdfs:seeAlso "www.tbairport.on.ca" ;
+    skos:prefLabel "Thunder Bay International Airports Authority Inc."@en,
+        "Thunder Bay International Airports Authority Inc."@fr .
+
+gc:thunder_bay_port_authority dcterms:identifier 3504 ;
+    rdfs:seeAlso "www.portofthunderbay.com" ;
+    skos:prefLabel "Thunder Bay Port Authority"@en,
+        "Administration portuaire de Thunder Bay"@fr .
+
+gc:toronto_organizing_committee_for_the_2015_pan_american_and_parapan_american_games dcterms:identifier 3630 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Toronto Organizing Committee for the 2015 Pan American and Parapan American Games"@en,
+        "Comité d'organisation des Jeux panaméricains et parapanaméricains de Toronto 2015"@fr .
+
+gc:toronto_port_authority dcterms:identifier 3506 ;
+    rdfs:seeAlso "www.portstoronto.com" ;
+    skos:prefLabel "Toronto Port Authority"@en,
+        "Administration portuaire de Toronto"@fr .
+
+gc:translation_bureau dcterms:identifier 3544 ;
+    rdfs:seeAlso "www.tpsgc-pwgsc.gc.ca/bt-tb/index-eng.html" ;
+    skos:prefLabel "Translation Bureau"@en,
+        "Bureau de la traduction"@fr .
+
+gc:transport_canada dcterms:identifier 2238 ;
+    rdfs:seeAlso "www.tc.gc.ca" ;
+    skos:prefLabel "Transport Canada"@en,
+        "Transports Canada"@fr .
+
+gc:transportation_appeal_tribunal_of_canada dcterms:identifier 3697 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Transportation Appeal Tribunal of Canada"@en,
+        "Tribunal d'appel des transports du Canada"@fr .
+
+gc:transportation_safety_board_of_canada dcterms:identifier 2309 ;
+    rdfs:seeAlso "www.tsb-bst.gc.ca" ;
+    skos:prefLabel "Transportation Safety Board of Canada"@en,
+        "Bureau de la sécurité des transports du Canada"@fr .
+
+gc:treasury_board dcterms:identifier 3704 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Treasury Board"@en,
+        "Conseil du Trésor"@fr .
+
+gc:treasury_board_of_canada_secretariat dcterms:identifier 2242 ;
+    rdfs:seeAlso "www.canada.ca/en/treasury-board-secretariat/index.html" ;
+    skos:prefLabel "Treasury Board of Canada Secretariat"@en,
+        "Secrétariat du Conseil du Trésor du Canada"@fr .
+
+gc:trois_rivi_res_port_authority dcterms:identifier 3507 ;
+    rdfs:seeAlso "www.porttr.com" ;
+    skos:prefLabel "Trois-Rivières Port Authority"@en,
+        "Administration portuaire de Trois-Rivières"@fr .
+
+gc:tv5_qu_bec_canada dcterms:identifier 3508 ;
+    rdfs:seeAlso "www.tv5.ca" ;
+    skos:prefLabel "TV5 Québec Canada"@en,
+        "TV5 Québec Canada"@fr .
+
+gc:vancouver_fraser_port_authority dcterms:identifier 3509 ;
+    rdfs:seeAlso "www.portmetrovancouver.com" ;
+    skos:prefLabel "Vancouver Fraser Port Authority"@en,
+        "Administration portuaire de Vancouver Fraser"@fr .
+
+gc:vancouver_international_airport_authority dcterms:identifier 3510 ;
+    rdfs:seeAlso "www.yvr.ca" ;
+    skos:prefLabel "Vancouver International Airport Authority"@en,
+        "Administration de l'Aéroport de Vancouver"@fr .
+
+gc:vancouver_organizing_committee_for_the_2010_olympic_and_paralympic_winter_games dcterms:identifier 3698 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Vancouver Organizing Committee for the 2010 Olympic and Paralympic Winter Games"@en,
+        "Comité d'organisation des Jeux olympiques et paralympiques d'hiver de 2010 à Vancouver"@fr .
+
+gc:vanier_institute_of_the_family_the dcterms:identifier 3532 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Vanier Institute of the Family, The"@en,
+        "L'Institut Vanier de la famille"@fr .
+
+gc:veterans_affairs_canada dcterms:identifier 2239 ;
+    rdfs:seeAlso "www.veterans.gc.ca" ;
+    skos:prefLabel "Veterans Affairs Canada"@en,
+        "Anciens Combattants Canada"@fr .
+
+gc:veterans_review_and_appeal_board dcterms:identifier 2294 ;
+    rdfs:seeAlso "www.vrab-tacra.gc.ca" ;
+    skos:prefLabel "Veterans Review and Appeal Board"@en,
+        "Tribunal des anciens combattants (révision et appel)"@fr .
+
+gc:via_rail_canada_inc dcterms:identifier 3662 ;
+    rdfs:seeAlso "www.viarail.ca/en" ;
+    skos:prefLabel "VIA Rail Canada Inc."@en,
+        "VIA Rail Canada inc."@fr .
+
+gc:victoria_airport_authority dcterms:identifier 3511 ;
+    rdfs:seeAlso "www.victoriaairport.com" ;
+    skos:prefLabel "Victoria Airport Authority"@en,
+        "Autorité aéroportuaire de Victoria"@fr .
+
+gc:virtual_museum_of_canada dcterms:identifier 3596 ;
+    rdfs:seeAlso "NaN"^^xsd:double ;
+    skos:prefLabel "Virtual Museum of Canada"@en,
+        "Musée virtuel du Canada"@fr .
+
+gc:waterfront_toronto dcterms:identifier 3512 ;
+    rdfs:seeAlso "www.waterfrontoronto.ca" ;
+    skos:prefLabel "Waterfront Toronto"@en,
+        "Waterfront Toronto"@fr .
+
+gc:wildlife_habitat_canada dcterms:identifier 3513 ;
+    rdfs:seeAlso "www.whc.org" ;
+    skos:prefLabel "Wildlife Habitat Canada"@en,
+        "Habitat faunique Canada"@fr .
+
+gc:windsor_detroit_bridge_authority dcterms:identifier 3644 ;
+    rdfs:seeAlso "https://www.gordiehoweinternationalbridge.com/en" ;
+    skos:prefLabel "Windsor-Detroit Bridge Authority"@en,
+        "Autorité du pont Windsor-Détroit"@fr .
+
+gc:windsor_port_authority dcterms:identifier 3514 ;
+    rdfs:seeAlso "www.portwindsor.com" ;
+    skos:prefLabel "Windsor Port Authority"@en,
+        "Administration portuaire de Windsor"@fr .
+
+gc:winnipeg_airports_authority_inc dcterms:identifier 3515 ;
+    rdfs:seeAlso "www.waa.ca" ;
+    skos:prefLabel "Winnipeg Airports Authority Inc."@en,
+        "Winnipeg Airports Authority Inc."@fr .
+
+gc:winsport dcterms:identifier 3442 ;
+    rdfs:seeAlso "www.winsport.ca" ;
+    skos:prefLabel "WinSport"@en,
+        "WinSport"@fr .
+
+gc:women_and_gender_equality_canada dcterms:identifier 2241 ;
+    rdfs:seeAlso "www.swc-cfc.gc.ca" ;
+    skos:prefLabel "Women and Gender Equality Canada"@en,
+        "Femmes et Égalité des genres Canada"@fr .
+
+gc:world_anti_doping_agency dcterms:identifier 3413 ;
+    rdfs:seeAlso "www.wada-ama.org/en" ;
+    skos:prefLabel "World Anti-Doping Agency"@en,
+        "Agence mondiale antidopage"@fr .
+
