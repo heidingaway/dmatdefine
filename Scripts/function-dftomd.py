@@ -2,6 +2,8 @@ import pandas as pd
 import os 
 import re
 
+invalid_chars_pattern = r'[<>:"/\\|?*& ]'
+
 def df_to_markdown_files(df: pd.DataFrame, output_dir: str = "markdown_rows"):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
