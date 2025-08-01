@@ -1,0 +1,67 @@
+
+@prefix gc: <https://www.canada.ca/#> .
+@prefix ochro: <https://gcxgce.sharepoint.com/teams/10001579/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://gcxgce.sharepoint.com/teams/10001579/> a owl:Ontology ;
+    rdfs:label "OCHRO Function Ontology"@en ;
+    rdfs:comment "An ontology for modeling Government of Canada functions."@en ;
+    owl:versionInfo "v1.0" ;
+    dcterms:subject ochro:function .
+
+ochro:output a rdfs:Class ;
+    rdfs:label "Output"@en ;    
+    rdfs:comment "What does it produce?"@en ;
+    ochro:drives ochro:outcomeStatement
+    .
+
+ochro:stakeholder rdfs:subClassOf ochro:function ;
+    rdfs:label "Stakeholder"@en ;
+    rdfs:comment "Who interacts with it?"@en ;
+    ochro:interactsWith ochro:businessLine , ochro:output
+    .
+
+ochro:businessLine rdfs:subClassOf ochro:function ; 
+    rdfs:label "Business Line"@en ;
+    rdfs:comment "Where is the work structured?"@en ;
+    ochro:delivers ochro:output 
+    .
+
+ochro:outcomeStatement a rdfs:Class, schema:organizeAction ;
+    rdfs:label "Outcome Statement"@en ;
+    rdfs:comment "Why does this function exist?"@en ;
+    ochro:defines ochro:function .
+
+ochro:function a rdfs:Class ;
+    rdfs:label "Function"@en ;
+    dcterms:hasPart ochro:stakeholder , ochro:businessLine
+    .
+
+ochro:drives a owl:ObjectProperty ;
+    rdfs:domain ochro:output ;
+    rdfs:range ochro:outcomeStatement ;
+    rdfs:label "drives"@en .
+
+ochro:interactsWith a owl:ObjectProperty ;
+    rdfs:domain ochro:stakeholder ;
+    rdfs:range ochro:function ;
+    rdfs:label "interacts with"@en .
+
+ochro:delivers a owl:ObjectProperty ;
+    rdfs:domain ochro:businessLine ;
+    rdfs:range ochro:output ;
+    rdfs:label "delivers"@en .
+
+ochro:defines a owl:ObjectProperty ;
+    rdfs:domain ochro:outcomeStatement ;
+    rdfs:range ochro:function ;
+    rdfs:label "defines"@en .
+
+rdfs:hasPart a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;
+    rdfs:range ochro:function ;
+    rdfs:label "has part"@en ;
+    rdfs:comment "Indicates that a function is composed of other functional components."@en .
