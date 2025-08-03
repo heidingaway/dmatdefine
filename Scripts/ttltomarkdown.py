@@ -2,6 +2,7 @@ import rdflib
 import yaml
 import os
 import re
+from urllib.parse import urlparse
 
 def sanitize_filename(text):
     """
@@ -14,6 +15,29 @@ def sanitize_filename(text):
     # Replace multiple underscores with a single one
     sanitized = re.sub(r'[-_]+', '_', sanitized)
     return sanitized.strip('_')
+
+def get_uri_last_part(uri: str) -> str:
+    """
+    Helper function to robustly extract the last part of a URI,
+    handling both standard URIs and common prefixed identifiers.
+    """
+    if ':' in uri and not uri.startswith('http'):
+        return uri.split(':', 1)[1]
+    
+    try:
+        parsed_uri = urlparse(uri)
+        if parsed_uri.fragment:
+            return parsed_uri.fragment
+        
+        path_parts = parsed_uri.path.split('/')
+        label = next((part for part in reversed(path_parts) if part), '')
+        if label:
+            return label
+    except Exception:
+        pass
+
+    return uri
+
 
 def convert_ttl_to_individual_markdown(input_ttl_path, output_dir_path):
     """
@@ -28,7 +52,6 @@ def convert_ttl_to_individual_markdown(input_ttl_path, output_dir_path):
         print(f"Error: The input file '{input_ttl_path}' was not found.")
         return
 
-    # Create the output directory if it doesn't exist
     os.makedirs(output_dir_path, exist_ok=True)
     print(f"Output directory '{output_dir_path}' ensured.")
 
@@ -40,7 +63,8 @@ def convert_ttl_to_individual_markdown(input_ttl_path, output_dir_path):
         print(f"Error parsing Turtle file: {e}")
         return
 
-    # Identify all URIs that are declared as skos:Collection
+    skos = rdflib.Namespace("http://www.w3.org/2004/02/skos/core#")
+
     query_collections = """
     SELECT ?collection WHERE {
         ?collection a skos:Collection .
@@ -61,29 +85,32 @@ def convert_ttl_to_individual_markdown(input_ttl_path, output_dir_path):
             "members": []
         }
 
-        # Get the preferred label for the collection
-        label = g.value(subject=collection_uri, predicate=rdflib.URIRef("http://www.w3.org/2004/02/skos/core#aliases"))
+        label = g.value(subject=collection_uri, predicate=skos.prefLabel)
         if label:
             collection_data["aliases"] = str(label)
         
-        # Get all members of the collection
-        members = g.objects(subject=collection_uri, predicate=rdflib.URIRef("http://www.w3.org/2004/02/skos/core#member"))
+        members = g.objects(subject=collection_uri, predicate=skos.member)
         for member_uri in members:
-            collection_data["members"].append(str(member_uri))
+            # Format the member label with brackets and quotes for the YAML
+            formatted_member = f"[[{get_uri_last_part(str(member_uri))}]]"
+            collection_data["members"].append(formatted_member)
         
-        # Determine the output filename
         if collection_data["aliases"]:
             filename = sanitize_filename(collection_data["aliases"]) + ".md"
         else:
-            filename = sanitize_filename(str(collection_uri.split('/')[-1])) + ".md"
+            filename = sanitize_filename(get_uri_last_part(str(collection_uri))) + ".md"
         
         output_file_path = os.path.join(output_dir_path, filename)
 
-        # Write the Markdown file with YAML front matter
         with open(output_file_path, 'w', encoding='utf-8') as md_file:
             md_file.write("---\n")
+            # yaml.safe_dump automatically handles the outer quotes
             yaml.safe_dump(collection_data, md_file, sort_keys=False)
             md_file.write("---\n\n")
+            md_file.write(f"# {collection_data.get('aliases', 'Untitled Collection')}\n\n")
+            # The body is now cleaner as the list is in the front matter
+            md_file.write("This document represents a collection of thesaurus concepts.\n")
+            
 
     print(f"Successfully created {len(collections)} markdown files in '{output_dir_path}'.")
 

@@ -14,7 +14,7 @@ def generate_uri_id(text):
     special characters, accents, and quotes.
     """
     text = str(text)
-    text = text.lower()  # Convert to lowercase
+    text = text.lower()
     text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
     uri_id = re.sub(r'[\s",?#\[\]\(\)\+\'/]', '_', text)
     uri_id = re.sub(r'_{2,}', '_', uri_id)
@@ -23,26 +23,30 @@ def generate_uri_id(text):
 def convert_csv_to_ttl(input_csv_path, output_ttl_path):
     """
     Reads a CSV thesaurus in a triple-like format, converts it to a complete RDF graph,
-    and saves it as a Turtle file.
+    and saves it as a Turtle file. It automatically uses the concept name as the English
+    prefLabel.
     """
     try:
         print(f"Reading CSV from {input_csv_path}...")
         
-        # First Pass: Read data to build a mapping and identify collections
+        # --- First Pass: Build mappings and identify collections ---
         terms_to_uri = {}
         collections = {}
+        
         with open(input_csv_path, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
                 if len(row) == 3:
                     subject, predicate, obj = row
-                    terms_to_uri[subject] = gct[generate_uri_id(subject)]
-                    if predicate in ["Use", "Broader Term", "Narrower Term", "Related Term", "Subject Category"]:
-                        terms_to_uri[obj] = gct[generate_uri_id(obj)]
+                    
+                    subject_uri = gct[generate_uri_id(subject)]
+                    terms_to_uri[subject] = subject_uri
+                    
+                    if predicate in ["Use", "Broader Term", "Narrower Term", "Related Term", "Subject Category", "French"]:
+                        obj_uri = gct[generate_uri_id(obj)]
+                        terms_to_uri[obj] = obj_uri
                         if predicate == "Subject Category":
-                            if obj not in collections:
-                                collections[obj] = []
-                            collections[obj].append(terms_to_uri[subject])
+                            collections.setdefault(obj, []).append(subject_uri)
 
         g = Graph()
         g.bind("skos", skos)
@@ -63,7 +67,7 @@ def convert_csv_to_ttl(input_csv_path, output_ttl_path):
             for member_uri in members:
                 g.add((category_uri, skos.member, member_uri))
 
-        # Second Pass: Process relationships and build the graph
+        # --- Second Pass: Process relationships and build the graph ---
         print("Processing relationships and building the graph...")
         with open(input_csv_path, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile)
@@ -76,11 +80,11 @@ def convert_csv_to_ttl(input_csv_path, output_ttl_path):
                         
                         if predicate_str != "Subject Category":
                              g.add((subject_uri, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), skos.Concept))
+                             # Automatically add English prefLabel using the subject term
+                             g.add((subject_uri, skos.prefLabel, Literal(subject_term, lang='en')))
 
                         if predicate_str == "French":
                             g.add((subject_uri, skos.prefLabel, Literal(object_term, lang='fr')))
-                        elif predicate_str == "English":
-                            g.add((subject_uri, skos.prefLabel, Literal(object_term, lang='en')))
                         elif predicate_str == "Use":
                             object_uri = terms_to_uri[object_term]
                             g.add((object_uri, skos.altLabel, Literal(subject_term, lang='en')))

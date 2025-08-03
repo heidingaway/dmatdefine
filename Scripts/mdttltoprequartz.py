@@ -203,7 +203,6 @@ def get_entity_properties_for_mermaid(graph: Graph, entity_uri: str,
     properties_list = []
     entity_ref = URIRef(entity_uri)
     
-    # print(f"DEBUG: Getting properties for entity_uri: {entity_uri}") # Too verbose
     for s, p, o in graph.triples((entity_ref, None, None)):
         prop_name = get_uri_last_part(str(p))
         prop_value = get_uri_last_part(str(o))
@@ -212,18 +211,12 @@ def get_entity_properties_for_mermaid(graph: Graph, entity_uri: str,
         # and the object is a literal or a URI that shouldn't be a separate node
         if prop_name in LITERAL_PROPERTIES_FOR_NODE_DISPLAY and isinstance(o, Literal):
             properties_list.append(f"+ {prop_name}: {prop_value}")
-            # print(f"DEBUG:   Property added: {prop_name}: {prop_value}") # Too verbose
         elif prop_name in LITERAL_PROPERTIES_FOR_NODE_DISPLAY and isinstance(o, URIRef):
             # If it's a URI but we still want it as a property (e.g., rdf:type)
             # and it's not a relationship predicate, add it.
             # Also ensure it's not a metadata predicate that should be filtered out
             if prop_name not in RELATIONSHIP_PREDICATES and prop_name not in METADATA_PREDICATES:
                 properties_list.append(f"+ {prop_name}: {prop_value}")
-                # print(f"DEBUG:   Property added (URI as property): {prop_name}: {prop_value}") # Too verbose
-            # else:
-                # print(f"DEBUG:   Skipping property (URI is a relationship or metadata): {prop_name}: {prop_value}") # Too verbose
-        # else:
-            # print(f"DEBUG:   Property excluded (not for internal node display or is relationship): {prop_name}: {prop_value}") # Too verbose
     
     if properties_list:
         return "<br>" + "<br>".join(properties_list)
@@ -495,7 +488,6 @@ def preprocess_files(source: str, destination: str, ttl_source: str):
     
     ttl_files = glob.glob(os.path.join(ttl_source, "**/*.ttl"), recursive=True)
     
-    # === CRITICAL: 'g' MUST BE INITIALIZED HERE ===
     g = Graph()
     for ttl_file in ttl_files:
         try:
