@@ -28,23 +28,51 @@ CORE_LITERAL_PROPERTIES_FOR_NODE_DISPLAY = {
     "comment", "versionInfo", "label", "name" 
 } 
 
+import re
+
 def get_mermaid_safe_label(text: str) -> str:
     """
     Sanitizes a string for safe inclusion as a label in Mermaid diagrams.
-    Escapes double quotes and converts newlines.
+    Removes Markdown links and other problematic characters.
     """
     safe_text = str(text)
-    safe_text = safe_text.replace('\\', '\\\\')
-    safe_text = safe_text.replace('"', '\\"') 
-    safe_text = safe_text.replace('`', "'") 
-    safe_text = safe_text.replace('\n', '<br>') 
-    safe_text = safe_text.replace('[', '(').replace(']', ')') 
-    safe_text = safe_text.replace('<', '&lt;').replace('>', '&gt;') 
-    safe_text = safe_text.replace('|', '/') 
-    safe_text = re.sub(r'[^\x20-\x7E]', '', safe_text)
-    return safe_text
 
-from urllib.parse import urlparse
+    # 1. First, remove Markdown link syntax (e.g., [text](url))
+    # This regex removes the entire link pattern, including the parentheses.
+    safe_text = re.sub(r'\[.*?\]\(.*?\)', '', safe_text)
+
+    # 2. Then, handle double backslashes first to prevent them from being escaped again
+    safe_text = safe_text.replace('\\', '\\\\')
+
+    # 3. Escape or replace other special Mermaid characters that can break syntax.
+    #    This includes quotes, backticks, parentheses, and slashes that might be in URLs.
+    safe_text = safe_text.replace('"', '\\"')
+    safe_text = safe_text.replace('`', "'")
+    safe_text = safe_text.replace('\n', '<br>')
+    safe_text = safe_text.replace('(', '').replace(')', '') # Remove parentheses
+    safe_text = safe_text.replace('<', '&lt;').replace('>', '&gt;')
+    safe_text = safe_text.replace('|', '/')
+    safe_text = safe_text.replace('//', '/') # Replace double slashes to prevent issues
+
+    # 4. Remove any remaining non-printable characters
+    safe_text = re.sub(r'[^\x20-\x7E]', '', safe_text)
+
+    # 5. Trim leading/trailing whitespace
+    return safe_text.strip()
+
+def find_label_for_uri(uri: URIRef, graph: Graph) -> str:
+    """
+    Finds a human-readable label for a given URI.
+    First tries to find an rdfs:label in the graph.
+    If no label is found, falls back to extracting the last part of the URI.
+    """
+    for _, _, label in graph.triples((uri, RDFS.label, None)):
+        if isinstance(label, Literal):
+            # Return the first literal label found
+            return str(label)
+    
+    # If no rdfs:label is found, fall back to the last part of the URI
+    return get_uri_last_part(str(uri))
 
 def get_uri_last_part(uri: str) -> str:
     """
@@ -80,10 +108,10 @@ def load_dynamic_predicates(graph: Graph) -> tuple[set, set, set, set, set, set]
     dynamic_metadata_predicates = set()
     dynamic_literal_properties = set(CORE_LITERAL_PROPERTIES_FOR_NODE_DISPLAY)
 
-    # Add common RDF/OWL vocabulary terms to metadata predicates
+    # Add common RDF/OWL vocabulary terms to metadata predicates.
+    # We remove 'subClassOf' from this list.
     dynamic_metadata_predicates.update({
         get_uri_last_part(str(RDF.type)), 
-        get_uri_last_part(str(RDFS.subClassOf)),
         get_uri_last_part(str(RDFS.domain)),
         get_uri_last_part(str(RDFS.range)),
         get_uri_last_part(str(OWL.inverseOf)),
@@ -92,7 +120,7 @@ def load_dynamic_predicates(graph: Graph) -> tuple[set, set, set, set, set, set]
         get_uri_last_part(str(OWL.DatatypeProperty)),
         get_uri_last_part(str(RDFS.label)), 
         get_uri_last_part(str(RDFS.comment)), 
-        get_uri_last_part(str(OWL.versionInfo)), 
+        get_uri_last_part(str(OWL.versionInfo)),
         "isDefinedBy"
     })
 
@@ -120,17 +148,18 @@ def load_dynamic_predicates(graph: Graph) -> tuple[set, set, set, set, set, set]
         dynamic_relationship_predicates.add(label_s)
         dynamic_relationship_predicates.add(label_o)
     
-    # Ensure standard relationship predicates are always included
+    # Ensure 'subClassOf' is in the relationship predicates
     dynamic_relationship_predicates.update({
+        "subClassOf", # Add the simple label
+        str(RDFS.subClassOf), # Add the full URI part
         "creator", "subject", "seeAlso", "hasTopic", "title", "influencedBy", "hasField",
         "defines", "drives", "interactsWith", "delivers", "hasPart", "partOf"
     })
-
     # Ensure standard metadata predicates are always included
     dynamic_metadata_predicates.update({
-        "comment", "versionInfo", "label", "subClassOf"
-    }) 
-
+        "comment", "versionInfo", "label"
+    })
+    
     # Create lowercase versions for robust comparison
     dynamic_relationship_predicates_lower = {p.lower() for p in dynamic_relationship_predicates}
     dynamic_metadata_predicates_lower = {p.lower() for p in dynamic_metadata_predicates}
@@ -138,6 +167,7 @@ def load_dynamic_predicates(graph: Graph) -> tuple[set, set, set, set, set, set]
     
     return (dynamic_relationship_predicates, dynamic_metadata_predicates, dynamic_literal_properties, 
             dynamic_relationship_predicates_lower, dynamic_metadata_predicates_lower, dynamic_literal_properties_lower)
+
 
 
 def find_uri_for_filename(filename: str, graph: Graph) -> URIRef:
@@ -200,8 +230,7 @@ def get_entity_properties_for_mermaid(graph: Graph, entity_uri: str,
         
     return ""
 
-# This is the corrected version of generate_mermaid_syntax.
-def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
+def generate_mermaid_syntax(current_page_filename: str, current_page_title: str, graph: Graph,
                             RELATIONSHIP_PREDICATES: set,
                             METADATA_PREDICATES: set,
                             LITERAL_PROPERTIES_FOR_NODE_DISPLAY: set,
@@ -209,10 +238,9 @@ def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
                             METADATA_PREDICATES_LOWER: set,
                             LITERAL_PROPERTIES_FOR_NODE_DISPLAY_LOWER: set,
                             current_page_full_uri: URIRef,
-                            should_skip_inverse_relationships: bool) -> tuple[str, set]: # New argument added
-    """
-    Generates Mermaid graph syntax by traversing the graph from a starting URI.
-    """
+                            should_skip_inverse_relationships: bool,
+                            max_layers: int) -> tuple[str, set]:
+    
     nodes_to_render = {}
     edges_to_render = set()
     current_layer_nodes = {str(current_page_full_uri)}
@@ -228,7 +256,7 @@ def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
                 counter += 1
             uri_to_id[uri] = node_id
         return uri_to_id[uri]
-
+    
     def is_valid_node(uri_str, uri_obj):
         label = get_uri_last_part(uri_str)
         return (
@@ -239,8 +267,8 @@ def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
             uri_str not in nodes_to_render
         )
 
-    current_page_label = get_mermaid_safe_label(current_page_filename)
-    current_page_id = get_or_create_node_id(str(current_page_full_uri), current_page_filename)
+    current_page_label = get_mermaid_safe_label(current_page_title)
+    current_page_id = get_or_create_node_id(str(current_page_full_uri), current_page_title)
     current_page_properties = get_entity_properties_for_mermaid(graph, str(current_page_full_uri),
                                                                  RELATIONSHIP_PREDICATES, METADATA_PREDICATES, LITERAL_PROPERTIES_FOR_NODE_DISPLAY)
     nodes_to_render[str(current_page_full_uri)] = {
@@ -248,38 +276,41 @@ def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
         "label": current_page_label,
         "props": current_page_properties,
     }
-
-    for layer in range(1, 4):
+    
+    # Traverse connections up to the specified maximum number of layers
+    for layer in range(1, max_layers + 1):
         next_layer_nodes = set()
         for source_uri_str in list(current_layer_nodes):
             source_uri_ref = URIRef(source_uri_str)
             source_id = nodes_to_render[source_uri_str]["id"]
             
-            # Find forward relationships
+            # --- Forward Relationships ---
             for _, p, o in graph.triples((source_uri_ref, None, None)):
                 target_uri_str, target_uri_ref = str(o), o
                 predicate_label = get_uri_last_part(str(p))
+                
                 if predicate_label in RELATIONSHIP_PREDICATES and predicate_label not in METADATA_PREDICATES:
                     if is_valid_node(target_uri_str, target_uri_ref):
-                        target_label = get_uri_last_part(target_uri_str)
+                        target_label = find_label_for_uri(target_uri_ref, graph)
                         target_id = get_or_create_node_id(target_uri_str, target_label)
                         target_properties = get_entity_properties_for_mermaid(graph, target_uri_str, RELATIONSHIP_PREDICATES, METADATA_PREDICATES, LITERAL_PROPERTIES_FOR_NODE_DISPLAY)
-                        nodes_to_render[target_uri_str] = {"id": target_id, "label": target_label, "props": target_properties}
+                        nodes_to_render[target_uri_str] = {"id": target_id, "label": get_mermaid_safe_label(target_label), "props": target_properties}
                         next_layer_nodes.add(target_uri_str)
                     if target_uri_str in nodes_to_render:
                         edges_to_render.add((source_id, predicate_label, nodes_to_render[target_uri_str]["id"]))
 
-            # Find inverse relationships, now controlled by the new flag
+            # --- Inverse Relationships (Controlled) ---
             if not should_skip_inverse_relationships:
                 for s, p, _ in graph.triples((None, None, source_uri_ref)):
                     source_inverse_uri_str, source_inverse_uri_ref = str(s), s
                     predicate_label = get_uri_last_part(str(p))
+
                     if predicate_label in RELATIONSHIP_PREDICATES and predicate_label not in METADATA_PREDICATES:
                         if is_valid_node(source_inverse_uri_str, source_inverse_uri_ref):
-                            source_inverse_label = get_uri_last_part(source_inverse_uri_str)
+                            source_inverse_label = find_label_for_uri(source_inverse_uri_ref, graph)
                             source_inverse_id = get_or_create_node_id(source_inverse_uri_str, source_inverse_label)
                             source_inverse_properties = get_entity_properties_for_mermaid(graph, source_inverse_uri_str, RELATIONSHIP_PREDICATES, METADATA_PREDICATES, LITERAL_PROPERTIES_FOR_NODE_DISPLAY)
-                            nodes_to_render[source_inverse_uri_str] = {"id": source_inverse_id, "label": source_inverse_label, "props": source_inverse_properties}
+                            nodes_to_render[source_inverse_uri_str] = {"id": source_inverse_id, "label": get_mermaid_safe_label(source_inverse_label), "props": source_inverse_properties}
                             next_layer_nodes.add(source_inverse_uri_str)
                         if source_inverse_uri_str in nodes_to_render:
                             edges_to_render.add((nodes_to_render[source_inverse_uri_str]["id"], predicate_label, source_id))
@@ -296,11 +327,11 @@ def generate_mermaid_syntax(current_page_filename: str, graph: Graph,
             mermaid_syntax_lines.append(f"  {data['id']}[\"{data['label']}{data['props']}\"]")
     
     for source_id, predicate_label, target_id in edges_to_render:
-        if source_id in {data['id'] for data in nodes_to_render.values()} and target_id in {data['id'] for data in nodes_to_render.values()}:
-            mermaid_syntax_lines.append(f"  {source_id}-->|\" {predicate_label} \"|{target_id}")
+        mermaid_syntax_lines.append(f"  {source_id}-->|\" {predicate_label} \"|{target_id}")
 
     final_node_ids = {get_uri_last_part(uri) for uri in nodes_to_render.keys()}
     return "\n".join(mermaid_syntax_lines), final_node_ids
+
 
 
 def process_markdown_file(file_path: str, filename: str, graph: Graph,
@@ -333,19 +364,23 @@ def process_markdown_file(file_path: str, filename: str, graph: Graph,
         except yaml.YAMLError as e:
             print(f"Error parsing YAML in {file_path}: {e}. Treating as no existing frontmatter.")
             pass
-    old_title = existing_frontmatter.get("title")
-    normalized_old_title = old_title.lower().replace(" ", "-") if old_title else ""
-    normalized_filename = filename.lower().replace(" ", "-")
-    if old_title and normalized_old_title != normalized_filename:
-        aliases = existing_frontmatter.get("aliases", [])
-        if not isinstance(aliases, list):
-            aliases = [aliases]
-        if old_title not in aliases:
-            aliases.append(old_title)
-        existing_frontmatter["aliases"] = aliases
-    existing_frontmatter["title"] = filename
-    title_heading_pattern = re.compile(r'^\s*#\s*' + re.escape(filename) + r'\s*$', re.MULTILINE | re.IGNORECASE)
-    markdown_body = title_heading_pattern.sub('', markdown_body, count=1).strip()
+            
+    # Get the human-readable title from the front matter
+    title_for_removal = existing_frontmatter.get("title")
+
+    # --- NEW: Get the number of layers for the Mermaid diagram ---
+    mermaid_layers = existing_frontmatter.get("mermaid_layers", 1) # Default to 1 layer
+    if not isinstance(mermaid_layers, int) or mermaid_layers <= 0:
+        mermaid_layers = 1 # Ensure it's a valid integer
+    
+    if title_for_removal:
+        # Build a regex pattern using the human-readable title from the front matter
+        title_heading_pattern = re.compile(
+            r'^\s*#\s*' + re.escape(title_for_removal) + r'\s*$', 
+            re.MULTILINE | re.IGNORECASE
+        )
+        # Remove the matching H1 heading from the body
+        markdown_body = title_heading_pattern.sub('', markdown_body, count=1).strip()
     mermaid_block_pattern = re.compile(
         r'(?:\s*^##\s*Semantic\s*Connections\s*$\s*)?^\s*```mermaid\s*$\n.*?\n^\s*```\s*$', re.DOTALL | re.MULTILINE)
     related_links_block_pattern = re.compile(
@@ -357,13 +392,29 @@ def process_markdown_file(file_path: str, filename: str, graph: Graph,
     mermaid_syntax_content = ""
     graph_node_ids = set()
     
+    # Get human-readable title for Mermaid syntax
+    human_readable_title = existing_frontmatter.get("title", filename)
+
+    # Parse 'subClassOf' from existing front matter and add to the graph
+    subClassOf_list = existing_frontmatter.get("subClassOf", [])
+    if isinstance(subClassOf_list, list):
+        for parent_filename in subClassOf_list:
+            parent_filename = parent_filename.replace("[[", "").replace("]]", "")
+            parent_uri = find_uri_for_filename(parent_filename, graph)
+            if parent_uri:
+                graph.add((current_page_full_uri, RDFS.subClassOf, parent_uri))
+                print(f"DEBUG: Added subClassOf relationship for '{filename}' to '{parent_filename}'.")
+
+    # Now, call generate_mermaid_syntax with both filename AND title, and the new mermaid_layers
     mermaid_syntax_content, graph_node_ids = generate_mermaid_syntax(
         filename,
+        human_readable_title,
         graph,
         RELATIONSHIP_PREDICATES, METADATA_PREDICATES, LITERAL_PROPERTIES_FOR_NODE_DISPLAY,
         RELATIONSHIP_PREDICATES_LOWER, METADATA_PREDICATES_LOWER, LITERAL_PROPERTIES_FOR_NODE_DISPLAY_LOWER,
         current_page_full_uri,
-        should_skip_inverse_relationships
+        should_skip_inverse_relationships,
+        mermaid_layers # Pass the new parameter
     )
     
     related_for_body = set()
@@ -377,14 +428,12 @@ def process_markdown_file(file_path: str, filename: str, graph: Graph,
         if node_id.lower() in all_source_markdown_basenames_lower and node_id.lower() != filename.lower():
             related_for_body.add(f"[[{node_id}]]")
 
-    # === NEW LOGIC: Check for and add parent classes to entities list ===
     if (current_page_full_uri, RDF.type, RDFS.Class) in graph:
         print(f"DEBUG: '{filename}' is a class. Checking for parent classes...")
         for _, _, parent_class_uri in graph.triples((current_page_full_uri, RDFS.subClassOf, None)):
-            if parent_class_uri != current_page_full_uri: # Avoid self-referential subClassOf
+            if parent_class_uri != current_page_full_uri:
                 related_for_frontmatter.add(str(parent_class_uri))
                 print(f"DEBUG:   Added parent class '{parent_class_uri}' to entities.")
-    # ===================================================================
 
     merged_frontmatter = {
         **existing_frontmatter,
@@ -501,78 +550,44 @@ def preprocess_files(source: str, destination: str, ttl_source: str):
     print("Preprocessing complete!")
     
 def extract_entity_uris_from_markdown_yaml(destination_dir: str, valid_target_basenames: set[str]):
-    """
-    Reviews the YAML front matter of Markdown files in the specified directory,
-    extracts URIs from the 'entities:' list,
-    and returns the URI and its last section (sanitized for Mermaid).
-    
-    This function has been updated to correctly handle the list-based 'entities' structure.
-
-    Args:
-        destination_dir (str): The path to the directory containing Markdown files.
-        valid_target_basenames (set[str]): A set of lowercase basenames (filenames without extension)
-                                            from the directory containing the target files (DESTINATION_DIR),
-                                            used for filtering.
-
-    Returns:
-        dict: A dictionary where keys are Markdown file paths (relative to destination_dir)
-              and values are lists of dictionaries. Each inner dictionary contains
-              'uri' and 'last_section' for each extracted entity.
-              Returns an empty dictionary if no entities are found or an error occurs.
-    """
+    # (This function remains unchanged)
     extracted_data = {}
-
-    # Regex to find YAML front matter (between '---' lines)
     yaml_front_matter_regex = re.compile(r"^-{3}\s*\n(.*?)\n-{3}\s*\n", re.DOTALL)
-
     for root, _, files in os.walk(destination_dir):
         for file_name in files:
             if file_name.endswith(".md"):
                 file_path = os.path.join(root, file_name)
                 relative_file_path = os.path.relpath(file_path, destination_dir)
-
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-
                 match = yaml_front_matter_regex.match(content)
                 if match:
                     yaml_string = match.group(1)
                     try:
-                        # Load the YAML data
                         data = yaml.safe_load(yaml_string)
-
-                        # --- FIX: Check if 'entities' key exists and is a LIST ---
                         if data and 'entities' in data and isinstance(data['entities'], list):
                             entities_in_file = []
-                            # --- Iterate through the list of URIs directly ---
                             for uri in data['entities']:
                                 last_section = get_uri_last_part(uri)
-
-                                # Check if the extracted filename exists in our list of valid files
                                 if last_section.lower() not in valid_target_basenames:
                                     continue
-                                
                                 entities_in_file.append({
                                     'uri': uri,
                                     'last_section': last_section
                                 })
                             if entities_in_file:
                                 extracted_data[relative_file_path] = entities_in_file
-
                     except yaml.YAMLError as e:
                         print(f"Error parsing YAML in {relative_file_path}: {e}")
                     except Exception as e:
                         print(f"An unexpected error occurred processing {relative_file_path}: {e}")
     return extracted_data
 
-# The update_source_yaml_with_related_entities function should now work as expected
-# once the extraction function is fixed.
-
 def update_source_yaml_with_related_entities(source_dir: str, destination_dir: str):
     """
     Updates the YAML front matter of Markdown files in the SOURCE_DIR
-    by adding a 'related:' key with links derived from entities found
-    in the corresponding files in the DESTINATION_DIR.
+    by replacing the 'related:' key with a new list of links derived
+    from entities found in the corresponding files in the DESTINATION_DIR.
     """
     print(f"Step 1: Pre-collecting Markdown basenames from '{destination_dir}' for filtering...")
     all_destination_markdown_basenames_lower = set()
@@ -588,11 +603,12 @@ def update_source_yaml_with_related_entities(source_dir: str, destination_dir: s
 
     print(f"\nStep 3: Updating YAML in source files in '{source_dir}'...")
     updated_count = 0
-    for relative_path, entities_list in extracted_entities_map.items():
-        source_file_path = os.path.join(source_dir, relative_path)
+    
+    for relative_file_path, entities_list in extracted_entities_map.items():
+        source_file_path = os.path.join(source_dir, relative_file_path)
 
         if not os.path.exists(source_file_path):
-            print(f"  Warning: Source file not found for '{relative_path}'. Skipping.")
+            print(f"  Warning: Source file not found for '{relative_file_path}'. Skipping.")
             continue
 
         try:
@@ -601,7 +617,7 @@ def update_source_yaml_with_related_entities(source_dir: str, destination_dir: s
 
             match = yaml_front_matter_and_content_regex.match(content)
             if not match:
-                print(f"  Warning: No YAML front matter found in source file '{relative_path}'. Skipping update.")
+                print(f"  Warning: No YAML front matter found in source file '{relative_file_path}'. Skipping update.")
                 continue
 
             yaml_string = match.group(1)
@@ -611,28 +627,25 @@ def update_source_yaml_with_related_entities(source_dir: str, destination_dir: s
             if source_yaml_data is None:
                 source_yaml_data = {}
 
-            # Create a set to store all related links, normalized to lowercase
-            all_related_links = set()
+            # --- START: Updated logic to overwrite the 'related' key ---
+            # Use a dictionary to deduplicate links case-insensitively
+            new_related_links_dict = {}
+            current_basename_lower = os.path.splitext(os.path.basename(source_file_path))[0].lower()
             
-            # Get the basename of the current file for comparison and filtering
-            current_basename = os.path.splitext(os.path.basename(source_file_path))[0]
-
-            # 1. Process existing 'related' links
-            if 'related' in source_yaml_data and isinstance(source_yaml_data['related'], list):
-                for link in source_yaml_data['related']:
-                    link_text = link.strip('[').strip(']').lower()
-                    if link_text != current_basename.lower():
-                        all_related_links.add(link_text)
-            
-            # 2. Process newly generated links
             for entity in entities_list:
-                link_text = entity['last_section'].lower()
-                if link_text != current_basename.lower():
-                    all_related_links.add(link_text)
+                entity_basename_lower = entity['last_section'].lower()
+                
+                # Only add the link if it's not a self-reference
+                if entity_basename_lower != current_basename_lower:
+                    # If the link doesn't exist (case-insensitively), add it
+                    if entity_basename_lower not in new_related_links_dict:
+                        formatted_link = f"[[{entity['last_section']}]]"
+                        new_related_links_dict[entity_basename_lower] = formatted_link
 
-            # 3. Format and sort the final list
-            final_related_links = sorted([f"[[{link}]]" for link in all_related_links])
+            # The final list is the sorted values of our dictionary
+            final_related_links = sorted(list(new_related_links_dict.values()))
             source_yaml_data['related'] = final_related_links
+            # --- END: Updated logic ---
 
             updated_yaml_string = yaml.dump(source_yaml_data, sort_keys=False, default_flow_style=False, allow_unicode=True)
             new_content = f"---\n{updated_yaml_string}---\n{remaining_content}"
@@ -642,11 +655,12 @@ def update_source_yaml_with_related_entities(source_dir: str, destination_dir: s
             updated_count += 1
 
         except yaml.YAMLError as e:
-            print(f"  Error parsing YAML in source file '{relative_path}': {e}")
+            print(f"  Error parsing YAML in source file '{relative_file_path}': {e}")
         except Exception as e:
-            print(f"  An unexpected error occurred while updating '{relative_path}': {e}")
+            print(f"  An unexpected error occurred while updating '{relative_file_path}': {e}")
 
     print(f"\nFinished updating. Successfully updated {updated_count} source files.")
+
 
 if __name__ == "__main__":
     preprocess_files(SOURCE_DIR, DESTINATION_DIR, TTL_DIR)
