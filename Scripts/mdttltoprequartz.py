@@ -7,17 +7,11 @@ from urllib.parse import urlparse
 import yaml
 
 # --- Configuration ---
-SOURCE_DIR = "/home/hide/Documents/Heidi2workspace/heidi2/publish"
+SOURCE_DIR = "/home/hide/quartz/heidi2/publish"
 DESTINATION_DIR = "/home/hide/quartz/content"
-TTL_DIR = "/home/hide/Documents/Heidi2workspace/ttl_publish"
+TTL_DIR = "/home/hide/quartz/heidi2/ttl_publish"
 DRAFT_STATUS = False # Set to Python boolean False for 'draft: false'
 BASE_URI = "https://heidingaway.github.io/heidi2/"
-ENTITY_FILTER_NAMESPACE = [
-    "https://gcxgce.sharepoint.com/teams/10001579/",
-    # You can add more namespaces here, for example:
-    # "http://example.com/another_namespace/",
-    # "https://my-internal-wiki.com/pages/"
-]
 
 # --- Core Literal Properties (less dynamic, as it's about display preference) ---
 # These are properties whose values you typically want to display *inside* a Mermaid node.
@@ -656,4 +650,4 @@ def update_source_yaml_with_related_entities(source_dir: str, destination_dir: s
 
 if __name__ == "__main__":
     preprocess_files(SOURCE_DIR, DESTINATION_DIR, TTL_DIR)
-    update_source_yaml_with_related_entities("/home/hide/Documents/Heidi2workspace/heidi2/publish", "/home/hide/quartz/content")
+    update_source_yaml_with_related_entities("/home/hide/quartz/heidi2/publish", "/home/hide/quartz/content")
