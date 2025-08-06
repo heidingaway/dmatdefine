@@ -8813,7 +8813,9 @@ ochro:government_of_canada_assessment_board rdfs:subClassOf ochro:area_staffing 
     skos:prefLabel "Government of Canada Assessment Board"@en,
         "Gouvernement du Canada Comité d'évaluation"@fr .
 
-ochro:has owl:inverseOf ochro:qualifies .
+ochro:has owl:inverseOf ochro:qualifies ;
+    a owl:ObjectProperty
+    .
 
 ochro:job_status_date a owl:ObjectProperty ;
     rdfs:domain ochro:job_status ;

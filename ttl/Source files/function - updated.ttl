@@ -1,0 +1,96 @@
+@prefix gc: <https://www.canada.ca/#> .
+@prefix ochro: <https://gcxgce.sharepoint.com/teams/10001579/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+ochro:orgOntology a owl:Ontology ;
+    rdfs:label "OCHRO Function Ontology"@en ;
+    rdfs:comment "An ontology for modeling Government of Canada functions."@en ;
+    owl:versionInfo "v1.0" ;
+    dcterms:subject ochro:function .
+
+ochro:output a rdfs:Class ;
+    rdfs:label "Output"@en ;    
+    rdfs:comment "What does it produce?"@en ;
+    ochro:drives ochro:outcome_statement
+    .
+
+ochro:stakeholder rdfs:subClassOf ochro:function ;
+    rdfs:label "Stakeholder"@en ;
+    rdfs:comment "Who interacts with it?"@en ;
+    gc:interacts_with ochro:business_line , ochro:output
+    .
+
+ochro:business_line rdfs:subClassOf ochro:function ; 
+    rdfs:label "Business Line"@en ;
+    rdfs:comment "Where is the work structured?"@en ;
+    ochro:delivers ochro:output 
+    .
+
+ochro:outcome_statement a rdfs:Class, schema:organizeAction ;
+    rdfs:label "Outcome Statement"@en ;
+    rdfs:comment "Why does this function exist?"@en ;
+    ochro:defines ochro:function .
+
+ochro:function a rdfs:Class ;
+    rdfs:label "Function"@en ;
+    dcterms:hasPart ochro:stakeholder , ochro:business_line
+    .
+
+ochro:drives a owl:ObjectProperty ;
+    rdfs:domain ochro:output ;
+    rdfs:range ochro:outcome_statement ;
+    rdfs:label "drives"@en ;
+    owl:inverseOf ochro:isDrivenBy .
+
+gc:interacts_with a owl:ObjectProperty ;
+    rdfs:domain ochro:stakeholder ;
+    rdfs:range ochro:function ;
+    rdfs:label "interacts with"@en ;
+    owl:inverseOf gc:is_interacted_by .
+
+ochro:delivers a owl:ObjectProperty ;
+    rdfs:domain ochro:business_line ;
+    rdfs:range ochro:output ;
+    rdfs:label "delivers"@en ;
+    owl:inverseOf ochro:isDeliveredBy .
+
+ochro:defines a owl:ObjectProperty ;
+    rdfs:domain ochro:outcome_statement ;
+    rdfs:range ochro:function ;
+    rdfs:label "defines"@en ;
+    owl:inverseOf ochro:isDefinedBy .
+
+dcterms:hasPart a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;
+    rdfs:range ochro:function ;
+    rdfs:label "has part"@en ;
+    rdfs:comment "Indicates that a function is composed of other functional components."@en ;
+    owl:inverseOf dcterms:partOf .
+
+ochro:isDrivenBy a owl:ObjectProperty ;
+    rdfs:domain ochro:outcome_statement ;
+    rdfs:range ochro:output ;         
+    rdfs:label "is driven by"@en .
+
+gc:is_interacted_by a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:stakeholder ;    
+    rdfs:label "is interacted by"@en .
+
+ochro:isDeliveredBy a owl:ObjectProperty ;
+    rdfs:domain ochro:output ;        
+    rdfs:range ochro:business_line ;   
+    rdfs:label "is delivered by"@en .
+
+ochro:isDefinedBy a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:outcome_statement ; 
+    rdfs:label "is defined by"@en .
+
+dcterms:partOf a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:function ;       
+    rdfs:label "part of"@en .

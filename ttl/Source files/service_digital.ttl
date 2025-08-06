@@ -1,0 +1,608 @@
+@prefix gc: <https://www.canada.ca/#> .
+@prefix ochro: <https://gcxgce.sharepoint.com/teams/10001579/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix wiki: <https://en.wikipedia.org/wiki/> .
+
+
+<http://www.w3.org/2000/01/rdf-schema#> a owl:Ontology ;
+	dcterms:title "The RDF Schema vocabulary (RDFS)" ;
+    rdfs:seeAlso <http://www.w3.org/2000/01/rdf-schema-more> 
+    .
+
+rdfs:Class a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Class" ;
+	rdfs:comment "The class of classes." ;
+	rdfs:subClassOf rdfs:Resource .
+
+rdfs:Resource a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Resource" ;
+	rdfs:comment "The class resource, everything." .
+
+rdfs:subClassOf a rdf:Property ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "subClassOf" ;
+	rdfs:comment "The subject is a subclass of a class." ;
+	rdfs:range rdfs:Class ;
+	rdfs:domain rdfs:Class .
+
+gc:service_digital_suite a rdfs:Resource , gc:policy_suite ;
+    skos:prefLabel "Service and Digital policy Suite"@en ;
+    rdfs:seeAlso <https://www.tbs-sct.canada.ca/pol/topic-sujet-eng.aspx?ta=27> ;
+    dcterms:hasPart gc:policy_service_digital , gc:service_digital_supporting_instrument
+    .
+
+gc:policy_service_digital a rdfs:Class , gc:policy_suite, gc:rule_set;
+    rdfs:label "Policy on Service and Digital"@en ;
+    gc:supportedBy gc:service_digital_supporting_instrument ;
+    gc:in_conjunction_with gc:privacy_requirements , gc:official_languages_requirements , gc:accessibility_requirements ;
+    schema:object gc:service_digital_functions ;
+    schema:provider gc:department_agency_ca ;
+    schema:result gc:advances_government_operations_services ;
+    gc:has_context gc:digital_era ;
+    rdfs:seeAlso <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603> ;
+    rdfs:comment "The Policy on Service and Digital defines how a Government Department Agency manages service and digital functions. "
+    .
+
+gc:policy_service_digital_8 gc:source gc:policy_service_digital ;
+    rdfs:label "Section 8 - References - Policy on Service and Digital" ;
+    rdfs:subClassOf gc:policy_service_digital .
+
+gc:policy_service_digital_8_1 gc:source gc:policy_service_digital_8 ;
+    rdfs:label "Reference legislations" ;
+    dcterms:hasPart gc:access_to_information_act,
+        gc:canada_evidence_act,
+        gc:department_of_justice_act,
+        gc:emergency_management_act,
+        gc:financial_administration_act,
+        gc:library_and_archives_of_canada_act,
+        gc:official_languages_act,
+        gc:personal_information_protection_and_electronic_documents_act,
+        gc:privacy_act,
+        gc:public_service_employment_act,
+        gc:security_of_information_act,
+        gc:service_fees_act,
+        gc:shared_services_canada_act,
+        gc:statistics_act
+    .
+
+gc:policy_service_digital_8_2 gc:source gc:policy_service_digital_8 ;
+    rdfs:label "Related policy instruments" ;
+    dcterms:hasPart gc:foundation_framework_for_treasury_board_policies,
+        gc:policy_on_access_to_information,
+        gc:policy_on_communications_and_federal_identity,
+        gc:policy_on_green_procurement,
+        gc:policy_on_government_security,
+        gc:policy_on_the_planning_and_management_of_investments,
+        gc:policy_on_official_languages,
+        gc:policy_on_privacy_protection,
+        gc:policy_on_results,
+        gc:policy_on_the_duty_to_accommodate,
+        gc:policy_on_transfer_payments,
+        gc:values_and_ethics_code_for_the_public_sector,
+        gc:directive_on_the_management_of_projects_and_programmes,
+        gc:directive_on_charging_and_special_financial_authorities
+    .
+
+gc:advances_government_operations_services a rdfs:Class ;
+    rdfs:label "Advances government operations and services";
+    schema:object gc:government_operations_services
+    .
+
+gc:manages_data_information_strategic rdfs:subClassOf gc:advances_government_operations_services ;
+    rdfs:label "strategic management of data and information" ;
+    dcterms:hasPart gc:manages_data_information , gc:is_strategic
+    .
+
+gc:service_digital_supporting_instrument a rdfs:Class ;
+    rdfs:subClassOf gc:policy_suite ;
+    rdfs:label "Policy on Service and Digital Supporting Instruments"@en ;
+    gc:supports gc:policy_service_digital .
+
+
+wiki:government a rdfs:Class ;
+    rdfs:label "Government"
+    .
+
+gc:government a rdfs:Class , wiki:government;
+    rdfs:label "Government of Canada"
+    .
+
+gc:policy_suite a rdfs:Class , schema:CreativeWorkSeries;
+    dcterms:hasPart gc:policy , gc:supporting_instrument.
+
+
+gc:policy a rdfs:Class , schema:CreativeWork ;
+    rdfs:label "Public policy"@en ;
+    rdfs:comment "about what governments choose to do, or not do"@en ; 
+    dcterms:author wiki:Government ;
+    schema:potentialAction gc:government_action 
+    .
+
+gc:supporting_instrument rdfs:subClassOf gc:policy_suite ;
+    dcterms:hasPart 
+        gc:strategy ,
+        gc:framework ,
+        gc:directive ,
+        gc:standard ,
+        gc:guideline
+    .
+
+gc:government_action a rdfs:Class , schema:OrganizeAction ;
+    rdfs:label "Government action" ;
+    schema:agent gc:government ;
+    schema:provider gc:public_servant
+    .
+
+gc:government_no_action rdfs:subClassOf gc:government_action ;
+    rdfs:label "Government no action"
+    .
+
+gc:public_servant a rdfs:Class ;
+    rdfs:subClassOf schema:OrganizationRole ;
+    rdfs:label "Public servant"@en ;
+    rdfs:comment "A role held by a person who is employed by the Government of Canada to carry out government duties and responsibilities."@en .
+
+gc:rule_set a rdfs:Class ;
+    rdfs:label "a set of rules"
+    . 
+
+gc:rule a rdfs:Class ;
+    rdfs:label "rule"
+    .
+
+gc:department_agency_ca a rdfs:Class;
+    rdfs:subClassOf gc:government ;
+    rdfs:label "GC Departments or Agencies" ;
+    schema:employee gc:public_servant ;
+    gc:performs gc:deliver_government_operations_services
+    .
+
+gc:deliver_government_operations_services a gc:government_action ;
+    rdfs:label "Delivery government operations and services" ;
+    schema:object gc:government_operations_services
+    .
+
+gc:manages_service_digital_functions rdfs:subClassOf gc:deliver_government_operations_services ;
+    rdfs:label "Manages service and digital functions";
+    schema:object gc:service_digital_functions
+    .
+
+gc:service_delivery a rdfs:Class ;
+    rdfs:label "Service delivery" ;
+    rdfs:subClassOf gc:service_digital_functions .
+
+gc:data_information a rdfs:Class ;
+    rdfs:label "Data and Information" ;
+    rdfs:subClassOf ochro:service_digital_functions_output .
+
+gc:service_digital_functions_output a ochro:output .
+
+gc:information_technology a rdfs:Class ;
+    rdfs:label "Information Technology" ;
+    rdfs:subClassOf gc:service_digital_functions .
+
+gc:cyber_security a rdfs:Class ;
+    rdfs:label "Cyber Security" ;
+    rdfs:subClassOf gc:service_digital_functions .
+
+gc:manages_service_delivery a gc:government_action ;
+    rdfs:label "Manages service delivery" ;
+    rdfs:subClassOf gc:manages_service_digital_functions ;
+    schema:object gc:service_delivery
+    .
+
+gc:manages_data_information a gc:government_action ;
+    rdfs:label "Manages data and information" ;
+    rdfs:subClassOf gc:manages_service_digital_functions ;
+    schema:object gc:data_information
+    .
+
+gc:manages_information_technology a gc:government_action ;
+    rdfs:label "Manages information technology" ;
+    rdfs:subClassOf gc:manages_service_digital_functions ;
+    schema:object gc:information_technology
+    .
+gc:manages_cyber_security a gc:government_action ;
+    rdfs:label "Manages cyber security" ;
+    rdfs:subClassOf gc:manages_service_digital_functions ;
+    schema:object gc:cyber_security
+    .
+gc:access_to_information_act
+    a schema:Legislation ;
+    rdfs:label "Access to Information Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/a-1/> .
+
+gc:canada_evidence_act
+    a schema:Legislation ;
+    rdfs:label "Canada Evidence Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/c-5/> .
+
+gc:department_of_justice_act
+    a schema:Legislation ;
+    rdfs:label "Department of Justice Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/d-2/> .
+
+gc:emergency_management_act
+    a schema:Legislation ;
+    rdfs:label "Emergency Management Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/e-4.5/> .
+
+gc:financial_administration_act
+    a schema:Legislation ;
+    rdfs:label "Financial Administration Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/f-11/> .
+
+gc:library_and_archives_of_canada_act
+    a schema:Legislation ;
+    rdfs:label "Library and Archives of Canada Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/l-7.7/> .
+
+gc:official_languages_act
+    a schema:Legislation ;
+    rdfs:label "Official Languages Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/o-3.01/> .
+
+gc:personal_information_protection_and_electronic_documents_act
+    a schema:Legislation ;
+    rdfs:label "Personal Information Protection and Electronic Documents Act (Part 2)" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/p-8.6/> .
+
+gc:privacy_act
+    a schema:Legislation ;
+    rdfs:label "Privacy Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/p-21/> .
+
+gc:public_service_employment_act
+    a schema:Legislation ;
+    rdfs:label "Public Service Employment Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/p-33.01/> .
+
+gc:security_of_information_act
+    a schema:Legislation ;
+    rdfs:label "Security of Information Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/s-23/> .
+
+gc:service_fees_act
+    a schema:Legislation ;
+    rdfs:label "Service Fees Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/s-8.4/> .
+
+gc:shared_services_canada_act
+    a schema:Legislation ;
+    rdfs:label "Shared Services Canada Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/s-8.9/> .
+
+gc:statistics_act
+    a schema:Legislation ;
+    rdfs:label "Statistics Act" ;
+    dcterms:isReferencedBy <https://laws-lois.justice.gc.ca/eng/acts/s-19/> .
+
+gc:foundation_framework_for_treasury_board_policies
+    a gc:supporting_instrument ;
+    rdfs:label "Foundation Framework for Treasury Board Policies" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=13616> .
+
+gc:policy_on_access_to_information
+    a gc:policy ;
+    rdfs:label "Policy on Access to Information" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=12453> .
+
+gc:policy_on_communications_and_federal_identity
+    a gc:policy ;
+    rdfs:label "Policy on Communications and Federal Identity" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=30683> .
+
+gc:policy_on_green_procurement
+    a gc:policy ;
+    rdfs:label "Policy on Green Procurement" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32573> .
+
+gc:policy_on_government_security
+    a gc:policy ;
+    rdfs:label "Policy on Government Security" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=12361> .
+
+gc:policy_on_the_planning_and_management_of_investments
+    a gc:policy ;
+    rdfs:label "Policy on the Planning and Management of Investments" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32593> .
+
+gc:policy_on_official_languages
+    a gc:policy ;
+    rdfs:label "Policy on Official Languages" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=12368> .
+
+gc:policy_on_privacy_protection
+    a gc:policy ;
+    rdfs:label "Policy on Privacy Protection" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32738> .
+
+gc:policy_on_results
+    a gc:policy ;
+    rdfs:label "Policy on Results" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=31300> .
+
+gc:policy_on_the_duty_to_accommodate
+    a gc:policy ;
+    rdfs:label "Policy on the Duty to Accommodate Persons with Disabilities in the Federal Public Service" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/hr-rh/baa-am/index-eng.asp> .
+
+gc:policy_on_transfer_payments
+    a gc:policy ;
+    rdfs:label "Policy on Transfer Payments" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=14208> .
+
+gc:values_and_ethics_code_for_the_public_sector
+    a gc:supporting_instrument ;
+    rdfs:label "Values and Ethics Code for the Public Sector" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=25150> .
+
+gc:directive_on_the_management_of_projects_and_programmes
+    a gc:directive ;
+    rdfs:label "Directive on the Management of Projects and Programmes" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32594> .
+
+gc:directive_on_charging_and_special_financial_authorities
+    a gc:directive ;
+    rdfs:label "Directive on Charging and Special Financial Authorities" ;
+    dcterms:isReferencedBy <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32502> .
+
+gc:client a rdfs:Class ;
+    rdfs:comment "Individuals, businesses or their representatives served by or using either internal or external services provided by the Government of Canada. When describing interactions with information technologies, clients can be referred to as users." ;
+    gc:interacts_with gc:internal_service , gc:external_service 
+    .
+
+gc:service rdfs:subClassOf gc:government_operations_services ;
+    rdfs:label "Service"
+    .
+
+gc:product rdfs:subClassOf gc:government_operations_services ;
+    rdfs:label "Product".
+
+gc:operation rdfs:subClassOf gc:government_operations_services ;
+    rdfs:label "Operation".
+
+gc:user rdfs:subClassOf gc:client ;
+    rdfs:label "User";
+    gc:interacts_with gc:information_technology .
+
+gc:government_operations_services a rdfs:Class ;
+    rdfs:label "Government operations and services".
+
+gc:service_digital_functions a rdfs:Class , ochro:function ;
+    rdfs:subClassOf gc:government_operations_services ;
+    rdfs:label "Service and digital functions"
+    .
+
+gc:interacts_with a owl:ObjectProperty ;
+    rdfs:domain ochro:stakeholder ;
+    rdfs:range ochro:function ;
+    rdfs:label "interacts with"@en ;
+    owl:inverseOf gc:is_interacted_by .
+
+gc:client a ochro:stakeholder ;
+    rdfs:label "Client".
+
+ochro:orgOntology a owl:Ontology ;
+    rdfs:label "OCHRO Function Ontology"@en ;
+    rdfs:comment "An ontology for modeling Government of Canada functions."@en ;
+    owl:versionInfo "v1.0" ;
+    dcterms:subject ochro:function .
+
+ochro:output a rdfs:Class ;
+    rdfs:label "Output"@en ;    
+    rdfs:comment "What does it produce?"@en ;
+    ochro:drives ochro:outcome_statement
+    .
+
+ochro:stakeholder rdfs:subClassOf ochro:function ;
+    rdfs:label "Stakeholder"@en ;
+    rdfs:comment "Who interacts with it?"@en ;
+    gc:interacts_with ochro:business_line , ochro:output
+    .
+
+ochro:business_line rdfs:subClassOf ochro:function ; 
+    rdfs:label "Business Line"@en ;
+    rdfs:comment "Where is the work structured?"@en ;
+    ochro:delivers ochro:output 
+    .
+
+ochro:outcome_statement a rdfs:Class, schema:organizeAction ;
+    rdfs:label "Outcome Statement"@en ;
+    rdfs:comment "Why does this function exist?"@en ;
+    ochro:defines ochro:function .
+
+ochro:function a rdfs:Class ;
+    rdfs:label "Function"@en ;
+    dcterms:hasPart ochro:stakeholder , ochro:business_line
+    .
+
+ochro:drives a owl:ObjectProperty ;
+    rdfs:domain ochro:output ;
+    rdfs:range ochro:outcome_statement ;
+    rdfs:label "drives"@en ;
+    owl:inverseOf ochro:isDrivenBy .
+
+gc:interacts_with a owl:ObjectProperty ;
+    rdfs:domain ochro:stakeholder ;
+    rdfs:range ochro:function ;
+    rdfs:label "interacts with"@en ;
+    owl:inverseOf gc:is_interacted_by .
+
+ochro:delivers a owl:ObjectProperty ;
+    rdfs:domain ochro:business_line ;
+    rdfs:range ochro:output ;
+    rdfs:label "delivers"@en ;
+    owl:inverseOf ochro:isDeliveredBy .
+
+ochro:defines a owl:ObjectProperty ;
+    rdfs:domain ochro:outcome_statement ;
+    rdfs:range ochro:function ;
+    rdfs:label "defines"@en ;
+    owl:inverseOf ochro:isDefinedBy .
+
+dcterms:hasPart a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;
+    rdfs:range ochro:function ;
+    rdfs:label "has part"@en ;
+    rdfs:comment "Indicates that a function is composed of other functional components."@en ;
+    owl:inverseOf dcterms:partOf .
+
+ochro:isDrivenBy a owl:ObjectProperty ;
+    rdfs:domain ochro:outcome_statement ;
+    rdfs:range ochro:output ;         
+    rdfs:label "is driven by"@en .
+
+gc:is_interacted_by a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:stakeholder ;    
+    rdfs:label "is interacted by"@en .
+
+ochro:isDeliveredBy a owl:ObjectProperty ;
+    rdfs:domain ochro:output ;        
+    rdfs:range ochro:business_line ;   
+    rdfs:label "is delivered by"@en .
+
+ochro:isDefinedBy a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:outcome_statement ; 
+    rdfs:label "is defined by"@en .
+
+dcterms:partOf a owl:ObjectProperty ;
+    rdfs:domain ochro:function ;      
+    rdfs:range ochro:function ;       
+    rdfs:label "part of"@en .
+
+
+<CDO_Job_Description_Template_December_2024.docx> a owl:Ontology ;
+    rdfs:label "CDO Job Description Template" ;
+    dcterms:issued "2024-12-01" 
+    .
+
+gc:chief_data_officer a rdfs:Class , schema:OrganizationRole ;
+    rdfs:label  "Chief Data Officer"@en  ;
+    gc:has_accountabilities gc:cdo_accountabilities ;
+    gc:reports_to gc:chief_digital_service_officer
+    .
+
+gc:chief_technology_officer a rdfs:Class , schema:OrganizationRole ;
+    rdfs:label  "Chief Technology Officer"@en  ;
+    gc:has_accountabilities gc:cto_accountabilities ;
+    gc:reports_to gc:chief_digital_service_officer
+    .
+
+gc:cdo_accountabilities a rdfs:Class .
+
+gc:cdo_specific_accountabilities rdfs:subClassOf rdfs:cdo_accountabilities ;
+    dcterms:hasPart 
+        gc:cdo_accountability_1 ,
+        gc:cdo_accountability_10 ,
+        gc:cdo_accountability_2 ,
+        gc:cdo_accountability_3 ,
+        gc:cdo_accountability_4 ,
+        gc:cdo_accountability_5 ,
+        gc:cdo_accountability_6 ,
+        gc:cdo_accountability_7 ,
+        gc:cdo_accountability_8 ,
+        gc:cdo_accountability_9
+    .
+
+
+gc:cdo_general_accountabilities rdfs:subClassOf gc:cdo_accountabilities ;
+    dcterms:hasPart gc:cdo_accountability_11.
+
+gc:cdo_accountability_2 dcterms:subject gc:governance .
+
+gc:cdo_accountability_3 dcterms:subject gc:quality .
+
+gc:cdo_accountability_4 dcterms:subject gc:collaboration .
+
+gc:cdo_accountability_5 dcterms:subject gc:management .
+
+gc:cdo_accountability_6 dcterms:subject gc:insights  .
+
+gc:cdo_accountability_7 dcterms:subject gc:operations  .
+
+gc:cdo_accountability_8 dcterms:subject gc:operations .
+
+gc:cdo_accountability_9 dcterms:subject gc:operations  .
+
+gc:cdo_accountability_10 dcterms:subject gc:innovation .
+
+gc:cdo_accountability_11 dcterms:subject gc:innovation .
+
+schema:OrganizationRole rdfs:subClassOf schema:Role  .
+
+gc:cdso_specific_accountabilities rdfs:subClassOf gc:cdso_accountabilities .
+
+gc:cdso_general_accountabilities rdfs:subClassOf gc:cdso_accountabilities .
+
+gc:chief_digital_service_officer a rdfs:OrganizationRole ;
+    gc:has_accountabilities gc:cdso_accountabilities ;
+    gc:reports_to gc:deputy_head ;
+    dcterms:partOf gc:service_digital_functions
+    .
+
+gc:service_digital_functions a rdfs:Class , ochro:function .
+
+gc:data_information_functions rdfs:subClassOf  gc:service_digital_functions ;
+    dcterms:hasPart 
+        gc:data_information_functions_stakeholder,
+        gc:data_information_functions_business_line ;
+    gc:reports_to gc:chief_data_office
+    .
+
+gc:leads_data_information_functions a schema:government_action ;
+    dcterms:source gc:cdo_accountability_1 ;
+    dcterms:subject gc:leadership ;
+    schema:agent gc:chief_data_officer ;
+    schema:object 
+        gc:develops_data_information_policy_suite ,
+        gc:implements_data_information_policy_suite ,
+        gc:enhance_service_delivery_automation ,
+        gc:enhance_service_delivery_data_information ,
+        gc:delivers_data_information_function_business_integration ,
+        gc:promotes_data_information_literacy ,
+        gc:promotes_data_information_function_business_integration,
+        gc:promotes_release_open_organization_data_information ;
+    schema:provider gc:data_information_functions
+    .
+
+gc:chief_data_office rdfs:subClassOf schema:data_information_functions ;
+    gc:provides gc:data_information_functions
+    .
+
+gc:service_digital_output a rdfs:Class , ochro:output .
+
+gc:data_information_functions_output rdfs:subClassOf gc:service_digital_output ;
+    dcterms:hasPart 
+        gc:data_information_policy_suite ,
+        gc:service_delivery_data_information , 
+        gc:service_delivery_automation ,
+        gc:data_information_function_business_integration ,
+        gc:data_information_literacy ,
+        gc:open_organization_data_information 
+    .
+
+gc:data_information_policy_suite a gc:data_information_functions_output ;
+    dcterms:hasPart gc:data_information_policy , gc:data_information_supporting_instruments
+    .
+
+gc:policy_suite a rdfs:Class , schema:CreativeWorkSeries;
+    dcterms:hasPart gc:policy , gc:supporting_instruments.
+
+gc:supporting_instruments rdfs:subClassOf gc:policy_suite ;
+    dcterms:hasPart 
+        gc:strategy ,
+        gc:framework ,
+        gc:directive ,
+        gc:standard ,
+        gc:guideline
+    .

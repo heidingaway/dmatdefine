@@ -1,0 +1,172 @@
+@prefix ex: <file:///home/hide/Documents/Heidi2workspace/rdf/base.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix wiki: <https://en.wikipedia.org/wiki/> .
+
+rdfs:DataType a rdfs:Class .
+
+rdfs:Resource a rdfs:Class .
+
+schema:Thing a rdfs:Class .
+
+owl:Thing a rdfs:Resource .
+
+wiki:Fuji-Hakone-Izu_National_Park a schema:TouristDestination ;
+    ex:governedBy <https://www.env.go.jp/en/> ;
+    schema:geoWithin <https://www.japan.go.jp/> .
+
+wiki:Niagara_Falls a schema:Waterfall ;
+    schema:geoIntersects <https://www.ny.gov/>,
+        <https://www.ontario.ca/> .
+
+schema:Canal rdfs:subClassOf schema:BodyOfWater .
+
+schema:Continent rdfs:subClassOf schema:Landform .
+
+schema:EmployeeRole rdfs:comment "A subclass of OrganizationRole used to describe employee relationships."@en ;
+    rdfs:subClassOf schema:OrganizationRole .
+
+schema:Event rdfs:subClassOf schema:Thing .
+
+schema:LakeBodyOfWater rdfs:subClassOf schema:BodyOfWater .
+
+schema:MedicalEntity rdfs:subClassOf schema:Thing .
+
+schema:Mountain rdfs:subClassOf schema:Landform .
+
+schema:Occupation rdfs:subClassOf schema:Intangible .
+
+schema:OceanBodyOfWater rdfs:subClassOf schema:BodyOfWater .
+
+schema:Organization rdfs:subClassOf schema:Thing .
+
+schema:Patient rdfs:subClassOf schema:MedicalAudience,
+        schema:Person .
+
+schema:Pond rdfs:subClassOf schema:BodyOfWater .
+
+schema:Product rdfs:subClassOf schema:Thing .
+
+schema:Reservoir rdfs:subClassOf schema:BodyOfWater .
+
+schema:RiverBodyOfWater rdfs:subClassOf schema:BodyOfWater .
+
+schema:SeaBodyOfWater rdfs:subClassOf schema:BodyOfWater .
+
+schema:Service rdfs:subClassOf schema:Intangible .
+
+schema:Volcano rdfs:comment "A volcano, like Fujisan." ;
+    rdfs:subClassOf schema:Landform .
+
+schema:about a owl:ObjectProperty ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range schema:Thing ;
+    owl:inverseOf schema:subjectOf .
+
+schema:assesses a owl:ObjectProperty ;
+    rdfs:label "assesses"@en ;
+    rdfs:comment "The item that is being assessed or evaluated. Example: A review may assess a CreativeWork, an Organization, or a Product."@en ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range schema:Thing .
+
+schema:childTaxon a owl:ObjectProperty ;
+    rdfs:domain schema:Taxon ;
+    rdfs:range schema:Taxon,
+        schema:URL ;
+    owl:inverseOf schema:parentTaxon .
+
+schema:hasDefinedTerm a owl:ObjectProperty ;
+    rdfs:domain schema:Taxon ;
+    rdfs:range schema:DefinedTerm .
+
+schema:inDefinedTermSet a owl:ObjectProperty ;
+    rdfs:domain schema:DefinedTerm ;
+    rdfs:range schema:DefinedTermSet,
+        schema:URL .
+
+schema:includesDataset a owl:ObjectProperty ;
+    rdfs:domain schema:DataCatalog ;
+    rdfs:inverseOf schema:includedInDataCatalog ;
+    rdfs:range schema:Dataset .
+
+schema:taxonomicRange a owl:ObjectProperty ;
+    rdfs:domain schema:BioChemEntity ;
+    rdfs:range schema:Taxon .
+
+schema:termCode a owl:DatatypeProperty ;
+    rdfs:range rdfs:Literal .
+
+ex:Province rdfs:subClassOf schema:AdministrativeArea ;
+    owl:equivalentClass schema:State .
+
+rdfs:Literal a rdfs:DataType .
+
+schema:BioChemEntity rdfs:seeAlso <https://bioschemas.org/> ;
+    rdfs:subClassOf schema:Thing .
+
+schema:MedicalAudience rdfs:subClassOf schema:Audience,
+        schema:PeopleAudience .
+
+schema:OrganizationRole rdfs:subClassOf schema:Role .
+
+schema:PeopleAudience rdfs:subClassOf schema:Audience .
+
+schema:Person rdfs:subClassOf schema:Thing .
+
+schema:Role rdfs:subClassOf schema:Intangible .
+
+schema:State rdfs:subClassOf schema:AdministrativeArea .
+
+schema:TouristDestination rdfs:subClassOf schema:Place .
+
+schema:Waterfall rdfs:subClassOf schema:BodyOfWater .
+
+schema:includedInDataCatalog a owl:ObjectProperty ;
+    rdfs:domain schema:Dataset ;
+    rdfs:range schema:DataCatalog .
+
+schema:parentTaxon a owl:ObjectProperty ;
+    rdfs:domain schema:Taxon ;
+    rdfs:range schema:Taxon,
+        schema:URL .
+
+schema:subjectOf a owl:ObjectProperty .
+
+<https://www.env.go.jp/en/> a schema:Country,
+        schema:GovernmentOrganization ;
+    schema:areaServed <https://www.japan.go.jp/> .
+
+<https://www.ontario.ca/> a ex:Province .
+
+schema:AdministrativeArea rdfs:subClassOf schema:Place .
+
+schema:Audience rdfs:subClassOf schema:Intangible .
+
+schema:DataCatalog a schema:CreativeWork ;
+    rdfs:comment "A collection of datasets." .
+
+schema:Dataset a schema:CreativeWork ;
+    rdfs:comment "A body of structured information describing some topic(s) of interest."@en .
+
+schema:DefinedTerm rdfs:label "Defined term"@en ;
+    rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. Often used in the context of category or subject classification, glossaries or dictionaries, product or creative work types, etc. Use the name property for the term being defined, use termCode if the term has an alpha-numeric code allocated, use description to provide the definition of the term."@en ;
+    rdfs:subClassOf schema:Intangible .
+
+rdfs:Class a rdfs:Resource .
+
+schema:Place rdfs:subClassOf schema:Thing .
+
+schema:CreativeWork rdfs:label "Creative Work"@en ;
+    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc."@en ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Landform rdfs:subClassOf schema:Place .
+
+schema:Intangible rdfs:subClassOf schema:Thing .
+
+schema:Taxon rdfs:comment "A set of organisms asserted to represent a natural cohesive biological unit."@en ;
+    rdfs:subClassOf schema:Thing .
+
+schema:BodyOfWater rdfs:subClassOf schema:Landform .
+

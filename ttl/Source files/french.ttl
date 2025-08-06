@@ -1,0 +1,465 @@
+@prefix fr: <http://example.org/french-grammar#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fr:Adverb a owl:Class ;
+    rdfs:label "Adverb"@en,
+        "Adverbe"@fr ;
+    rdfs:comment "A word that modifies a verb, an adjective, or another adverb."@en,
+        "Un mot qui modifie un verbe, un adjectif ou un autre adverbe."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:Conjunction a owl:Class ;
+    rdfs:label "Conjunction"@en,
+        "Conjonction"@fr ;
+    rdfs:comment "A word that connects words, phrases, or clauses."@en,
+        "Un mot qui relie des mots, des phrases ou des propositions."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:JeMangeUnePomme a fr:Sentence ;
+    rdfs:label "I eat an apple (sentence)"@en,
+        "Je mange une pomme (phrase)"@fr ;
+    rdfs:comment "An example sentence in French, 'Je mange une pomme' (I eat an apple)."@en,
+        "Un exemple de phrase en français, 'Je mange une pomme'."@fr ;
+    fr:hasDirectObject fr:unePomme ;
+    fr:hasSubject fr:je_pronoun ;
+    fr:hasVerbForm fr:mange_form .
+
+fr:unePomme a fr:Noun ;
+    rdfs:label "an apple"@en,
+        "une pomme"@fr ;
+    rdfs:comment "The noun 'pomme' (apple) with its grammatical features."@en,
+        "Le nom 'pomme' avec ses caractéristiques grammaticales."@fr ;
+    fr:hasGender fr:feminine ;
+    fr:hasLexicalForm "pomme"^^xsd:string ;
+    fr:hasNumber fr:singular .
+
+fr:CoordinatingConjunction a owl:Class ;
+    rdfs:subClassOf fr:Conjunction ;
+    rdfs:comment "Coordinating Conjunctions are car, donc, et, mais, ni, or, ou. They connect two independent clauses or two nouns."@en,
+        "Les conjonctions de coordination sont car, donc, et, mais, ni, or, ou. Elles relient deux propositions indépendantes ou deux noms."@fr ;
+    rdfs:label "Coordinating conjunctions"@en,
+        "les conjonctions de coordination"@fr .
+
+fr:Preposition a owl:Class ;
+    rdfs:label "Preposition"@en,
+        "Préposition"@fr ;
+    rdfs:comment "A word that shows the relationship between a noun/pronoun and other words."@en,
+        "Un mot qui montre la relation entre un nom/pronom et d'autres mots."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:aller_verb_infinitive a fr:Verb ;
+    rdfs:label "aller (infinitive verb)"@en,
+        "aller (verbe infinitif)"@fr ;
+    rdfs:comment "The infinitive form of the verb 'aller' (to go), which requires 'être' as an auxiliary verb."@en,
+        "La forme infinitive du verbe 'aller', qui nécessite 'être' comme auxiliaire."@fr ;
+    fr:hasInfinitiveForm "aller"^^xsd:string ;
+    fr:requiresEtreAuxiliary true .
+
+fr:elle_pronoun a fr:Pronoun ;
+    rdfs:label "elle (pronoun)"@en,
+        "elle (pronom)"@fr ;
+    rdfs:comment "The pronoun 'elle' (she/her) with its grammatical features."@en,
+        "Le pronom 'elle' avec ses caractéristiques grammaticales."@fr ;
+    fr:hasGender fr:feminine ;
+    fr:hasLexicalForm "elle"^^xsd:string ;
+    fr:hasNumber fr:singular ;
+    fr:hasPerson fr:third_singular .
+
+fr:future_simple a fr:TenseType ;
+    rdfs:label "simple future"@en,
+        "futur simple"@fr ;
+    rdfs:comment "Represents the simple future tense in French."@en,
+        "Représente le futur simple en français."@fr .
+
+fr:grande_form a fr:AdjectiveForm ;
+    rdfs:label "grande (adjective form)"@en,
+        "grande (forme d'adjectif)"@fr ;
+    rdfs:comment "The feminine singular form of the adjective 'grand' (big/tall)."@en,
+        "La forme féminine singulière de l'adjectif 'grand'."@fr ;
+    fr:hasGender fr:feminine ;
+    fr:hasLexicalForm "grande"^^xsd:string ;
+    fr:hasNumber fr:singular ;
+    fr:isFormOf fr:grand_adj_base .
+
+fr:hasDirectObject a owl:ObjectProperty ;
+    rdfs:label "has direct object"@en,
+        "a un complément d'objet direct"@fr ;
+    rdfs:comment "The direct object of the verb."@en,
+        "Le complément d'objet direct du verbe."@fr ;
+    rdfs:domain fr:Verb ;
+    rdfs:range fr:NounOrPronounUnion .
+
+fr:hasGender a owl:DatatypeProperty ;
+    rdfs:label "has gender"@en,
+        "a un genre"@fr ;
+    rdfs:comment "Indicates the grammatical gender (masculine or feminine)."@en,
+        "Indique le genre grammatical (masculin ou féminin)."@fr ;
+    rdfs:domain fr:NounAdjectivePronounUnion ;
+    rdfs:range fr:GenderType .
+
+fr:hasIndirectObject a owl:ObjectProperty ;
+    rdfs:label "has indirect object"@en,
+        "a un complément d'objet indirect"@fr ;
+    rdfs:comment "The indirect object of the verb."@en,
+        "Le complément d'objet indirect du verbe."@fr ;
+    rdfs:domain fr:Verb ;
+    rdfs:range fr:NounOrPronounUnion .
+
+fr:hasInfinitiveForm a owl:DatatypeProperty ;
+    rdfs:label "has infinitive form"@en,
+        "a une forme infinitive"@fr ;
+    rdfs:comment "The unconjugated base form of the verb."@en,
+        "La forme de base non conjuguée du verbe."@fr ;
+    rdfs:domain fr:Verb ;
+    rdfs:range xsd:string .
+
+fr:hasLexicalForm a owl:DatatypeProperty ;
+    rdfs:label "has lexical form"@en,
+        "a une forme lexicale"@fr ;
+    rdfs:comment "The actual string value of the word."@en,
+        "La valeur textuelle réelle du mot."@fr ;
+    rdfs:domain fr:Word ;
+    rdfs:range xsd:string .
+
+fr:hasNumber a owl:DatatypeProperty ;
+    rdfs:label "has number"@en,
+        "a un nombre"@fr ;
+    rdfs:comment "Indicates the grammatical number (singular or plural)."@en,
+        "Indique le nombre grammatical (singulier ou pluriel)."@fr ;
+    rdfs:domain fr:NounAdjectivePronounUnion ;
+    rdfs:range fr:NumberType .
+
+fr:hasPerson a owl:DatatypeProperty ;
+    rdfs:label "has person"@en,
+        "a une personne"@fr ;
+    rdfs:comment "The grammatical person of a conjugated verb form."@en,
+        "La personne grammaticale d'une forme verbale conjuguée."@fr ;
+    rdfs:domain fr:VerbForm ;
+    rdfs:range fr:PersonType .
+
+fr:hasSubject a owl:ObjectProperty ;
+    rdfs:label "has subject"@en,
+        "a un sujet"@fr ;
+    rdfs:comment "The subject performing the action of the verb."@en,
+        "Le sujet qui exécute l'action du verbe."@fr ;
+    rdfs:domain fr:Verb ;
+    rdfs:range fr:NounOrPronounUnion .
+
+fr:hasSubjectPhrase a owl:ObjectProperty ;
+    rdfs:label "has subject phrase"@en,
+        "a un syntagme nominal sujet"@fr ;
+    rdfs:comment "The subject phrase of a sentence."@en,
+        "Le syntagme sujet d'une phrase."@fr ;
+    rdfs:domain fr:Sentence ;
+    rdfs:range fr:NounPhrase .
+
+fr:hasTense a owl:DatatypeProperty ;
+    rdfs:label "has tense"@en,
+        "a un temps"@fr ;
+    rdfs:comment "The tense of a conjugated verb form."@en,
+        "Le temps d'une forme verbale conjuguée."@fr ;
+    rdfs:domain fr:VerbForm ;
+    rdfs:range fr:TenseType .
+
+fr:hasVerbForm a owl:ObjectProperty ;
+    rdfs:label "has verb form"@en,
+        "a une forme verbale"@fr ;
+    rdfs:comment "Links a sentence to its main verb form."@en,
+        "Lie une phrase à sa forme verbale principale."@fr ;
+    rdfs:domain fr:Sentence ;
+    rdfs:range fr:VerbForm .
+
+fr:hasVerbPhrase a owl:ObjectProperty ;
+    rdfs:label "has verb phrase"@en,
+        "a un syntagme verbal"@fr ;
+    rdfs:comment "The verb phrase of a sentence."@en,
+        "Le syntagme verbal d'une phrase."@fr ;
+    rdfs:domain fr:Sentence ;
+    rdfs:range fr:VerbPhrase .
+
+fr:introducesNoun a owl:ObjectProperty ;
+    rdfs:label "introduces noun"@en,
+        "introduit un nom"@fr ;
+    rdfs:comment "An article introduces a specific noun."@en,
+        "Un article introduit un nom spécifique."@fr ;
+    rdfs:domain fr:Article ;
+    rdfs:range fr:Noun .
+
+fr:isConjugationOf a owl:ObjectProperty ;
+    rdfs:label "is conjugation of"@en,
+        "est la conjugaison de"@fr ;
+    rdfs:comment "A specific verb form is a conjugation of an infinitive verb."@en,
+        "Une forme verbale spécifique est une conjugaison d'un verbe à l'infinitif."@fr ;
+    rdfs:domain fr:VerbForm ;
+    rdfs:range fr:Verb .
+
+fr:isDefinite a owl:DatatypeProperty ;
+    rdfs:label "is definite"@en,
+        "est défini"@fr ;
+    rdfs:comment "True for definite articles (le, la, les), false for indefinite (un, une, des)."@en,
+        "Vrai pour les articles définis (le, la, les), faux pour les indéfinis (un, une, des)."@fr ;
+    rdfs:domain fr:Article ;
+    rdfs:range xsd:boolean .
+
+fr:isFormOf a owl:ObjectProperty ;
+    rdfs:label "is form of"@en,
+        "est une forme de"@fr ;
+    rdfs:comment "Links an adjective form to its base adjective."@en,
+        "Lie une forme d'adjectif à son adjectif de base."@fr ;
+    rdfs:domain fr:AdjectiveForm ;
+    rdfs:range fr:Adjective .
+
+fr:la_article a fr:Article ;
+    rdfs:label "la (article)"@en,
+        "la (article)"@fr ;
+    rdfs:comment "The definite feminine singular article 'la'."@en,
+        "L'article défini féminin singulier 'la'."@fr ;
+    fr:hasGender fr:feminine ;
+    fr:hasLexicalForm "la"^^xsd:string ;
+    fr:hasNumber fr:singular ;
+    fr:isDefinite true .
+
+fr:masculine a fr:GenderType ;
+    rdfs:label "masculine"@en,
+        "masculin"@fr ;
+    rdfs:comment "Represents the masculine grammatical gender."@en,
+        "Représente le genre grammatical masculin."@fr .
+
+fr:modifiesNoun a owl:ObjectProperty ;
+    rdfs:label "modifies noun"@en,
+        "modifie le nom"@fr ;
+    rdfs:comment "An adjective modifies a specific noun."@en,
+        "Un adjectif modifie un nom spécifique."@fr ;
+    rdfs:domain fr:Adjective ;
+    rdfs:range fr:Noun .
+
+fr:passe_compose a fr:TenseType ;
+    rdfs:label "past perfect"@en,
+        "passé composé"@fr ;
+    rdfs:comment "Represents the passé composé (past perfect) tense in French."@en,
+        "Représente le passé composé en français."@fr .
+
+fr:plural a fr:NumberType ;
+    rdfs:label "plural"@en,
+        "pluriel"@fr ;
+    rdfs:comment "Represents the plural grammatical number."@en,
+        "Représente le nombre grammatical pluriel."@fr .
+
+fr:requiresEtreAuxiliary a owl:DatatypeProperty ;
+    rdfs:label "requires 'être' auxiliary"@en,
+        "nécessite l'auxiliaire 'être'"@fr ;
+    rdfs:comment "True if the verb forms compound tenses with 'être', false with 'avoir'."@en,
+        "Vrai si le verbe forme des temps composés avec 'être', faux avec 'avoir'."@fr ;
+    rdfs:domain fr:Verb ;
+    rdfs:range xsd:boolean .
+
+fr:NounPhrase a owl:Class ;
+    rdfs:label "Noun Phrase"@en,
+        "Syntagme Nominal"@fr ;
+    rdfs:comment "A grammatical unit consisting of a noun and any words that modify it."@en,
+        "Une unité grammaticale composée d'un nom et de tout mot qui le modifie."@fr .
+
+fr:VerbPhrase a owl:Class ;
+    rdfs:label "Verb Phrase"@en,
+        "Syntagme Verbal"@fr ;
+    rdfs:comment "A grammatical unit consisting of a verb and any words associated with it."@en,
+        "Une unité grammaticale composée d'un verbe et de tout mot qui lui est associé."@fr .
+
+fr:grand_adj_base a fr:Adjective ;
+    rdfs:label "grand (adjective base)"@en,
+        "grand (adjectif base)"@fr ;
+    rdfs:comment "The base form of the adjective 'grand'."@en,
+        "La forme de base de l'adjectif 'grand'."@fr ;
+    fr:hasLexicalForm "grand"^^xsd:string .
+
+fr:je_pronoun a fr:Pronoun ;
+    rdfs:label "je (pronoun)"@en,
+        "je (pronom)"@fr ;
+    rdfs:comment "The first person singular pronoun 'je' (I)."@en,
+        "Le pronom personnel de la première personne du singulier 'je'."@fr ;
+    fr:hasLexicalForm "je"^^xsd:string ;
+    fr:hasNumber fr:singular ;
+    fr:hasPerson fr:first_singular .
+
+fr:mange_form a fr:VerbForm ;
+    rdfs:label "mange (verb form)"@en,
+        "mange (forme verbale)"@fr ;
+    rdfs:comment "The conjugated form 'mange' (eat/eats) of the verb 'manger' in the present tense, first person singular."@en,
+        "La forme conjuguée 'mange' du verbe 'manger' au présent, première personne du singulier."@fr ;
+    fr:hasLexicalForm "mange"^^xsd:string ;
+    fr:hasPerson fr:first_singular ;
+    fr:hasTense fr:present ;
+    fr:isConjugationOf fr:manger_verb_infinitive .
+
+fr:manger_verb_infinitive a fr:Verb ;
+    rdfs:label "manger (infinitive verb)"@en,
+        "manger (verbe infinitif)"@fr ;
+    rdfs:comment "The infinitive form of the verb 'manger' (to eat), which uses 'avoir' as an auxiliary verb."@en,
+        "La forme infinitive du verbe 'manger', qui utilise 'avoir' comme auxiliaire."@fr ;
+    fr:hasInfinitiveForm "manger"^^xsd:string ;
+    fr:requiresEtreAuxiliary false .
+
+fr:present a fr:TenseType ;
+    rdfs:label "present"@en,
+        "présent"@fr ;
+    rdfs:comment "Represents the present tense in French."@en,
+        "Représente le temps présent en français."@fr .
+
+fr:table a fr:Noun ;
+    rdfs:label "table (noun)"@en,
+        "table (nom)"@fr ;
+    rdfs:comment "The noun 'table' (table) with its grammatical features."@en,
+        "Le nom 'table' avec ses caractéristiques grammaticales."@fr ;
+    fr:hasGender fr:feminine ;
+    fr:hasLexicalForm "table"^^xsd:string ;
+    fr:hasNumber fr:singular .
+
+fr:third_singular a fr:PersonType ;
+    rdfs:label "third singular"@en,
+        "troisième personne du singulier"@fr ;
+    rdfs:comment "Represents the third person singular grammatical person."@en,
+        "Représente la troisième personne du singulier."@fr .
+
+fr:AdjectiveForm a owl:Class ;
+    rdfs:label "Adjective Form"@en,
+        "Forme d'Adjectif"@fr ;
+    rdfs:comment "A specific inflectional form of an adjective."@en,
+        "Une forme flexionnelle spécifique d'un adjectif."@fr .
+
+fr:first_singular a fr:PersonType ;
+    rdfs:label "first singular"@en,
+        "première personne du singulier"@fr ;
+    rdfs:comment "Represents the first person singular grammatical person."@en,
+        "Représente la première personne du singulier."@fr .
+
+fr:Article a owl:Class ;
+    rdfs:label "Article"@en,
+        "Article"@fr ;
+    rdfs:comment "A word that introduces a noun and indicates its definiteness."@en,
+        "Un mot qui introduit un nom et indique son caractère défini ou indéfini."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:GenderType a rdfs:Datatype ;
+    rdfs:label "Gender Type"@en,
+        "Type de Genre"@fr ;
+    rdfs:comment "A datatype representing grammatical gender, either masculine or feminine."@en,
+        "Un type de données représentant le genre grammatical, masculin ou féminin."@fr ;
+    owl:equivalentClass fr:GenderTypeValues .
+
+fr:NumberType a rdfs:Datatype ;
+    rdfs:label "Number Type"@en,
+        "Type de Nombre"@fr ;
+    rdfs:comment "A datatype representing grammatical number, either singular or plural."@en,
+        "Un type de données représentant le nombre grammatical, singulier ou pluriel."@fr ;
+    owl:equivalentClass fr:NumberTypeValues .
+
+fr:PersonType a rdfs:Datatype ;
+    rdfs:label "Person Type"@en,
+        "Type de Personne"@fr ;
+    rdfs:comment "A datatype representing grammatical person and number."@en,
+        "Un type de données représentant la personne et le nombre grammaticaux."@fr ;
+    owl:equivalentClass fr:PersonTypeValues .
+
+fr:Sentence a owl:Class ;
+    rdfs:label "Sentence"@en,
+        "Phrase"@fr ;
+    rdfs:comment "A complete grammatical unit."@en,
+        "Une unité grammaticale complète."@fr .
+
+fr:TenseType a rdfs:Datatype ;
+    rdfs:label "Tense Type"@en,
+        "Type de Temps"@fr ;
+    rdfs:comment "A datatype representing verb tenses."@en,
+        "Un type de données représentant les temps verbaux."@fr ;
+    owl:equivalentClass fr:TenseTypeValues .
+
+fr:feminine a fr:GenderType ;
+    rdfs:label "feminine"@en,
+        "féminin"@fr ;
+    rdfs:comment "Represents the feminine grammatical gender."@en,
+        "Représente le genre grammatical féminin."@fr .
+
+fr:Adjective a owl:Class ;
+    rdfs:label "Adjective"@en,
+        "Adjectif"@fr ;
+    rdfs:comment "A word that describes or modifies a noun or pronoun."@en,
+        "Un mot qui décrit ou modifie un nom ou un pronom."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:singular a fr:NumberType ;
+    rdfs:label "singular"@en,
+        "singulier"@fr ;
+    rdfs:comment "Represents the singular grammatical number."@en,
+        "Représente le nombre grammatical singulier."@fr .
+
+fr:Pronoun a owl:Class ;
+    rdfs:label "Pronoun"@en,
+        "Pronom"@fr ;
+    rdfs:comment "A word that replaces a noun."@en,
+        "Un mot qui remplace un nom."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:Noun a owl:Class ;
+    rdfs:label "Noun"@en,
+        "Nom"@fr ;
+    rdfs:comment "A word that names a person, place, thing, or idea."@en,
+        "Un mot qui désigne une personne, un lieu, une chose ou une idée."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:Verb a owl:Class ;
+    rdfs:label "Verb"@en,
+        "Verbe"@fr ;
+    rdfs:comment "A word that describes an action, state, or occurrence."@en,
+        "Un mot qui décrit une action, un état ou un événement."@fr ;
+    rdfs:subClassOf fr:Word .
+
+fr:Word a owl:Class ;
+    rdfs:label "Word"@en,
+        "Mot"@fr ;
+    rdfs:comment "The most general class for any French word."@en,
+        "La classe la plus générale pour tout mot français."@fr .
+
+fr:NounOrPronounUnion a owl:Class ;
+    rdfs:label "Noun or Pronoun Union"@en,
+        "Union Nom ou Pronom"@fr ;
+    rdfs:comment "Represents the union of Noun and Pronoun classes, used for properties that can apply to either."@en,
+        "Représente l'union des classes Nom et Pronom, utilisée pour les propriétés qui peuvent s'appliquer à l'un ou à l'autre."@fr ;
+    owl:unionOf ( fr:Noun fr:Pronoun ) .
+
+fr:NounAdjectivePronounUnion a owl:Class ;
+    rdfs:label "Noun, Adjective, or Pronoun Union"@en,
+        "Union Nom, Adjectif ou Pronom"@fr ;
+    rdfs:comment "Represents the union of Noun, Adjective, and Pronoun classes, used for properties that can apply to any of these."@en,
+        "Représente l'union des classes Nom, Adjectif et Pronom, utilisée pour les propriétés qui peuvent s'appliquer à l'une ou l'autre de ces classes."@fr ;
+    owl:unionOf ( fr:Noun fr:Adjective fr:Pronoun ) .
+
+fr:GenderTypeValues a owl:Class ;
+    rdfs:label "Gender Type Values"@en,
+        "Valeurs de Type de Genre"@fr ;
+    rdfs:comment "Defines the possible values for GenderType."@en,
+        "Définit les valeurs possibles pour le Type de Genre."@fr ;
+    owl:oneOf ( fr:masculine fr:feminine ) .
+
+fr:NumberTypeValues a owl:Class ;
+    rdfs:label "Number Type Values"@en,
+        "Valeurs de Type de Nombre"@fr ;
+    rdfs:comment "Defines the possible values for NumberType."@en,
+        "Définit les valeurs possibles pour le Type de Nombre."@fr ;
+    owl:oneOf ( fr:singular fr:plural ) .
+
+fr:PersonTypeValues a owl:Class ;
+    rdfs:label "Person Type Values"@en,
+        "Valeurs de Type de Personne"@fr ;
+    rdfs:comment "Defines the possible values for PersonType."@en,
+        "Définit les valeurs possibles pour le Type de Personne."@fr ;
+    owl:oneOf ( fr:first_singular fr:second_singular fr:third_singular fr:first_plural fr:second_plural fr:third_plural ) .
+
+fr:TenseTypeValues a owl:Class ;
+    rdfs:label "Tense Type Values"@en,
+        "Valeurs de Type de Temps"@fr ;
+    rdfs:comment "Defines the possible values for TenseType."@en,
+        "Définit les valeurs possibles pour le Type de Temps."@fr ;
+    owl:oneOf ( fr:present fr:passe_compose fr:future_simple ) .
