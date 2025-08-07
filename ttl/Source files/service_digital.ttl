@@ -25,7 +25,7 @@ rdfs:Resource a rdfs:Class ;
 	rdfs:label "Resource" ;
 	rdfs:comment "The class resource, everything." .
 
-rdfs:subClassOf a rdf:Property ;
+rdfs:subClassOf a owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
 	rdfs:label "subClassOf" ;
 	rdfs:comment "The subject is a subclass of a class." ;
@@ -44,7 +44,7 @@ gc:policy_service_digital a rdfs:Class , gc:policy_suite, gc:rule_set;
     gc:in_conjunction_with gc:privacy_requirements , gc:official_languages_requirements , gc:accessibility_requirements ;
     schema:object gc:service_digital_functions ;
     schema:provider gc:department_agency_ca ;
-    schema:result gc:advances_government_operations_services ;
+    gc:intended_result gc:advances_government_operations_services ;
     gc:has_context gc:digital_era ;
     rdfs:seeAlso <https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32603> ;
     rdfs:comment "The Policy on Service and Digital defines how a Government Department Agency manages service and digital functions. "
@@ -178,9 +178,18 @@ gc:service_delivery a rdfs:Class ;
     rdfs:label "Service delivery" ;
     rdfs:subClassOf gc:service_digital_functions .
 
+gc:unified_data_information_lifecycle rdfs:subClassOf ochro:service_digital_functions_output ;
+    schema:object gc:data_information
+    .
+
 gc:data_information a rdfs:Class ;
-    rdfs:label "Data and Information" ;
-    rdfs:subClassOf ochro:service_digital_functions_output .
+    rdfs:label "Data and Information" .
+
+gc:data rdfs:subClassOf gc:data_information .
+
+gc:information rdfs:subClassOf gc:data_information .
+
+gc:analytics rdfs:subClassOf gc:data_information .
 
 gc:service_digital_functions_output a ochro:output .
 
@@ -428,7 +437,7 @@ ochro:drives a owl:ObjectProperty ;
     rdfs:domain ochro:output ;
     rdfs:range ochro:outcome_statement ;
     rdfs:label "drives"@en ;
-    owl:inverseOf ochro:isDrivenBy .
+    owl:inverseOf ochro:is_driven_by .
 
 gc:interacts_with a owl:ObjectProperty ;
     rdfs:domain ochro:stakeholder ;
@@ -455,7 +464,7 @@ dcterms:hasPart a owl:ObjectProperty ;
     rdfs:comment "Indicates that a function is composed of other functional components."@en ;
     owl:inverseOf dcterms:partOf .
 
-ochro:isDrivenBy a owl:ObjectProperty ;
+ochro:is_driven_by a owl:ObjectProperty ;
     rdfs:domain ochro:outcome_statement ;
     rdfs:range ochro:output ;         
     rdfs:label "is driven by"@en .
@@ -518,6 +527,8 @@ gc:cdo_specific_accountabilities rdfs:subClassOf rdfs:cdo_accountabilities ;
 gc:cdo_general_accountabilities rdfs:subClassOf gc:cdo_accountabilities ;
     dcterms:hasPart gc:cdo_accountability_11.
 
+gc:cdo_accountability_1 dcterms:subject gc:leadership .
+
 gc:cdo_accountability_2 dcterms:subject gc:governance .
 
 gc:cdo_accountability_3 dcterms:subject gc:quality .
@@ -556,12 +567,12 @@ gc:data_information_functions rdfs:subClassOf  gc:service_digital_functions ;
     dcterms:hasPart 
         gc:data_information_functions_stakeholder,
         gc:data_information_functions_business_line ;
-    gc:reports_to gc:chief_data_office
+    gc:reports_to gc:chief_data_office ;
+    dcterms:subject gc:unified_data_information_lifecycle , gc:artificial_intelligence , gc:algorithm
     .
 
 gc:leads_data_information_functions a schema:government_action ;
     dcterms:source gc:cdo_accountability_1 ;
-    dcterms:subject gc:leadership ;
     schema:agent gc:chief_data_officer ;
     schema:object 
         gc:develops_data_information_policy_suite ,
