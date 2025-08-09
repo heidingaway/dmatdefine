@@ -1,0 +1,307 @@
+@prefix un: <https://docs.un.org/en/A/RES/61/295/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix u22: <https://www.laws-lois.justice.gc.ca/eng/acts/u-2.2/#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+un:article_1 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to the full enjoyment, as a collective or as individuals, of all human rights and fundamental freedoms as recognized in the Charter of the United Nations, the Universal Declaration of Human RightsFootnote4and international human rights law." ;
+    schema:subjectOf u22:1301666 .
+
+un:article_10 a un:article ;
+    rdfs:comment "Indigenous peoples shall not be forcibly removed from their lands or territories. No relocation shall take place without the free, prior and informed consent of the indigenous peoples concerned and after agreement on just and fair compensation and, where possible, with the option of return." ;
+    schema:subjectOf u22:1301691 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_11_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to practise and revitalize their cultural traditions and customs. This includes the right to maintain, protect and develop the past, present and future manifestations of their cultures, such as archaeological and historical sites, artefacts, designs, ceremonies, technologies and visual and performing arts and literature." ;
+    schema:subjectOf u22:1301693 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_11_2> a un:article ;
+    rdfs:comment "States shall provide redress through effective mechanisms, which may include restitution, developed in conjunction with indigenous peoples, with respect to their cultural, intellectual, religious and spiritual property taken without their free, prior and informed consent or in violation of their laws, traditions and customs." ;
+    schema:subjectOf u22:1301694 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_12_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to manifest, practise, develop and teach their spiritual and religious traditions, customs and ceremonies; the right to maintain, protect, and have access in privacy to their religious and cultural sites; the right to the use and control of their ceremonial objects; and the right to the repatriation of their human remains." ;
+    schema:subjectOf u22:1301696 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_12_2> a un:article ;
+    rdfs:comment "States shall seek to enable the access and/or repatriation of ceremonial objects and human remains in their possession through fair, transparent and effective mechanisms developed in conjunction with indigenous peoples concerned." ;
+    schema:subjectOf u22:1301697 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_13_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to revitalize, use, develop and transmit to future generations their histories, languages, oral traditions, philosophies, writing systems and literatures, and to designate and retain their own names for communities, places and persons." ;
+    schema:subjectOf u22:1301699 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_13_2> a un:article ;
+    rdfs:comment "States shall take effective measures to ensure that this right is protected and also to ensure that indigenous peoples can understand and be understood in political, legal and administrative proceedings, where necessary through the provision of interpretation or by other appropriate means." ;
+    schema:subjectOf u22:1301700 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_14_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to establish and control their educational systems and institutions providing education in their own languages, in a manner appropriate to their cultural methods of teaching and learning." ;
+    schema:subjectOf u22:1301702 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_14_2> a un:article ;
+    rdfs:comment "Indigenous individuals, particularly children, have the right to all levels and forms of education of the State without discrimination." ;
+    schema:subjectOf u22:1301703 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_14_3> a un:article ;
+    rdfs:comment "States shall, in conjunction with indigenous peoples, take effective measures, in order for indigenous individuals, particularly children, including those living outside their communities, to have access, when possible, to an education in their own culture and provided in their own language." ;
+    schema:subjectOf u22:1301704 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_15_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to the dignity and diversity of their cultures, traditions, histories and aspirations which shall be appropriately reflected in education and public information." ;
+    schema:subjectOf u22:1301706 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_15_2> a un:article ;
+    rdfs:comment "States shall take effective measures, in consultation and cooperation with the indigenous peoples concerned, to combat prejudice and eliminate discrimination and to promote tolerance, understanding and good relations among indigenous peoples and all other segments of society." ;
+    schema:subjectOf u22:1301707 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_16_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to establish their own media in their own languages and to have access to all forms of non-indigenous media without discrimination." ;
+    schema:subjectOf u22:1301709 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_16_2> a un:article ;
+    rdfs:comment "States shall take effective measures to ensure that State-owned media duly reflect indigenous cultural diversity. States, without prejudice to ensuring full freedom of expression, should encourage privately owned media to adequately reflect indigenous cultural diversity." ;
+    schema:subjectOf u22:1301710 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_17_1> a un:article ;
+    rdfs:comment "Indigenous individuals and peoples have the right to enjoy fully all rights established under applicable international and domestic labour law." ;
+    schema:subjectOf u22:1301712 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_17_2> a un:article ;
+    rdfs:comment "States shall in consultation and cooperation with indigenous peoples take specific measures to protect indigenous children from economic exploitation and from performing any work that is likely to be hazardous or to interfere with the child’s education, or to be harmful to the child’s health or physical, mental, spiritual, moral or social development, taking into account their special vulnerability and the importance of education for their empowerment." ;
+    schema:subjectOf u22:1301713 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_17_3> a un:article ;
+    rdfs:comment "Indigenous individuals have the right not to be subjected to any discriminatory conditions of labour and, inter alia, employment or salary." ;
+    schema:subjectOf u22:1301714 .
+
+un:article_18 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to participate in decision-making in matters which would affect their rights, through representatives chosen by themselves in accordance with their own procedures, as well as to maintain and develop their own indigenous decision-making institutions." ;
+    schema:subjectOf u22:1301716 .
+
+un:article_19 a un:article ;
+    rdfs:comment "States shall consult and cooperate in good faith with the indigenous peoples concerned through their own representative institutions in order to obtain their free, prior and informed consent before adopting and implementing legislative or administrative measures that may affect them." ;
+    schema:subjectOf u22:1301718 .
+
+un:article_2 a un:article ;
+    rdfs:comment "Indigenous peoples and individuals are free and equal to all other peoples and individuals and have the right to be free from any kind of discrimination, in the exercise of their rights, in particular that based on their indigenous origin or identity." ;
+    schema:subjectOf u22:1301668 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_20_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to maintain and develop their political, economic and social systems or institutions, to be secure in the enjoyment of their own means of subsistence and development, and to engage freely in all their traditional and other economic activities." ;
+    schema:subjectOf u22:1301720 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_20_2> a un:article ;
+    rdfs:comment "Indigenous peoples deprived of their means of subsistence and development are entitled to just and fair redress." ;
+    schema:subjectOf u22:1301721 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_21_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right, without discrimination, to the improvement of their economic and social conditions, including, inter alia, in the areas of education, employment, vocational training and retraining, housing, sanitation, health and social security." ;
+    schema:subjectOf u22:1301723 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_21_2> a un:article ;
+    rdfs:comment "States shall take effective measures and, where appropriate, special measures to ensure continuing improvement of their economic and social conditions. Particular attention shall be paid to the rights and special needs of indigenous elders, women, youth, children and persons with disabilities." ;
+    schema:subjectOf u22:1301724 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_22_1> a un:article ;
+    rdfs:comment "Particular attention shall be paid to the rights and special needs of indigenous elders, women, youth, children and persons with disabilities in the implementation of this Declaration." ;
+    schema:subjectOf u22:1301726 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_22_2> a un:article ;
+    rdfs:comment "States shall take measures, in conjunction with indigenous peoples, to ensure that indigenous women and children enjoy the full protection and guarantees against all forms of violence and discrimination." ;
+    schema:subjectOf u22:1301727 .
+
+un:article_23 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to determine and develop priorities and strategies for exercising their right to development. In particular, indigenous peoples have the right to be actively involved in developing and determining health, housing and other economic and social programmes affecting them and, as far as possible, to administer such programmes through their own institutions." ;
+    schema:subjectOf u22:1301729 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_24_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to their traditional medicines and to maintain their health practices, including the conservation of their vital medicinal plants, animals and minerals. Indigenous individuals also have the right to access, without any discrimination, to all social and health services." ;
+    schema:subjectOf u22:1301731 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_24_2> a un:article ;
+    rdfs:comment "Indigenous individuals have an equal right to the enjoyment of the highest attainable standard of physical and mental health. States shall take the necessary steps with a view to achieving progressively the full realization of this right." ;
+    schema:subjectOf u22:1301732 .
+
+un:article_25 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to maintain and strengthen their distinctive spiritual relationship with their traditionally owned or otherwise occupied and used lands, territories, waters and coastal seas and other resources and to uphold their responsibilities to future generations in this regard." ;
+    schema:subjectOf u22:1301734 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_26_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to the lands, territories and resources which they have traditionally owned, occupied or otherwise used or acquired." ;
+    schema:subjectOf u22:1301736 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_26_2> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to own, use, develop and control the lands, territories and resources that they possess by reason of traditional ownership or other traditional occupation or use, as well as those which they have otherwise acquired." ;
+    schema:subjectOf u22:1301737 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_26_3> a un:article ;
+    rdfs:comment "States shall give legal recognition and protection to these lands, territories and resources. Such recognition shall be conducted with due respect to the customs, traditions and land tenure systems of the indigenous peoples concerned." ;
+    schema:subjectOf u22:1301738 .
+
+un:article_27 a un:article ;
+    rdfs:comment "States shall establish and implement, in conjunction with indigenous peoples concerned, a fair, independent, impartial, open and transparent process, giving due recognition to indigenous peoples’ laws, traditions, customs and land tenure systems, to recognize and adjudicate the rights of indigenous peoples pertaining to their lands, territories and resources, including those which were traditionally owned or otherwise occupied or used. Indigenous peoples shall have the right to participate in this process." ;
+    schema:subjectOf u22:1301740 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_28_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to redress, by means that can include restitution or, when this is not possible, just, fair and equitable compensation, for the lands, territories and resources which they have traditionally owned or otherwise occupied or used, and which have been confiscated, taken, occupied, used or damaged without their free, prior and informed consent." ;
+    schema:subjectOf u22:1301742 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_28_2> a un:article ;
+    rdfs:comment "Unless otherwise freely agreed upon by the peoples concerned, compensation shall take the form of lands, territories and resources equal in quality, size and legal status or of monetary compensation or other appropriate redress." ;
+    schema:subjectOf u22:1301743 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_29_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to the conservation and protection of the environment and the productive capacity of their lands or territories and resources. States shall establish and implement assistance programmes for indigenous peoples for such conservation and protection, without discrimination." ;
+    schema:subjectOf u22:1301745 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_29_2> a un:article ;
+    rdfs:comment "States shall take effective measures to ensure that no storage or disposal of hazardous materials shall take place in the lands or territories of indigenous peoples without their free, prior and informed consent." ;
+    schema:subjectOf u22:1301746 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_29_3> a un:article ;
+    rdfs:comment "States shall also take effective measures to ensure, as needed, that programmes for monitoring, maintaining and restoring the health of indigenous peoples, as developed and implemented by the peoples affected by such materials, are duly implemented." ;
+    schema:subjectOf u22:1301747 .
+
+un:article_3 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to self-determination. By virtue of that right they freely determine their political status and freely pursue their economic, social and cultural development." ;
+    schema:subjectOf u22:1301670 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_30_1> a un:article ;
+    rdfs:comment "Military activities shall not take place in the lands or territories of indigenous peoples, unless justified by a relevant public interest or otherwise freely agreed with or requested by the indigenous peoples concerned." ;
+    schema:subjectOf u22:1301749 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_30_2> a un:article ;
+    rdfs:comment "States shall undertake effective consultations with the indigenous peoples concerned, through appropriate procedures and in particular through their representative institutions, prior to using their lands or territories for military activities." ;
+    schema:subjectOf u22:1301750 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_31_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to maintain, control, protect and develop their cultural heritage, traditional knowledge and traditional cultural expressions, as well as the manifestations of their sciences, technologies and cultures, including human and genetic resources, seeds, medicines, knowledge of the properties of fauna and flora, oral traditions, literatures, designs, sports and traditional games and visual and performing arts. They also have the right to maintain, control, protect and develop their intellectual property over such cultural heritage, traditional knowledge, and traditional cultural expressions." ;
+    schema:subjectOf u22:1301752 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_31_2> a un:article ;
+    rdfs:comment "In conjunction with indigenous peoples, States shall take effective measures to recognize and protect the exercise of these rights." ;
+    schema:subjectOf u22:1301753 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_32_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to determine and develop priorities and strategies for the development or use of their lands or territories and other resources." ;
+    schema:subjectOf u22:1301755 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_32_2> a un:article ;
+    rdfs:comment "States shall consult and cooperate in good faith with the indigenous peoples concerned through their own representative institutions in order to obtain their free and informed consent prior to the approval of any project affecting their lands or territories and other resources, particularly in connection with the development, utilization or exploitation of mineral, water or other resources." ;
+    schema:subjectOf u22:1301756 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_32_3> a un:article ;
+    rdfs:comment "States shall provide effective mechanisms for just and fair redress for any such activities, and appropriate measures shall be taken to mitigate adverse environmental, economic, social, cultural or spiritual impact." ;
+    schema:subjectOf u22:1301757 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_33_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to determine their own identity or membership in accordance with their customs and traditions. This does not impair the right of indigenous individuals to obtain citizenship of the States in which they live." ;
+    schema:subjectOf u22:1301759 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_33_2> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to determine the structures and to select the membership of their institutions in accordance with their own procedures." ;
+    schema:subjectOf u22:1301760 .
+
+un:article_34 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to promote, develop and maintain their institutional structures and their distinctive customs, spirituality, traditions, procedures, practices and, in the cases where they exist, juridical systems or customs, in accordance with international human rights standards." ;
+    schema:subjectOf u22:1301762 .
+
+un:article_35 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to determine the responsibilities of individuals to their communities." ;
+    schema:subjectOf u22:1301764 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_36_1> a un:article ;
+    rdfs:comment "Indigenous peoples, in particular those divided by international borders, have the right to maintain and develop contacts, relations and cooperation, including activities for spiritual, cultural, political, economic and social purposes, with their own members as well as other peoples across borders." ;
+    schema:subjectOf u22:1301766 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_36_2> a un:article ;
+    rdfs:comment "States, in consultation and cooperation with indigenous peoples, shall take effective measures to facilitate the exercise and ensure the implementation of this right." ;
+    schema:subjectOf u22:1301767 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_37_1> a un:article ;
+    rdfs:comment "Indigenous peoples have the right to the recognition, observance and enforcement of treaties, agreements and other constructive arrangements concluded with States or their successors and to have States honour and respect such treaties, agreements and other constructive arrangements." ;
+    schema:subjectOf u22:1301769 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_37_2> a un:article ;
+    rdfs:comment "Nothing in this Declaration may be interpreted as diminishing or eliminating the rights of indigenous peoples contained in treaties, agreements and other constructive arrangements." ;
+    schema:subjectOf u22:1301770 .
+
+un:article_38 a un:article ;
+    rdfs:comment "States, in consultation and cooperation with indigenous peoples, shall take the appropriate measures, including legislative measures, to achieve the ends of this Declaration." ;
+    schema:subjectOf u22:1301772 .
+
+un:article_39 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to have access to financial and technical assistance from States and through international cooperation, for the enjoyment of the rights contained in this Declaration." ;
+    schema:subjectOf u22:1301774 .
+
+un:article_4 a un:article ;
+    rdfs:comment "Indigenous peoples, in exercising their right to self-determination, have the right to autonomy or self-government in matters relating to their internal and local affairs, as well as ways and means for financing their autonomous functions." ;
+    schema:subjectOf u22:1301672 .
+
+un:article_40 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to access to and prompt decision through just and fair procedures for the resolution of conflicts and disputes with States or other parties, as well as to effective remedies for all infringements of their individual and collective rights. Such a decision shall give due consideration to the customs, traditions, rules and legal systems of the indigenous peoples concerned and international human rights." ;
+    schema:subjectOf u22:1301776 .
+
+un:article_41 a un:article ;
+    rdfs:comment "The organs and specialized agencies of the United Nations system and other intergovernmental organizations shall contribute to the full realization of the provisions of this Declaration through the mobilization, inter alia, of financial cooperation and technical assistance. Ways and means of ensuring participation of indigenous peoples on issues affecting them shall be established." ;
+    schema:subjectOf u22:1301778 .
+
+un:article_42 a un:article ;
+    rdfs:comment "The United Nations, its bodies, including the Permanent Forum on Indigenous Issues, and specialized agencies, including at the country level, and States shall promote respect for and full application of the provisions of this Declaration and follow up the effectiveness of this Declaration." ;
+    schema:subjectOf u22:1301780 .
+
+un:article_43 a un:article ;
+    rdfs:comment "The rights recognized herein constitute the minimum standards for the survival, dignity and well-being of the indigenous peoples of the world." ;
+    schema:subjectOf u22:1301782 .
+
+un:article_44 a un:article ;
+    rdfs:comment "All the rights and freedoms recognized herein are equally guaranteed to male and female indigenous individuals." ;
+    schema:subjectOf u22:1301784 .
+
+un:article_45 a un:article ;
+    rdfs:comment "Nothing in this Declaration may be construed as diminishing or extinguishing the rights indigenous peoples have now or may acquire in the future." ;
+    schema:subjectOf u22:1301786 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_46_1> a un:article ;
+    rdfs:comment "Nothing in this Declaration may be interpreted as implying for any State, people, group or person any right to engage in any activity or to perform any act contrary to the Charter of the United Nations or construed as authorizing or encouraging any action which would dismember or impair, totally or in part, the territorial integrity or political unity of sovereign and independent States." ;
+    schema:subjectOf u22:1301788 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_46_2> a un:article ;
+    rdfs:comment "In the exercise of the rights enunciated in the present Declaration, human rights and fundamental freedoms of all shall be respected. The exercise of the rights set forth in this Declaration shall be subject only to such limitations as are determined by law and in accordance with international human rights obligations. Any such limitations shall be non-discriminatory and strictly necessary solely for the purpose of securing due recognition and respect for the rights and freedoms of others and for meeting the just and most compelling requirements of a democratic society." ;
+    schema:subjectOf u22:1301789 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_46_3> a un:article ;
+    rdfs:comment "The provisions set forth in this Declaration shall be interpreted in accordance with the principles of justice, democracy, respect for human rights, equality, non-discrimination, good governance and good faith." ;
+    schema:subjectOf u22:1301790 .
+
+un:article_5 a un:article ;
+    rdfs:comment "Indigenous peoples have the right to maintain and strengthen their distinct political, legal, economic, social and cultural institutions, while retaining their right to participate fully, if they so choose, in the political, economic, social and cultural life of the State." ;
+    schema:subjectOf u22:1301674 .
+
+un:article_6 a un:article ;
+    rdfs:comment "Every indigenous individual has the right to a nationality." ;
+    schema:subjectOf u22:1301676 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_7_1> a un:article ;
+    rdfs:comment "Indigenous individuals have the rights to life, physical and mental integrity, liberty and security of person." ;
+    schema:subjectOf u22:1301678 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_7_2> a un:article ;
+    rdfs:comment "Indigenous peoples have the collective right to live in freedom, peace and security as distinct peoples and shall not be subjected to any act of genocide or any other act of violence, including forcibly removing children of the group to another group." ;
+    schema:subjectOf u22:1301679 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_8_1> a un:article ;
+    rdfs:comment "Indigenous peoples and individuals have the right not to be subjected to forced assimilation or destruction of their culture." ;
+    schema:subjectOf u22:1301681 .
+
+<https://docs.un.org/en/A/RES/61/295/#article_8_2> a un:article ;
+    rdfs:comment "States shall provide effective mechanisms for prevention of, and redress for:" ;
+    schema:subjectOf u22:1301682 .
+
+un:article_9 a un:article ;
+    rdfs:comment "Indigenous peoples and individuals have the right to belong to an indigenous community or nation, in accordance with the traditions and customs of the community or nation concerned. No discrimination of any kind may arise from the exercise of such a right." ;
+    schema:subjectOf u22:1301689 .
+
